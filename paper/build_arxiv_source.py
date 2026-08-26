@@ -25,6 +25,24 @@ SOURCES = (
 )
 
 
+def arxiv_main_source() -> str:
+    """Remove venue-wrapper parent paths that arXiv scans unconditionally."""
+
+    source = (HERE / "main.tex").read_text(encoding="utf-8")
+    replacements = {
+        r"\graphicspath{{../}}": r"\graphicspath{{./}}",
+        "../generated/e2_refit_sensitivity_table.tex": (
+            "generated/e2_refit_sensitivity_table.tex"
+        ),
+        r"\bibliography{../references}": r"\bibliography{references}",
+    }
+    for old, new in replacements.items():
+        source = source.replace(old, new)
+    if "../" in source:
+        raise ValueError("Parent-relative path remains in arXiv main.tex")
+    return source
+
+
 def validate_archive_names(names: list[str]) -> None:
     for name in names:
         path = PurePosixPath(name)
@@ -47,7 +65,10 @@ def main() -> None:
             raise FileNotFoundError(source)
         destination = OUT / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, destination)
+        if relative == Path("main.tex"):
+            destination.write_text(arxiv_main_source(), encoding="utf-8", newline="\n")
+        else:
+            shutil.copy2(source, destination)
 
     subprocess.run(
         [
