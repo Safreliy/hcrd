@@ -956,13 +956,13 @@
     },
     {
       "path": "paper/hcrd_preprint.pdf",
-      "bytes": 600916,
-      "sha256": "6bcfd647c24216fd72bfef3438432d615ecf520611abec9acad3de4cae71d81c"
+      "bytes": 603189,
+      "sha256": "fb862d53d6850352ef525b98ab551bce82e77449d9cea3102ebc33f42e92f1d3"
     },
     {
       "path": "paper/main.tex",
-      "bytes": 75877,
-      "sha256": "d0b7be759153ceaab7b591b7d0444347cef2681b509050ada39df56f9c28e9a4"
+      "bytes": 75896,
+      "sha256": "34ecff541b667f81bb7b531ecc1f146ddb840fa1db179494476a39b130e943c8"
     },
     {
       "path": "paper/references.bib",
