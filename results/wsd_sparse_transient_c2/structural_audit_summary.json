@@ -1,0 +1,55 @@
+{
+  "status": "complete",
+  "role": "secondary mechanistic audit; not a primary endpoint or class-selection rule",
+  "primary_series": 71,
+  "frozen_comparator": "POLY",
+  "outcome_mean": -0.035935333952717335,
+  "associations": [
+    {
+      "feature": "median_sign_coherence",
+      "alternative": "greater",
+      "confirmatory_directional": true,
+      "spearman_rho": -0.09839859177706341,
+      "permutation_p": 0.7944320556794432,
+      "permutations": 100000,
+      "holm_permutation_p": 1.0
+    },
+    {
+      "feature": "median_peak_to_background_mad",
+      "alternative": "greater",
+      "confirmatory_directional": true,
+      "spearman_rho": -0.16153588195841717,
+      "permutation_p": 0.9084709152908471,
+      "permutations": 100000,
+      "holm_permutation_p": 1.0
+    },
+    {
+      "feature": "median_curvature_contrast",
+      "alternative": "greater",
+      "confirmatory_directional": true,
+      "spearman_rho": 0.05503018108651911,
+      "permutation_p": 0.3256167438325617,
+      "permutations": 100000,
+      "holm_permutation_p": 0.976850231497685
+    },
+    {
+      "feature": "median_duration_fraction",
+      "alternative": "less",
+      "confirmatory_directional": true,
+      "spearman_rho": -0.19723647683425727,
+      "permutation_p": 0.04873951260487395,
+      "permutations": 100000,
+      "holm_permutation_p": 0.1949580504194958
+    },
+    {
+      "feature": "median_shape_concentration",
+      "alternative": "two-sided",
+      "confirmatory_directional": false,
+      "spearman_rho": 0.31569416498993963,
+      "permutation_p": 0.007909920900790991,
+      "permutations": 100000,
+      "holm_permutation_p": NaN
+    }
+  ],
+  "interpretation_guardrail": "These label-assisted descriptors audit a proposed mechanism; they are not detector inputs and do not define the primary class post hoc."
+}

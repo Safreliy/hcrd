@@ -1,0 +1,23 @@
+{
+  "status": "held_out_yahoo_confirmation_executed_after_freeze",
+  "matched_series": 220,
+  "point_series": 134,
+  "point_hcrd_mean_auc_pr": 0.5285392608108096,
+  "point_primary_comparator": "NORMA",
+  "point_primary_comparator_mean_auc_pr": 0.33828595726119404,
+  "point_primary_difference": 0.1902533035496156,
+  "point_primary_bootstrap_95_low": 0.12940898122750497,
+  "point_primary_bootstrap_95_high": 0.25095177463815976,
+  "point_primary_wins_ties_losses": [
+    91,
+    6,
+    37
+  ],
+  "point_learned_ceiling": "CNN",
+  "point_learned_ceiling_mean_auc_pr": 0.9051622078507463,
+  "point_difference_vs_learned_ceiling": -0.3766229470399367,
+  "primary_success": true,
+  "detector_seconds": 1.1885447999229655,
+  "wall_seconds": 3.6631364000495523,
+  "frozen_configuration_sha256": "0a5147549508e36bb742bbe721fcd787892a1ad1af4fd8b673df6d138025d582"
+}

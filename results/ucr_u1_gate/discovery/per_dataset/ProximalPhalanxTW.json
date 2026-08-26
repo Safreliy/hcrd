@@ -1,0 +1,14 @@
+{
+  "dataset": "ProximalPhalanxTW",
+  "assignment": "discovery",
+  "train_size": 400,
+  "length": 80,
+  "class_count": 6,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.8175000000000001,
+  "wavelet_cv_accuracy": 0.8200000000000001,
+  "raw_transform_seconds": 0.06561920000240207,
+  "wavelet_transform_seconds": 0.16745810001157224,
+  "wall_seconds": 1.4803088000044227,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

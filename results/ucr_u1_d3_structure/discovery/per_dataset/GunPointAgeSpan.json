@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "GunPointAgeSpan",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 135,
+  "test_size": 316,
+  "length": 150,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 9.990969900041819,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.9620253164556962,
+      "balanced_accuracy": 0.9617788461538461,
+      "macro_f1": 0.9619872488872849,
+      "feature_count": 595,
+      "fit_seconds": 9.532361099962145,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.962962962962963,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.9430379746835443,
+      "balanced_accuracy": 0.9427884615384616,
+      "macro_f1": 0.9429808733309275,
+      "feature_count": 595,
+      "fit_seconds": 0.09351159993093461,
+      "min_child_samples": 6
+    }
+  },
+  "wall_seconds": 19.722333999932744
+}

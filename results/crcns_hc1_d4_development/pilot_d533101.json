@@ -1,0 +1,31 @@
+{
+  "status": "development_only",
+  "recording": "d5331_d533101",
+  "duration_seconds": 60.0,
+  "sampling_rate": 10000.0,
+  "ground_truth_events": 428,
+  "tolerance_seconds": 0.001,
+  "results": [
+    {
+      "method": "amplitude",
+      "event_average_precision": 0.22278793931413524
+    },
+    {
+      "method": "neo",
+      "event_average_precision": 0.18402359639770688
+    },
+    {
+      "method": "cwt_mexh",
+      "event_average_precision": 0.5794732898505227
+    },
+    {
+      "method": "hcrd_L8_max",
+      "event_average_precision": 0.19240322150870007
+    },
+    {
+      "method": "hcrd_concentration_L8_max",
+      "event_average_precision": 0.15854336663430055
+    }
+  ],
+  "confirmation_accessed": false
+}

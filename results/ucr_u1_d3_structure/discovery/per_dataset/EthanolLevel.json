@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "EthanolLevel",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 504,
+  "test_size": 500,
+  "length": 1751,
+  "class_count": 4,
+  "workers": 8,
+  "representation_seconds": 57.458380299969576,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.31,
+      "balanced_accuracy": 0.31077188940092165,
+      "macro_f1": 0.30375354967095713,
+      "feature_count": 595,
+      "fit_seconds": 34.975368899991736,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.48433663366336627,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.294,
+      "balanced_accuracy": 0.2944828469022017,
+      "macro_f1": 0.29041824296878316,
+      "feature_count": 595,
+      "fit_seconds": 2.83032850001473,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 95.94715010002255
+}

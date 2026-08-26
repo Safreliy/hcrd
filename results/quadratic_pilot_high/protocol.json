@@ -1,0 +1,22 @@
+{
+  "status": "exploratory parameter pilot; not confirmatory evidence",
+  "seed": 20260826,
+  "signals": 8,
+  "repetitions": 5,
+  "noise_sigmas": [
+    0.01,
+    0.03,
+    0.05,
+    0.1
+  ],
+  "regularizations": [
+    0.3,
+    1.0,
+    3.0,
+    10.0
+  ],
+  "guide": "argmin_z 0.5||y-z||_2^2 + 0.5 lambda ||D_curvature z||_2^2",
+  "hard_output": "one centred HCRD level applied to the guide",
+  "warning": "The guide and residual are globally nonexpansive; the subsequent hard HCRD baseline is not asserted to be globally stable.",
+  "selection_note": "Freeze any selected lambda before new-seed confirmation."
+}

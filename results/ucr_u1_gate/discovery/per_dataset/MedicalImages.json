@@ -1,0 +1,14 @@
+{
+  "dataset": "MedicalImages",
+  "assignment": "discovery",
+  "train_size": 381,
+  "length": 99,
+  "class_count": 10,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.7953178400546822,
+  "wavelet_cv_accuracy": 0.7691387559808612,
+  "raw_transform_seconds": 0.10601639992091805,
+  "wavelet_transform_seconds": 0.17918819992337376,
+  "wall_seconds": 1.626659799949266,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

@@ -1,0 +1,150 @@
+\section{Boundary cases and detailed proof edges}
+\label{app:proofs}
+
+This appendix expands the combinatorial and stability edges most vulnerable to
+off-by-one or hidden-decision assumptions.  All indices below are local indices
+in the current eligible knot list; mapping them back to original sample indices
+preserves order and nesting.
+
+\begin{lemma}[Progress of a nonterminal centred interval]
+\label{lem:progress}
+Suppose the current interval starts at eligible index $r$ and the centred walk
+closes it at $t$ before the terminal endpoint.  Then $t-r\ge2$.
+\end{lemma}
+\begin{proof}
+Let $p\ge r+1$ be the first active curvature after any insignificant entries.
+A nonterminal closure requires a later active curvature $q>p$ of the opposite
+sign.  There are three possible selected locations.  The first opposite point
+is $q\ge p+1\ge r+2$.  A single eligible zero between the two signs is selected
+at one index after the last active point, again at least $p+1$.  On a longer
+zero plateau, the last point on the departing side is eligible only when it is
+not the first active point; hence it is at least $p+1$.  Otherwise the arriving
+side is selected.  The implementation's final spacing guard enforces the same
+lower bound in degenerate branches.  Thus every nonterminal case has
+$t-r\ge2$.
+\end{proof}
+
+\begin{lemma}[Halving recurrence]
+\label{lem:halving}
+If one level starts with $N\ge1$ eligible intervals and produces $N'$ chord
+intervals, then $N'\le\lceil N/2\rceil$.
+\end{lemma}
+\begin{proof}
+The produced intervals are consecutive and partition the $N$ old intervals.
+By Lemma~\ref{lem:progress}, every produced interval except possibly the last
+contains at least two old intervals.  The last contains at least one.  Hence
+$N\ge2(N'-1)+1=2N'-1$, so $N'\le(N+1)/2$ and integrality gives the claim.  If
+the last interval also contains at least two, the stronger
+$N'\le\lfloor N/2\rfloor$ holds.
+\end{proof}
+
+\begin{proof}[Detailed completion of Theorem~\ref{thm:finite} and Corollary~\ref{cor:sparse}]
+Every new knot is selected from the current eligible list, so the mapped knot
+sets are nested.  Let $N_0=n-1$ and let $N_j$ be the number of intervals after
+level $j$.  Lemma~\ref{lem:halving} and the identity
+$\lceil\lceil a/2\rceil/2\rceil=\lceil a/4\rceil$ give inductively
+$N_j\le\lceil N_0/2^j\rceil$.  For $n\ge3$, choosing
+$j=\lceil\log_2(n-1)\rceil$ makes $N_j=1$, so the endpoint chord has been
+recorded and the implementation stops.  For $n=2$, it records that chord in
+one level.  This proves the stated
+$\max\{1,\lceil\log_2(n-1)\rceil\}$ bound.  If a sparse implementation spends
+$O(N_j)$ work at level $j$, the geometric recurrence gives $O(n)$ total work.
+More explicitly, for integer $N_0\ge1$,
+$\lceil N_0/2^j\rceil\le(N_0-1)/2^j+1$, so
+$\sum_{j=1}^J N_j<N_0-1+J\le2N_0$.  Adding one endpoint per stored knot set
+gives $\sum_{j=1}^J|K_j|<2N_0+J$, the stated storage bound.  This is the
+complexity of the implemented knot-only representation; materializing every
+length-$n$ level remains $O(n\log n)$ in the worst case.
+\end{proof}
+
+\begin{lemma}[Centred decision margin]
+\label{lem:decision}
+On a uniform grid of spacing $h$, define $\gamma$ and $\eta$ as in
+Theorem~\ref{thm:local-stability}.
+If
+$\|e\|_\infty<\min\{\gamma h/4,\eta h/8\}$, every curvature sign and every
+adjacent opposite-sign magnitude comparison made by the centred walk is
+unchanged.
+\end{lemma}
+\begin{proof}
+The divided-curvature perturbation stencil is
+$(1,-2,1)/h$, so every coordinate changes by at most
+$4\|e\|_\infty/h$.  The first strict inequality prevents zero crossing.  For
+two curvature coordinates $a,b$, the reverse triangle inequality gives
+\[
+\left|(|a+\delta a|-|b+\delta b|)-(|a|-|b|)\right|
+\le |\delta a|+|\delta b|
+\le8\|e\|_\infty/h.
+\]
+The second strict inequality therefore preserves every comparison outcome.
+Once signs are fixed there are no zero-curvature branches, and the potential
+comparison pairs are the adjacent entries across sign-run boundaries.  These
+data determine the same knot walk.
+\end{proof}
+
+\begin{proof}[Detailed completion of Theorem~\ref{thm:local-stability}]
+Lemma~\ref{lem:decision} fixes the knot set.  At any sample between two fixed
+knots, the interpolation error is a convex combination of the two endpoint
+errors and is therefore at most $\|e\|_\infty$.  This proves the baseline
+bound.  The detail perturbation is $e-[T(y+e)-Ty]$, so the triangle inequality
+gives the factor two.  If $\eta=0$, no positive centred-rule radius follows:
+the explicit $(1,1,-1)$ counterexample in the main text changes the selected
+side while preserving every sign.
+\end{proof}
+
+\begin{lemma}[Essential class in the signed persistence metric]
+\label{lem:essential}
+For a nonempty connected finite path, the ordinary zero-dimensional superlevel
+diagram has exactly one essential class.  Under a finite-cost bottleneck
+matching between two functions on that path, the essential classes match each
+other; the remaining matching restricts to their finite diagrams.
+\end{lemma}
+\begin{proof}
+At the bottom of the filtration the entire path is present and connected, so
+exactly one component survives indefinitely.  A diagram point with an infinite
+death coordinate has infinite distance from the diagonal and from every finite
+point.  Therefore any finite-cost matching pairs the two essential points.
+Their cost is the absolute difference of their birth heights, which are the
+two function maxima.  Removing that pair leaves precisely a matching of the
+finite parts.
+\end{proof}
+
+\begin{proof}[Detailed completion of Theorem~\ref{thm:persistence}]
+The $i$th divided-curvature row is
+\[
+\left(h_{i-1}^{-1},
+ -(h_{i-1}^{-1}+h_i^{-1}),h_i^{-1}\right),
+\]
+whose absolute row sum is $2(h_{i-1}^{-1}+h_i^{-1})$.  Taking the maximum gives
+the exact induced $\ell_\infty$ norm $C_x$.  Coordinatewise positive part is
+1-Lipschitz, so both signed vertex functions differ by at most
+$C_x\|y-z\|_\infty$.  Their piecewise-linear extensions over a common edge
+differ by a convex combination of endpoint differences and obey the same bound.
+Apply persistence-diagram stability to their negatives, which converts
+superlevel filtrations to sublevel filtrations without changing the sup norm.
+Lemma~\ref{lem:essential} identifies the essential and finite costs used in
+$d_{\rm SC}$.  Taking the maximum over signs proves the metric bound.  Finally,
+a finite bar $(b,d)$ has diagonal cost $(b-d)/2$; if its lifetime is strictly
+greater than twice the metric bound, a bottleneck matching attaining that bound
+cannot send it to the diagonal.
+\end{proof}
+
+\begin{proof}[Domain detail for Theorem~\ref{thm:prox}]
+For $n\ge3$, the divided-curvature matrix has rank $n-2$: given any target
+curvature vector, choose an initial value and slope and integrate the target
+curvatures successively to construct a preimage.  Thus $D$ is surjective.
+Since a proper $\phi$ has nonempty domain, $\phi\circ D$ is proper; it is closed
+and convex by continuity and linearity of $D$.  Adding
+$\|y-z\|_2^2/2$ makes the objective coercive and strongly convex, so its
+minimizer exists and is unique.  The standard proximal theorem now applies to
+$g=\phi\circ D$.  If $P=\operatorname{prox}_g$ is firmly nonexpansive, then so
+is $I-P$: writing $d=y-z$ and $p=Py-Pz$, firm nonexpansiveness gives
+$\|p\|^2\le\langle p,d\rangle$, which directly implies
+\[
+\|(I-P)y-(I-P)z\|^2\le
+\langle (I-P)y-(I-P)z,y-z\rangle.
+\]
+Finally, $D\ell=0$ gives
+$g(w+\ell)=g(w)$; translating the optimization variable establishes affine
+equivariance.  The $n=2$ case has the zero curvature map and is immediate.
+\end{proof}

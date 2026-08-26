@@ -1,0 +1,14 @@
+{
+  "dataset": "MoteStrain",
+  "assignment": "discovery",
+  "train_size": 20,
+  "length": 84,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.85,
+  "wavelet_cv_accuracy": 0.8,
+  "raw_transform_seconds": 0.04181880003307015,
+  "wavelet_transform_seconds": 0.05729949998203665,
+  "wall_seconds": 0.20077890006359667,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

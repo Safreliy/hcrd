@@ -1,0 +1,120 @@
+{
+  "protocol": "P2",
+  "protocol_path": "docs/sparse_runtime_protocol.md",
+  "exploratory_scaling_characterization": true,
+  "timestamp_utc": "2026-08-24T14:40:01Z",
+  "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "physical_cores": 16,
+  "logical_cpus": 22,
+  "python": "3.13.3",
+  "numpy": "2.5.2",
+  "windows": 384,
+  "samples_per_window": 2048,
+  "repetitions": 5,
+  "initial_idle_cpu_samples": [
+    8.7,
+    14.7,
+    15.0,
+    18.9,
+    5.7
+  ],
+  "reference_knot_digest": "2aadbfdae86a2abf34b5821d0fd0e54884157fba46b6a23b7cd89edba159b62f",
+  "summary": [
+    {
+      "representation": "dense",
+      "backend": "serial",
+      "workers": 1,
+      "median_seconds": 19.0029602,
+      "q1_seconds": 13.7897245,
+      "q3_seconds": 23.5049457,
+      "median_signals_per_second": 20.207378006296093,
+      "speedup_vs_dense_serial": 1.0,
+      "speedup_vs_sparse_serial": 0.09540858797357266,
+      "parallel_efficiency_vs_sparse_serial": 1.0
+    },
+    {
+      "representation": "sparse",
+      "backend": "serial",
+      "workers": 1,
+      "median_seconds": 1.8130456,
+      "q1_seconds": 1.1445601,
+      "q3_seconds": 2.6000051,
+      "median_signals_per_second": 211.79831329118252,
+      "speedup_vs_dense_serial": 10.48123676536321,
+      "speedup_vs_sparse_serial": 1.0,
+      "parallel_efficiency_vs_sparse_serial": 1.0
+    },
+    {
+      "representation": "sparse",
+      "backend": "thread",
+      "workers": 4,
+      "median_seconds": 2.2803179,
+      "q1_seconds": 1.8037684,
+      "q3_seconds": 2.7277502,
+      "median_signals_per_second": 168.39757298752073,
+      "speedup_vs_dense_serial": 8.333469732443884,
+      "speedup_vs_sparse_serial": 0.7950845800929773,
+      "parallel_efficiency_vs_sparse_serial": 0.19877114502324433
+    },
+    {
+      "representation": "sparse",
+      "backend": "thread",
+      "workers": 8,
+      "median_seconds": 2.20065,
+      "q1_seconds": 2.0927444,
+      "q3_seconds": 2.9471821,
+      "median_signals_per_second": 174.4938995296844,
+      "speedup_vs_dense_serial": 8.63515788517029,
+      "speedup_vs_sparse_serial": 0.8238682207529593,
+      "parallel_efficiency_vs_sparse_serial": 0.10298352759411991
+    },
+    {
+      "representation": "sparse",
+      "backend": "process",
+      "workers": 2,
+      "median_seconds": 1.4962358,
+      "q1_seconds": 1.429962,
+      "q3_seconds": 2.3036646,
+      "median_signals_per_second": 256.6440396627323,
+      "speedup_vs_dense_serial": 12.700511643953446,
+      "speedup_vs_sparse_serial": 1.2117378824915164,
+      "parallel_efficiency_vs_sparse_serial": 0.6058689412457582
+    },
+    {
+      "representation": "sparse",
+      "backend": "process",
+      "workers": 4,
+      "median_seconds": 1.8113735,
+      "q1_seconds": 1.6838198,
+      "q3_seconds": 1.8548708,
+      "median_signals_per_second": 211.99382678392945,
+      "speedup_vs_dense_serial": 10.49091211724142,
+      "speedup_vs_sparse_serial": 1.0009231116608475,
+      "parallel_efficiency_vs_sparse_serial": 0.25023077791521187
+    },
+    {
+      "representation": "sparse",
+      "backend": "process",
+      "workers": 8,
+      "median_seconds": 1.6852175,
+      "q1_seconds": 1.6295946,
+      "q3_seconds": 2.1393301,
+      "median_signals_per_second": 227.8637623926882,
+      "speedup_vs_dense_serial": 11.276265645235704,
+      "speedup_vs_sparse_serial": 1.0758525828268457,
+      "parallel_efficiency_vs_sparse_serial": 0.1344815728533557
+    },
+    {
+      "representation": "sparse",
+      "backend": "process",
+      "workers": 16,
+      "median_seconds": 4.4364561,
+      "q1_seconds": 3.0102471,
+      "q3_seconds": 5.8967775,
+      "median_signals_per_second": 86.55557303948076,
+      "speedup_vs_dense_serial": 4.2833648686391825,
+      "speedup_vs_sparse_serial": 0.40866979389247193,
+      "parallel_efficiency_vs_sparse_serial": 0.025541862118279496
+    }
+  ]
+}

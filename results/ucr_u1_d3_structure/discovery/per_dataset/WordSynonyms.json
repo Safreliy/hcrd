@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "WordSynonyms",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 267,
+  "test_size": 638,
+  "length": 270,
+  "class_count": 25,
+  "workers": 8,
+  "representation_seconds": 17.377396299969405,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.41849529780564265,
+      "balanced_accuracy": 0.253848363488403,
+      "macro_f1": 0.24905472660517647,
+      "feature_count": 595,
+      "fit_seconds": 14.068220700020902,
+      "cv_folds": 2,
+      "best_cv_accuracy": 0.3483615755807429,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.4263322884012539,
+      "balanced_accuracy": 0.21882500261028603,
+      "macro_f1": 0.21992345198543103,
+      "feature_count": 595,
+      "fit_seconds": 3.7686430000467226,
+      "min_child_samples": 13
+    }
+  },
+  "wall_seconds": 35.46865890000481
+}

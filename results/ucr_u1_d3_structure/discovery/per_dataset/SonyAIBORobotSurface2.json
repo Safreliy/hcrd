@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "SonyAIBORobotSurface2",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 27,
+  "test_size": 953,
+  "length": 65,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 10.812994400039315,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.7072402938090241,
+      "balanced_accuracy": 0.672358121330724,
+      "macro_f1": 0.6769079343090971,
+      "feature_count": 595,
+      "fit_seconds": 4.55490790004842,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.9266666666666667,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.7618048268625394,
+      "balanced_accuracy": 0.7337200633678129,
+      "macro_f1": 0.7396503896260191,
+      "feature_count": 595,
+      "fit_seconds": 0.0462438000831753,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 15.535783200059086
+}

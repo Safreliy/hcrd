@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "method": "KShapeAD",
+  "file": "030_WSD_id_2_WebService_tr_4499_1st_4599.csv",
+  "error_type": "RuntimeError",
+  "error": "An error occurred while running the model 'run_KShapeAD': Allocation failed (probably too large).",
+  "traceback": "Traceback (most recent call last):\n  File \"experiments/run_wsd_sparse_transient_confirmation.py\", line 304, in run_worker\n    raise RuntimeError(score)\nRuntimeError: An error occurred while running the model 'run_KShapeAD': Allocation failed (probably too large).\n",
+  "diagnostic_wall_seconds_excluded_from_claims": 261.80846630001906
+}

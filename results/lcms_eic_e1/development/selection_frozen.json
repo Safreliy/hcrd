@@ -1,0 +1,92 @@
+{
+  "protocol": "hcrd-e1-v1",
+  "frozen_before_confirmation": true,
+  "seed": 20260825,
+  "comparator": "domain",
+  "thresholds": {
+    "raw64": 0.5624357693292168,
+    "domain": 0.6019770040363364,
+    "hcrd_1": 0.572279579540721,
+    "hcrd_8": 0.4011701342390407,
+    "hcrd_geometry": 0.49937080827586044,
+    "area_only": 0.5076346624634337
+  },
+  "validation_metrics": {
+    "raw64": {
+      "average_precision": 0.3737025817063207,
+      "roc_auc": 0.8827794544160299,
+      "mcc": 0.4306528151807038,
+      "balanced_accuracy": 0.8023137607878434,
+      "f1": 0.4674022066198596,
+      "threshold": 0.5624357693292168
+    },
+    "domain": {
+      "average_precision": 0.3768432197620702,
+      "roc_auc": 0.8810498696928517,
+      "mcc": 0.41227772776244737,
+      "balanced_accuracy": 0.776527064471153,
+      "f1": 0.4606986899563319,
+      "threshold": 0.6019770040363364
+    },
+    "hcrd_1": {
+      "average_precision": 0.36750253597342686,
+      "roc_auc": 0.8802756746262861,
+      "mcc": 0.421605606310338,
+      "balanced_accuracy": 0.7868763346922927,
+      "f1": 0.46595744680851064,
+      "threshold": 0.572279579540721
+    },
+    "hcrd_8": {
+      "average_precision": 0.37046760370825815,
+      "roc_auc": 0.8889612490660831,
+      "mcc": 0.4292632081590454,
+      "balanced_accuracy": 0.8155715571557156,
+      "f1": 0.45578851412944393,
+      "threshold": 0.4011701342390407
+    },
+    "hcrd_geometry": {
+      "average_precision": 0.2988477163964153,
+      "roc_auc": 0.8362512721860421,
+      "mcc": 0.346437864062725,
+      "balanced_accuracy": 0.7514392615732162,
+      "f1": 0.39737582005623245,
+      "threshold": 0.49937080827586044
+    },
+    "area_only": {
+      "average_precision": 0.2610649179346005,
+      "roc_auc": 0.8123688839472182,
+      "mcc": 0.3215391056939785,
+      "balanced_accuracy": 0.7415947477100651,
+      "f1": 0.37294015611448394,
+      "threshold": 0.5076346624634337
+    }
+  },
+  "feature_widths": {
+    "raw64": 150,
+    "domain": 222,
+    "hcrd_1": 354,
+    "hcrd_8": 1896,
+    "hcrd_geometry": 594,
+    "area_only": 96
+  },
+  "learner": {
+    "class": "HistGradientBoostingClassifier",
+    "learning_rate": 0.05,
+    "max_iter": 250,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 40,
+    "l2_regularization": 1.0,
+    "class_weight": "balanced",
+    "random_state": 20260825,
+    "early_stopping": false
+  },
+  "versions": {
+    "python": "3.13.3",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0",
+    "pandas": "2.3.3"
+  },
+  "train_metadata_sha256": "53297b2178e255a47282ce90bf3abed2bbe9a71adbc8dc95a2814f16cc48635b",
+  "validation_metadata_sha256": "067230c97f3891492061625f493d653064628a8e3e8e8c6ade1fdb53a61efb74"
+}

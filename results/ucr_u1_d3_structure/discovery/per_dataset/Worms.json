@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Worms",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 181,
+  "test_size": 77,
+  "length": 900,
+  "class_count": 5,
+  "workers": 8,
+  "representation_seconds": 20.387538800016046,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.8311688311688312,
+      "balanced_accuracy": 0.7948018648018648,
+      "macro_f1": 0.8220250626566414,
+      "feature_count": 595,
+      "fit_seconds": 12.745097600040026,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.7406906906906907,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.7922077922077922,
+      "balanced_accuracy": 0.7438344988344989,
+      "macro_f1": 0.7830666787188526,
+      "feature_count": 595,
+      "fit_seconds": 0.6709524999605492,
+      "min_child_samples": 9
+    }
+  },
+  "wall_seconds": 34.05307460005861
+}

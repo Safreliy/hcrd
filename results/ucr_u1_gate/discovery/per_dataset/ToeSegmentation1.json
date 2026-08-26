@@ -1,0 +1,14 @@
+{
+  "dataset": "ToeSegmentation1",
+  "assignment": "discovery",
+  "train_size": 40,
+  "length": 277,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.85,
+  "wavelet_cv_accuracy": 0.85,
+  "raw_transform_seconds": 0.11084380000829697,
+  "wavelet_transform_seconds": 0.19255119992885739,
+  "wall_seconds": 0.8420422000344843,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

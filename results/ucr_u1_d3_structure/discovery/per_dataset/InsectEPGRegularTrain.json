@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "InsectEPGRegularTrain",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 62,
+  "test_size": 249,
+  "length": 601,
+  "class_count": 3,
+  "workers": 8,
+  "representation_seconds": 27.538170799962245,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.8875502008032129,
+      "balanced_accuracy": 0.853120947483926,
+      "macro_f1": 0.8582055437083671,
+      "feature_count": 595,
+      "fit_seconds": 18.57081480009947,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.8576923076923076,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.8875502008032129,
+      "balanced_accuracy": 0.8373748915550476,
+      "macro_f1": 0.8451533620309991,
+      "feature_count": 595,
+      "fit_seconds": 0.3036231999285519,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 46.61187489994336
+}

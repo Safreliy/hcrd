@@ -1,0 +1,14 @@
+{
+  "dataset": "PowerCons",
+  "assignment": "discovery",
+  "train_size": 180,
+  "length": 144,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.8944444444444445,
+  "wavelet_cv_accuracy": 0.9222222222222222,
+  "raw_transform_seconds": 0.08356170007027686,
+  "wavelet_transform_seconds": 0.17312239995226264,
+  "wall_seconds": 0.8950743000023067,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

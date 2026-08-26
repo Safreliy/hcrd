@@ -1,0 +1,14 @@
+{
+  "dataset": "ECG5000",
+  "assignment": "discovery",
+  "train_size": 500,
+  "length": 140,
+  "class_count": 5,
+  "cv_folds": 2,
+  "raw_cv_accuracy": 0.952,
+  "wavelet_cv_accuracy": 0.952,
+  "raw_transform_seconds": 0.07655270001851022,
+  "wavelet_transform_seconds": 0.2484740000218153,
+  "wall_seconds": 1.4404146000742912,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

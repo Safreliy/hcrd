@@ -1,0 +1,14 @@
+{
+  "dataset": "MixedShapesSmallTrain",
+  "assignment": "discovery",
+  "train_size": 100,
+  "length": 1024,
+  "class_count": 5,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9399999999999998,
+  "wavelet_cv_accuracy": 0.9,
+  "raw_transform_seconds": 0.23041960003320128,
+  "wavelet_transform_seconds": 0.8933514999225736,
+  "wall_seconds": 1.7296602999558672,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

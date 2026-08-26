@@ -1,0 +1,242 @@
+{
+  "protocol": "U1",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "dataset": "EOGHorizontalSignal",
+  "assignment": "discovery",
+  "train_size": 362,
+  "test_size": 362,
+  "length": 1250,
+  "class_count": 12,
+  "max_levels": 5,
+  "spatial_bins": 8,
+  "top_k": 8,
+  "requested_kernels": 10000,
+  "workers": 8,
+  "metrics": {
+    "raw_minirocket": {
+      "accuracy": 0.5911602209944752,
+      "balanced_accuracy": 0.5919880113706588,
+      "macro_f1": 0.5943594455145075,
+      "transform_seconds": 0.49296389997471124,
+      "head_fit_seconds": 0.18175980006344616,
+      "head_predict_seconds": 0.011888899956829846,
+      "feature_count": 9996,
+      "representation_seconds": 0.024368199985474348
+    },
+    "wavelet_minirocket": {
+      "accuracy": 0.5441988950276243,
+      "balanced_accuracy": 0.5454702756148807,
+      "macro_f1": 0.53411612909298,
+      "transform_seconds": 6.331817899947055,
+      "head_fit_seconds": 0.20637050003279,
+      "head_predict_seconds": 0.012303499970585108,
+      "feature_count": 9996,
+      "representation_seconds": 0.2563417999772355
+    },
+    "hcrd_minirocket": {
+      "accuracy": 0.5939226519337016,
+      "balanced_accuracy": 0.5953992089976518,
+      "macro_f1": 0.5972179299651065,
+      "transform_seconds": 7.101565800025128,
+      "head_fit_seconds": 0.2255501999752596,
+      "head_predict_seconds": 0.013325899955816567,
+      "feature_count": 9996,
+      "representation_seconds": 43.941004000022076
+    },
+    "hcrd_energy": {
+      "accuracy": 0.2983425414364641,
+      "balanced_accuracy": 0.29967556544308493,
+      "macro_f1": 0.275469926851098,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.028924199985340238,
+      "head_predict_seconds": 0.0006671999581158161,
+      "feature_count": 85,
+      "representation_seconds": 43.941004000022076
+    },
+    "hcrd_structure": {
+      "accuracy": 0.38950276243093923,
+      "balanced_accuracy": 0.39114448152267944,
+      "macro_f1": 0.3756328875827099,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.08862349996343255,
+      "head_predict_seconds": 0.0020862000528723,
+      "feature_count": 595,
+      "representation_seconds": 43.941004000022076
+    },
+    "hcrd_hybrid": {
+      "accuracy": 0.5718232044198895,
+      "balanced_accuracy": 0.5728958101594365,
+      "macro_f1": 0.5746190583813946,
+      "transform_seconds": 7.101565800025128,
+      "head_fit_seconds": 0.19402689998969436,
+      "head_predict_seconds": 0.022499199956655502,
+      "feature_count": 10591,
+      "representation_seconds": 43.941004000022076
+    }
+  },
+  "training_geometry": {
+    "depth_fraction": {
+      "mean": 1.0,
+      "median": 1.0,
+      "standard_deviation": 0.0
+    },
+    "level_0_knot_fraction": {
+      "mean": 0.3989325966850828,
+      "median": 0.4028,
+      "standard_deviation": 0.03033953146474613
+    },
+    "level_0_structure_density": {
+      "mean": 0.39813259668508294,
+      "median": 0.402,
+      "standard_deviation": 0.030339531464746133
+    },
+    "level_0_area_concentration": {
+      "mean": 0.03628090790660128,
+      "median": 0.021454691830045922,
+      "standard_deviation": 0.03804645594673922
+    },
+    "level_0_sign_balance": {
+      "mean": 0.03559036154355322,
+      "median": 0.03241833968172866,
+      "standard_deviation": 0.13385764417362134
+    },
+    "level_0_mean_duration_fraction": {
+      "mean": 0.0020217657584987634,
+      "median": 0.0019900517215432506,
+      "standard_deviation": 0.00016332338288567168
+    },
+    "level_0_detail_energy_fraction": {
+      "mean": 0.0006755232675327132,
+      "median": 0.00015950801614439446,
+      "standard_deviation": 0.0022011817776817822
+    },
+    "level_1_knot_fraction": {
+      "mean": 0.16416132596685082,
+      "median": 0.1648,
+      "standard_deviation": 0.012378150702604875
+    },
+    "level_1_structure_density": {
+      "mean": 0.16336132596685082,
+      "median": 0.164,
+      "standard_deviation": 0.012378150702604875
+    },
+    "level_1_area_concentration": {
+      "mean": 0.1490782086934984,
+      "median": 0.1333020715685746,
+      "standard_deviation": 0.10947791982799111
+    },
+    "level_1_sign_balance": {
+      "mean": -0.06811781962993936,
+      "median": -0.06332456812842321,
+      "standard_deviation": 0.2407676205347227
+    },
+    "level_1_mean_duration_fraction": {
+      "mean": 0.004925573279967249,
+      "median": 0.004878048780487805,
+      "standard_deviation": 0.00037738911609717446
+    },
+    "level_1_detail_energy_fraction": {
+      "mean": 0.008358666287477853,
+      "median": 0.002914039412121116,
+      "standard_deviation": 0.018168554891909452
+    },
+    "level_2_knot_fraction": {
+      "mean": 0.06613701657458564,
+      "median": 0.0664,
+      "standard_deviation": 0.006179614494292328
+    },
+    "level_2_structure_density": {
+      "mean": 0.06533701657458564,
+      "median": 0.0656,
+      "standard_deviation": 0.0061796144942923275
+    },
+    "level_2_area_concentration": {
+      "mean": 0.23341066750392486,
+      "median": 0.1980619393168942,
+      "standard_deviation": 0.1425223261515336
+    },
+    "level_2_sign_balance": {
+      "mean": -0.02855150491830451,
+      "median": -0.027994362511096382,
+      "standard_deviation": 0.2896555187068802
+    },
+    "level_2_mean_duration_fraction": {
+      "mean": 0.012353933250003656,
+      "median": 0.012195121951219513,
+      "standard_deviation": 0.0011705020719113548
+    },
+    "level_2_detail_energy_fraction": {
+      "mean": 0.04021499955198299,
+      "median": 0.01785630208658301,
+      "standard_deviation": 0.0673397257452524
+    },
+    "level_3_knot_fraction": {
+      "mean": 0.02875359116022099,
+      "median": 0.0288,
+      "standard_deviation": 0.003159909577825346
+    },
+    "level_3_structure_density": {
+      "mean": 0.027953591160220993,
+      "median": 0.028,
+      "standard_deviation": 0.003159909577825346
+    },
+    "level_3_area_concentration": {
+      "mean": 0.3221933842422389,
+      "median": 0.3143441973326152,
+      "standard_deviation": 0.16091998122131962
+    },
+    "level_3_sign_balance": {
+      "mean": 0.08354860694371848,
+      "median": 0.12204092111795725,
+      "standard_deviation": 0.3830935909266837
+    },
+    "level_3_mean_duration_fraction": {
+      "mean": 0.02899029919393012,
+      "median": 0.02857142857142857,
+      "standard_deviation": 0.003326146599007518
+    },
+    "level_3_detail_energy_fraction": {
+      "mean": 0.06316953938691042,
+      "median": 0.03411581472901238,
+      "standard_deviation": 0.07476806491284013
+    },
+    "level_4_knot_fraction": {
+      "mean": 0.013140331491712707,
+      "median": 0.0128,
+      "standard_deviation": 0.0015880694351939472
+    },
+    "level_4_structure_density": {
+      "mean": 0.012340331491712707,
+      "median": 0.012,
+      "standard_deviation": 0.0015880694351939472
+    },
+    "level_4_area_concentration": {
+      "mean": 0.42871407446061993,
+      "median": 0.41972024908022343,
+      "standard_deviation": 0.1818163673490286
+    },
+    "level_4_sign_balance": {
+      "mean": 0.06619402256369962,
+      "median": 0.08148762826805156,
+      "standard_deviation": 0.5589597908198464
+    },
+    "level_4_mean_duration_fraction": {
+      "mean": 0.06592056336189377,
+      "median": 0.06666666666666667,
+      "standard_deviation": 0.008635819112020202
+    },
+    "level_4_detail_energy_fraction": {
+      "mean": 0.08724823796936541,
+      "median": 0.04620537044470198,
+      "standard_deviation": 0.11870126228520055
+    }
+  },
+  "prediction_file": "results\\ucr_u1\\discovery\\predictions\\EOGHorizontalSignal.npz",
+  "wall_seconds": 59.46047500008717,
+  "versions": {
+    "python": "3.13.3",
+    "numpy": "2.3.5",
+    "aeon": "1.5.0",
+    "sklearn": "1.8.0"
+  }
+}

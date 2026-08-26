@@ -1,0 +1,430 @@
+{
+  "status": "A1_evaluation_executed_after_A1_A2_A3_freeze",
+  "candidate": "hcrd_L8_max",
+  "a2_selected_candidate": "a2_direct",
+  "a3_selected_candidate": "a3_direct",
+  "series": 350,
+  "mean_vus_pr": 0.34687822104563465,
+  "median_vus_pr": 0.21599740047804686,
+  "mean_auc_pr": 0.31625843049776703,
+  "mean_auc_roc": 0.739407845025001,
+  "total_detector_seconds": 158.71905999886803,
+  "wall_seconds": 94.0394422999816,
+  "median_detector_milliseconds_per_10k_samples": 33.94585294915727,
+  "evaluation_file_list_sha256": "6f4e1d4ddbde195f9687f2c5a951b51faff54dda4b658d85f0c07e3e2879615a",
+  "frozen_configuration_sha256": "14d203c7c44f2c92e7fdac8a518c0a3f2aea0c2f3a61fccf9d8a8e6c06acd70f",
+  "a2_frozen_configuration_sha256": "d12f1208f3ac12630b8b4d20f23208d4b3716b8a4102e744e9fb397460dc0b09",
+  "a3_frozen_configuration_sha256": "076246e9fb66dbb6a42b38e93b2d888dcf1f403db86af777544e8c990a714ad8",
+  "comparisons": [
+    {
+      "baseline": "Sub-PCA",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.42338473549148065,
+      "mean_difference": -0.07650651444584602,
+      "bootstrap_95_low": -0.12062800443888376,
+      "bootstrap_95_high": -0.03211864062806442,
+      "wins": 156,
+      "ties": 0,
+      "losses": 194
+    },
+    {
+      "baseline": "MMPAD",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.43985905581098733,
+      "mean_difference": -0.09298083476535274,
+      "bootstrap_95_low": -0.14169052451342817,
+      "bootstrap_95_high": -0.04359290554324912,
+      "wins": 149,
+      "ties": 9,
+      "losses": 192
+    },
+    {
+      "baseline": "StreamVAE",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.45075633033086515,
+      "mean_difference": -0.10387810928523059,
+      "bootstrap_95_low": -0.1474826625939389,
+      "bootstrap_95_high": -0.05962675656817571,
+      "wins": 141,
+      "ties": 0,
+      "losses": 209
+    },
+    {
+      "baseline": "POLY",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.3897525093510147,
+      "mean_difference": -0.042874288305380065,
+      "bootstrap_95_low": -0.075677515536553,
+      "bootstrap_95_high": -0.009483745308272578,
+      "wins": 138,
+      "ties": 0,
+      "losses": 212
+    },
+    {
+      "baseline": "KShapeAD",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.40077158869012236,
+      "mean_difference": -0.05389336764448773,
+      "bootstrap_95_low": -0.10403445264239894,
+      "bootstrap_95_high": -0.0026891189686434292,
+      "wins": 172,
+      "ties": 6,
+      "losses": 172
+    },
+    {
+      "baseline": "Series2Graph",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.38810063161480984,
+      "mean_difference": -0.04122241056917518,
+      "bootstrap_95_low": -0.07997827146220772,
+      "bootstrap_95_high": -0.0021674415942683632,
+      "wins": 172,
+      "ties": 0,
+      "losses": 178
+    },
+    {
+      "baseline": "MatrixProfile",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.3496268319265556,
+      "mean_difference": -0.0027486108809209905,
+      "bootstrap_95_low": -0.04502854031153548,
+      "bootstrap_95_high": 0.04049856454247814,
+      "wins": 178,
+      "ties": 0,
+      "losses": 172
+    },
+    {
+      "baseline": "TSPulse (ZS)",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.4801380571428571,
+      "mean_difference": -0.1332598360972225,
+      "bootstrap_95_low": -0.1601264234989389,
+      "bootstrap_95_high": -0.10690040164513488,
+      "wins": 109,
+      "ties": 14,
+      "losses": 227
+    },
+    {
+      "baseline": "TSPulse (FT)",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.5515879142857143,
+      "mean_difference": -0.20470969324007968,
+      "bootstrap_95_low": -0.2347131289492316,
+      "bootstrap_95_high": -0.17480927455069106,
+      "wins": 74,
+      "ties": 14,
+      "losses": 262
+    },
+    {
+      "baseline": "Time-RCD+MAFT (FT)",
+      "paired_series": 350,
+      "hcrd_mean_vus_pr": 0.34687822104563465,
+      "baseline_mean_vus_pr": 0.585595117920594,
+      "mean_difference": -0.23871689687495948,
+      "bootstrap_95_low": -0.2692977570998319,
+      "bootstrap_95_high": -0.20796993062593103,
+      "wins": 44,
+      "ties": 14,
+      "losses": 292
+    }
+  ],
+  "strata": [
+    {
+      "stratum": "source",
+      "value": "CATSv2",
+      "series": 1,
+      "mean_vus_pr": 0.2466007655854596,
+      "mean_sub_pca": 0.264658389584848,
+      "difference_vs_sub_pca": -0.0180576239993884
+    },
+    {
+      "stratum": "source",
+      "value": "Daphnet",
+      "series": 1,
+      "mean_vus_pr": 0.43695211823100416,
+      "mean_sub_pca": 0.422011566352765,
+      "difference_vs_sub_pca": 0.014940551878239172
+    },
+    {
+      "stratum": "source",
+      "value": "Exathlon",
+      "series": 30,
+      "mean_vus_pr": 0.5981784868071908,
+      "mean_sub_pca": 0.9266381713802198,
+      "difference_vs_sub_pca": -0.328459684573029
+    },
+    {
+      "stratum": "source",
+      "value": "IOPS",
+      "series": 15,
+      "mean_vus_pr": 0.35874656304668484,
+      "mean_sub_pca": 0.22719519890002132,
+      "difference_vs_sub_pca": 0.13155136414666352
+    },
+    {
+      "stratum": "source",
+      "value": "LTDB",
+      "series": 8,
+      "mean_vus_pr": 0.2852489552904751,
+      "mean_sub_pca": 0.5558284275039165,
+      "difference_vs_sub_pca": -0.27057947221344136
+    },
+    {
+      "stratum": "source",
+      "value": "MGAB",
+      "series": 8,
+      "mean_vus_pr": 0.004118492471997406,
+      "mean_sub_pca": 0.005165267214246087,
+      "difference_vs_sub_pca": -0.0010467747422486812
+    },
+    {
+      "stratum": "source",
+      "value": "MITDB",
+      "series": 7,
+      "mean_vus_pr": 0.07394545019560358,
+      "mean_sub_pca": 0.36279456400088433,
+      "difference_vs_sub_pca": -0.2888491138052807
+    },
+    {
+      "stratum": "source",
+      "value": "MSL",
+      "series": 7,
+      "mean_vus_pr": 0.40910803465201756,
+      "mean_sub_pca": 0.5072682047217543,
+      "difference_vs_sub_pca": -0.09816017006973674
+    },
+    {
+      "stratum": "source",
+      "value": "NAB",
+      "series": 23,
+      "mean_vus_pr": 0.23892554247806805,
+      "mean_sub_pca": 0.43577295244716496,
+      "difference_vs_sub_pca": -0.1968474099690969
+    },
+    {
+      "stratum": "source",
+      "value": "NEK",
+      "series": 8,
+      "mean_vus_pr": 0.5543135631559313,
+      "mean_sub_pca": 0.9051266624135266,
+      "difference_vs_sub_pca": -0.3508130992575954
+    },
+    {
+      "stratum": "source",
+      "value": "OPPORTUNITY",
+      "series": 27,
+      "mean_vus_pr": 0.17044117855980587,
+      "mean_sub_pca": 0.9139119801467892,
+      "difference_vs_sub_pca": -0.7434708015869835
+    },
+    {
+      "stratum": "source",
+      "value": "Power",
+      "series": 1,
+      "mean_vus_pr": 0.07467865143310352,
+      "mean_sub_pca": 0.0760575973007868,
+      "difference_vs_sub_pca": -0.0013789458676832789
+    },
+    {
+      "stratum": "source",
+      "value": "SED",
+      "series": 2,
+      "mean_vus_pr": 0.07104532546959724,
+      "mean_sub_pca": 0.031383233568698904,
+      "difference_vs_sub_pca": 0.03966209190089834
+    },
+    {
+      "stratum": "source",
+      "value": "SMAP",
+      "series": 17,
+      "mean_vus_pr": 0.539248095159078,
+      "mean_sub_pca": 0.5177860856950816,
+      "difference_vs_sub_pca": 0.021462009463996384
+    },
+    {
+      "stratum": "source",
+      "value": "SMD",
+      "series": 33,
+      "mean_vus_pr": 0.526774658766762,
+      "mean_sub_pca": 0.4485264272473465,
+      "difference_vs_sub_pca": 0.07824823151941546
+    },
+    {
+      "stratum": "source",
+      "value": "SVDB",
+      "series": 18,
+      "mean_vus_pr": 0.0707498214978452,
+      "mean_sub_pca": 0.5222881918221746,
+      "difference_vs_sub_pca": -0.45153837032432953
+    },
+    {
+      "stratum": "source",
+      "value": "SWaT",
+      "series": 1,
+      "mean_vus_pr": 0.4172650896886672,
+      "mean_sub_pca": 0.392892171544998,
+      "difference_vs_sub_pca": 0.02437291814366921
+    },
+    {
+      "stratum": "source",
+      "value": "Stock",
+      "series": 8,
+      "mean_vus_pr": 0.7169670763923464,
+      "mean_sub_pca": 0.8397602263112827,
+      "difference_vs_sub_pca": -0.1227931499189362
+    },
+    {
+      "stratum": "source",
+      "value": "TAO",
+      "series": 2,
+      "mean_vus_pr": 0.9418954003936084,
+      "mean_sub_pca": 0.929957022709551,
+      "difference_vs_sub_pca": 0.011938377684057422
+    },
+    {
+      "stratum": "source",
+      "value": "TODS",
+      "series": 13,
+      "mean_vus_pr": 0.7795660985253908,
+      "mean_sub_pca": 0.5394796445024961,
+      "difference_vs_sub_pca": 0.2400864540228947
+    },
+    {
+      "stratum": "source",
+      "value": "UCR",
+      "series": 70,
+      "mean_vus_pr": 0.03954694092184508,
+      "mean_sub_pca": 0.12363452221722902,
+      "difference_vs_sub_pca": -0.08408758129538396
+    },
+    {
+      "stratum": "source",
+      "value": "WSD",
+      "series": 20,
+      "mean_vus_pr": 0.3953428594252048,
+      "mean_sub_pca": 0.09416596602021561,
+      "difference_vs_sub_pca": 0.3011768934049892
+    },
+    {
+      "stratum": "source",
+      "value": "YAHOO",
+      "series": 30,
+      "mean_vus_pr": 0.6760635790343262,
+      "mean_sub_pca": 0.13691681260001035,
+      "difference_vs_sub_pca": 0.5391467664343159
+    },
+    {
+      "stratum": "domain",
+      "value": "Environment",
+      "series": 18,
+      "mean_vus_pr": 0.12817215134616203,
+      "mean_sub_pca": 0.1370030120195345,
+      "difference_vs_sub_pca": -0.008830860673372472
+    },
+    {
+      "stratum": "domain",
+      "value": "Facility",
+      "series": 87,
+      "mean_vus_pr": 0.4330253956610744,
+      "mean_sub_pca": 0.5573813387552187,
+      "difference_vs_sub_pca": -0.12435594309414426
+    },
+    {
+      "stratum": "domain",
+      "value": "Finance",
+      "series": 8,
+      "mean_vus_pr": 0.7169670763923464,
+      "mean_sub_pca": 0.8397602263112827,
+      "difference_vs_sub_pca": -0.1227931499189362
+    },
+    {
+      "stratum": "domain",
+      "value": "HumanActivity",
+      "series": 43,
+      "mean_vus_pr": 0.14460293683382586,
+      "mean_sub_pca": 0.6091389521068343,
+      "difference_vs_sub_pca": -0.46453601527300853
+    },
+    {
+      "stratum": "domain",
+      "value": "Medical",
+      "series": 47,
+      "mean_vus_pr": 0.10485550661828845,
+      "mean_sub_pca": 0.4035197544187249,
+      "difference_vs_sub_pca": -0.2986642478004365
+    },
+    {
+      "stratum": "domain",
+      "value": "Sensor",
+      "series": 39,
+      "mean_vus_pr": 0.33826159039075393,
+      "mean_sub_pca": 0.41273908334388193,
+      "difference_vs_sub_pca": -0.07447749295312796
+    },
+    {
+      "stratum": "domain",
+      "value": "Synthetic",
+      "series": 39,
+      "mean_vus_pr": 0.5965151999189953,
+      "mean_sub_pca": 0.24087266866041432,
+      "difference_vs_sub_pca": 0.35564253125858103
+    },
+    {
+      "stratum": "domain",
+      "value": "Traffic",
+      "series": 5,
+      "mean_vus_pr": 0.2033205380324182,
+      "mean_sub_pca": 0.33238515855382383,
+      "difference_vs_sub_pca": -0.1290646205214056
+    },
+    {
+      "stratum": "domain",
+      "value": "WebService",
+      "series": 64,
+      "mean_vus_pr": 0.42300468751457154,
+      "mean_sub_pca": 0.2843305844415892,
+      "difference_vs_sub_pca": 0.1386741030729824
+    },
+    {
+      "stratum": "point_anomaly",
+      "value": "0",
+      "series": 301,
+      "mean_vus_pr": 0.2933830730613987,
+      "mean_sub_pca": 0.43425724978234337,
+      "difference_vs_sub_pca": -0.14087417672094463
+    },
+    {
+      "stratum": "point_anomaly",
+      "value": "1",
+      "series": 49,
+      "mean_vus_pr": 0.6754912729487984,
+      "mean_sub_pca": 0.35659643341903874,
+      "difference_vs_sub_pca": 0.3188948395297596
+    },
+    {
+      "stratum": "seq_anomaly",
+      "value": "0",
+      "series": 28,
+      "mean_vus_pr": 0.6356847604944456,
+      "mean_sub_pca": 0.07449854963395561,
+      "difference_vs_sub_pca": 0.5611862108604899
+    },
+    {
+      "stratum": "seq_anomaly",
+      "value": "1",
+      "series": 322,
+      "mean_vus_pr": 0.3217646089196511,
+      "mean_sub_pca": 0.4537226646964828,
+      "difference_vs_sub_pca": -0.13195805577683176
+    }
+  ]
+}

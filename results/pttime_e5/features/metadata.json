@@ -1,0 +1,24 @@
+{
+  "protocol": "hcrd-e5-v1",
+  "ion_mode": "positive",
+  "raw_file_selection": "basename contains _POS_",
+  "expected_raw_file_count": 52,
+  "raw_file_count": 52,
+  "feature_count": 400,
+  "good_count": 348,
+  "bad_count": 17,
+  "excluded_count": 35,
+  "source_archive_bytes": 2916229074,
+  "source_archive_sha256": "6e06eed561c82a5d4667b88089a37ea620b2c7cedc7a35fa46f9bd5d727d5040",
+  "labels_sha256": "0a9e03ed7afdc8dc9181137f0f8ebd748467afa72c94443d88ff5b93c8ce778d",
+  "source_repository_commit": "491deaf1d5f27f9d276e58acb4c1dfca2a2e21b9",
+  "protocol_sha256": "ee74bd64f0339f9893509c280d0541e423e40f886996d8d5de537462cc2749a6",
+  "final_widths": {
+    "qscore": 2,
+    "domain_q": 336,
+    "hcrd_1_q": 534,
+    "hcrd_8_q": 2847,
+    "hcrd_geometry_q": 894,
+    "area_only_q": 147
+  }
+}

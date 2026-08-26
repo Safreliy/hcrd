@@ -1,0 +1,68 @@
+[
+  {
+    "method": "hcrd_quadratic",
+    "records": 80,
+    "beats": 2785,
+    "mean_record_joint_absolute_error_ms": 22.735071230299496,
+    "median_record_joint_absolute_error_ms": 17.166666666666664,
+    "mean_record_failure_rate": 0.027798128342245987,
+    "mean_record_successful_onset_absolute_error_ms": 16.428940049215573,
+    "mean_record_successful_offset_absolute_error_ms": 21.486269473954074,
+    "mean_record_successful_duration_absolute_error_ms": 27.174562551409487
+  },
+  {
+    "method": "hcrd_gaussian",
+    "records": 80,
+    "beats": 2785,
+    "mean_record_joint_absolute_error_ms": 26.50775011204694,
+    "median_record_joint_absolute_error_ms": 23.173387096774192,
+    "mean_record_failure_rate": 0.022474121018445793,
+    "mean_record_successful_onset_absolute_error_ms": 23.901047627647444,
+    "mean_record_successful_offset_absolute_error_ms": 23.46662553678468,
+    "mean_record_successful_duration_absolute_error_ms": 32.07478517250381
+  },
+  {
+    "method": "hcrd_raw",
+    "records": 80,
+    "beats": 2785,
+    "mean_record_joint_absolute_error_ms": 43.736507488446726,
+    "median_record_joint_absolute_error_ms": 32.08333333333333,
+    "mean_record_failure_rate": 0.14691158330871895,
+    "mean_record_successful_onset_absolute_error_ms": 24.0344892672369,
+    "mean_record_successful_offset_absolute_error_ms": 25.454210271183296,
+    "mean_record_successful_duration_absolute_error_ms": 39.22298954397634
+  },
+  {
+    "method": "derivative_threshold",
+    "records": 80,
+    "beats": 2785,
+    "mean_record_joint_absolute_error_ms": 36.243798789742414,
+    "median_record_joint_absolute_error_ms": 26.675117370892018,
+    "mean_record_failure_rate": 0.11062022256326567,
+    "mean_record_successful_onset_absolute_error_ms": 18.964094793147748,
+    "mean_record_successful_offset_absolute_error_ms": 23.138706339169758,
+    "mean_record_successful_duration_absolute_error_ms": 32.544160125379435
+  },
+  {
+    "method": "official_pu0",
+    "records": 80,
+    "beats": 2785,
+    "mean_record_joint_absolute_error_ms": 13.944723566076851,
+    "median_record_joint_absolute_error_ms": 12.366666666666667,
+    "mean_record_failure_rate": 0.004092507268058739,
+    "mean_record_successful_onset_absolute_error_ms": 13.438391763124368,
+    "mean_record_successful_offset_absolute_error_ms": 13.312778979449945,
+    "mean_record_successful_duration_absolute_error_ms": 18.661361299752084
+  },
+  {
+    "method": "official_pu1",
+    "records": 80,
+    "beats": 2785,
+    "mean_record_joint_absolute_error_ms": 15.750377364819272,
+    "median_record_joint_absolute_error_ms": 12.8,
+    "mean_record_failure_rate": 0.004606060606060605,
+    "mean_record_successful_onset_absolute_error_ms": 16.773295463999084,
+    "mean_record_successful_offset_absolute_error_ms": 13.391900807494789,
+    "mean_record_successful_duration_absolute_error_ms": 22.369402768222905
+  }
+]

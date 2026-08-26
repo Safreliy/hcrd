@@ -1,0 +1,14 @@
+{
+  "dataset": "EOGHorizontalSignal",
+  "assignment": "discovery",
+  "train_size": 362,
+  "length": 1250,
+  "class_count": 12,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.8701293759512938,
+  "wavelet_cv_accuracy": 0.8592085235920852,
+  "raw_transform_seconds": 0.329536100034602,
+  "wavelet_transform_seconds": 2.526715600048192,
+  "wall_seconds": 3.8887187000364065,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

@@ -1,0 +1,64 @@
+{
+  "protocol": "P3",
+  "protocol_path": "docs/sparse_parallel_throughput_protocol.md",
+  "timestamp_utc": "2026-08-24T14:52:16Z",
+  "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "physical_cores": 16,
+  "logical_cpus": 22,
+  "python": "3.12.4",
+  "numpy": "2.5.2",
+  "windows": 3840,
+  "base_windows": 384,
+  "batch_multiplier": 10,
+  "samples_per_window": 2048,
+  "repetitions": 3,
+  "load_gate": {
+    "consecutive_samples": 5,
+    "sample_seconds": 1,
+    "maximum_each_percent": 20.0,
+    "applied_before_every_trial": true
+  },
+  "reference_knot_digest": "68e1a16d3c9fa2861111b8e8aecfb0c6c23cb5c8bac9a5e31deb4d373c079733",
+  "summary": [
+    {
+      "backend": "serial",
+      "workers": 1,
+      "median_seconds": 13.6823526,
+      "q1_seconds": 12.2078108,
+      "q3_seconds": 15.2694038,
+      "median_signals_per_second": 280.6534893714112,
+      "speedup_vs_serial": 1.0,
+      "parallel_efficiency": 1.0
+    },
+    {
+      "backend": "process",
+      "workers": 2,
+      "median_seconds": 11.9107622,
+      "q1_seconds": 10.3382977,
+      "q3_seconds": 11.9487266,
+      "median_signals_per_second": 322.3975036626959,
+      "speedup_vs_serial": 1.1487386256439573,
+      "parallel_efficiency": 0.5743693128219787
+    },
+    {
+      "backend": "process",
+      "workers": 4,
+      "median_seconds": 8.6694325,
+      "q1_seconds": 7.65007035,
+      "q3_seconds": 9.47652,
+      "median_signals_per_second": 442.93556700510675,
+      "speedup_vs_serial": 1.5782293246991659,
+      "parallel_efficiency": 0.39455733117479147
+    },
+    {
+      "backend": "process",
+      "workers": 8,
+      "median_seconds": 6.9634099,
+      "q1_seconds": 6.8157559,
+      "q3_seconds": 7.3987176,
+      "median_signals_per_second": 551.4539651040792,
+      "speedup_vs_serial": 1.9648926024015905,
+      "parallel_efficiency": 0.2456115753001988
+    }
+  ]
+}

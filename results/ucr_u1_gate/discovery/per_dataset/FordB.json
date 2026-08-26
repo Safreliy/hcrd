@@ -1,0 +1,14 @@
+{
+  "dataset": "FordB",
+  "assignment": "discovery",
+  "train_size": 3636,
+  "length": 500,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9515950693048355,
+  "wavelet_cv_accuracy": 0.952418489351089,
+  "raw_transform_seconds": 0.7954879999160767,
+  "wavelet_transform_seconds": 4.456089899991639,
+  "wall_seconds": 37.39968249993399,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

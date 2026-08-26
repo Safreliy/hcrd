@@ -1,0 +1,183 @@
+{
+  "protocol": "hcrd-continuous-lobe-audit-v2",
+  "seed": 20260825,
+  "grid": {
+    "sample_count": 129,
+    "template_count": 595,
+    "center_count": 17,
+    "width_count": 7,
+    "apex_count": 5
+  },
+  "analytic_certificate": {
+    "maximum_grid_spacing": 0.0078125,
+    "minimum_apex_segment": 0.045,
+    "sampled_apex_height_lower": 0.9131944444444444,
+    "residual_norm_lower": 0.6457259842085485,
+    "raw_template_lipschitz": 680.0653563363516,
+    "normalized_template_lipschitz": 2106.3589602016464,
+    "canonical_diameter_upper": 2.0,
+    "entropy_integral_upper": 11.742537051179475,
+    "continuous_level_threshold": 284.26863605898825,
+    "continuous_power_sufficient_norm_beta_0.2": 285.1102572925612
+  },
+  "rank_aware_continuous_certificate": {
+    "residual_subspace_rank": 127,
+    "exact_chi_level_threshold": 12.421816137962686,
+    "laurent_massart_level_threshold": 13.114958242059174,
+    "exact_chi_power_sufficient_norm_beta_0.2": 13.2634373715356,
+    "laurent_massart_power_sufficient_norm_beta_0.2": 13.956579475632088,
+    "exact_chi_null_draws": 50000,
+    "exact_chi_exceedances": 2537,
+    "exact_chi_empirical_level": 0.05074,
+    "exact_chi_empirical_level_95_ci": [
+      0.04883245509163434,
+      0.05269991306209645
+    ],
+    "laurent_massart_exceedances": 243,
+    "laurent_massart_empirical_level": 0.00486,
+    "laurent_massart_empirical_level_95_ci": [
+      0.004269323802613922,
+      0.005509234125945249
+    ]
+  },
+  "finite_sieve_null": {
+    "alpha": 0.05,
+    "threshold": 4.332272770521178,
+    "draws": 50000,
+    "exceedances": 22,
+    "empirical_fwer": 0.00044,
+    "empirical_fwer_95_ci": [
+      0.0002757655490093465,
+      0.0006660899538915626
+    ],
+    "null_supremum_mean": 1.7291458320033917,
+    "null_supremum_q95": 2.853231060113388,
+    "continuous_threshold_exceedances_on_sieve": 0,
+    "exact_subspace_threshold_exceedances_on_sieve": 0,
+    "analytic_subspace_threshold_exceedances_on_sieve": 0
+  },
+  "mesh_audit": {
+    "status": "empirical_only_not_a_continuum_certificate",
+    "validation_parameter_count": 10000,
+    "maximum_observed_canonical_radius": 0.1848270773544993,
+    "q99_observed_canonical_radius": 0.15054597754227186,
+    "parameter_half_cell_radius": 0.05303300858899107,
+    "analytic_lipschitz_mesh_upper": 111.70655282787222,
+    "analytic_sieve_condition_eta_lt_sqrt2_met": false
+  },
+  "finite_sieve_power_sufficient_norm_beta_0.2": 5.173894004094093,
+  "power_and_localization": [
+    {
+      "signal_norm": 3.0,
+      "finite_sieve_empirical_power": 0.1676,
+      "finite_sieve_power_95_ci": [
+        0.16032691075335853,
+        0.17506721245363957
+      ],
+      "included_true_template_power_lower": 0.09138528572221088,
+      "exact_grid_localization_rate": 0.005,
+      "canonical_localization_error_median": 0.3706142994812303,
+      "canonical_localization_error_q95": 0.9637107305424297
+    },
+    {
+      "signal_norm": 4.0,
+      "finite_sieve_empirical_power": 0.5043,
+      "finite_sieve_power_95_ci": [
+        0.4944504901266418,
+        0.5141470043204147
+      ],
+      "included_true_template_power_lower": 0.3698416494786382,
+      "exact_grid_localization_rate": 0.0148,
+      "canonical_localization_error_median": 0.3516258208378332,
+      "canonical_localization_error_q95": 0.6762910916275526
+    },
+    {
+      "signal_norm": 5.0,
+      "finite_sieve_empirical_power": 0.8366,
+      "finite_sieve_power_95_ci": [
+        0.8292056255510475,
+        0.8437977805064136
+      ],
+      "included_true_template_power_lower": 0.7478461373218842,
+      "exact_grid_localization_rate": 0.0229,
+      "canonical_localization_error_median": 0.3064116568412528,
+      "canonical_localization_error_q95": 0.5010439777608515
+    },
+    {
+      "signal_norm": 5.173894004094093,
+      "finite_sieve_empirical_power": 0.8773,
+      "finite_sieve_power_95_ci": [
+        0.8707094371010824,
+        0.8836699461429296
+      ],
+      "included_true_template_power_lower": 0.8000000000000002,
+      "exact_grid_localization_rate": 0.0279,
+      "canonical_localization_error_median": 0.2909746823193671,
+      "canonical_localization_error_q95": 0.47196314936432165
+    },
+    {
+      "signal_norm": 6.0,
+      "finite_sieve_empirical_power": 0.9764,
+      "finite_sieve_power_95_ci": [
+        0.9732323519537243,
+        0.9792858286465277
+      ],
+      "included_true_template_power_lower": 0.9523150562737137,
+      "exact_grid_localization_rate": 0.0422,
+      "canonical_localization_error_median": 0.24393062301248053,
+      "canonical_localization_error_q95": 0.417912968828401
+    },
+    {
+      "signal_norm": 7.0,
+      "finite_sieve_empirical_power": 0.9991,
+      "finite_sieve_power_95_ci": [
+        0.99829221024819,
+        0.999588382727605
+      ],
+      "included_true_template_power_lower": 0.9961816885143935,
+      "exact_grid_localization_rate": 0.0624,
+      "canonical_localization_error_median": 0.2336250487536388,
+      "canonical_localization_error_q95": 0.3990471812360782
+    },
+    {
+      "signal_norm": 13.2634373715356,
+      "finite_sieve_empirical_power": 1.0,
+      "finite_sieve_power_95_ci": [
+        0.999631180085378,
+        1.0
+      ],
+      "included_true_template_power_lower": 1.0,
+      "exact_grid_localization_rate": 0.3062,
+      "canonical_localization_error_median": 0.10313434236283882,
+      "canonical_localization_error_q95": 0.24393062301248275
+    },
+    {
+      "signal_norm": 13.956579475632088,
+      "finite_sieve_empirical_power": 1.0,
+      "finite_sieve_power_95_ci": [
+        0.999631180085378,
+        1.0
+      ],
+      "included_true_template_power_lower": 1.0,
+      "exact_grid_localization_rate": 0.3297,
+      "canonical_localization_error_median": 0.10313434236283882,
+      "canonical_localization_error_q95": 0.24393062301248053
+    },
+    {
+      "signal_norm": 285.1102572925612,
+      "finite_sieve_empirical_power": 1.0,
+      "finite_sieve_power_95_ci": [
+        0.999631180085378,
+        1.0
+      ],
+      "included_true_template_power_lower": 1.0,
+      "exact_grid_localization_rate": 1.0,
+      "canonical_localization_error_median": 0.0,
+      "canonical_localization_error_q95": 0.0
+    }
+  ],
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.1"
+  }
+}

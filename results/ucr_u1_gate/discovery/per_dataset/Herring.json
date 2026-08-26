@@ -1,0 +1,14 @@
+{
+  "dataset": "Herring",
+  "assignment": "discovery",
+  "train_size": 64,
+  "length": 512,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.5794871794871794,
+  "wavelet_cv_accuracy": 0.5474358974358975,
+  "raw_transform_seconds": 0.08354979997966439,
+  "wavelet_transform_seconds": 0.1823821000289172,
+  "wall_seconds": 0.6452977999579161,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

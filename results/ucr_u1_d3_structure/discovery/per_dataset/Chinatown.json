@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Chinatown",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 20,
+  "test_size": 343,
+  "length": 24,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 7.538575700018555,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.8309037900874635,
+      "balanced_accuracy": 0.8371785012389985,
+      "macro_f1": 0.8050066650984082,
+      "feature_count": 595,
+      "fit_seconds": 3.735101200058125,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.8,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.8309037900874635,
+      "balanced_accuracy": 0.7875117491241562,
+      "macro_f1": 0.7875117491241562,
+      "feature_count": 595,
+      "fit_seconds": 0.029944199952296913,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 11.45613800000865
+}

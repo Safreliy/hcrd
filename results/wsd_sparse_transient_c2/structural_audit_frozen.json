@@ -1,0 +1,16 @@
+{
+  "status": "structural_effect_modifiers_frozen_before_WSD_HCRD",
+  "role": "secondary mechanistic audit; not a primary endpoint or class-selection rule",
+  "outcome": "per-series HCRD VUS-PR minus the frozen primary comparator",
+  "fixed_hypotheses": {
+    "median_sign_coherence": "positive association",
+    "median_peak_to_background_mad": "positive association",
+    "median_curvature_contrast": "positive association",
+    "median_duration_fraction": "negative association",
+    "median_shape_concentration": "two-sided exploratory"
+  },
+  "statistics": "Spearman rho with permutation p-values and Holm correction over the four directional hypotheses",
+  "no_threshold_search": true,
+  "implementation_sha256": "171c5f38dd50ca5b37b0746e2c0d49a4d2e3022db2f1eef778fc5e14a8575f77",
+  "population_freeze_sha256": "5f403f7bfa5ece0aeeb00b6096fc41eb14d13cb37325d8a612bc1d70d32090b3"
+}

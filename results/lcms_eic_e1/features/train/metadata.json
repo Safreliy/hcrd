@@ -1,0 +1,27 @@
+{
+  "protocol": "hcrd-e1-v1",
+  "partition": "train",
+  "case_count": 24930,
+  "positive_count": 2821,
+  "negative_count": 22109,
+  "expert_code_counts_before_exclusion": {
+    "definite_peak": 2821,
+    "definite_nonpeak": 22109,
+    "inconclusive": 73542
+  },
+  "sample_group_count": 33,
+  "peak_group_count": 2571,
+  "feature_widths": {
+    "raw64": 150,
+    "domain": 222,
+    "hcrd_1": 354,
+    "hcrd_8": 1896,
+    "hcrd_geometry": 594,
+    "area_only": 96
+  },
+  "source_sha256": {
+    "EIC_data.RData": "cb949fb815d7ef9171cfbcdca3b0da3dc4ef53fdb673d0797d082497ffa38f16",
+    "Classification_before_cleanup.csv": "08aa80ba2abaa07931b353e216192847b38e4ea259e75e8da8f133a783700cfb"
+  },
+  "selection_sha256": null
+}

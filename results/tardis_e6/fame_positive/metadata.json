@@ -1,0 +1,24 @@
+{
+  "protocol": "hcrd-e6-v1-positive-availability-amendment",
+  "dataset": "tardis_fame_positive",
+  "archive_size_bytes": 5669337245,
+  "archive_md5": "38ddb2822551b1d281b57d610eb56986",
+  "labels_workbook_sha256": "f06b75999ddbe9ec7c4fa3159032fe9db427acab9b86d74dd39955b6498be357",
+  "mzxml_file_count": 119,
+  "feature_count": 212,
+  "good_count": 108,
+  "bad_count": 84,
+  "excluded_count": 20,
+  "targets_with_any_valid_feature_bank": 212,
+  "median_valid_qc_fraction": 0.9411764705882353,
+  "window_ppm": 10.0,
+  "window_seconds": 60.0,
+  "final_widths": {
+    "qscore": 2,
+    "domain_q": 336,
+    "hcrd_1_q": 534,
+    "hcrd_8_q": 2847,
+    "hcrd_geometry_q": 894,
+    "area_only_q": 147
+  }
+}

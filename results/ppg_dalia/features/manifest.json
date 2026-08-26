@@ -1,0 +1,1181 @@
+{
+  "protocol_sha256": "0d75839c5ea850795a29f4b0250c7297336c156b3cce3204586b208c847ed000",
+  "record_manifest_sha256": "95d18294f434159f3208c4c080a11993ada5d4745dcd40735067221958bc05c0",
+  "workers": 8,
+  "records": 117,
+  "candidates": 216226,
+  "reference_beats": 136699,
+  "serial_feature_seconds": 316.55886480084155,
+  "items": [
+    {
+      "key": "S10_car_driving",
+      "status": "computed",
+      "subject": "S10",
+      "activity": "car_driving",
+      "candidates": 1613,
+      "reference_beats": 1366,
+      "feature_seconds": 2.9019411000190303,
+      "sha256": "b82381df0d3dec73eb06c448bb0a45106da611ac657d04d357fe7bee5504160a"
+    },
+    {
+      "key": "S10_cycling",
+      "status": "computed",
+      "subject": "S10",
+      "activity": "cycling",
+      "candidates": 1303,
+      "reference_beats": 999,
+      "feature_seconds": 1.817192199989222,
+      "sha256": "be0960bdeb52d5a9945a6870ee4b0de73b813ea63c2e911ebacba20693cef24b"
+    },
+    {
+      "key": "S10_lunch_break",
+      "status": "computed",
+      "subject": "S10",
+      "activity": "lunch_break",
+      "candidates": 3815,
+      "reference_beats": 2697,
+      "feature_seconds": 6.826265299925581,
+      "sha256": "eff1961657f1af165340447578cbf0fc8ec83767b861bc48f788389e621af9ba"
+    },
+    {
+      "key": "S10_sitting",
+      "status": "computed",
+      "subject": "S10",
+      "activity": "sitting",
+      "candidates": 641,
+      "reference_beats": 609,
+      "feature_seconds": 1.7640993000240996,
+      "sha256": "cf60750fff765bc010335914abac328546d390e33603f91f4f9ce6ea7c37fea2"
+    },
+    {
+      "key": "S10_stair_climbing",
+      "status": "computed",
+      "subject": "S10",
+      "activity": "stair_climbing",
+      "candidates": 1604,
+      "reference_beats": 865,
+      "feature_seconds": 1.8924382999539375,
+      "sha256": "e57e3abc40f017096a9337dd0c183adb164ff5dcb10208683bd834bdb41dd997"
+    },
+    {
+      "key": "S10_table_soccer",
+      "status": "computed",
+      "subject": "S10",
+      "activity": "table_soccer",
+      "candidates": 782,
+      "reference_beats": 453,
+      "feature_seconds": 1.254450500011444,
+      "sha256": "67227000f5a96e03b163014af67860499d4960bfc99cce0a07715ae5655d8c0a"
+    },
+    {
+      "key": "S10_walking",
+      "status": "computed",
+      "subject": "S10",
+      "activity": "walking",
+      "candidates": 2761,
+      "reference_beats": 1585,
+      "feature_seconds": 3.99026590003632,
+      "sha256": "0627d6795a78704b076ddec89081b8db90d601a7358da6180bb500d98b21fc56"
+    },
+    {
+      "key": "S10_working",
+      "status": "computed",
+      "subject": "S10",
+      "activity": "working",
+      "candidates": 2072,
+      "reference_beats": 1553,
+      "feature_seconds": 3.9400556999025866,
+      "sha256": "d6b32441276655af6c88fe9ba02c44540cac5554c5ca34e37e75bef60118bc53"
+    },
+    {
+      "key": "S11_car_driving",
+      "status": "computed",
+      "subject": "S11",
+      "activity": "car_driving",
+      "candidates": 2167,
+      "reference_beats": 1459,
+      "feature_seconds": 3.4990554000250995,
+      "sha256": "5c744d1be1667154232fa1fe491d6f12428e4ae8cee5545133f87d26d8b27034"
+    },
+    {
+      "key": "S11_cycling",
+      "status": "computed",
+      "subject": "S11",
+      "activity": "cycling",
+      "candidates": 1405,
+      "reference_beats": 1158,
+      "feature_seconds": 2.199650000082329,
+      "sha256": "521f118a9ce0807301467793a1dfda8d3642a0f1c9db23301dc3f9ee365d4c81"
+    },
+    {
+      "key": "S11_lunch_break",
+      "status": "computed",
+      "subject": "S11",
+      "activity": "lunch_break",
+      "candidates": 5903,
+      "reference_beats": 3874,
+      "feature_seconds": 8.545479099964723,
+      "sha256": "b7071a8d721f5ddf6ce93098b18ad2ef96aa5c33baf40d1be30ae82e4a6b9c14"
+    },
+    {
+      "key": "S11_sitting",
+      "status": "computed",
+      "subject": "S11",
+      "activity": "sitting",
+      "candidates": 850,
+      "reference_beats": 616,
+      "feature_seconds": 1.852221900015138,
+      "sha256": "62327c647b15b1a541da1088ec752c179d0cce8485c6f8fcd5c9271da389a7a8"
+    },
+    {
+      "key": "S11_stair_climbing",
+      "status": "computed",
+      "subject": "S11",
+      "activity": "stair_climbing",
+      "candidates": 1253,
+      "reference_beats": 987,
+      "feature_seconds": 1.4741802000207826,
+      "sha256": "7492b9097f2a9f578626b5ceca73e2763db8bf2ce5c2607cf27dc797515d82f4"
+    },
+    {
+      "key": "S11_table_soccer",
+      "status": "computed",
+      "subject": "S11",
+      "activity": "table_soccer",
+      "candidates": 913,
+      "reference_beats": 579,
+      "feature_seconds": 1.073923800024204,
+      "sha256": "413b5842d11cfcdf7b43763b35f90212a3cc5f81fc5706ce1e0ce11a4d81ce55"
+    },
+    {
+      "key": "S11_walking",
+      "status": "computed",
+      "subject": "S11",
+      "activity": "walking",
+      "candidates": 1951,
+      "reference_beats": 1346,
+      "feature_seconds": 2.569122700020671,
+      "sha256": "25a9578ba1cc1b1a8632140a59b5b76d185f4d376af0d85ecb3a9bd22461aa38"
+    },
+    {
+      "key": "S11_working",
+      "status": "computed",
+      "subject": "S11",
+      "activity": "working",
+      "candidates": 2098,
+      "reference_beats": 1542,
+      "feature_seconds": 3.9748351000016555,
+      "sha256": "5f39e9a33834daae590784c9cf99dc39c3706bca7a29f60e711a0a17ef8d6930"
+    },
+    {
+      "key": "S12_car_driving",
+      "status": "computed",
+      "subject": "S12",
+      "activity": "car_driving",
+      "candidates": 1597,
+      "reference_beats": 1004,
+      "feature_seconds": 2.8124043000862002,
+      "sha256": "0591c8625027626587a27aead4870c76425711ff9574e3deafd05f2ff86de77c"
+    },
+    {
+      "key": "S12_cycling",
+      "status": "computed",
+      "subject": "S12",
+      "activity": "cycling",
+      "candidates": 1217,
+      "reference_beats": 798,
+      "feature_seconds": 1.7428792000282556,
+      "sha256": "d935bdd5fd540939b70eb4109877e066b5068b42f9c80b0f7bd5ded87b5c371b"
+    },
+    {
+      "key": "S12_lunch_break",
+      "status": "computed",
+      "subject": "S12",
+      "activity": "lunch_break",
+      "candidates": 2859,
+      "reference_beats": 1680,
+      "feature_seconds": 4.375120499986224,
+      "sha256": "a9fe9470416cfdf9c07278614ca3872d45014a685c697867107ad3dd9eb15cff"
+    },
+    {
+      "key": "S12_sitting",
+      "status": "computed",
+      "subject": "S12",
+      "activity": "sitting",
+      "candidates": 1005,
+      "reference_beats": 448,
+      "feature_seconds": 2.0522933999309316,
+      "sha256": "a08d52d86e3ebc88ac911f26c6597bfce123c45f05edde1243bd5002ccc729af"
+    },
+    {
+      "key": "S12_stair_climbing",
+      "status": "computed",
+      "subject": "S12",
+      "activity": "stair_climbing",
+      "candidates": 1167,
+      "reference_beats": 720,
+      "feature_seconds": 1.4752972000278533,
+      "sha256": "400d002af0b0c52d211c432a2d30483b86a514d1d56834a92b3158b5ade71d3b"
+    },
+    {
+      "key": "S12_table_soccer",
+      "status": "computed",
+      "subject": "S12",
+      "activity": "table_soccer",
+      "candidates": 642,
+      "reference_beats": 331,
+      "feature_seconds": 0.8546473999740556,
+      "sha256": "a6814fc42d09e208234290cb1f6b75cd52bf2032cd990310a093b92d3a949418"
+    },
+    {
+      "key": "S12_walking",
+      "status": "computed",
+      "subject": "S12",
+      "activity": "walking",
+      "candidates": 1140,
+      "reference_beats": 646,
+      "feature_seconds": 1.5696992999874055,
+      "sha256": "33b930c00c75043c23818596c3f5ea8de5697b83df68341bf5da88fe48ec2f90"
+    },
+    {
+      "key": "S12_working",
+      "status": "computed",
+      "subject": "S12",
+      "activity": "working",
+      "candidates": 1747,
+      "reference_beats": 1175,
+      "feature_seconds": 3.571256099967286,
+      "sha256": "38b99ea5e45c99480cc81d4cdda825a3b32b732934821b3debb62959ce516104"
+    },
+    {
+      "key": "S13_car_driving",
+      "status": "computed",
+      "subject": "S13",
+      "activity": "car_driving",
+      "candidates": 1676,
+      "reference_beats": 1223,
+      "feature_seconds": 2.903244100045413,
+      "sha256": "364817f9fcff5a7c2d31d151fec457ce71279b09bb32ceb0f2a226688048ec40"
+    },
+    {
+      "key": "S13_cycling",
+      "status": "computed",
+      "subject": "S13",
+      "activity": "cycling",
+      "candidates": 1218,
+      "reference_beats": 1066,
+      "feature_seconds": 1.7419541999697685,
+      "sha256": "d359365f7c35774bee0317f397f0c004d8779d5402acd79598ed15c85db6a7e9"
+    },
+    {
+      "key": "S13_lunch_break",
+      "status": "computed",
+      "subject": "S13",
+      "activity": "lunch_break",
+      "candidates": 3982,
+      "reference_beats": 2750,
+      "feature_seconds": 6.836367500014603,
+      "sha256": "0b682330b0b6a44a6075a8e16da18a47159f8e2c7092d256aaefa12e29edb49c"
+    },
+    {
+      "key": "S13_sitting",
+      "status": "computed",
+      "subject": "S13",
+      "activity": "sitting",
+      "candidates": 843,
+      "reference_beats": 539,
+      "feature_seconds": 2.2436507999664173,
+      "sha256": "ae3c1891f14d9948ee41668c370f95788ac8391ad2199ba4cd417ce18dc5e2e9"
+    },
+    {
+      "key": "S13_stair_climbing",
+      "status": "computed",
+      "subject": "S13",
+      "activity": "stair_climbing",
+      "candidates": 1369,
+      "reference_beats": 1004,
+      "feature_seconds": 1.8755271999398246,
+      "sha256": "ac71121ee1b152152f6fbdca648763846b2d3fb93185a9d7c112f700a04ec033"
+    },
+    {
+      "key": "S13_table_soccer",
+      "status": "computed",
+      "subject": "S13",
+      "activity": "table_soccer",
+      "candidates": 813,
+      "reference_beats": 403,
+      "feature_seconds": 1.2086015000240877,
+      "sha256": "7ed75c7bb534db08b71936a132946994dee892d6210e6ae04500044dd6127096"
+    },
+    {
+      "key": "S13_walking",
+      "status": "computed",
+      "subject": "S13",
+      "activity": "walking",
+      "candidates": 2084,
+      "reference_beats": 1275,
+      "feature_seconds": 2.627425199956633,
+      "sha256": "3690388f9fef6a0b1be84f1dbc0fd3b00d54c79c17b9cbc4a31fef4dd4f46707"
+    },
+    {
+      "key": "S13_working",
+      "status": "computed",
+      "subject": "S13",
+      "activity": "working",
+      "candidates": 1900,
+      "reference_beats": 1474,
+      "feature_seconds": 4.171857799985446,
+      "sha256": "ab8f944c1d002717b4588ff8f6ca67265e698685930a865d0439dd375863b27b"
+    },
+    {
+      "key": "S14_car_driving",
+      "status": "computed",
+      "subject": "S14",
+      "activity": "car_driving",
+      "candidates": 1509,
+      "reference_beats": 1367,
+      "feature_seconds": 2.67881340009626,
+      "sha256": "8d22ea9c37dba062dcf5775f98d95c93869103f3114cbf33d55f2139a26e03b9"
+    },
+    {
+      "key": "S14_cycling",
+      "status": "computed",
+      "subject": "S14",
+      "activity": "cycling",
+      "candidates": 1283,
+      "reference_beats": 1079,
+      "feature_seconds": 1.6265438999980688,
+      "sha256": "dfa6ab553792547ab9ba7c3d81c0c3ba3a046b2cd77e1e2b47b4488508ceca22"
+    },
+    {
+      "key": "S14_lunch_break",
+      "status": "computed",
+      "subject": "S14",
+      "activity": "lunch_break",
+      "candidates": 3228,
+      "reference_beats": 2453,
+      "feature_seconds": 5.404446100001223,
+      "sha256": "54ae9050b705825b5e102b367d326f797c575c220e638833cb0723a505a32300"
+    },
+    {
+      "key": "S14_sitting",
+      "status": "computed",
+      "subject": "S14",
+      "activity": "sitting",
+      "candidates": 690,
+      "reference_beats": 602,
+      "feature_seconds": 1.516757300007157,
+      "sha256": "74096e9e794af3b37fd4c67881543417dcdd55c98a4cb18cbf5873ca6ad35d9c"
+    },
+    {
+      "key": "S14_stair_climbing",
+      "status": "computed",
+      "subject": "S14",
+      "activity": "stair_climbing",
+      "candidates": 1256,
+      "reference_beats": 888,
+      "feature_seconds": 1.5565232000080869,
+      "sha256": "4b37e26d654dbfd8104142c67d85ab27b4c2affd720fb21b7827b4b6f9c869d3"
+    },
+    {
+      "key": "S14_table_soccer",
+      "status": "computed",
+      "subject": "S14",
+      "activity": "table_soccer",
+      "candidates": 604,
+      "reference_beats": 436,
+      "feature_seconds": 0.9150957999518141,
+      "sha256": "c1374208670832df25304184d0c17d9046b3d8afa7709ca2e1957d6596e2b335"
+    },
+    {
+      "key": "S14_walking",
+      "status": "computed",
+      "subject": "S14",
+      "activity": "walking",
+      "candidates": 1684,
+      "reference_beats": 982,
+      "feature_seconds": 1.9880190000403672,
+      "sha256": "2839fd481547b9b9cb54447510a9ccc0e97ed61d7d900f43c83be3dd6205474d"
+    },
+    {
+      "key": "S14_working",
+      "status": "computed",
+      "subject": "S14",
+      "activity": "working",
+      "candidates": 1809,
+      "reference_beats": 1491,
+      "feature_seconds": 3.74155699997209,
+      "sha256": "897bae965dec06f12e42ec1856140b56ae6d6299da72f970bed478adb3835bbf"
+    },
+    {
+      "key": "S15_car_driving",
+      "status": "computed",
+      "subject": "S15",
+      "activity": "car_driving",
+      "candidates": 1402,
+      "reference_beats": 886,
+      "feature_seconds": 2.6528877000091597,
+      "sha256": "48c139b113d51d128e3c5243c6b7cbc14467f7ff77fc11e040b92605a59c6d97"
+    },
+    {
+      "key": "S15_cycling",
+      "status": "computed",
+      "subject": "S15",
+      "activity": "cycling",
+      "candidates": 1089,
+      "reference_beats": 782,
+      "feature_seconds": 1.611923799966462,
+      "sha256": "f056507db0fc1fdfacece5f341842275711036c1330db6c5111f44e184fe89af"
+    },
+    {
+      "key": "S15_lunch_break",
+      "status": "computed",
+      "subject": "S15",
+      "activity": "lunch_break",
+      "candidates": 2953,
+      "reference_beats": 1783,
+      "feature_seconds": 4.468317300081253,
+      "sha256": "5d83613a96ce08e868fce2f7e128fdd6b0d1bb8078611664dca9bf01860bc3aa"
+    },
+    {
+      "key": "S15_sitting",
+      "status": "computed",
+      "subject": "S15",
+      "activity": "sitting",
+      "candidates": 894,
+      "reference_beats": 535,
+      "feature_seconds": 2.151520000072196,
+      "sha256": "b5a026399af8777aeb462395ab817f37b722550abf883757fd0bc369d0cdbeb0"
+    },
+    {
+      "key": "S15_stair_climbing",
+      "status": "computed",
+      "subject": "S15",
+      "activity": "stair_climbing",
+      "candidates": 1080,
+      "reference_beats": 787,
+      "feature_seconds": 1.612035800004378,
+      "sha256": "852e6ca501cab3b02d976fe800475acbd8abcbdb15d2ed31a64baa7e51462cc6"
+    },
+    {
+      "key": "S15_table_soccer",
+      "status": "computed",
+      "subject": "S15",
+      "activity": "table_soccer",
+      "candidates": 761,
+      "reference_beats": 498,
+      "feature_seconds": 1.2387309999903664,
+      "sha256": "6d80b4cd0ec8662e05c01a67b4450b9fdf46348441cc0830b27a4990274f80b4"
+    },
+    {
+      "key": "S15_walking",
+      "status": "computed",
+      "subject": "S15",
+      "activity": "walking",
+      "candidates": 1697,
+      "reference_beats": 966,
+      "feature_seconds": 2.1233658000128344,
+      "sha256": "3f1d4d5c3a115292e4bee923228f0098fcb1cc7dc15b7030424e04294a748622"
+    },
+    {
+      "key": "S15_working",
+      "status": "computed",
+      "subject": "S15",
+      "activity": "working",
+      "candidates": 2622,
+      "reference_beats": 1345,
+      "feature_seconds": 2.904770400025882,
+      "sha256": "fa25e1850f89c77b114d2db900a7a2dabcb6db20c4c6cdf9dc17c85f40b5b583"
+    },
+    {
+      "key": "S1_car_driving",
+      "status": "computed",
+      "subject": "S1",
+      "activity": "car_driving",
+      "candidates": 1350,
+      "reference_beats": 997,
+      "feature_seconds": 2.4811248999321833,
+      "sha256": "7771db6e059b21f77e6b6dc2d38f6c1cf025df298cd724b2724e6ee5e919e09f"
+    },
+    {
+      "key": "S1_cycling",
+      "status": "computed",
+      "subject": "S1",
+      "activity": "cycling",
+      "candidates": 1006,
+      "reference_beats": 748,
+      "feature_seconds": 1.4703296000370756,
+      "sha256": "aa2d71d7fd18f3f89328bae297c02a95035f3a79fddaa5155adae83f636500d2"
+    },
+    {
+      "key": "S1_lunch_break",
+      "status": "computed",
+      "subject": "S1",
+      "activity": "lunch_break",
+      "candidates": 4145,
+      "reference_beats": 2657,
+      "feature_seconds": 6.665163099998608,
+      "sha256": "824d91d13f598120f220dcee0ca6fd4d8ae3f83cdd502927478c0b9ef502f757"
+    },
+    {
+      "key": "S1_sitting",
+      "status": "computed",
+      "subject": "S1",
+      "activity": "sitting",
+      "candidates": 797,
+      "reference_beats": 595,
+      "feature_seconds": 2.1220386000350118,
+      "sha256": "dbaba52be82e254a70d8816cff77fd2b3cfd728cc5e7a33488d3fee71eafd709"
+    },
+    {
+      "key": "S1_stair_climbing",
+      "status": "computed",
+      "subject": "S1",
+      "activity": "stair_climbing",
+      "candidates": 674,
+      "reference_beats": 524,
+      "feature_seconds": 0.9787811000132933,
+      "sha256": "68a639c33fbc80d6fb9c60983259209535bfe9d91d770d634c747ac17f4178aa"
+    },
+    {
+      "key": "S1_table_soccer",
+      "status": "computed",
+      "subject": "S1",
+      "activity": "table_soccer",
+      "candidates": 889,
+      "reference_beats": 408,
+      "feature_seconds": 1.2150542000308633,
+      "sha256": "c551bf2eb45ffe00f582438bd0188bf6c0811293142a9afe01ef65f7aff9cd33"
+    },
+    {
+      "key": "S1_walking",
+      "status": "computed",
+      "subject": "S1",
+      "activity": "walking",
+      "candidates": 2150,
+      "reference_beats": 1111,
+      "feature_seconds": 2.4140212000347674,
+      "sha256": "87e191a0ca3522fbbfa7e2fdf106a38594face3b783cee8d67324a34bda8b19c"
+    },
+    {
+      "key": "S1_working",
+      "status": "computed",
+      "subject": "S1",
+      "activity": "working",
+      "candidates": 2256,
+      "reference_beats": 1402,
+      "feature_seconds": 3.6860438999719918,
+      "sha256": "b1ef6b723f03b1ec1d178ab642437bbf998d2ab5a071edbe89f6c3015ef06eb1"
+    },
+    {
+      "key": "S2_car_driving",
+      "status": "computed",
+      "subject": "S2",
+      "activity": "car_driving",
+      "candidates": 2367,
+      "reference_beats": 1160,
+      "feature_seconds": 2.8606267999857664,
+      "sha256": "f0458606336d957a2de4f5e441507e7aea7f776878bef7f83f7ca1d486d13098"
+    },
+    {
+      "key": "S2_cycling",
+      "status": "computed",
+      "subject": "S2",
+      "activity": "cycling",
+      "candidates": 1430,
+      "reference_beats": 688,
+      "feature_seconds": 1.5392830000491813,
+      "sha256": "d36ff2958f3b14f8ff80424eb6c1d913c505efcc1c2cebd1f8d681ed6369cb63"
+    },
+    {
+      "key": "S2_lunch_break",
+      "status": "computed",
+      "subject": "S2",
+      "activity": "lunch_break",
+      "candidates": 3242,
+      "reference_beats": 1539,
+      "feature_seconds": 3.818721399991773,
+      "sha256": "8ddd52c244f0c290db187c207938c183c2bc2e625dbdcdfee50334323b84a7b8"
+    },
+    {
+      "key": "S2_sitting",
+      "status": "computed",
+      "subject": "S2",
+      "activity": "sitting",
+      "candidates": 1404,
+      "reference_beats": 629,
+      "feature_seconds": 1.940837600035593,
+      "sha256": "a4405534cf432eab50e60d91db8ab9898d363c64501d3f050fbc7e6265702b06"
+    },
+    {
+      "key": "S2_stair_climbing",
+      "status": "computed",
+      "subject": "S2",
+      "activity": "stair_climbing",
+      "candidates": 864,
+      "reference_beats": 504,
+      "feature_seconds": 0.884498400031589,
+      "sha256": "7ace78252821bcf8bdad0a48d796f961ffcdff23602c5a531cf8129181fde53a"
+    },
+    {
+      "key": "S2_table_soccer",
+      "status": "computed",
+      "subject": "S2",
+      "activity": "table_soccer",
+      "candidates": 836,
+      "reference_beats": 448,
+      "feature_seconds": 0.9674249000381678,
+      "sha256": "fb9efa9d97260b94248fd16eff6c4820c29412f707237f2d14fe5f46b5631cbd"
+    },
+    {
+      "key": "S2_walking",
+      "status": "computed",
+      "subject": "S2",
+      "activity": "walking",
+      "candidates": 2113,
+      "reference_beats": 1057,
+      "feature_seconds": 2.3768492999952286,
+      "sha256": "f02074db6ce3ed112befcdda09cb8bb5e3e6cac8309dfb7f82769ad687945781"
+    },
+    {
+      "key": "S2_working",
+      "status": "computed",
+      "subject": "S2",
+      "activity": "working",
+      "candidates": 3430,
+      "reference_beats": 1680,
+      "feature_seconds": 4.358562399982475,
+      "sha256": "e20d02210858398dde9152639e4f58717523e696a695f9a278ca8aa833a83fa9"
+    },
+    {
+      "key": "S3_car_driving",
+      "status": "computed",
+      "subject": "S3",
+      "activity": "car_driving",
+      "candidates": 1971,
+      "reference_beats": 1325,
+      "feature_seconds": 3.0169796000700444,
+      "sha256": "17c9160b3465b5591b0953a95d28e337773acc51b8603c3796cf65fb08b1b2da"
+    },
+    {
+      "key": "S3_cycling",
+      "status": "computed",
+      "subject": "S3",
+      "activity": "cycling",
+      "candidates": 1024,
+      "reference_beats": 750,
+      "feature_seconds": 1.4166066000470892,
+      "sha256": "64786db6319fac05f11c45abfc9bdf6a38c35fcf6e65f9e67fc4cf0ea3735d04"
+    },
+    {
+      "key": "S3_lunch_break",
+      "status": "computed",
+      "subject": "S3",
+      "activity": "lunch_break",
+      "candidates": 4694,
+      "reference_beats": 3140,
+      "feature_seconds": 6.95878410001751,
+      "sha256": "8d26bf52fd0e132b025ff0fb1e50a757336edfdb02d4c37443caaf3c4db627f7"
+    },
+    {
+      "key": "S3_sitting",
+      "status": "computed",
+      "subject": "S3",
+      "activity": "sitting",
+      "candidates": 818,
+      "reference_beats": 554,
+      "feature_seconds": 1.8522309000836685,
+      "sha256": "4e8be3d0b694d6b880d9f486b2a8b998893550f7dd1d27b85e48cbb0c9f5775d"
+    },
+    {
+      "key": "S3_stair_climbing",
+      "status": "computed",
+      "subject": "S3",
+      "activity": "stair_climbing",
+      "candidates": 1260,
+      "reference_beats": 769,
+      "feature_seconds": 1.5052180000348017,
+      "sha256": "2948103734a30a163dbe8c7dc13e84d06fafb1c73d0339cbdcfff08d34a6d474"
+    },
+    {
+      "key": "S3_table_soccer",
+      "status": "computed",
+      "subject": "S3",
+      "activity": "table_soccer",
+      "candidates": 752,
+      "reference_beats": 396,
+      "feature_seconds": 0.8709923999849707,
+      "sha256": "1613b482880e53600d54fd3d3d8118092b568902faa8d782e1f2875d9d4c0ae1"
+    },
+    {
+      "key": "S3_walking",
+      "status": "computed",
+      "subject": "S3",
+      "activity": "walking",
+      "candidates": 2030,
+      "reference_beats": 1256,
+      "feature_seconds": 2.444537599920295,
+      "sha256": "3c4d91ad874128fadb9e98a0eefd5d7c7718b571699c52e8293575b9f3c3c211"
+    },
+    {
+      "key": "S3_working",
+      "status": "computed",
+      "subject": "S3",
+      "activity": "working",
+      "candidates": 2179,
+      "reference_beats": 1606,
+      "feature_seconds": 3.6623869000468403,
+      "sha256": "89344a35259573db976ef0bf22f098f3ba335405104361fa5ca11001750787df"
+    },
+    {
+      "key": "S4_car_driving",
+      "status": "computed",
+      "subject": "S4",
+      "activity": "car_driving",
+      "candidates": 2636,
+      "reference_beats": 1365,
+      "feature_seconds": 3.5043799000559375,
+      "sha256": "ec2f626f0afd62a1216c67bb3b5ba54946aa496310e71d56c32161fb5a2e068c"
+    },
+    {
+      "key": "S4_cycling",
+      "status": "computed",
+      "subject": "S4",
+      "activity": "cycling",
+      "candidates": 1593,
+      "reference_beats": 844,
+      "feature_seconds": 1.9637021999806166,
+      "sha256": "d2027b1fe6b0a24335a4a86f8b841e6768fbf99b27eefd67443cb3441cbd4e67"
+    },
+    {
+      "key": "S4_lunch_break",
+      "status": "computed",
+      "subject": "S4",
+      "activity": "lunch_break",
+      "candidates": 4806,
+      "reference_beats": 2727,
+      "feature_seconds": 6.28655079996679,
+      "sha256": "5c81c1b920d57d0e1f8815e0aa664af8b6ae580bc8552983856e403c11957a3b"
+    },
+    {
+      "key": "S4_sitting",
+      "status": "computed",
+      "subject": "S4",
+      "activity": "sitting",
+      "candidates": 975,
+      "reference_beats": 580,
+      "feature_seconds": 1.8190226000733674,
+      "sha256": "6cd30cabaacb9b7b63636f9521294c3e560a9e07dc6a00aa783a3726250ab34e"
+    },
+    {
+      "key": "S4_stair_climbing",
+      "status": "computed",
+      "subject": "S4",
+      "activity": "stair_climbing",
+      "candidates": 1581,
+      "reference_beats": 924,
+      "feature_seconds": 1.9069584000390023,
+      "sha256": "c0ef1fe3d14704f02d570331921f5e2f637569957597118623bd6f8f3a509c02"
+    },
+    {
+      "key": "S4_table_soccer",
+      "status": "computed",
+      "subject": "S4",
+      "activity": "table_soccer",
+      "candidates": 875,
+      "reference_beats": 458,
+      "feature_seconds": 1.0831520999781787,
+      "sha256": "3892a258e2e20464b4d5608f28d395bdf32d36c499a373a6ef9f3f05dd7aadca"
+    },
+    {
+      "key": "S4_walking",
+      "status": "computed",
+      "subject": "S4",
+      "activity": "walking",
+      "candidates": 1871,
+      "reference_beats": 976,
+      "feature_seconds": 1.9603312000399455,
+      "sha256": "d7146a180b666a4eddf759cf9fea9b219b9e96319e281683b81a71106009e75b"
+    },
+    {
+      "key": "S4_working",
+      "status": "computed",
+      "subject": "S4",
+      "activity": "working",
+      "candidates": 2802,
+      "reference_beats": 1685,
+      "feature_seconds": 3.911862100008875,
+      "sha256": "9c03e725b56fa7eba554ac51cb3929a1414f7aa4fd9578b1f01c4c986cb5efea"
+    },
+    {
+      "key": "S5_car_driving",
+      "status": "computed",
+      "subject": "S5",
+      "activity": "car_driving",
+      "candidates": 2392,
+      "reference_beats": 1646,
+      "feature_seconds": 2.7635331999044865,
+      "sha256": "9e30fb80af8321c3e49537de37b6777345ac91c6f71afdba9836021b1780cf3a"
+    },
+    {
+      "key": "S5_cycling",
+      "status": "computed",
+      "subject": "S5",
+      "activity": "cycling",
+      "candidates": 1301,
+      "reference_beats": 1173,
+      "feature_seconds": 1.5055104000493884,
+      "sha256": "75c94e24c0e702a7ecd9f2f4842465ac89f36e21266a83a7ac20153e3f0cd8c5"
+    },
+    {
+      "key": "S5_lunch_break",
+      "status": "computed",
+      "subject": "S5",
+      "activity": "lunch_break",
+      "candidates": 6453,
+      "reference_beats": 4392,
+      "feature_seconds": 7.821802500053309,
+      "sha256": "08cb7f5a0dcc9d1d685062055bba5a0a0e2ab4c14e2844054b6eafbf3270bd1f"
+    },
+    {
+      "key": "S5_sitting",
+      "status": "computed",
+      "subject": "S5",
+      "activity": "sitting",
+      "candidates": 1464,
+      "reference_beats": 925,
+      "feature_seconds": 1.8844948000041768,
+      "sha256": "86d9322717ab8b49f320649ea081901faa54e2785ecfbf62c50183c5478bffdf"
+    },
+    {
+      "key": "S5_stair_climbing",
+      "status": "computed",
+      "subject": "S5",
+      "activity": "stair_climbing",
+      "candidates": 1315,
+      "reference_beats": 1243,
+      "feature_seconds": 1.507856999989599,
+      "sha256": "40047c7adf55a524e97d0386eba7401ab586cdebf0c0b4fc36f82f8cb0f39d19"
+    },
+    {
+      "key": "S5_table_soccer",
+      "status": "computed",
+      "subject": "S5",
+      "activity": "table_soccer",
+      "candidates": 854,
+      "reference_beats": 644,
+      "feature_seconds": 1.0435126000083983,
+      "sha256": "5034f826ddef7d81628fc4ab11b57c4f0f1e8be95b9cef618c07529b3757a91e"
+    },
+    {
+      "key": "S5_walking",
+      "status": "computed",
+      "subject": "S5",
+      "activity": "walking",
+      "candidates": 1786,
+      "reference_beats": 1320,
+      "feature_seconds": 1.9948650998994708,
+      "sha256": "2b7c2214adfbd0fd0ba48f6cef26472437b3dd16437a471eaf864604c53ff725"
+    },
+    {
+      "key": "S5_working",
+      "status": "computed",
+      "subject": "S5",
+      "activity": "working",
+      "candidates": 3580,
+      "reference_beats": 2316,
+      "feature_seconds": 4.449578100000508,
+      "sha256": "367f4f5511beeb02889218c1a1881d4507ce3fa59ee770bfc7ce0f051a1d75fd"
+    },
+    {
+      "key": "S6_car_driving",
+      "status": "computed",
+      "subject": "S6",
+      "activity": "car_driving",
+      "candidates": 2048,
+      "reference_beats": 1803,
+      "feature_seconds": 3.404584000003524,
+      "sha256": "dac2272fdca547ca75883915a28947a72594541c0e7a04769329910385b2b994"
+    },
+    {
+      "key": "S6_cycling",
+      "status": "computed",
+      "subject": "S6",
+      "activity": "cycling",
+      "candidates": 1434,
+      "reference_beats": 1361,
+      "feature_seconds": 1.9019191999686882,
+      "sha256": "18cc71e120c8d6115e18a66ac1da59db261ed5d1716c230a78e29527e6ef06b3"
+    },
+    {
+      "key": "S6_sitting",
+      "status": "computed",
+      "subject": "S6",
+      "activity": "sitting",
+      "candidates": 997,
+      "reference_beats": 903,
+      "feature_seconds": 1.8767017000354826,
+      "sha256": "0811ca782349eaed058b190b1cb626352dcdb173a2b4e7eab7820356a15f85b3"
+    },
+    {
+      "key": "S6_stair_climbing",
+      "status": "computed",
+      "subject": "S6",
+      "activity": "stair_climbing",
+      "candidates": 1243,
+      "reference_beats": 1079,
+      "feature_seconds": 1.3484911000123248,
+      "sha256": "a85b3da0ed3f638a64268ac1c629c61a6bfd4cfaa73a322652202fd0329dcbed"
+    },
+    {
+      "key": "S6_table_soccer",
+      "status": "computed",
+      "subject": "S6",
+      "activity": "table_soccer",
+      "candidates": 879,
+      "reference_beats": 640,
+      "feature_seconds": 1.0462038000114262,
+      "sha256": "3c3a492e3d172298dee22f061dd75d4b62dcb2c715930467597ca948d038b824"
+    },
+    {
+      "key": "S7_car_driving",
+      "status": "computed",
+      "subject": "S7",
+      "activity": "car_driving",
+      "candidates": 1741,
+      "reference_beats": 1463,
+      "feature_seconds": 3.274493300006725,
+      "sha256": "2c99aec56eeb3b8250ecde782b0e5282c09cdd7238686a0c4ada0a199e00d35e"
+    },
+    {
+      "key": "S7_cycling",
+      "status": "computed",
+      "subject": "S7",
+      "activity": "cycling",
+      "candidates": 1246,
+      "reference_beats": 995,
+      "feature_seconds": 1.9647726999828592,
+      "sha256": "8d7860cab04b8d11f5c416cdc6451dd7f425159dc50a14ab4965db7cef2964b6"
+    },
+    {
+      "key": "S7_lunch_break",
+      "status": "computed",
+      "subject": "S7",
+      "activity": "lunch_break",
+      "candidates": 4473,
+      "reference_beats": 3235,
+      "feature_seconds": 7.911087800050154,
+      "sha256": "232a4475e86dacfce0798a90873612d5af1398f4a363cb24b0618144f2cc36a0"
+    },
+    {
+      "key": "S7_sitting",
+      "status": "computed",
+      "subject": "S7",
+      "activity": "sitting",
+      "candidates": 868,
+      "reference_beats": 534,
+      "feature_seconds": 2.1598619000287727,
+      "sha256": "a7524cb8ffc67023d7e9a6aea7b13e910fd7bef6c2872f5c416c9e01e6416290"
+    },
+    {
+      "key": "S7_stair_climbing",
+      "status": "computed",
+      "subject": "S7",
+      "activity": "stair_climbing",
+      "candidates": 1165,
+      "reference_beats": 852,
+      "feature_seconds": 1.5252824000781402,
+      "sha256": "5b3a158020ed84cf129be8fe4371948702aa8c34971d9b8557eb0ee4abf9bd89"
+    },
+    {
+      "key": "S7_table_soccer",
+      "status": "computed",
+      "subject": "S7",
+      "activity": "table_soccer",
+      "candidates": 557,
+      "reference_beats": 424,
+      "feature_seconds": 0.9007688999408856,
+      "sha256": "a4e2bc420bd25a33f3641d9d4af859f40812c898796f822bd1891704cc6cdb0d"
+    },
+    {
+      "key": "S7_walking",
+      "status": "computed",
+      "subject": "S7",
+      "activity": "walking",
+      "candidates": 2089,
+      "reference_beats": 1179,
+      "feature_seconds": 2.3316942000528798,
+      "sha256": "dacdfd223f74c9faf25c35d39ea0059fdc2c60a719070ff8579a23aae6746b84"
+    },
+    {
+      "key": "S7_working",
+      "status": "computed",
+      "subject": "S7",
+      "activity": "working",
+      "candidates": 1671,
+      "reference_beats": 1497,
+      "feature_seconds": 3.6446549999527633,
+      "sha256": "f56b6672665c5aa8539446a893d5b8e696eff7608a2895599cf19b31dd515426"
+    },
+    {
+      "key": "S8_car_driving",
+      "status": "computed",
+      "subject": "S8",
+      "activity": "car_driving",
+      "candidates": 1994,
+      "reference_beats": 887,
+      "feature_seconds": 2.775848300079815,
+      "sha256": "ed5f4246cfe2d605b405c6c69311970d803e1f51e0632ea7a3f8d71ed2879354"
+    },
+    {
+      "key": "S8_cycling",
+      "status": "computed",
+      "subject": "S8",
+      "activity": "cycling",
+      "candidates": 1379,
+      "reference_beats": 703,
+      "feature_seconds": 1.5899855999741703,
+      "sha256": "dd34badf356cf41b9d48d8a0c8ef4891173f4dd5e8344bfa9ee85ba459a3e8f4"
+    },
+    {
+      "key": "S8_lunch_break",
+      "status": "computed",
+      "subject": "S8",
+      "activity": "lunch_break",
+      "candidates": 4657,
+      "reference_beats": 2143,
+      "feature_seconds": 6.624227600055747,
+      "sha256": "4618080b68f8cec44fdefea89cfbb8dd87a4a0555c4f438a70e1e9d03554ecb4"
+    },
+    {
+      "key": "S8_sitting",
+      "status": "computed",
+      "subject": "S8",
+      "activity": "sitting",
+      "candidates": 1233,
+      "reference_beats": 570,
+      "feature_seconds": 2.005004199920222,
+      "sha256": "d02a15cdea2c421c4c50682b657769a0104bf5460116c040f92b39d1c1fcb904"
+    },
+    {
+      "key": "S8_stair_climbing",
+      "status": "computed",
+      "subject": "S8",
+      "activity": "stair_climbing",
+      "candidates": 1058,
+      "reference_beats": 633,
+      "feature_seconds": 1.5703071999596432,
+      "sha256": "6712334e10519ce092096d1adb8a52831ea909a7d3040c853dca68baa90d1b48"
+    },
+    {
+      "key": "S8_table_soccer",
+      "status": "computed",
+      "subject": "S8",
+      "activity": "table_soccer",
+      "candidates": 887,
+      "reference_beats": 394,
+      "feature_seconds": 1.413086700020358,
+      "sha256": "ad3e8f769192e5b2d244f1eb867efad0247e43bc8b7517e6457f4f74f0d3805c"
+    },
+    {
+      "key": "S8_walking",
+      "status": "computed",
+      "subject": "S8",
+      "activity": "walking",
+      "candidates": 1287,
+      "reference_beats": 597,
+      "feature_seconds": 1.9539262000471354,
+      "sha256": "b25edb6634efa2adc17e89503fcf9ee4f92d005691885f5e633dadfba0e0fb27"
+    },
+    {
+      "key": "S8_working",
+      "status": "computed",
+      "subject": "S8",
+      "activity": "working",
+      "candidates": 2475,
+      "reference_beats": 1243,
+      "feature_seconds": 3.9198113000020385,
+      "sha256": "bd6a8ee529e68670445a01cb493a06e2d93709fce1df5d38c4a2071ea18079b4"
+    },
+    {
+      "key": "S9_car_driving",
+      "status": "computed",
+      "subject": "S9",
+      "activity": "car_driving",
+      "candidates": 2806,
+      "reference_beats": 1231,
+      "feature_seconds": 3.3804632000392303,
+      "sha256": "86a09650a0a6e11512b46c5b0d1ebc2886d4070c789fbe72c2a724030d3c8efe"
+    },
+    {
+      "key": "S9_cycling",
+      "status": "computed",
+      "subject": "S9",
+      "activity": "cycling",
+      "candidates": 2173,
+      "reference_beats": 1070,
+      "feature_seconds": 2.3864299999549985,
+      "sha256": "85ee23f528db8ceb5ac3e7271a6ea043d446b4de337975a37b69c162917b2cac"
+    },
+    {
+      "key": "S9_lunch_break",
+      "status": "computed",
+      "subject": "S9",
+      "activity": "lunch_break",
+      "candidates": 4951,
+      "reference_beats": 2429,
+      "feature_seconds": 6.472415199968964,
+      "sha256": "82bbe8d1b35e5cbce17ff5f6841027b1cbf0c5318e2f4072531b6e12ac833ee7"
+    },
+    {
+      "key": "S9_sitting",
+      "status": "computed",
+      "subject": "S9",
+      "activity": "sitting",
+      "candidates": 1827,
+      "reference_beats": 596,
+      "feature_seconds": 2.3087443000404164,
+      "sha256": "9b120dbb2dd7288ecd851c06716febde9200bc8a7bc6a433b6f56658528de9f2"
+    },
+    {
+      "key": "S9_stair_climbing",
+      "status": "computed",
+      "subject": "S9",
+      "activity": "stair_climbing",
+      "candidates": 1646,
+      "reference_beats": 999,
+      "feature_seconds": 1.5818459999281913,
+      "sha256": "78ea3c41e8b054b579747f7f8921faddf52a1c35528db21074bf9aade4266a89"
+    },
+    {
+      "key": "S9_table_soccer",
+      "status": "computed",
+      "subject": "S9",
+      "activity": "table_soccer",
+      "candidates": 837,
+      "reference_beats": 393,
+      "feature_seconds": 1.1307135000824928,
+      "sha256": "ecfc48a6bbb80feb1b290379f9c78097df57a5606a3090f571ba58ccf48a5336"
+    },
+    {
+      "key": "S9_walking",
+      "status": "computed",
+      "subject": "S9",
+      "activity": "walking",
+      "candidates": 1885,
+      "reference_beats": 1083,
+      "feature_seconds": 2.197293100063689,
+      "sha256": "7fa4b31aa36353871f021fbd95af1134a250e3e850da3a7bfee34d41c111f49b"
+    },
+    {
+      "key": "S9_working",
+      "status": "computed",
+      "subject": "S9",
+      "activity": "working",
+      "candidates": 3804,
+      "reference_beats": 1498,
+      "feature_seconds": 5.215327200014144,
+      "sha256": "66d30cb8f76779c39124146f343d4f99aecc63803e8e343de7f2ea2bb8ae6c98"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "protocol": "X1",
+  "calibration": "fraction20",
+  "window_size": 10,
+  "max_epochs": 100,
+  "seeds": [
+    9
+  ],
+  "standard_feature_count": 65,
+  "hcrd_feature_count": 288,
+  "compact_hcrd_feature_count": 48,
+  "rows": 9216,
+  "torch": "2.13.0+cpu",
+  "python": "3.13.3",
+  "seconds": 324.3240010999143,
+  "aggregate": [
+    {
+      "representation": "standard",
+      "macro_rmse": 0.2291921118895213,
+      "macro_mae": 0.18693329741557438,
+      "macro_late_rmse": 0.24194221297899882,
+      "macro_r_squared": 0.23880772061961614,
+      "fold_seed_count": 15
+    },
+    {
+      "representation": "hcrd_compact",
+      "macro_rmse": 0.2654329294959704,
+      "macro_mae": 0.22203500767548878,
+      "macro_late_rmse": 0.27595530450344086,
+      "macro_r_squared": -0.047274722690616944,
+      "fold_seed_count": 15
+    },
+    {
+      "representation": "hybrid_compact",
+      "macro_rmse": 0.2786203900973002,
+      "macro_mae": 0.22872517307599385,
+      "macro_late_rmse": 0.2773804580171903,
+      "macro_r_squared": -0.08789186363024314,
+      "fold_seed_count": 15
+    }
+  ]
+}

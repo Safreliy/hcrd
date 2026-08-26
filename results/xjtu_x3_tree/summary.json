@@ -1,0 +1,28 @@
+{
+  "protocol": "X2 tree robustness check",
+  "model": "LightGBM fixed causal-window configuration",
+  "calibration": "fraction20",
+  "window_size": 10,
+  "seed": 9,
+  "seconds": 79.40887359995395,
+  "aggregate": [
+    {
+      "representation": "standard",
+      "macro_rmse": 0.19109117161391442,
+      "macro_mae": 0.15761104890349814,
+      "macro_late_rmse": 0.2138122723023397
+    },
+    {
+      "representation": "hcrd_mass6",
+      "macro_rmse": 0.28010354244879815,
+      "macro_mae": 0.23686572285805277,
+      "macro_late_rmse": 0.296261715985249
+    },
+    {
+      "representation": "hybrid_mass6",
+      "macro_rmse": 0.19057161596618397,
+      "macro_mae": 0.15745661077755277,
+      "macro_late_rmse": 0.2115142854710997
+    }
+  ]
+}

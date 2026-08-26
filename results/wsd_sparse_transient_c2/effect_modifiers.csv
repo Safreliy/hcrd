@@ -1,0 +1,3 @@
+stratum,baseline,modifier,spearman_rho,p_value_exploratory
+primary_sparse_transient,POLY,max_run_fraction,-0.0036724016686534903,0.975752000950685
+primary_sparse_transient,POLY,anomaly_occupancy,0.45728849666953614,6.095288938879054e-05

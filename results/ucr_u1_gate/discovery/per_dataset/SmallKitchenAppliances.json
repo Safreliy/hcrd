@@ -1,0 +1,14 @@
+{
+  "dataset": "SmallKitchenAppliances",
+  "assignment": "discovery",
+  "train_size": 375,
+  "length": 720,
+  "class_count": 3,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.8373333333333333,
+  "wavelet_cv_accuracy": 0.8266666666666668,
+  "raw_transform_seconds": 0.42277720000129193,
+  "wavelet_transform_seconds": 1.5060574000235647,
+  "wall_seconds": 3.550435799988918,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

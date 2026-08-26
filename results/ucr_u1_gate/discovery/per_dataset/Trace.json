@@ -1,0 +1,14 @@
+{
+  "dataset": "Trace",
+  "assignment": "discovery",
+  "train_size": 100,
+  "length": 275,
+  "class_count": 4,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 1.0,
+  "wavelet_cv_accuracy": 1.0,
+  "raw_transform_seconds": 0.18770680006127805,
+  "wavelet_transform_seconds": 0.25926419999450445,
+  "wall_seconds": 1.0569394999183714,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

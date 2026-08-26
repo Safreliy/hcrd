@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "GunPointOldVersusYoung",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 136,
+  "test_size": 315,
+  "length": 150,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 12.385937000042759,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.9714285714285714,
+      "balanced_accuracy": 0.9706060606060607,
+      "macro_f1": 0.9713129268909688,
+      "feature_count": 595,
+      "fit_seconds": 8.163045900058933,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.9777777777777776,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.9714285714285714,
+      "balanced_accuracy": 0.97,
+      "macro_f1": 0.9712617461910409,
+      "feature_count": 595,
+      "fit_seconds": 0.08257860003504902,
+      "min_child_samples": 6
+    }
+  },
+  "wall_seconds": 20.781592400046065
+}

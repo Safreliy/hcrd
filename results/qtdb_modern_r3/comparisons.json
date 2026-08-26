@@ -1,0 +1,26 @@
+[
+  {
+    "comparison": "hcrd_quadratic - neurokit_dwt_ch0",
+    "post_lock_exploratory": true,
+    "mean_record_difference_ms": -54.28822508440736,
+    "bootstrap_ci_lower_ms": -65.08011053675682,
+    "bootstrap_ci_upper_ms": -43.69959118076558,
+    "exact_sign_p": 9.995152261577009e-16,
+    "hcrd_win_rate": 0.9125,
+    "ties": 1,
+    "holm_adjusted_sign_p": 9.995152261577009e-16,
+    "confirmatory_superiority_claim_permitted": false
+  },
+  {
+    "comparison": "hcrd_quadratic - neurokit_dwt_ch1",
+    "post_lock_exploratory": true,
+    "mean_record_difference_ms": -76.87782386215159,
+    "bootstrap_ci_lower_ms": -88.46053699009231,
+    "bootstrap_ci_upper_ms": -64.74803321433022,
+    "exact_sign_p": 5.3617847305687254e-21,
+    "hcrd_win_rate": 0.975,
+    "ties": 0,
+    "holm_adjusted_sign_p": 1.0723569461137451e-20,
+    "confirmatory_superiority_claim_permitted": false
+  }
+]

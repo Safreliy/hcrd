@@ -1,0 +1,18 @@
+[
+  {
+    "method": "neurokit_dwt_ch0",
+    "records": 80,
+    "beats": 2785,
+    "mean_record_joint_absolute_error_ms": 77.02329631470685,
+    "median_record_joint_absolute_error_ms": 64.83333333333334,
+    "mean_record_failure_rate": 0.27763572342426707
+  },
+  {
+    "method": "neurokit_dwt_ch1",
+    "records": 80,
+    "beats": 2785,
+    "mean_record_joint_absolute_error_ms": 99.61289509245108,
+    "median_record_joint_absolute_error_ms": 89.31904761904761,
+    "mean_record_failure_rate": 0.43764836434294924
+  }
+]

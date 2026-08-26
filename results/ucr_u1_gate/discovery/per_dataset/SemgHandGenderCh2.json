@@ -1,0 +1,14 @@
+{
+  "dataset": "SemgHandGenderCh2",
+  "assignment": "discovery",
+  "train_size": 300,
+  "length": 1500,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9199999999999999,
+  "wavelet_cv_accuracy": 0.9333333333333332,
+  "raw_transform_seconds": 0.529680100036785,
+  "wavelet_transform_seconds": 5.647104999981821,
+  "wall_seconds": 7.714571799966507,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

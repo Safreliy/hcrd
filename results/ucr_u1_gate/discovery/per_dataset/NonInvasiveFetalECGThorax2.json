@@ -1,0 +1,14 @@
+{
+  "dataset": "NonInvasiveFetalECGThorax2",
+  "assignment": "discovery",
+  "train_size": 1800,
+  "length": 750,
+  "class_count": 42,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9583333333333334,
+  "wavelet_cv_accuracy": 0.9472222222222222,
+  "raw_transform_seconds": 1.1854604999534786,
+  "wavelet_transform_seconds": 5.387872099992819,
+  "wall_seconds": 17.29105520003941,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

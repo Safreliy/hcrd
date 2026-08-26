@@ -1,0 +1,53 @@
+{
+  "dataset": "NASA FEMTO Bearing / PRONOSTIA",
+  "official_page": "https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/",
+  "download_url": "https://phm-datasets.s3.amazonaws.com/NASA/10.+FEMTO+Bearing.zip",
+  "downloaded_utc_date": "2026-08-24",
+  "outer_archive": {
+    "name": "FEMTO_Bearing.zip",
+    "bytes": 1157035288,
+    "sha256": "e21bb22bd8d54fd18ebe98b4b4e094c0c40469bda19811a2a642d5cc84ebd81f"
+  },
+  "nested_archives": [
+    {
+      "name": "Test_set.zip",
+      "bytes": 705791404,
+      "sha256": "5cddf80adab1c25e2c83bd1c5a08dbfab6ae68b19b5b07c7db88dc9373de5258",
+      "used_in_h1": false
+    },
+    {
+      "name": "Training_set.zip",
+      "bytes": 140424205,
+      "sha256": "c210eac98b7849484d135709d4464217685ef39f5a68af2c3e35452fb25e7b88",
+      "used_in_h1": true
+    },
+    {
+      "name": "Validation_Set.zip",
+      "bytes": 316744982,
+      "sha256": "4eafa12a2addab742502bf36bda2a50cc9d4d51bba5d4151410f3ae091863552",
+      "used_in_h1": true
+    }
+  ],
+  "complete_trajectory_acc_file_counts": {
+    "Bearing1_1": 2803,
+    "Bearing1_2": 871,
+    "Bearing1_3": 2375,
+    "Bearing1_4": 1428,
+    "Bearing1_5": 2463,
+    "Bearing1_6": 2448,
+    "Bearing1_7": 2259,
+    "Bearing2_1": 911,
+    "Bearing2_2": 797,
+    "Bearing2_3": 1955,
+    "Bearing2_4": 751,
+    "Bearing2_5": 2311,
+    "Bearing2_6": 701,
+    "Bearing2_7": 230,
+    "Bearing3_1": 515,
+    "Bearing3_2": 1637,
+    "Bearing3_3": 434
+  },
+  "complete_trajectories": 17,
+  "acc_files_used": 24889,
+  "raw_data_committed": false
+}

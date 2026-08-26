@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "MixedShapesSmallTrain",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 100,
+  "test_size": 2425,
+  "length": 1024,
+  "class_count": 5,
+  "workers": 8,
+  "representation_seconds": 92.9819656999316,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.9101030927835052,
+      "balanced_accuracy": 0.9100745148100418,
+      "macro_f1": 0.9103320393144575,
+      "feature_count": 595,
+      "fit_seconds": 6.874424000037834,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.9099999999999999,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.8989690721649485,
+      "balanced_accuracy": 0.9016558272060955,
+      "macro_f1": 0.901439814327318,
+      "feature_count": 595,
+      "fit_seconds": 0.5228366000810638,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 101.78741930006072
+}

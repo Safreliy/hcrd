@@ -1,0 +1,376 @@
+{
+  "phase": "development",
+  "subjects": [
+    1,
+    2,
+    3
+  ],
+  "workers": 8,
+  "protocol_sha256": "02d07a15d7768c7a5be9029e9849252c65f2d7eb81c5d3133458b0893e478973",
+  "recordings": 45,
+  "samples": 3771951,
+  "candidates": 30727,
+  "serial_extraction_seconds": 85.03047850017902,
+  "records": [
+    {
+      "key": "s1_rest1",
+      "status": "cached",
+      "samples": 237188,
+      "candidates": 1423,
+      "seconds": 5.703842999995686,
+      "sha256": "1a11dba4dc93de1686b8456741f497529b457792f3111b3bdbb0536384e6e1bc"
+    },
+    {
+      "key": "s1_rest2",
+      "status": "cached",
+      "samples": 212706,
+      "candidates": 1310,
+      "seconds": 5.667590899975039,
+      "sha256": "d14de91eddf5c5982b0b29bc38a6c5753ac2ca63c89bd4f98ed48f0b82f82558"
+    },
+    {
+      "key": "s1_rest3",
+      "status": "cached",
+      "samples": 230634,
+      "candidates": 1491,
+      "seconds": 6.078091399976984,
+      "sha256": "f60ee9ea76d5fbf3c7dd94a8c960eaabc8fe2e82720ac0cfe32dabe5cd93348a"
+    },
+    {
+      "key": "s1_rest4",
+      "status": "cached",
+      "samples": 228160,
+      "candidates": 1545,
+      "seconds": 5.722832500003278,
+      "sha256": "927e02ec76bf56a3cf16925e3ce2fa776343d39e0c81f6209693a5c330650eea"
+    },
+    {
+      "key": "s1_rest5",
+      "status": "cached",
+      "samples": 399991,
+      "candidates": 3723,
+      "seconds": 9.84803789993748,
+      "sha256": "8bdc47f7e4cc3f6de47b9ccd80dbfaaf5e0e3adfbcd016fbe816626511f399fb"
+    },
+    {
+      "key": "s1_squat1",
+      "status": "cached",
+      "samples": 24847,
+      "candidates": 239,
+      "seconds": 2.1367414999986067,
+      "sha256": "cd52537578cfae6be601d0525a317a85d2b7fbcb7ea963bc5322298268f7dda0"
+    },
+    {
+      "key": "s1_squat2",
+      "status": "cached",
+      "samples": 23753,
+      "candidates": 239,
+      "seconds": 2.0899438000051305,
+      "sha256": "ac01ac0fb702ffd3edc2a1eae002bdef04e3e84cb495b35e2fac6827ec909925"
+    },
+    {
+      "key": "s1_squat3",
+      "status": "cached",
+      "samples": 27606,
+      "candidates": 320,
+      "seconds": 2.2959521000739187,
+      "sha256": "4c033f5959b3c1c8358f906cb65abed7a058c6ea85e9ee7e4525d51544d332e0"
+    },
+    {
+      "key": "s1_squat4",
+      "status": "cached",
+      "samples": 24509,
+      "candidates": 182,
+      "seconds": 0.3333532999968156,
+      "sha256": "feeffb86ad45475d03d7876753e7c1653796cec883999ef69d24cd7ac5f43cc4"
+    },
+    {
+      "key": "s1_squat5",
+      "status": "cached",
+      "samples": 23924,
+      "candidates": 237,
+      "seconds": 0.3668675000080839,
+      "sha256": "ed107619bb47e7e8f0161eec0e5594f511c9fe553f33818c858321abb47a68e9"
+    },
+    {
+      "key": "s1_step1",
+      "status": "cached",
+      "samples": 33601,
+      "candidates": 254,
+      "seconds": 0.5949705999810249,
+      "sha256": "8083c8a0dfe45206b17399147dee6fb45afe21e824d2dc1e43a01d3a70f7db8a"
+    },
+    {
+      "key": "s1_step2",
+      "status": "cached",
+      "samples": 30627,
+      "candidates": 215,
+      "seconds": 0.5158306999364868,
+      "sha256": "ca347d86620def0b0a34989f6c82a66b98ef18c04155597188657362f7be6555"
+    },
+    {
+      "key": "s1_step3",
+      "status": "cached",
+      "samples": 27271,
+      "candidates": 266,
+      "seconds": 0.570022500003688,
+      "sha256": "fa42853b066f20efb46fc2eb2459dc6055c4823c226ba2fe9b47da7afc93bd7e"
+    },
+    {
+      "key": "s1_step4",
+      "status": "cached",
+      "samples": 42466,
+      "candidates": 496,
+      "seconds": 1.018019099952653,
+      "sha256": "3262fc641813d207a21236a6c58c71fac330d0333bd461864c169547c0463851"
+    },
+    {
+      "key": "s1_step5",
+      "status": "cached",
+      "samples": 43231,
+      "candidates": 560,
+      "seconds": 1.0588612999999896,
+      "sha256": "e0a86b8ee963c58bdc8fb324e7ca4d2f2547d23f6fc225f9c14966a377c06d4f"
+    },
+    {
+      "key": "s2_rest1",
+      "status": "cached",
+      "samples": 259364,
+      "candidates": 2434,
+      "seconds": 5.01432560000103,
+      "sha256": "566d577e6fcfc7a1072df973864ed169efb80299ed6b00c675cc49b8c76af738"
+    },
+    {
+      "key": "s2_rest2",
+      "status": "cached",
+      "samples": 221510,
+      "candidates": 2346,
+      "seconds": 4.324329299968667,
+      "sha256": "bb27500e0cfcfefe3d3fc44e4f3f2829cf04a85f1a01fb44416acfd91fd17b0a"
+    },
+    {
+      "key": "s2_rest3",
+      "status": "cached",
+      "samples": 222364,
+      "candidates": 2227,
+      "seconds": 4.2199205000652,
+      "sha256": "bd3ea241d1b091a1bd26b8f0b4229be9d4c6ba359e63bf29843739c696b57c34"
+    },
+    {
+      "key": "s2_rest4",
+      "status": "cached",
+      "samples": 274201,
+      "candidates": 2539,
+      "seconds": 5.203262999886647,
+      "sha256": "e496785774326f0b9cb2d97ca1200e87f00d2c41b3047037de99a1b42ba4df90"
+    },
+    {
+      "key": "s2_rest5",
+      "status": "cached",
+      "samples": 207683,
+      "candidates": 1541,
+      "seconds": 3.6864510000450537,
+      "sha256": "62a64483db4538dcbdaaba8655cf6c124d628310ba21cd9578a682042fef7a3a"
+    },
+    {
+      "key": "s2_squat1",
+      "status": "cached",
+      "samples": 17481,
+      "candidates": 104,
+      "seconds": 0.2572133999783546,
+      "sha256": "db729e9a352a8ff79f70d4f804b45298aa43d81695861f4d709de304e5b80343"
+    },
+    {
+      "key": "s2_squat2",
+      "status": "cached",
+      "samples": 17184,
+      "candidates": 150,
+      "seconds": 0.28529300005175173,
+      "sha256": "1d3cca4c950564e188f6520cbc039591c62e3222502e4cb86ca4d12a38560716"
+    },
+    {
+      "key": "s2_squat3",
+      "status": "cached",
+      "samples": 15926,
+      "candidates": 109,
+      "seconds": 0.8870881999609992,
+      "sha256": "071c5c7d60e8593543400a1e8c5a0b8a26d34e79dacb13158075439391b7dd7d"
+    },
+    {
+      "key": "s2_squat4",
+      "status": "cached",
+      "samples": 18816,
+      "candidates": 164,
+      "seconds": 0.30080440000165254,
+      "sha256": "bce16e6d7b4451ee66e32c316ca217e57b76a938272bf0e9a90b0ad9f360fcce"
+    },
+    {
+      "key": "s2_squat5",
+      "status": "cached",
+      "samples": 17312,
+      "candidates": 151,
+      "seconds": 0.27007140009664,
+      "sha256": "06ccacccd14d3beb8c7e2771530db80bade4c18abeacfe242a5a5d0c4f4972aa"
+    },
+    {
+      "key": "s2_step1",
+      "status": "cached",
+      "samples": 25088,
+      "candidates": 303,
+      "seconds": 0.4562930000247434,
+      "sha256": "6ce2f237e0bd33de72a5d8a53902baf2854e843cd3182230529b1da8d903bdde"
+    },
+    {
+      "key": "s2_step2",
+      "status": "cached",
+      "samples": 29802,
+      "candidates": 216,
+      "seconds": 0.4084992000134662,
+      "sha256": "3237a636edef01c639c5c90c45a48015fd9ea42a06ff572b9c35e75f5b9be9c1"
+    },
+    {
+      "key": "s2_step3",
+      "status": "cached",
+      "samples": 28917,
+      "candidates": 250,
+      "seconds": 0.4390024000313133,
+      "sha256": "1ae51eb7cf69d84abb301a6b11adda6463396def90ad734111c5289294af96f8"
+    },
+    {
+      "key": "s2_step4",
+      "status": "cached",
+      "samples": 37838,
+      "candidates": 374,
+      "seconds": 0.8089854000136256,
+      "sha256": "0223eff4d1b8c0cf2d6e69749c4beac6ae1a36194ae560aa45b3b5ac7a48e3bb"
+    },
+    {
+      "key": "s2_step5",
+      "status": "cached",
+      "samples": 37401,
+      "candidates": 372,
+      "seconds": 0.7998844999819994,
+      "sha256": "33ff3b76161731d6498d5401a4fed202548dd1f03cdff83aac3c1f57eb9890cb"
+    },
+    {
+      "key": "s3_rest1",
+      "status": "cached",
+      "samples": 113376,
+      "candidates": 955,
+      "seconds": 2.3560142000205815,
+      "sha256": "910180c87aed99485295a2411053c6ab0d5df6f93d95967db1e0d90e0423dac2"
+    },
+    {
+      "key": "s3_rest2",
+      "status": "cached",
+      "samples": 109532,
+      "candidates": 814,
+      "seconds": 2.1617412000196055,
+      "sha256": "3c156e5d5bdd1f995881b5675e8ba1ccf331aea73a24960e383d933d425c14ad"
+    },
+    {
+      "key": "s3_rest3",
+      "status": "cached",
+      "samples": 90362,
+      "candidates": 662,
+      "seconds": 1.7550055000465363,
+      "sha256": "19130cbacea70117f84b7a13428a3c61c3fd757f5ddad2448447eff07b129743"
+    },
+    {
+      "key": "s3_rest4",
+      "status": "cached",
+      "samples": 104906,
+      "candidates": 735,
+      "seconds": 2.088041300070472,
+      "sha256": "46925a0bf38ffd02f9ba1bf5526f4f85c0274d0777017df9edb79a550482fbe5"
+    },
+    {
+      "key": "s3_rest5",
+      "status": "cached",
+      "samples": 111360,
+      "candidates": 784,
+      "seconds": 2.1695952001027763,
+      "sha256": "0b09d3cdbdac7c553147145cb499992147943d523bf7e9c0f11ea3393dafdbeb"
+    },
+    {
+      "key": "s3_squat1",
+      "status": "cached",
+      "samples": 19552,
+      "candidates": 98,
+      "seconds": 0.2696914999978617,
+      "sha256": "ccee1b31bb5f91a41af866e05327a373b20c823f5da7cbe06adb851f7996aed6"
+    },
+    {
+      "key": "s3_squat2",
+      "status": "cached",
+      "samples": 17021,
+      "candidates": 79,
+      "seconds": 0.28366079996339977,
+      "sha256": "4dd206d1579d5a6dd2257d395e62ebe899f36c277439b009f21f58e55788fbed"
+    },
+    {
+      "key": "s3_squat3",
+      "status": "cached",
+      "samples": 17945,
+      "candidates": 86,
+      "seconds": 0.26077369996346533,
+      "sha256": "97a9e937c1b0108e16a3802ae3829c30f1bda6376a85408365323be827a974bc"
+    },
+    {
+      "key": "s3_squat4",
+      "status": "cached",
+      "samples": 18368,
+      "candidates": 92,
+      "seconds": 0.2740817000158131,
+      "sha256": "19b038cf6b51617f1dcc59cc898498b8562b5a96942ffa04edb8eb590c33a673"
+    },
+    {
+      "key": "s3_squat5",
+      "status": "cached",
+      "samples": 19712,
+      "candidates": 99,
+      "seconds": 0.288507999968715,
+      "sha256": "df16e41b5366c2506aafbd1203cbff0b0236bbb0706003573d688942b43dbb2e"
+    },
+    {
+      "key": "s3_step1",
+      "status": "cached",
+      "samples": 24224,
+      "candidates": 118,
+      "seconds": 0.4273852000478655,
+      "sha256": "4a5edcf49d88cfe1f3f3ea70bdfce16c421360d9113a6c325231ee7e255d1f10"
+    },
+    {
+      "key": "s3_step2",
+      "status": "cached",
+      "samples": 23456,
+      "candidates": 109,
+      "seconds": 0.37586829997599125,
+      "sha256": "d4caccbb7ed632247b373f9ac72cbcaae15a594d774619bb2ea6760bc412b5db"
+    },
+    {
+      "key": "s3_step3",
+      "status": "cached",
+      "samples": 19520,
+      "candidates": 92,
+      "seconds": 0.31586269999388605,
+      "sha256": "08f42c5c9c772b8120d75fc7e155994ab620ed02fb73bb9c002ba9bb66b26d25"
+    },
+    {
+      "key": "s3_step4",
+      "status": "cached",
+      "samples": 20928,
+      "candidates": 115,
+      "seconds": 0.3160312999971211,
+      "sha256": "d72b38f12c372531293e1e5726686e51ea027a6d6997693f9aa955cfb4b696d6"
+    },
+    {
+      "key": "s3_step5",
+      "status": "cached",
+      "samples": 20288,
+      "candidates": 109,
+      "seconds": 0.3258355000289157,
+      "sha256": "e60cad57376bff2523108f8e406c44ffc898bf85c892c3b91b78879410d1332f"
+    }
+  ]
+}

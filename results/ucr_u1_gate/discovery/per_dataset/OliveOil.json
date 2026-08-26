@@ -1,0 +1,14 @@
+{
+  "dataset": "OliveOil",
+  "assignment": "discovery",
+  "train_size": 30,
+  "length": 570,
+  "class_count": 4,
+  "cv_folds": 4,
+  "raw_cv_accuracy": 0.8973214285714286,
+  "wavelet_cv_accuracy": 0.8660714285714286,
+  "raw_transform_seconds": 0.18183769995812327,
+  "wavelet_transform_seconds": 0.22173240000847727,
+  "wall_seconds": 0.8010197000112385,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "MiddlePhalanxOutlineAgeGroup",
+  "assignment": "discovery",
+  "train_size": 400,
+  "length": 80,
+  "class_count": 3,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.7975,
+  "wavelet_cv_accuracy": 0.8,
+  "raw_transform_seconds": 0.06882709998171777,
+  "wavelet_transform_seconds": 0.15573009999934584,
+  "wall_seconds": 1.3120672999648377,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

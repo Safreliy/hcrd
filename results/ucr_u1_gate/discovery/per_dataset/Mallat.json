@@ -1,0 +1,14 @@
+{
+  "dataset": "Mallat",
+  "assignment": "discovery",
+  "train_size": 55,
+  "length": 1024,
+  "class_count": 8,
+  "cv_folds": 2,
+  "raw_cv_accuracy": 0.9636243386243386,
+  "wavelet_cv_accuracy": 0.9821428571428572,
+  "raw_transform_seconds": 0.1261928000021726,
+  "wavelet_transform_seconds": 0.48276980000082403,
+  "wall_seconds": 0.9923296000342816,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

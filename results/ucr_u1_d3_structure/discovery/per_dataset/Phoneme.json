@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Phoneme",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 214,
+  "test_size": 1896,
+  "length": 1024,
+  "class_count": 39,
+  "workers": 8,
+  "representation_seconds": 64.47969780000858,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.35390295358649787,
+      "balanced_accuracy": 0.21315575275641294,
+      "macro_f1": 0.20899116262892894,
+      "feature_count": 595,
+      "fit_seconds": 1.0062475999584422,
+      "cv_folds": 1,
+      "best_cv_accuracy": null,
+      "best_parameters": {
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.26371308016877637,
+      "balanced_accuracy": 0.13068843489874235,
+      "macro_f1": 0.12840437237147917,
+      "feature_count": 595,
+      "fit_seconds": 4.303709300002083,
+      "min_child_samples": 10
+    }
+  },
+  "wall_seconds": 70.41998350003269
+}

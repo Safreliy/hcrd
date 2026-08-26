@@ -1,0 +1,328 @@
+"""Hierarchical Convexity-Run Decomposition."""
+
+from importlib import import_module
+
+from .anomaly import (
+    AreaAggregation,
+    aggregate_area_density,
+    hcrd_area_anomaly_score,
+)
+from .certified_anomaly import (
+    CertifiedAreaScore,
+    HierarchyDecisionRadius,
+    HierarchyMarginCertificate,
+    certified_hcrd_area_score,
+    certify_hcrd_hierarchy_margin,
+    hcrd_hierarchy_decision_radius,
+    stochastic_hierarchy_agreement_lower_bound,
+)
+from .inference import (
+    InferredMatchedStructure,
+    InferredStructure,
+    chord_area_coefficients,
+    infer_hcrd_matched_structures,
+    infer_hcrd_structures,
+)
+from .tree_inference import HierarchicalTreeTestResult, hierarchical_tree_test
+from .dependent_inference import (
+    BufferedFold,
+    GaussianContrastPivot,
+    buffered_crossfit_folds,
+    gaussian_contrast_pivot,
+)
+
+from .core import (
+    Decomposition,
+    HCRDLevel,
+    SparseDecomposition,
+    SparseHCRDLevel,
+    Structure,
+    decompose,
+    decompose_sparse,
+    discrete_curvature,
+    find_convexity_knots,
+    total_variation,
+)
+from .components import multiscale_detail_series
+from .robust import (
+    AdaptiveGuidedResult,
+    GuidedDecomposition,
+    RobustResult,
+    adaptive_gaussian_guided_decompose,
+    certified_robust_decompose,
+    estimate_noise_sigma,
+    familywise_curvature_threshold,
+    gaussian_guided_decompose,
+    robust_decompose,
+    stability_certificate,
+)
+from .stable import (
+    CertifiedProximalGuidedDecomposition,
+    ProximalCurvatureSplit,
+    QuadraticCurvatureSplit,
+    certified_curvature_signs,
+    certified_proximal_guided_decompose,
+    certified_quadratic_guided_decompose,
+    curvature_perturbation_bounds,
+    proximal_curvature_split,
+    quadratic_curvature_split,
+)
+from .tsad_metrics import vus_pr_roc
+from .structural_class import (
+    EventChordMorphology,
+    aggregate_event_chord_morphology,
+    event_chord_morphologies,
+)
+from .spike import (
+    classical_compact_impulse_scores,
+    event_average_precision,
+    hcrd_concentration_anomaly_score,
+    intracellular_spike_times,
+    robust_multichannel_max,
+    spike_bandpass,
+)
+from .lcms import (
+    EICFeatureBank,
+    EICPairFeatureBank,
+    eic_feature_bank,
+    eic_pair_feature_bank,
+    eic_partition,
+)
+from .lcms_data import EICFlatCache, EICPair
+from .lobe_scan import (
+    LobeScanResult,
+    fano_localization_error_lower,
+    orthogonal_detection_lower_norm,
+    residualized_lobe_dictionary,
+    scan_detection_threshold,
+    scan_lobe_dictionary,
+    scan_localization_sufficient_norm,
+    scan_power_sufficient_norm,
+)
+from .continuous_lobe_scan import (
+    SieveLobeScanResult,
+    TriangularLobeLipschitzCertificate,
+    affine_residual_subspace_rank,
+    asymmetric_triangular_lobes,
+    continuous_scan_detection_threshold,
+    continuous_scan_localization_sufficient_norm,
+    continuous_scan_power_sufficient_norm,
+    parameter_entropy_integral_upper,
+    scan_lobe_sieve,
+    signed_entropy_integral_upper,
+    sieve_power_sufficient_norm,
+    subspace_scan_detection_threshold,
+    subspace_scan_localization_sufficient_norm,
+    subspace_scan_power_sufficient_norm,
+    triangular_lobe_lipschitz_certificate,
+)
+from .ecg import (
+    DelineationResult,
+    QRSLevelCandidate,
+    QRSBoundary,
+    derivative_qrs_delineate,
+    hcrd_qrs_delineate,
+    hcrd_qrs_multilevel_candidates,
+    parse_qrs_boundaries,
+)
+from .energy import (
+    ENERGY_FEATURE_NAMES_PER_LEVEL,
+    LevelEnergy,
+    StructureEnergy,
+    level_energies,
+    multiscale_area_density,
+    multiscale_energy_feature_names,
+    multiscale_energy_features,
+    sparse_structure_energies,
+)
+from .parallel import ParallelBackend, decompose_batch, decompose_sparse_batch
+from .persistence import (
+    CurvaturePersistenceDiagram,
+    CurvaturePersistenceSignature,
+    PersistenceBar,
+    bottleneck_distance,
+    curvature_lipschitz_constant,
+    curvature_persistence,
+    curvature_persistence_distance,
+)
+from .ppg import (
+    EventMatch,
+    HCRDCandidateBank,
+    PPGRecording,
+    artifact_mask,
+    hcrd_candidate_bank,
+    iter_ppgopt_keys,
+    load_ppgopt_recording,
+    mask_events,
+    match_event_cardinality,
+    match_event_pairs,
+    match_events,
+    robust_bandpass,
+    suppress_events,
+)
+
+__all__ = [
+    "AdaptiveGuidedResult",
+    "AreaAggregation",
+    "BufferedFold",
+    "CertifiedAreaScore",
+    "CertifiedProximalGuidedDecomposition",
+    "CurvaturePersistenceDiagram",
+    "CurvaturePersistenceSignature",
+    "Decomposition",
+    "DelineationResult",
+    "EventMatch",
+    "EventChordMorphology",
+    "EICFeatureBank",
+    "EICPairFeatureBank",
+    "EICFlatCache",
+    "EICPair",
+    "HCRDCandidateBank",
+    "HierarchyMarginCertificate",
+    "HierarchicalTreeTestResult",
+    "HierarchyDecisionRadius",
+    "QRSLevelCandidate",
+    "ENERGY_FEATURE_NAMES_PER_LEVEL",
+    "GuidedDecomposition",
+    "GaussianContrastPivot",
+    "HCRDLevel",
+    "InferredStructure",
+    "InferredMatchedStructure",
+    "LevelEnergy",
+    "LobeScanResult",
+    "ProximalCurvatureSplit",
+    "ParallelBackend",
+    "PersistenceBar",
+    "PPGRecording",
+    "QuadraticCurvatureSplit",
+    "QRSBoundary",
+    "RobustResult",
+    "SparseDecomposition",
+    "SparseHCRDLevel",
+    "SieveLobeScanResult",
+    "TriangularLobeLipschitzCertificate",
+    "Structure",
+    "StructureEnergy",
+    "adaptive_gaussian_guided_decompose",
+    "asymmetric_triangular_lobes",
+    "affine_residual_subspace_rank",
+    "aggregate_area_density",
+    "aggregate_event_chord_morphology",
+    "artifact_mask",
+    "bottleneck_distance",
+    "buffered_crossfit_folds",
+    "certified_curvature_signs",
+    "certified_hcrd_area_score",
+    "certify_hcrd_hierarchy_margin",
+    "chord_area_coefficients",
+    "certified_proximal_guided_decompose",
+    "certified_quadratic_guided_decompose",
+    "certified_robust_decompose",
+    "hcrd_hierarchy_decision_radius",
+    "hierarchical_tree_test",
+    "stochastic_hierarchy_agreement_lower_bound",
+    "classical_compact_impulse_scores",
+    "decompose",
+    "decompose_batch",
+    "decompose_sparse",
+    "decompose_sparse_batch",
+    "derivative_qrs_delineate",
+    "curvature_perturbation_bounds",
+    "curvature_lipschitz_constant",
+    "curvature_persistence",
+    "curvature_persistence_distance",
+    "continuous_scan_detection_threshold",
+    "continuous_scan_localization_sufficient_norm",
+    "continuous_scan_power_sufficient_norm",
+    "discrete_curvature",
+    "estimate_noise_sigma",
+    "event_chord_morphologies",
+    "event_average_precision",
+    "eic_feature_bank",
+    "eic_pair_feature_bank",
+    "eic_partition",
+    "empirical_rank",
+    "familywise_curvature_threshold",
+    "gaussian_guided_decompose",
+    "gaussian_contrast_pivot",
+    "find_convexity_knots",
+    "fano_localization_error_lower",
+    "hcrd_qrs_delineate",
+    "hcrd_qrs_multilevel_candidates",
+    "hcrd_concentration_anomaly_score",
+    "hcrd_candidate_bank",
+    "hcrd_area_anomaly_score",
+    "hcrd_temporal_candidate_scores",
+    "infer_hcrd_structures",
+    "infer_hcrd_matched_structures",
+    "hcrd_component_iforest_scores",
+    "iter_ppgopt_keys",
+    "intracellular_spike_times",
+    "level_energies",
+    "multiscale_area_density",
+    "multiscale_detail_series",
+    "multiscale_energy_feature_names",
+    "multiscale_energy_features",
+    "orthogonal_detection_lower_norm",
+    "parameter_entropy_integral_upper",
+    "load_ppgopt_recording",
+    "mask_events",
+    "match_event_cardinality",
+    "match_event_pairs",
+    "match_events",
+    "parse_qrs_boundaries",
+    "robust_decompose",
+    "residualized_lobe_dictionary",
+    "scan_detection_threshold",
+    "scan_lobe_dictionary",
+    "scan_lobe_sieve",
+    "scan_localization_sufficient_norm",
+    "scan_power_sufficient_norm",
+    "signed_entropy_integral_upper",
+    "sieve_power_sufficient_norm",
+    "subspace_scan_detection_threshold",
+    "subspace_scan_localization_sufficient_norm",
+    "subspace_scan_power_sufficient_norm",
+    "triangular_lobe_lipschitz_certificate",
+    "proximal_curvature_split",
+    "quadratic_curvature_split",
+    "stability_certificate",
+    "spectral_residual_score",
+    "robust_bandpass",
+    "robust_multichannel_max",
+    "sparse_structure_energies",
+    "total_variation",
+    "vus_pr_roc",
+    "suppress_events",
+    "spike_bandpass",
+]
+
+
+_OPTIONAL_EXPORTS = {
+    "empirical_rank": (".temporal_anomaly", "empirical_rank"),
+    "hcrd_temporal_candidate_scores": (
+        ".temporal_anomaly",
+        "hcrd_temporal_candidate_scores",
+    ),
+    "spectral_residual_score": (".temporal_anomaly", "spectral_residual_score"),
+    "hcrd_component_iforest_scores": (
+        ".learned_anomaly",
+        "hcrd_component_iforest_scores",
+    ),
+}
+
+
+def __getattr__(name: str):
+    """Load optional TSAD helpers only when they are requested.
+
+    The base transform remains importable with the core NumPy dependency while
+    the public convenience imports continue to work after installing ``.[tsad]``.
+    """
+
+    target = _OPTIONAL_EXPORTS.get(name)
+    if target is None:
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    module_name, attribute = target
+    value = getattr(import_module(module_name, __name__), attribute)
+    globals()[name] = value
+    return value

@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Fish",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 175,
+  "test_size": 175,
+  "length": 463,
+  "class_count": 7,
+  "workers": 8,
+  "representation_seconds": 17.485585800022818,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.6742857142857143,
+      "balanced_accuracy": 0.6764650374256285,
+      "macro_f1": 0.6574472932751203,
+      "feature_count": 595,
+      "fit_seconds": 20.057288200012408,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.6628571428571428,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.6514285714285715,
+      "balanced_accuracy": 0.6477328172648369,
+      "macro_f1": 0.6372830281530533,
+      "feature_count": 595,
+      "fit_seconds": 1.3140585999935865,
+      "min_child_samples": 8
+    }
+  },
+  "wall_seconds": 39.14223210001364
+}

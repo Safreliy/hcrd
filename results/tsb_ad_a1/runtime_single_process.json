@@ -1,0 +1,10 @@
+{
+  "protocol": "single process, warmed interpreter, data read outside detector timer",
+  "series": 350,
+  "samples": 18160361,
+  "detector_seconds": 49.93811640026979,
+  "read_seconds": 3.1087505011819303,
+  "wall_seconds": 53.089494599960744,
+  "median_detector_milliseconds_per_10k_samples": 12.257727029394607,
+  "aggregate_detector_milliseconds_per_10k_samples": 27.498416138462108
+}

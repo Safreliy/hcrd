@@ -1,0 +1,14 @@
+{
+  "dataset": "FiftyWords",
+  "assignment": "discovery",
+  "train_size": 450,
+  "length": 270,
+  "class_count": 50,
+  "cv_folds": 1,
+  "raw_cv_accuracy": null,
+  "wavelet_cv_accuracy": null,
+  "raw_transform_seconds": 0.10823390004225075,
+  "wavelet_transform_seconds": 0.3925260999239981,
+  "wall_seconds": 0.6895523000275716,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

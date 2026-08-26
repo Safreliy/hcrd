@@ -1,0 +1,17 @@
+{
+  "protocol": "docs/ceemdan_confirmation_protocol.md",
+  "seed": 20261201,
+  "noise_levels": [
+    0.0,
+    0.03,
+    0.1
+  ],
+  "trials_per_condition": 50,
+  "ceemdan_trials": 20,
+  "workers": 8,
+  "elapsed_seconds": 44.00767259998247,
+  "python": "3.13.3",
+  "numpy": "2.5.2",
+  "emd_signal": "1.10.0",
+  "maximum_reconstruction_error": 0.0
+}

@@ -1,0 +1,22 @@
+{
+  "dataset": "MIMIC PERform Training and Testing Datasets",
+  "zenodo_record": "6950488",
+  "source": "https://ppg-beats.readthedocs.io/en/latest/datasets/mimic_perform_testing/",
+  "license": "CC BY 4.0",
+  "records": [
+    {
+      "file": "mimic_perform_train_all_data.mat",
+      "url": "https://zenodo.org/api/records/6950488/files/mimic_perform_train_all_data.mat/content",
+      "bytes": 133919123,
+      "md5": "1003ac99d4a4c01fbbe8c54e3f981e43",
+      "sha256": "8d7123da3f39724d117f90fa11349ed4f720ef8a851d7b53476383c5b76f644a"
+    },
+    {
+      "file": "mimic_perform_test_all_data.mat",
+      "url": "https://zenodo.org/api/records/6950488/files/mimic_perform_test_all_data.mat/content",
+      "bytes": 133992514,
+      "md5": "4cf66ff255ab369433ae2d733444edf6",
+      "sha256": "dfad8ff87d97b65c976bbcbe2143dc928874cb1c90830aab6851db99e1398777"
+    }
+  ]
+}

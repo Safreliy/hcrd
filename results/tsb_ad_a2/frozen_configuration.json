@@ -1,0 +1,19 @@
+{
+  "status": "frozen_before_A1_A2_evaluation_execution",
+  "selected_candidate": "a2_direct",
+  "selection_metric": "mean per-series exact VUS-PR over official tuning split",
+  "tuning_series": 48,
+  "file_list_sha256": "7bf24d2ef834bb39ddd1c8c2b02c177339921dce694354e258ed2b77d8d5cd1c",
+  "data_archive_sha256": "0c47020d3423723c70773736dbd800369f2b487328becbf339450d1ae5020961",
+  "a1_frozen_configuration_sha256": "14d203c7c44f2c92e7fdac8a518c0a3f2aea0c2f3a61fccf9d8a8e6c06acd70f",
+  "tsb_ad_code_commit": "e0975a5f7d3e65ab77e9fab24d1b5b51acda8f48",
+  "implementation_sha256": {
+    "src\\hcrd\\temporal_anomaly.py": "7d2971b0832750fb5827b6d57aeb982cfa1f8815a6182cd33c18a1b546af7e77",
+    "src\\hcrd\\anomaly.py": "2459cfd73d2e8b5effd45f30db620078486cc369fb37b9e7465d960f64809939",
+    "src\\hcrd\\energy.py": "6bd972e53b245c6c323f5020608e566872ef2f4650af7086c0749e59813d12bb",
+    "src\\hcrd\\tsad_metrics.py": "faec9b2d31e85fc00a11431f4de60cd26f8ae361763a70bc675ce50e8345650c",
+    "experiments\\run_tsb_ad_temporal_tuning.py": "365076672d9d9a53bb8bcffacf5f9dda820e3aebc9137a19b827a1ce98bfe16b",
+    "docs\\tsb_ad_a2_protocol.md": "84ff1934d69765ff643cb55957e0bcccd087885e00559ebdd28ccb4f0b206834"
+  },
+  "wall_seconds": 74.3576413000701
+}

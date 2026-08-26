@@ -1,0 +1,14 @@
+{
+  "dataset": "ItalyPowerDemand",
+  "assignment": "discovery",
+  "train_size": 67,
+  "length": 24,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9703296703296704,
+  "wavelet_cv_accuracy": 0.956043956043956,
+  "raw_transform_seconds": 0.023058899911120534,
+  "wavelet_transform_seconds": 0.024365299963392317,
+  "wall_seconds": 0.4213615000480786,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

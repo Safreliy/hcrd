@@ -1,0 +1,47 @@
+{
+  "status": "complete_with_frozen_eligible_baseline_family",
+  "primary_comparator": "POLY",
+  "eligible_complete_baselines": [
+    "Sub_PCA",
+    "SR",
+    "POLY",
+    "Sub_IForest"
+  ],
+  "incomplete_wrappers_not_counted_as_losses": [
+    "MMPAD",
+    "KShapeAD",
+    "SAND",
+    "MatrixProfile"
+  ],
+  "primary_series": 71,
+  "full_series": 86,
+  "primary_result": {
+    "baseline": "POLY",
+    "series": 71,
+    "hcrd_mean_vus_pr": 0.3755960993667333,
+    "baseline_mean_vus_pr": 0.4115314333194507,
+    "mean_difference": -0.035935333952717335,
+    "bootstrap_95_low": -0.13097399276999275,
+    "bootstrap_95_high": 0.06157193355436137,
+    "paired_t_p": 0.4720198285536862,
+    "wilcoxon_p": 0.305061015533975,
+    "exact_sign_p": 0.008554538502693429,
+    "cohen_dz": -0.08581771913319428,
+    "wins": 24,
+    "ties": 0,
+    "losses": 47,
+    "stratum": "primary_sparse_transient",
+    "is_frozen_primary_comparison": true,
+    "holm_paired_t_p": 0.4720198285536862,
+    "holm_wilcoxon_p": 0.305061015533975,
+    "holm_exact_sign_p": 0.008554538502693429
+  },
+  "analysis_amendment": "The frozen runner expected all eight wrappers at export time, while the frozen comparator rule only required at least four complete methods. This exporter applies the unchanged frozen statistics to the four methods marked eligible in comparator_frozen.json.",
+  "timing_claim": "none; diagnostic wall time excluded",
+  "files": {
+    "all_metrics": "all_metrics.csv",
+    "paired_comparisons": "paired_comparisons.csv",
+    "effect_modifiers": "effect_modifiers.csv",
+    "baseline_completeness": "baseline_completeness.csv"
+  }
+}

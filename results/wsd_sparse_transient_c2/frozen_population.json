@@ -1,0 +1,85 @@
+{
+  "status": "population_and_methods_frozen_before_any_C2_score",
+  "study": "C2 real WSD sparse-local-transient confirmation",
+  "population_definition": "all WSD series unused by official TSB-AD-U tuning and evaluation lists",
+  "population_series": 86,
+  "primary_stratum": {
+    "definition": "max_run / length <= 0.005 and anomaly_points / length <= 0.01",
+    "series": 71,
+    "threshold_selection_disclosure": "chosen after inspecting labels/durations but before executing any C2 method score"
+  },
+  "secondary_stratum": "all 86 series",
+  "primary_metric": "mean per-series exact VUS-PR",
+  "secondary_metrics": [
+    "AUC-PR",
+    "VUS-ROC",
+    "AUC-ROC"
+  ],
+  "baseline_methods": {
+    "MMPAD": {
+      "n_neighbor": 5,
+      "n_job": 1
+    },
+    "KShapeAD": {
+      "periodicity": 1
+    },
+    "SAND": {
+      "periodicity": 1
+    },
+    "Sub_PCA": {
+      "periodicity": 1,
+      "n_components": null,
+      "n_jobs": 1
+    },
+    "MatrixProfile": {
+      "periodicity": 1,
+      "n_jobs": 1
+    },
+    "SR": {
+      "periodicity": 1
+    },
+    "POLY": {
+      "periodicity": 1,
+      "power": 4,
+      "n_jobs": 1
+    },
+    "Sub_IForest": {
+      "periodicity": 1,
+      "n_estimators": 150,
+      "n_jobs": 1
+    }
+  },
+  "baseline_source": "official TSB-AD wrappers and Optimal_Uni_algo_HP_dict",
+  "compatibility_changes": {
+    "numpy": "np.Inf alias restored as np.inf for NumPy 2 compatibility",
+    "MMPAD": "n_job=1 changes resource scheduling only"
+  },
+  "unavailable_official_methods": {
+    "NORMA": "official source archive is password protected/patent restricted",
+    "Series2Graph": "official source archive is password protected/patent restricted"
+  },
+  "comparator_rule": "strongest mean primary VUS-PR among baseline methods complete on all 71 primary series, frozen before HCRD execution",
+  "hcrd_candidate": "hcrd_L8_max",
+  "hcrd_execution_gate": "comparator_frozen.json must exist and no prior HCRD metric is allowed",
+  "inference": {
+    "primary": "paired mean difference, 50000-draw percentile bootstrap CI, paired t-test, Wilcoxon, exact sign test",
+    "secondary_baselines": "Holm correction across fixed baseline family",
+    "effect_modifiers": [
+      "max_run_fraction",
+      "anomaly_occupancy"
+    ]
+  },
+  "timing_policy": "wall time is diagnostic only and is excluded from all claims because the host CPU was concurrently loaded",
+  "archive_sha256": "0c47020d3423723c70773736dbd800369f2b487328becbf339450d1ae5020961",
+  "tuning_list_sha256": "7bf24d2ef834bb39ddd1c8c2b02c177339921dce694354e258ed2b77d8d5cd1c",
+  "evaluation_list_sha256": "6f4e1d4ddbde195f9687f2c5a951b51faff54dda4b658d85f0c07e3e2879615a",
+  "tsb_ad_commit": "e0975a5f7d3e65ab77e9fab24d1b5b51acda8f48",
+  "population_manifest_sha256": "2662597d143a1e4cb4c9647c94561ecf87a81c19e626dde3b440a1f1fb84cae4",
+  "implementation_sha256": {
+    "experiments/run_wsd_sparse_transient_confirmation.py": "1462204a7c0a3353c477b4783a33e98c91c7cc5f2c6e449afb5971c54c8b2802",
+    "docs/wsd_sparse_transient_c2_protocol.md": "03354a7104a580e7ab96b4ea985f216f885800576b1aa1acd6cebd821e870ee5",
+    "src/hcrd/anomaly.py": "2459cfd73d2e8b5effd45f30db620078486cc369fb37b9e7465d960f64809939",
+    "src/hcrd/energy.py": "6bd972e53b245c6c323f5020608e566872ef2f4650af7086c0749e59813d12bb",
+    "src/hcrd/tsad_metrics.py": "faec9b2d31e85fc00a11431f4de60cd26f8ae361763a70bc675ce50e8345650c"
+  }
+}

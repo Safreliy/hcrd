@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "ToeSegmentation1",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 40,
+  "test_size": 228,
+  "length": 277,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 16.059349100105464,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.8026315789473685,
+      "balanced_accuracy": 0.8078703703703705,
+      "macro_f1": 0.8019878413586798,
+      "feature_count": 595,
+      "fit_seconds": 7.741757399984635,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.675,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.7368421052631579,
+      "balanced_accuracy": 0.7421296296296296,
+      "macro_f1": 0.7358461419633893,
+      "feature_count": 595,
+      "fit_seconds": 0.4557304000481963,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 24.4759650999913
+}

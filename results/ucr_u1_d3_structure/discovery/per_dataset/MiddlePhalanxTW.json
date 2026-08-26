@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "MiddlePhalanxTW",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 399,
+  "test_size": 154,
+  "length": 80,
+  "class_count": 6,
+  "workers": 8,
+  "representation_seconds": 9.443887699977495,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.5584415584415584,
+      "balanced_accuracy": 0.385171277997365,
+      "macro_f1": 0.37446340934713024,
+      "feature_count": 595,
+      "fit_seconds": 22.161951899994165,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.6315189873417721,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.5844155844155844,
+      "balanced_accuracy": 0.41165756948365645,
+      "macro_f1": 0.39364846497452116,
+      "feature_count": 595,
+      "fit_seconds": 1.6118334999773651,
+      "min_child_samples": 19
+    }
+  },
+  "wall_seconds": 33.35347420000471
+}

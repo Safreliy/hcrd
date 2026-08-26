@@ -1,0 +1,53 @@
+{
+  "datasets": 57,
+  "summary": [
+    {
+      "method": "raw_minirocket",
+      "dataset_count": 57,
+      "mean_accuracy": 0.848285728012289,
+      "median_accuracy": 0.9,
+      "mean_balanced_accuracy": 0.8154993830026606,
+      "mean_macro_f1": 0.8159680422747297
+    },
+    {
+      "method": "wavelet_minirocket",
+      "dataset_count": 57,
+      "mean_accuracy": 0.8428268173139544,
+      "median_accuracy": 0.9,
+      "mean_balanced_accuracy": 0.808456147001219,
+      "mean_macro_f1": 0.8080525307817983
+    },
+    {
+      "method": "hcrd_minirocket",
+      "dataset_count": 57,
+      "mean_accuracy": 0.8069582457758895,
+      "median_accuracy": 0.8292682926829268,
+      "mean_balanced_accuracy": 0.7695881488487096,
+      "mean_macro_f1": 0.7687516985109777
+    },
+    {
+      "method": "hcrd_energy",
+      "dataset_count": 57,
+      "mean_accuracy": 0.6187112871347876,
+      "median_accuracy": 0.6428571428571429,
+      "mean_balanced_accuracy": 0.5670827307692424,
+      "mean_macro_f1": 0.5491148960036799
+    },
+    {
+      "method": "hcrd_structure",
+      "dataset_count": 57,
+      "mean_accuracy": 0.6807124448262201,
+      "median_accuracy": 0.7098765432098766,
+      "mean_balanced_accuracy": 0.6283140034844346,
+      "mean_macro_f1": 0.620028062515972
+    },
+    {
+      "method": "hcrd_hybrid",
+      "dataset_count": 57,
+      "mean_accuracy": 0.8074365797294976,
+      "median_accuracy": 0.84,
+      "mean_balanced_accuracy": 0.7695078367321406,
+      "mean_macro_f1": 0.7681859534637787
+    }
+  ]
+}

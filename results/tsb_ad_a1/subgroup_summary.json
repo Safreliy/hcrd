@@ -1,0 +1,11 @@
+{
+  "analysis": "post-evaluation analysis of predeclared strata",
+  "point_series": 49,
+  "hcrd_point_mean_vus_pr": 0.6754912729487984,
+  "highest_nonpretrained_baseline": "KShapeAD",
+  "highest_nonpretrained_baseline_mean_vus_pr": 0.6003216847315531,
+  "difference": 0.07516958821724529,
+  "bootstrap_95_low": -0.06315784543860192,
+  "bootstrap_95_high": 0.21304746464883798,
+  "interpretation": "HCRD has the highest point estimate among the published nonpretrained baselines, but the paired bootstrap interval versus the strongest such baseline includes zero."
+}

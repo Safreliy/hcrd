@@ -1,0 +1,14 @@
+{
+  "dataset": "CinCECGTorso",
+  "assignment": "discovery",
+  "train_size": 40,
+  "length": 1639,
+  "class_count": 4,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.825,
+  "wavelet_cv_accuracy": 0.85,
+  "raw_transform_seconds": 0.15849609998986125,
+  "wavelet_transform_seconds": 0.5865306999767199,
+  "wall_seconds": 1.1467855999944732,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

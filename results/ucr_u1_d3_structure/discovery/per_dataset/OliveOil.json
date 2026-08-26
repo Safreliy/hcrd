@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "OliveOil",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 30,
+  "test_size": 30,
+  "length": 570,
+  "class_count": 4,
+  "workers": 8,
+  "representation_seconds": 9.621982999960892,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.43333333333333335,
+      "balanced_accuracy": 0.2986111111111111,
+      "macro_f1": 0.275,
+      "feature_count": 595,
+      "fit_seconds": 4.571018200018443,
+      "cv_folds": 4,
+      "best_cv_accuracy": 0.5758928571428572,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.6,
+      "balanced_accuracy": 0.5152777777777777,
+      "macro_f1": 0.5136904761904761,
+      "feature_count": 595,
+      "fit_seconds": 0.1841188999824226,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 14.521996899973601
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "case": "endpoint_outlier",
+    "method": "gaussian_oracle",
+    "mean_baseline_mse": 0.0419158261276293,
+    "mean_detail_correlation": null,
+    "mean_endpoint_error": 0.4412943616910175
+  },
+  {
+    "case": "endpoint_outlier",
+    "method": "hcrd_adaptive_guided",
+    "mean_baseline_mse": 0.023679835611052552,
+    "mean_detail_correlation": null,
+    "mean_endpoint_error": 0.5911082874294675
+  },
+  {
+    "case": "endpoint_outlier",
+    "method": "hcrd_raw",
+    "mean_baseline_mse": 0.10459014407483613,
+    "mean_detail_correlation": null,
+    "mean_endpoint_error": 2.079010855210658
+  },
+  {
+    "case": "endpoint_outlier",
+    "method": "hcrd_thresholded",
+    "mean_baseline_mse": 1.560538241784868,
+    "mean_detail_correlation": null,
+    "mean_endpoint_error": 2.079010855210658
+  },
+  {
+    "case": "irregular_grid_affine_plus_sine",
+    "method": "hcrd_raw",
+    "mean_baseline_mse": 0.0007065086538913264,
+    "mean_detail_correlation": 0.999351813446617,
+    "mean_endpoint_error": null
+  },
+  {
+    "case": "weak_oscillation_strong_curvature",
+    "method": "gaussian_oracle",
+    "mean_baseline_mse": 2.509683575832233e-06,
+    "mean_detail_correlation": 0.01300098408615151,
+    "mean_endpoint_error": null
+  },
+  {
+    "case": "weak_oscillation_strong_curvature",
+    "method": "hcrd_adaptive_guided",
+    "mean_baseline_mse": 7.935148934709451,
+    "mean_detail_correlation": 0.0006825982665424247,
+    "mean_endpoint_error": null
+  },
+  {
+    "case": "weak_oscillation_strong_curvature",
+    "method": "hcrd_raw",
+    "mean_baseline_mse": 8.516699155171713,
+    "mean_detail_correlation": 0.0005278498432493046,
+    "mean_endpoint_error": null
+  },
+  {
+    "case": "weak_oscillation_strong_curvature",
+    "method": "hcrd_thresholded",
+    "mean_baseline_mse": 8.516699155171713,
+    "mean_detail_correlation": 0.0005278498432493046,
+    "mean_endpoint_error": null
+  }
+]

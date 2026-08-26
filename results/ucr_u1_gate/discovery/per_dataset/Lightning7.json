@@ -1,0 +1,14 @@
+{
+  "dataset": "Lightning7",
+  "assignment": "discovery",
+  "train_size": 70,
+  "length": 319,
+  "class_count": 7,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.7571428571428571,
+  "wavelet_cv_accuracy": 0.7428571428571429,
+  "raw_transform_seconds": 0.08120610006153584,
+  "wavelet_transform_seconds": 0.16714189993217587,
+  "wall_seconds": 0.764528000028804,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

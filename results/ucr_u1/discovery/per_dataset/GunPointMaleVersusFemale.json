@@ -1,0 +1,242 @@
+{
+  "protocol": "U1",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "dataset": "GunPointMaleVersusFemale",
+  "assignment": "discovery",
+  "train_size": 135,
+  "test_size": 316,
+  "length": 150,
+  "class_count": 2,
+  "max_levels": 5,
+  "spatial_bins": 8,
+  "top_k": 8,
+  "requested_kernels": 10000,
+  "workers": 8,
+  "metrics": {
+    "raw_minirocket": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "transform_seconds": 0.07914350007195026,
+      "head_fit_seconds": 0.04885190003551543,
+      "head_predict_seconds": 0.01057869999203831,
+      "feature_count": 9996,
+      "representation_seconds": 0.015296000055968761
+    },
+    "wavelet_minirocket": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "transform_seconds": 0.23536849999800324,
+      "head_fit_seconds": 0.04964550002478063,
+      "head_predict_seconds": 0.010717800003476441,
+      "feature_count": 9996,
+      "representation_seconds": 0.13483250001445413
+    },
+    "hcrd_minirocket": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "transform_seconds": 0.2707155999960378,
+      "head_fit_seconds": 0.06500090006738901,
+      "head_predict_seconds": 0.010791799984872341,
+      "feature_count": 9996,
+      "representation_seconds": 16.86482569994405
+    },
+    "hcrd_energy": {
+      "accuracy": 0.9208860759493671,
+      "balanced_accuracy": 0.9192369477911646,
+      "macro_f1": 0.9203877820439177,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.024044399964623153,
+      "head_predict_seconds": 0.000712699955329299,
+      "feature_count": 85,
+      "representation_seconds": 16.86482569994405
+    },
+    "hcrd_structure": {
+      "accuracy": 0.9715189873417721,
+      "balanced_accuracy": 0.9719277108433735,
+      "macro_f1": 0.9714707033013332,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.010322100017219782,
+      "head_predict_seconds": 0.0014417000347748399,
+      "feature_count": 595,
+      "representation_seconds": 16.86482569994405
+    },
+    "hcrd_hybrid": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "transform_seconds": 0.2707155999960378,
+      "head_fit_seconds": 0.05269759998191148,
+      "head_predict_seconds": 0.019356300006620586,
+      "feature_count": 10591,
+      "representation_seconds": 16.86482569994405
+    }
+  },
+  "training_geometry": {
+    "depth_fraction": {
+      "mean": 0.9985185185185186,
+      "median": 1.0,
+      "standard_deviation": 0.017149388004133657
+    },
+    "level_0_knot_fraction": {
+      "mean": 0.29832098765432097,
+      "median": 0.2866666666666667,
+      "standard_deviation": 0.06972122510613435
+    },
+    "level_0_structure_density": {
+      "mean": 0.2916543209876543,
+      "median": 0.28,
+      "standard_deviation": 0.06972122510613435
+    },
+    "level_0_area_concentration": {
+      "mean": 0.25307879606431166,
+      "median": 0.2524414976155265,
+      "standard_deviation": 0.10135367955395493
+    },
+    "level_0_sign_balance": {
+      "mean": 0.12392389728543747,
+      "median": 0.13255796436787293,
+      "standard_deviation": 0.3140839997023993
+    },
+    "level_0_mean_duration_fraction": {
+      "mean": 0.02427392761944827,
+      "median": 0.023809523809523808,
+      "standard_deviation": 0.006065952242315008
+    },
+    "level_0_detail_energy_fraction": {
+      "mean": 0.016891862478316987,
+      "median": 0.010351078457816175,
+      "standard_deviation": 0.021583513670161238
+    },
+    "level_1_knot_fraction": {
+      "mean": 0.1145679012345679,
+      "median": 0.10666666666666667,
+      "standard_deviation": 0.03128191404987857
+    },
+    "level_1_structure_density": {
+      "mean": 0.10790123456790125,
+      "median": 0.1,
+      "standard_deviation": 0.03128191404987857
+    },
+    "level_1_area_concentration": {
+      "mean": 0.3751443927032241,
+      "median": 0.32009427787112277,
+      "standard_deviation": 0.17309668406531184
+    },
+    "level_1_sign_balance": {
+      "mean": 0.209055894900048,
+      "median": 0.25768943816370676,
+      "standard_deviation": 0.4206020590831924
+    },
+    "level_1_mean_duration_fraction": {
+      "mean": 0.06743794204483365,
+      "median": 0.06666666666666667,
+      "standard_deviation": 0.02087758231148491
+    },
+    "level_1_detail_energy_fraction": {
+      "mean": 0.06155633863818232,
+      "median": 0.023808272743135125,
+      "standard_deviation": 0.13079259194425288
+    },
+    "level_2_knot_fraction": {
+      "mean": 0.05239506172839506,
+      "median": 0.05333333333333334,
+      "standard_deviation": 0.014336645335704805
+    },
+    "level_2_structure_density": {
+      "mean": 0.0457283950617284,
+      "median": 0.04666666666666667,
+      "standard_deviation": 0.014336645335704805
+    },
+    "level_2_area_concentration": {
+      "mean": 0.557314743143511,
+      "median": 0.5202142095377609,
+      "standard_deviation": 0.2341622300160784
+    },
+    "level_2_sign_balance": {
+      "mean": 0.36055480168640536,
+      "median": 0.3943318889915957,
+      "standard_deviation": 0.459212396280573
+    },
+    "level_2_mean_duration_fraction": {
+      "mean": 0.16106007161562716,
+      "median": 0.14285714285714285,
+      "standard_deviation": 0.05259802783294683
+    },
+    "level_2_detail_energy_fraction": {
+      "mean": 0.1817738898578452,
+      "median": 0.1284311980013136,
+      "standard_deviation": 0.19604863434351422
+    },
+    "level_3_knot_fraction": {
+      "mean": 0.028148148148148148,
+      "median": 0.02666666666666667,
+      "standard_deviation": 0.006917106684402223
+    },
+    "level_3_structure_density": {
+      "mean": 0.021481481481481483,
+      "median": 0.02,
+      "standard_deviation": 0.006917106684402223
+    },
+    "level_3_area_concentration": {
+      "mean": 0.7063351850492724,
+      "median": 0.6910912020562328,
+      "standard_deviation": 0.216743902803935
+    },
+    "level_3_sign_balance": {
+      "mean": 0.30891418244981583,
+      "median": 0.5172122620818267,
+      "standard_deviation": 0.6925771510252465
+    },
+    "level_3_mean_duration_fraction": {
+      "mean": 0.3438977072310405,
+      "median": 0.3333333333333333,
+      "standard_deviation": 0.116581730377658
+    },
+    "level_3_detail_energy_fraction": {
+      "mean": 0.17309301628743926,
+      "median": 0.1170027629902713,
+      "standard_deviation": 0.16990038882724953
+    },
+    "level_4_knot_fraction": {
+      "mean": 0.01777777777777778,
+      "median": 0.02,
+      "standard_deviation": 0.003975231959999626
+    },
+    "level_4_structure_density": {
+      "mean": 0.011160493827160495,
+      "median": 0.013333333333333334,
+      "standard_deviation": 0.0037912291787988613
+    },
+    "level_4_area_concentration": {
+      "mean": 0.9094065693688838,
+      "median": 1.0,
+      "standard_deviation": 0.1877387121760977
+    },
+    "level_4_sign_balance": {
+      "mean": 0.36858569919445366,
+      "median": 1.0,
+      "standard_deviation": 0.9009724553949431
+    },
+    "level_4_mean_duration_fraction": {
+      "mean": 0.6648148148148149,
+      "median": 0.5,
+      "standard_deviation": 0.25060968181622084
+    },
+    "level_4_detail_energy_fraction": {
+      "mean": 0.32031981380878805,
+      "median": 0.1043311691426505,
+      "standard_deviation": 0.4916570920875035
+    }
+  },
+  "prediction_file": "results\\ucr_u1\\discovery\\predictions\\GunPointMaleVersusFemale.npz",
+  "wall_seconds": 18.052407799987122,
+  "versions": {
+    "python": "3.13.3",
+    "numpy": "2.3.5",
+    "aeon": "1.5.0",
+    "sklearn": "1.8.0"
+  }
+}

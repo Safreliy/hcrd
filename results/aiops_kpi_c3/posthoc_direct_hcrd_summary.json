@@ -1,0 +1,38 @@
+{
+  "status": "post_hoc_secondary_ablation",
+  "warning": "not the frozen C3 primary candidate or endpoint",
+  "comparisons": [
+    {
+      "analysis_status": "post_hoc_secondary_ablation",
+      "baseline": "raw_SR",
+      "series": 13,
+      "direct_hcrd_mean_auc_pr": 0.4156968840094537,
+      "baseline_mean_auc_pr": 0.385041188000724,
+      "mean_difference": 0.030655696008729673,
+      "bootstrap_95_low": -0.14685135384602246,
+      "bootstrap_95_high": 0.1633620511959686,
+      "paired_t_p": 0.7210100876879344,
+      "wilcoxon_p": 0.19091796875,
+      "exact_sign_p": 0.266845703125,
+      "wins": 9,
+      "ties": 0,
+      "losses": 4
+    },
+    {
+      "analysis_status": "post_hoc_secondary_ablation",
+      "baseline": "raw_absolute_deviation",
+      "series": 13,
+      "direct_hcrd_mean_auc_pr": 0.4156968840094537,
+      "baseline_mean_auc_pr": 0.41877211274883047,
+      "mean_difference": -0.0030752287393767505,
+      "bootstrap_95_low": -0.15833106481837497,
+      "bootstrap_95_high": 0.11989406474901397,
+      "paired_t_p": 0.967836920526533,
+      "wilcoxon_p": 0.497314453125,
+      "exact_sign_p": 0.5810546875,
+      "wins": 8,
+      "ties": 0,
+      "losses": 5
+    }
+  ]
+}

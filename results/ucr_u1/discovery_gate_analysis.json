@@ -1,0 +1,561 @@
+{
+  "status": "discovery-only; confirmation remains locked",
+  "datasets": 57,
+  "finite_training_cv_datasets": 55,
+  "hcrd_structure_vs_best_raw_or_wavelet": {
+    "wins": 8,
+    "ties": 1,
+    "losses": 48,
+    "mean_accuracy_difference": -0.13525630119812537,
+    "median_accuracy_difference": -0.1298076923076923
+  },
+  "training_cv_margin_correlation_with_test_gain": 0.8261206157903925,
+  "best_gate_requiring_at_least_10_datasets": {
+    "threshold": -0.02500000100000002,
+    "selected_datasets": 18,
+    "mean_selected_accuracy_difference": -0.019240050901880697,
+    "wins": 7,
+    "ties": 1,
+    "losses": 10,
+    "datasets": [
+      "BirdChicken",
+      "CinCECGTorso",
+      "Computers",
+      "FreezerRegularTrain",
+      "GunPointMaleVersusFemale",
+      "GunPointOldVersusYoung",
+      "Herring",
+      "Mallat",
+      "MiddlePhalanxOutlineAgeGroup",
+      "MiddlePhalanxTW",
+      "ProximalPhalanxOutlineAgeGroup",
+      "ScreenType",
+      "SmallKitchenAppliances",
+      "SonyAIBORobotSurface2",
+      "Trace",
+      "TwoPatterns",
+      "Wafer",
+      "Worms"
+    ]
+  },
+  "confirmation_unlocked": false,
+  "decision": "No positive discovery subgroup exists under the fixed D4 gate; do not inspect the confirmation outcomes.",
+  "source_sha256": {
+    "training_cv": "4ec61a47daaf279e5f1fb6ff3c56debfd19a00d0ded67350a45627cd5216b5bd",
+    "base_summary": "e8ffdf12a6aec05ae804e55d0de0aa4af530b47128b0758924452f539f4de24e",
+    "structure_summary": "d0e83c5750dfc02276efdd495861394bc5b2bfe721b53c768561b42c40776c8c"
+  },
+  "per_dataset": [
+    {
+      "dataset": "BirdChicken",
+      "raw_accuracy": 0.9,
+      "wavelet_accuracy": 0.9,
+      "hcrd_structure_accuracy": 0.95,
+      "hcrd_minus_best_control": 0.04999999999999993,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.0
+    },
+    {
+      "dataset": "Chinatown",
+      "raw_accuracy": 0.9766763848396501,
+      "wavelet_accuracy": 0.9766763848396501,
+      "hcrd_structure_accuracy": 0.8309037900874635,
+      "hcrd_minus_best_control": -0.14577259475218662,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.19999999999999996
+    },
+    {
+      "dataset": "ChlorineConcentration",
+      "raw_accuracy": 0.76015625,
+      "wavelet_accuracy": 0.77734375,
+      "hcrd_structure_accuracy": 0.6049479166666667,
+      "hcrd_minus_best_control": -0.1723958333333333,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.15401509951956083
+    },
+    {
+      "dataset": "CinCECGTorso",
+      "raw_accuracy": 0.8528985507246377,
+      "wavelet_accuracy": 0.9355072463768116,
+      "hcrd_structure_accuracy": 0.886231884057971,
+      "hcrd_minus_best_control": -0.049275362318840554,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.125
+    },
+    {
+      "dataset": "Computers",
+      "raw_accuracy": 0.744,
+      "wavelet_accuracy": 0.744,
+      "hcrd_structure_accuracy": 0.724,
+      "hcrd_minus_best_control": -0.020000000000000018,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.02400000000000002
+    },
+    {
+      "dataset": "CricketX",
+      "raw_accuracy": 0.8256410256410256,
+      "wavelet_accuracy": 0.782051282051282,
+      "hcrd_structure_accuracy": 0.5358974358974359,
+      "hcrd_minus_best_control": -0.2897435897435897,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.2692307692307693
+    },
+    {
+      "dataset": "CricketZ",
+      "raw_accuracy": 0.8153846153846154,
+      "wavelet_accuracy": 0.8179487179487179,
+      "hcrd_structure_accuracy": 0.5128205128205128,
+      "hcrd_minus_best_control": -0.30512820512820515,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.2897435897435897
+    },
+    {
+      "dataset": "DistalPhalanxOutlineCorrect",
+      "raw_accuracy": 0.7789855072463768,
+      "wavelet_accuracy": 0.7934782608695652,
+      "hcrd_structure_accuracy": 0.7246376811594203,
+      "hcrd_minus_best_control": -0.0688405797101449,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.08666666666666656
+    },
+    {
+      "dataset": "DistalPhalanxTW",
+      "raw_accuracy": 0.6762589928057554,
+      "wavelet_accuracy": 0.6618705035971223,
+      "hcrd_structure_accuracy": 0.6402877697841727,
+      "hcrd_minus_best_control": -0.03597122302158273,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.02749999999999997
+    },
+    {
+      "dataset": "ECG5000",
+      "raw_accuracy": 0.9446666666666667,
+      "wavelet_accuracy": 0.946,
+      "hcrd_structure_accuracy": 0.92,
+      "hcrd_minus_best_control": -0.025999999999999912,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.03399999999999992
+    },
+    {
+      "dataset": "EOGHorizontalSignal",
+      "raw_accuracy": 0.5911602209944752,
+      "wavelet_accuracy": 0.5441988950276243,
+      "hcrd_structure_accuracy": 0.425414364640884,
+      "hcrd_minus_best_control": -0.16574585635359118,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.2621765601217656
+    },
+    {
+      "dataset": "EthanolLevel",
+      "raw_accuracy": 0.592,
+      "wavelet_accuracy": 0.592,
+      "hcrd_structure_accuracy": 0.31,
+      "hcrd_minus_best_control": -0.282,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.24986138613861403
+    },
+    {
+      "dataset": "FiftyWords",
+      "raw_accuracy": 0.843956043956044,
+      "wavelet_accuracy": 0.778021978021978,
+      "hcrd_structure_accuracy": 0.4725274725274725,
+      "hcrd_minus_best_control": -0.37142857142857144,
+      "finite_training_cv": false
+    },
+    {
+      "dataset": "Fish",
+      "raw_accuracy": 0.9714285714285714,
+      "wavelet_accuracy": 0.9542857142857143,
+      "hcrd_structure_accuracy": 0.6742857142857143,
+      "hcrd_minus_best_control": -0.29714285714285715,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.3028571428571428
+    },
+    {
+      "dataset": "FordB",
+      "raw_accuracy": 0.8123456790123457,
+      "wavelet_accuracy": 0.8209876543209876,
+      "hcrd_structure_accuracy": 0.7567901234567901,
+      "hcrd_minus_best_control": -0.06419753086419755,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.04757659809241632
+    },
+    {
+      "dataset": "FreezerRegularTrain",
+      "raw_accuracy": 0.9996491228070176,
+      "wavelet_accuracy": 0.9978947368421053,
+      "hcrd_structure_accuracy": 0.9870175438596491,
+      "hcrd_minus_best_control": -0.012631578947368438,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.013333333333333308
+    },
+    {
+      "dataset": "FreezerSmallTrain",
+      "raw_accuracy": 0.9480701754385965,
+      "wavelet_accuracy": 0.8919298245614035,
+      "hcrd_structure_accuracy": 0.6964912280701754,
+      "hcrd_minus_best_control": -0.2515789473684211,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.07333333333333325
+    },
+    {
+      "dataset": "GunPointAgeSpan",
+      "raw_accuracy": 0.9936708860759493,
+      "wavelet_accuracy": 0.990506329113924,
+      "hcrd_structure_accuracy": 0.9620253164556962,
+      "hcrd_minus_best_control": -0.03164556962025311,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.02962962962962956
+    },
+    {
+      "dataset": "GunPointMaleVersusFemale",
+      "raw_accuracy": 1.0,
+      "wavelet_accuracy": 1.0,
+      "hcrd_structure_accuracy": 0.9651898734177216,
+      "hcrd_minus_best_control": -0.034810126582278444,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.022222222222222143
+    },
+    {
+      "dataset": "GunPointOldVersusYoung",
+      "raw_accuracy": 0.9904761904761905,
+      "wavelet_accuracy": 0.9904761904761905,
+      "hcrd_structure_accuracy": 0.9714285714285714,
+      "hcrd_minus_best_control": -0.01904761904761909,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.022222222222222365
+    },
+    {
+      "dataset": "Herring",
+      "raw_accuracy": 0.71875,
+      "wavelet_accuracy": 0.640625,
+      "hcrd_structure_accuracy": 0.578125,
+      "hcrd_minus_best_control": -0.140625,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.06153846153846154
+    },
+    {
+      "dataset": "InsectEPGRegularTrain",
+      "raw_accuracy": 0.9919678714859438,
+      "wavelet_accuracy": 1.0,
+      "hcrd_structure_accuracy": 0.8875502008032129,
+      "hcrd_minus_best_control": -0.1124497991967871,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.14230769230769236
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "raw_accuracy": 0.9650145772594753,
+      "wavelet_accuracy": 0.9659863945578231,
+      "hcrd_structure_accuracy": 0.782312925170068,
+      "hcrd_minus_best_control": -0.18367346938775508,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.120879120879121
+    },
+    {
+      "dataset": "Lightning7",
+      "raw_accuracy": 0.8082191780821918,
+      "wavelet_accuracy": 0.821917808219178,
+      "hcrd_structure_accuracy": 0.5616438356164384,
+      "hcrd_minus_best_control": -0.26027397260273966,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.09999999999999998
+    },
+    {
+      "dataset": "Mallat",
+      "raw_accuracy": 0.947547974413646,
+      "wavelet_accuracy": 0.9390191897654584,
+      "hcrd_structure_accuracy": 0.9304904051172708,
+      "hcrd_minus_best_control": -0.017057569296375252,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.0006613756613758071
+    },
+    {
+      "dataset": "MedicalImages",
+      "raw_accuracy": 0.7960526315789473,
+      "wavelet_accuracy": 0.775,
+      "hcrd_structure_accuracy": 0.7105263157894737,
+      "hcrd_minus_best_control": -0.08552631578947367,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.12617908407382095
+    },
+    {
+      "dataset": "MiddlePhalanxOutlineAgeGroup",
+      "raw_accuracy": 0.5714285714285714,
+      "wavelet_accuracy": 0.538961038961039,
+      "hcrd_structure_accuracy": 0.6363636363636364,
+      "hcrd_minus_best_control": 0.06493506493506496,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.025000000000000022
+    },
+    {
+      "dataset": "MiddlePhalanxTW",
+      "raw_accuracy": 0.5324675324675324,
+      "wavelet_accuracy": 0.5324675324675324,
+      "hcrd_structure_accuracy": 0.5584415584415584,
+      "hcrd_minus_best_control": 0.025974025974025983,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.010000000000000009
+    },
+    {
+      "dataset": "MixedShapesRegularTrain",
+      "raw_accuracy": 0.9707216494845361,
+      "wavelet_accuracy": 0.9752577319587629,
+      "hcrd_structure_accuracy": 0.9492783505154639,
+      "hcrd_minus_best_control": -0.02597938144329892,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.03400000000000003
+    },
+    {
+      "dataset": "MixedShapesSmallTrain",
+      "raw_accuracy": 0.9505154639175257,
+      "wavelet_accuracy": 0.945979381443299,
+      "hcrd_structure_accuracy": 0.9101030927835052,
+      "hcrd_minus_best_control": -0.04041237113402052,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.029999999999999916
+    },
+    {
+      "dataset": "MoteStrain",
+      "raw_accuracy": 0.9305111821086262,
+      "wavelet_accuracy": 0.9001597444089456,
+      "hcrd_structure_accuracy": 0.7308306709265175,
+      "hcrd_minus_best_control": -0.1996805111821086,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.25
+    },
+    {
+      "dataset": "NonInvasiveFetalECGThorax1",
+      "raw_accuracy": 0.9450381679389313,
+      "wavelet_accuracy": 0.9353689567430026,
+      "hcrd_structure_accuracy": 0.6452926208651399,
+      "hcrd_minus_best_control": -0.2997455470737913,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.31499999999999995
+    },
+    {
+      "dataset": "NonInvasiveFetalECGThorax2",
+      "raw_accuracy": 0.9653944020356234,
+      "wavelet_accuracy": 0.961323155216285,
+      "hcrd_structure_accuracy": 0.7236641221374046,
+      "hcrd_minus_best_control": -0.24173027989821882,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.24388888888888893
+    },
+    {
+      "dataset": "OliveOil",
+      "raw_accuracy": 0.9,
+      "wavelet_accuracy": 0.9333333333333333,
+      "hcrd_structure_accuracy": 0.43333333333333335,
+      "hcrd_minus_best_control": -0.5,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.3214285714285714
+    },
+    {
+      "dataset": "Phoneme",
+      "raw_accuracy": 0.29061181434599154,
+      "wavelet_accuracy": 0.33438818565400846,
+      "hcrd_structure_accuracy": 0.35390295358649787,
+      "hcrd_minus_best_control": 0.019514767932489407,
+      "finite_training_cv": false
+    },
+    {
+      "dataset": "PigArtPressure",
+      "raw_accuracy": 0.9807692307692307,
+      "wavelet_accuracy": 0.9663461538461539,
+      "hcrd_structure_accuracy": 0.8509615384615384,
+      "hcrd_minus_best_control": -0.1298076923076923,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.2596153846153846
+    },
+    {
+      "dataset": "PigCVP",
+      "raw_accuracy": 0.9423076923076923,
+      "wavelet_accuracy": 0.9278846153846154,
+      "hcrd_structure_accuracy": 0.40384615384615385,
+      "hcrd_minus_best_control": -0.5384615384615384,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.3942307692307693
+    },
+    {
+      "dataset": "PowerCons",
+      "raw_accuracy": 0.9611111111111111,
+      "wavelet_accuracy": 0.9777777777777777,
+      "hcrd_structure_accuracy": 0.8444444444444444,
+      "hcrd_minus_best_control": -0.1333333333333333,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.09999999999999987
+    },
+    {
+      "dataset": "ProximalPhalanxOutlineAgeGroup",
+      "raw_accuracy": 0.8390243902439024,
+      "wavelet_accuracy": 0.8536585365853658,
+      "hcrd_structure_accuracy": 0.8390243902439024,
+      "hcrd_minus_best_control": -0.014634146341463428,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.0025000000000000577
+    },
+    {
+      "dataset": "ProximalPhalanxTW",
+      "raw_accuracy": 0.8146341463414634,
+      "wavelet_accuracy": 0.8146341463414634,
+      "hcrd_structure_accuracy": 0.7219512195121951,
+      "hcrd_minus_best_control": -0.09268292682926826,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.0675
+    },
+    {
+      "dataset": "ScreenType",
+      "raw_accuracy": 0.47733333333333333,
+      "wavelet_accuracy": 0.48,
+      "hcrd_structure_accuracy": 0.5333333333333333,
+      "hcrd_minus_best_control": 0.053333333333333344,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.04266666666666663
+    },
+    {
+      "dataset": "SemgHandGenderCh2",
+      "raw_accuracy": 0.9183333333333333,
+      "wavelet_accuracy": 0.9216666666666666,
+      "hcrd_structure_accuracy": 0.8066666666666666,
+      "hcrd_minus_best_control": -0.11499999999999999,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.11666666666666659
+    },
+    {
+      "dataset": "SemgHandMovementCh2",
+      "raw_accuracy": 0.62,
+      "wavelet_accuracy": 0.6355555555555555,
+      "hcrd_structure_accuracy": 0.48444444444444446,
+      "hcrd_minus_best_control": -0.15111111111111108,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.18222222222222229
+    },
+    {
+      "dataset": "SemgHandSubjectCh2",
+      "raw_accuracy": 0.8711111111111111,
+      "wavelet_accuracy": 0.8955555555555555,
+      "hcrd_structure_accuracy": 0.7355555555555555,
+      "hcrd_minus_best_control": -0.16000000000000003,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.17999999999999983
+    },
+    {
+      "dataset": "SmallKitchenAppliances",
+      "raw_accuracy": 0.8426666666666667,
+      "wavelet_accuracy": 0.8186666666666667,
+      "hcrd_structure_accuracy": 0.776,
+      "hcrd_minus_best_control": -0.06666666666666665,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.021333333333333204
+    },
+    {
+      "dataset": "SonyAIBORobotSurface2",
+      "raw_accuracy": 0.9213011542497377,
+      "wavelet_accuracy": 0.9391395592864638,
+      "hcrd_structure_accuracy": 0.7072402938090241,
+      "hcrd_minus_best_control": -0.23189926547743966,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.06666666666666676
+    },
+    {
+      "dataset": "SwedishLeaf",
+      "raw_accuracy": 0.9616,
+      "wavelet_accuracy": 0.9632,
+      "hcrd_structure_accuracy": 0.7872,
+      "hcrd_minus_best_control": -0.17599999999999993,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.18799999999999983
+    },
+    {
+      "dataset": "ToeSegmentation1",
+      "raw_accuracy": 0.9605263157894737,
+      "wavelet_accuracy": 0.9605263157894737,
+      "hcrd_structure_accuracy": 0.8026315789473685,
+      "hcrd_minus_best_control": -0.1578947368421052,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.17499999999999993
+    },
+    {
+      "dataset": "Trace",
+      "raw_accuracy": 1.0,
+      "wavelet_accuracy": 1.0,
+      "hcrd_structure_accuracy": 1.0,
+      "hcrd_minus_best_control": 0.0,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.0
+    },
+    {
+      "dataset": "TwoPatterns",
+      "raw_accuracy": 0.99675,
+      "wavelet_accuracy": 0.9825,
+      "hcrd_structure_accuracy": 0.99725,
+      "hcrd_minus_best_control": 0.0004999999999999449,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.0010000000000000009
+    },
+    {
+      "dataset": "UWaveGestureLibraryAll",
+      "raw_accuracy": 0.9706867671691792,
+      "wavelet_accuracy": 0.9692908989391401,
+      "hcrd_structure_accuracy": 0.7855946398659966,
+      "hcrd_minus_best_control": -0.18509212730318259,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.1852700186219739
+    },
+    {
+      "dataset": "UWaveGestureLibraryY",
+      "raw_accuracy": 0.7788944723618091,
+      "wavelet_accuracy": 0.7629815745393634,
+      "hcrd_structure_accuracy": 0.5683975432719152,
+      "hcrd_minus_best_control": -0.21049692908989392,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.2098448168839231
+    },
+    {
+      "dataset": "UWaveGestureLibraryZ",
+      "raw_accuracy": 0.7989949748743719,
+      "wavelet_accuracy": 0.7872696817420436,
+      "hcrd_structure_accuracy": 0.5965940815187046,
+      "hcrd_minus_best_control": -0.20240089335566724,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.16741775294847927
+    },
+    {
+      "dataset": "Wafer",
+      "raw_accuracy": 0.9993510707332901,
+      "wavelet_accuracy": 0.9978909798831928,
+      "hcrd_structure_accuracy": 1.0,
+      "hcrd_minus_best_control": 0.0006489292667098967,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.0010000000000000009
+    },
+    {
+      "dataset": "Wine",
+      "raw_accuracy": 0.8703703703703703,
+      "wavelet_accuracy": 0.8518518518518519,
+      "hcrd_structure_accuracy": 0.5370370370370371,
+      "hcrd_minus_best_control": -0.33333333333333326,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.33333333333333337
+    },
+    {
+      "dataset": "WordSynonyms",
+      "raw_accuracy": 0.7586206896551724,
+      "wavelet_accuracy": 0.6865203761755486,
+      "hcrd_structure_accuracy": 0.41849529780564265,
+      "hcrd_minus_best_control": -0.3401253918495297,
+      "finite_training_cv": true,
+      "training_cv_margin": -0.3557962069352486
+    },
+    {
+      "dataset": "Worms",
+      "raw_accuracy": 0.7662337662337663,
+      "wavelet_accuracy": 0.7532467532467533,
+      "hcrd_structure_accuracy": 0.8311688311688312,
+      "hcrd_minus_best_control": 0.06493506493506496,
+      "finite_training_cv": true,
+      "training_cv_margin": 0.00045045045045044585
+    }
+  ]
+}

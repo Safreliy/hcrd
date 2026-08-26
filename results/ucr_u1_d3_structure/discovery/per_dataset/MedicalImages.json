@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "MedicalImages",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 381,
+  "test_size": 760,
+  "length": 99,
+  "class_count": 10,
+  "workers": 8,
+  "representation_seconds": 13.030398200033233,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.7105263157894737,
+      "balanced_accuracy": 0.601622979458688,
+      "macro_f1": 0.6011348409279883,
+      "feature_count": 595,
+      "fit_seconds": 23.425040900008753,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.6691387559808613,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.6736842105263158,
+      "balanced_accuracy": 0.45543384519645763,
+      "macro_f1": 0.48688072330065424,
+      "feature_count": 595,
+      "fit_seconds": 1.856799800065346,
+      "min_child_samples": 19
+    }
+  },
+  "wall_seconds": 38.46731620002538
+}

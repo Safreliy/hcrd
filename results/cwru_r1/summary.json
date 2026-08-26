@@ -1,0 +1,208 @@
+{
+  "protocol": "R1 / version 0.4",
+  "exploratory": true,
+  "window_length": 2048,
+  "windows_per_record": 24,
+  "components": 5,
+  "sample_count": 384,
+  "labels": [
+    "ball_007",
+    "inner_007",
+    "normal",
+    "outer_007_6oclock"
+  ],
+  "python": "3.13.3",
+  "numpy": "2.5.2",
+  "records": [
+    {
+      "record_id": 97,
+      "label": "normal",
+      "load_hp": 0,
+      "rpm": 1796.0,
+      "samples": 243938,
+      "sha256": "16bf48babcf1c7ac224bc1a81cd9eafdb27e42d5cf559761907e067e8eeadf3c"
+    },
+    {
+      "record_id": 98,
+      "label": "normal",
+      "load_hp": 1,
+      "rpm": null,
+      "samples": 483903,
+      "sha256": "37e6612c05e65c415dcfa2ab27a3fda648a5863160fa898b884a14743044e045"
+    },
+    {
+      "record_id": 99,
+      "label": "normal",
+      "load_hp": 2,
+      "rpm": null,
+      "samples": 485063,
+      "sha256": "4b97e6b5361f45efb6951dc3b1aebcdb3b89cb69d0f96d6f5c297dd9f45eee75"
+    },
+    {
+      "record_id": 100,
+      "label": "normal",
+      "load_hp": 3,
+      "rpm": 1725.0,
+      "samples": 485643,
+      "sha256": "88a5990cb541320e91505a1d72139e1993500ffe6e292a451011667f4138ca78"
+    },
+    {
+      "record_id": 105,
+      "label": "inner_007",
+      "load_hp": 0,
+      "rpm": 1797.0,
+      "samples": 121265,
+      "sha256": "f80b0ea04fd06b372a0eaec7c056543ea37e4bb4727a5b173d2a5bacd2aa9cab"
+    },
+    {
+      "record_id": 106,
+      "label": "inner_007",
+      "load_hp": 1,
+      "rpm": 1772.0,
+      "samples": 121991,
+      "sha256": "e5cec7cdd138e6cd1deb9ed8634e5aaa9bc1bd7094ddc075bff606580eb6e883"
+    },
+    {
+      "record_id": 107,
+      "label": "inner_007",
+      "load_hp": 2,
+      "rpm": 1748.0,
+      "samples": 122136,
+      "sha256": "111ba8996a115684661a13c913bd74d8029a59294492f88aec7b03e175fdd388"
+    },
+    {
+      "record_id": 108,
+      "label": "inner_007",
+      "load_hp": 3,
+      "rpm": 1721.0,
+      "samples": 122917,
+      "sha256": "d415f0e65128bfa0b118c2051c988fb0dc6ce3e4c8aa45fdc5ad1d0967462e7d"
+    },
+    {
+      "record_id": 118,
+      "label": "ball_007",
+      "load_hp": 0,
+      "rpm": 1796.0,
+      "samples": 122571,
+      "sha256": "b00628f8dd8d1d930af77fa465d1e5cdb385fe259489053f91f3680bda7f640e"
+    },
+    {
+      "record_id": 119,
+      "label": "ball_007",
+      "load_hp": 1,
+      "rpm": 1772.0,
+      "samples": 121410,
+      "sha256": "bc72d9df7668219e004a0f711232b23ec0aed393eb9bd8f9f5483426f6b51330"
+    },
+    {
+      "record_id": 120,
+      "label": "ball_007",
+      "load_hp": 2,
+      "rpm": 1748.0,
+      "samples": 121556,
+      "sha256": "e0b7a584c49af52335ff0904a97d4afcf02d045625c582de63a7c85ce10b489c"
+    },
+    {
+      "record_id": 121,
+      "label": "ball_007",
+      "load_hp": 3,
+      "rpm": 1722.0,
+      "samples": 121556,
+      "sha256": "52f686e984ba8e9b04a047a57416271cdb322cee57ee105dce58926a24b966cb"
+    },
+    {
+      "record_id": 130,
+      "label": "outer_007_6oclock",
+      "load_hp": 0,
+      "rpm": 1796.0,
+      "samples": 121991,
+      "sha256": "35a095307d0971477049b343a1b5981dde465a58fb7f233ad89b035068c1717d"
+    },
+    {
+      "record_id": 131,
+      "label": "outer_007_6oclock",
+      "load_hp": 1,
+      "rpm": 1773.0,
+      "samples": 122426,
+      "sha256": "7883f7b83beadc54b2f301767f9145ce07055707182fb0278fdf0a6bb53ce3cb"
+    },
+    {
+      "record_id": 132,
+      "label": "outer_007_6oclock",
+      "load_hp": 2,
+      "rpm": 1750.0,
+      "samples": 121410,
+      "sha256": "17a69ed5d2270b42532e678e35bbe2fa04a2cc413cf2bf9e88c7692de8662d18"
+    },
+    {
+      "record_id": 133,
+      "label": "outer_007_6oclock",
+      "load_hp": 3,
+      "rpm": 1725.0,
+      "samples": 122571,
+      "sha256": "53f076cb0d905cf46bffaee7736abce8224ffed777deed03c0c863d762a90c71"
+    }
+  ],
+  "summary": [
+    {
+      "representation": "raw",
+      "mean_balanced_accuracy": 0.9817708333333334,
+      "min_balanced_accuracy": 0.9270833333333334,
+      "max_balanced_accuracy": 1.0,
+      "mean_macro_f1": 0.9813747228381375,
+      "mean_delta_vs_raw": 0.0,
+      "feature_seconds": 1.7282176000298932,
+      "milliseconds_per_window": 4.500566666744514
+    },
+    {
+      "representation": "gaussian_pyramid",
+      "mean_balanced_accuracy": 1.0,
+      "min_balanced_accuracy": 1.0,
+      "max_balanced_accuracy": 1.0,
+      "mean_macro_f1": 1.0,
+      "mean_delta_vs_raw": 0.018229166666666657,
+      "feature_seconds": 4.732640900067054,
+      "milliseconds_per_window": 12.324585677257952
+    },
+    {
+      "representation": "wavelet_db4",
+      "mean_balanced_accuracy": 1.0,
+      "min_balanced_accuracy": 1.0,
+      "max_balanced_accuracy": 1.0,
+      "mean_macro_f1": 1.0,
+      "mean_delta_vs_raw": 0.018229166666666657,
+      "feature_seconds": 3.6514050000114366,
+      "milliseconds_per_window": 9.508867187529782
+    },
+    {
+      "representation": "emd",
+      "mean_balanced_accuracy": 1.0,
+      "min_balanced_accuracy": 1.0,
+      "max_balanced_accuracy": 1.0,
+      "mean_macro_f1": 1.0,
+      "mean_delta_vs_raw": 0.018229166666666657,
+      "feature_seconds": 70.42303970002104,
+      "milliseconds_per_window": 183.3933325521381
+    },
+    {
+      "representation": "hcrd",
+      "mean_balanced_accuracy": 1.0,
+      "min_balanced_accuracy": 1.0,
+      "max_balanced_accuracy": 1.0,
+      "mean_macro_f1": 1.0,
+      "mean_delta_vs_raw": 0.018229166666666657,
+      "feature_seconds": 38.66128649993334,
+      "milliseconds_per_window": 100.68043359357641
+    },
+    {
+      "representation": "hcrd_guided",
+      "mean_balanced_accuracy": 0.9453125,
+      "min_balanced_accuracy": 0.78125,
+      "max_balanced_accuracy": 1.0,
+      "mean_macro_f1": 0.9323671497584541,
+      "mean_delta_vs_raw": -0.03645833333333334,
+      "feature_seconds": 5.70102580008097,
+      "milliseconds_per_window": 14.846421354377526
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "MiddlePhalanxTW",
+  "assignment": "discovery",
+  "train_size": 399,
+  "length": 80,
+  "class_count": 6,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.6215189873417721,
+  "wavelet_cv_accuracy": 0.6190506329113925,
+  "raw_transform_seconds": 0.05810250004287809,
+  "wavelet_transform_seconds": 0.125668799970299,
+  "wall_seconds": 1.1617544000037014,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

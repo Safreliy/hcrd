@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "SemgHandSubjectCh2",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 450,
+  "test_size": 450,
+  "length": 1500,
+  "class_count": 5,
+  "workers": 8,
+  "representation_seconds": 53.5692124000052,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.7355555555555555,
+      "balanced_accuracy": 0.7355555555555555,
+      "macro_f1": 0.7319606190618032,
+      "feature_count": 595,
+      "fit_seconds": 22.356506199925207,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.7466666666666667,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.7355555555555555,
+      "balanced_accuracy": 0.7355555555555556,
+      "macro_f1": 0.7323626519713824,
+      "feature_count": 595,
+      "fit_seconds": 1.6272544999374077,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 78.03437270002905
+}

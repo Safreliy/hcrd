@@ -1,0 +1,53 @@
+{
+  "status": "frozen_before_any_phase2_score",
+  "dataset": "2018 AIOps KPI Anomaly Detection, phase2_train release",
+  "dataset_nature": "real production KPIs labelled by domain experts",
+  "primary_class": "max_run/length <= 0.005 and anomaly_occupancy <= 0.01",
+  "class_threshold_origin": "inherited unchanged from WSD C2 before AIOps labels were inspected",
+  "preliminary_development": {
+    "all_series": 26,
+    "primary_series": 15,
+    "candidate_family": "fixed hcrd_temporal_candidate_scores family",
+    "selection_metric": "mean per-series AUC-PR",
+    "selected_candidate": "HCRD L8-max area-density followed by spectral residual",
+    "selected_mean_auc_pr": 0.26033535509372824,
+    "direct_hcrd_mean_auc_pr": 0.2403136493412498,
+    "development_only": true
+  },
+  "confirmation": {
+    "all_series": 29,
+    "primary_series": 13
+  },
+  "primary_endpoint": "paired mean per-series AUC-PR difference: HCRD-area-SR minus raw-signal-SR on 13 primary KPIs",
+  "candidate": {
+    "hcrd_levels": 8,
+    "aggregation": "max",
+    "spectral_residual_amplitude_window": 100
+  },
+  "primary_comparator": "same spectral-residual operator applied to the raw KPI",
+  "secondary": [
+    "all 29 KPIs",
+    "direct HCRD ablation",
+    "raw absolute-deviation ablation",
+    "AUC-ROC"
+  ],
+  "inference": [
+    "50000-draw paired bootstrap CI",
+    "exact paired sign-flip test on n=13",
+    "paired t-test",
+    "Wilcoxon",
+    "exact sign test"
+  ],
+  "timing_policy": "no runtime claim",
+  "preliminary_sha256": "427fff1a9f310e96f8e146a640c69f3045bcdcaba6d52cacd6db91b3a6dea273",
+  "confirmation_sha256": "4807dc9f1f6df31e0688b47734e52b6249ef7680840837a99800bfec6393331d",
+  "repository_commit": "d06bda15d511d930cbf4e6a6de14bd94d790f0f2",
+  "development_summary_sha256": "063b30101fc0d61d33f9aeaf1c7f5363138f70a4955cdc03bc6b0c8731ce93e7",
+  "implementation_sha256": {
+    "experiments/run_aiops_kpi_confirmation.py": "1d6fb01aca853ab1feb7256828162122fc0c6ec35ca6f64fe9f4e4e97a41d014",
+    "docs/aiops_kpi_c3_protocol.md": "bf06df18ec3f0938fa5ce62c154a4fd441a0207b5d9d5cf1b111d60eb9b3e435",
+    "src/hcrd/anomaly.py": "2459cfd73d2e8b5effd45f30db620078486cc369fb37b9e7465d960f64809939",
+    "src/hcrd/energy.py": "6bd972e53b245c6c323f5020608e566872ef2f4650af7086c0749e59813d12bb",
+    "src/hcrd/temporal_anomaly.py": "7d2971b0832750fb5827b6d57aeb982cfa1f8815a6182cd33c18a1b546af7e77"
+  }
+}

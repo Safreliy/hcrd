@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "BirdChicken",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 20,
+  "test_size": 20,
+  "length": 512,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 7.727171199978329,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.95,
+      "balanced_accuracy": 0.95,
+      "macro_f1": 0.949874686716792,
+      "feature_count": 595,
+      "fit_seconds": 9.757020599907264,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.95,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.9,
+      "balanced_accuracy": 0.9,
+      "macro_f1": 0.898989898989899,
+      "feature_count": 595,
+      "fit_seconds": 0.10229740000795573,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 17.669441599980928
+}

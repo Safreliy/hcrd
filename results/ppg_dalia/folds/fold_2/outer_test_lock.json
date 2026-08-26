@@ -1,0 +1,104 @@
+{
+  "fold": 2,
+  "protocol_sha256": "0d75839c5ea850795a29f4b0250c7297336c156b3cce3204586b208c847ed000",
+  "record_manifest_sha256": "95d18294f434159f3208c4c080a11993ada5d4745dcd40735067221958bc05c0",
+  "benchmark_script_sha256": "1d8cb91418c3a58abc5e64fee9d2711db2b592b2de4a79833112715ccc9961bd",
+  "development_subjects": [
+    "S1",
+    "S10",
+    "S13",
+    "S14",
+    "S15",
+    "S3",
+    "S5",
+    "S7",
+    "S9"
+  ],
+  "validation_subjects": [
+    "S12",
+    "S4",
+    "S6"
+  ],
+  "test_subjects": [
+    "S11",
+    "S2",
+    "S8"
+  ],
+  "p0": {
+    "maximum_bpm": 180,
+    "prominence": 0.1
+  },
+  "p1": {
+    "minimum_persistence": 1
+  },
+  "models": [
+    {
+      "name": "hgb_mass_control",
+      "family": "hist_gradient_boosting",
+      "feature_set": "mass",
+      "eligible_primary": false,
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31
+      },
+      "input_features": 39,
+      "training_candidates": 133916,
+      "training_positive_candidates": 78948,
+      "descriptive_training_average_precision": 0.8273027003792099,
+      "model_file": "results/ppg_dalia/models/fold_2_hgb_mass_control.joblib",
+      "model_sha256": "0ebaace36d51b487d81b57d801ec7ebd12a7e59a9152ad0bc6e8e32df0aaf8af",
+      "threshold": 0.2
+    },
+    {
+      "name": "logistic_geometry",
+      "family": "logistic",
+      "feature_set": "geometry",
+      "eligible_primary": true,
+      "params": {
+        "C": 0.1
+      },
+      "input_features": 140,
+      "training_candidates": 133916,
+      "training_positive_candidates": 78948,
+      "descriptive_training_average_precision": 0.8309725951459974,
+      "model_file": "results/ppg_dalia/models/fold_2_logistic_geometry.joblib",
+      "model_sha256": "86d95315e762e4204530d2b14dfe48cf616d3ffcf6c67050304a3e0ca6a407de",
+      "threshold": 0.25
+    },
+    {
+      "name": "hgb_geometry",
+      "family": "hist_gradient_boosting",
+      "feature_set": "geometry",
+      "eligible_primary": true,
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31
+      },
+      "input_features": 140,
+      "training_candidates": 133916,
+      "training_positive_candidates": 78948,
+      "descriptive_training_average_precision": 0.8875801146221192,
+      "model_file": "results/ppg_dalia/models/fold_2_hgb_geometry.joblib",
+      "model_sha256": "0a75c9d39979f03f047a009f4414179ca06aa59e2fff4debdf3d6607cfbc49cf",
+      "threshold": 0.25
+    },
+    {
+      "name": "hgb_hybrid",
+      "family": "hist_gradient_boosting",
+      "feature_set": "hybrid",
+      "eligible_primary": true,
+      "params": {
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 15
+      },
+      "input_features": 147,
+      "training_candidates": 133916,
+      "training_positive_candidates": 78948,
+      "descriptive_training_average_precision": 0.8835211873585227,
+      "model_file": "results/ppg_dalia/models/fold_2_hgb_hybrid.joblib",
+      "model_sha256": "c80f41f9b3e2b1e6d824e5c101db5db64b4e0371ae034d98fc9882b6466e8714",
+      "threshold": 0.2
+    }
+  ],
+  "primary_model": "hgb_hybrid"
+}

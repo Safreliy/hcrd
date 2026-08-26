@@ -1,0 +1,18 @@
+{
+  "protocol": "docs/iterative_filtering_confirmation_protocol.md",
+  "protocol_sha256": "8f174fb13b81cd65e16f5ab82b73ed0ef613ec69fcba8a405d634edce26c2314",
+  "seed": 20261202,
+  "noise_levels": [
+    0.0,
+    0.03,
+    0.1
+  ],
+  "trials_per_condition": 50,
+  "workers": 8,
+  "elapsed_seconds": 9.04212080000434,
+  "python": "3.12.4",
+  "numpy": "2.5.2",
+  "iterativefiltering": "1.0.4",
+  "pyfftw": "0.15.1",
+  "maximum_reconstruction_error": 1.7763568394002505e-15
+}

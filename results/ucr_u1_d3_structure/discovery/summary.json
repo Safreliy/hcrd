@@ -1,0 +1,17 @@
+{
+  "datasets": 57,
+  "summary": [
+    {
+      "method": "hcrd_structure_extratrees_cv",
+      "dataset_count": 57,
+      "mean_accuracy": 0.7187823380701508,
+      "median_accuracy": 0.7246376811594203
+    },
+    {
+      "method": "hcrd_structure_lightgbm",
+      "dataset_count": 57,
+      "mean_accuracy": 0.6935594335392542,
+      "median_accuracy": 0.7318840579710145
+    }
+  ]
+}

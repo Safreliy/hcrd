@@ -1,0 +1,30 @@
+{
+  "status": "frozen_before_A1_evaluation_execution",
+  "selected_candidate": "hcrd_L8_max",
+  "screening": {
+    "screening_metric": "mean per-series AUC-PR",
+    "screened_hcrd_candidates": [
+      "hcrd_L8_max",
+      "hcrd_full_max",
+      "hcrd_L8_l2",
+      "hcrd_full_l2",
+      "hcrd_L4_max"
+    ],
+    "exact_vus_reference": "raw_abs_median_deviation",
+    "screened_before_exact_vus_execution": true
+  },
+  "selection_metric": "mean per-series exact VUS-PR over official tuning split",
+  "tuning_series": 48,
+  "file_list": "third_party/TSB-AD/Datasets/File_List/TSB-AD-U-Tuning.csv",
+  "file_list_sha256": "7bf24d2ef834bb39ddd1c8c2b02c177339921dce694354e258ed2b77d8d5cd1c",
+  "data_archive_sha256": "0c47020d3423723c70773736dbd800369f2b487328becbf339450d1ae5020961",
+  "tsb_ad_code_commit": "e0975a5f7d3e65ab77e9fab24d1b5b51acda8f48",
+  "implementation_sha256": {
+    "src\\hcrd\\anomaly.py": "2459cfd73d2e8b5effd45f30db620078486cc369fb37b9e7465d960f64809939",
+    "src\\hcrd\\energy.py": "6bd972e53b245c6c323f5020608e566872ef2f4650af7086c0749e59813d12bb",
+    "src\\hcrd\\tsad_metrics.py": "faec9b2d31e85fc00a11431f4de60cd26f8ae361763a70bc675ce50e8345650c",
+    "experiments\\run_tsb_ad_area_tuning.py": "b3977cecfad8ba02236cba28837b16e96793b5af108b600d71f84c895351412b",
+    "docs\\tsb_ad_a1_protocol.md": "5eb2303b9a79575f5b90791547141ceaf58ba3abb9244dede88ff81f7bcc07cf"
+  },
+  "wall_seconds": 92.43941180000547
+}

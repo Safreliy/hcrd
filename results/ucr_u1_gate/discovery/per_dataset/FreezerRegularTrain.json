@@ -1,0 +1,14 @@
+{
+  "dataset": "FreezerRegularTrain",
+  "assignment": "discovery",
+  "train_size": 150,
+  "length": 301,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9933333333333334,
+  "wavelet_cv_accuracy": 0.9933333333333334,
+  "raw_transform_seconds": 0.07302050001453608,
+  "wavelet_transform_seconds": 0.19170319999102503,
+  "wall_seconds": 0.7667386999819428,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

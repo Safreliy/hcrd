@@ -1,0 +1,14 @@
+{
+  "dataset": "SonyAIBORobotSurface2",
+  "assignment": "discovery",
+  "train_size": 27,
+  "length": 65,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.86,
+  "wavelet_cv_accuracy": 0.8266666666666665,
+  "raw_transform_seconds": 0.05067479994613677,
+  "wavelet_transform_seconds": 0.059795200009830296,
+  "wall_seconds": 0.6154843999538571,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "Phoneme",
+  "assignment": "discovery",
+  "train_size": 214,
+  "length": 1024,
+  "class_count": 39,
+  "cv_folds": 1,
+  "raw_cv_accuracy": null,
+  "wavelet_cv_accuracy": null,
+  "raw_transform_seconds": 0.35642089997418225,
+  "wavelet_transform_seconds": 2.195011300034821,
+  "wall_seconds": 2.811099899932742,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

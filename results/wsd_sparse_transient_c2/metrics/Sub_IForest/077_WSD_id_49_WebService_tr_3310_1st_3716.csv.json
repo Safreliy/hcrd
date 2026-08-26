@@ -1,0 +1,18 @@
+{
+  "status": "ok",
+  "method": "Sub_IForest",
+  "file": "077_WSD_id_49_WebService_tr_3310_1st_3716.csv",
+  "length": 13243,
+  "window": 125,
+  "auc_pr": 0.002748477485718227,
+  "auc_roc": 0.2217582688826724,
+  "vus_pr": 0.007453727652819686,
+  "vus_roc": 0.3438844963518844,
+  "score_sha256_float64_le": "438ccc722b5b0d61c737123c8cdda5399695391795f7bab0b9646297bbc3e705",
+  "diagnostic_wall_seconds_excluded_from_claims": 25.946925300057046,
+  "parameters": {
+    "periodicity": 1,
+    "n_estimators": 150,
+    "n_jobs": 1
+  }
+}

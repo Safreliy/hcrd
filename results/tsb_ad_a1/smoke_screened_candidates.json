@@ -1,0 +1,12 @@
+{
+  "screening_metric": "mean per-series AUC-PR",
+  "screened_hcrd_candidates": [
+    "hcrd_L8_total",
+    "hcrd_L8_sum",
+    "hcrd_L8_l2",
+    "hcrd_full_sum",
+    "hcrd_full_l2"
+  ],
+  "exact_vus_reference": "raw_abs_median_deviation",
+  "screened_before_exact_vus_execution": true
+}

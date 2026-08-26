@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "SemgHandMovementCh2",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 450,
+  "test_size": 450,
+  "length": 1500,
+  "class_count": 6,
+  "workers": 8,
+  "representation_seconds": 94.86078730004374,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.48444444444444446,
+      "balanced_accuracy": 0.48444444444444446,
+      "macro_f1": 0.47840076251311875,
+      "feature_count": 595,
+      "fit_seconds": 34.15989540005103,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.5,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 4
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.4711111111111111,
+      "balanced_accuracy": 0.4711111111111112,
+      "macro_f1": 0.4698994741795584,
+      "feature_count": 595,
+      "fit_seconds": 2.682225099997595,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 132.20950599992648
+}

@@ -1,0 +1,13 @@
+{
+  "status": "aborted_before_hcrd_population_too_small",
+  "matched_series": 145,
+  "point_series": 5,
+  "required_point_series": 10,
+  "excluded_matches": 7,
+  "archive_sha256": "ff4aa83a5a111835d410d962152e8dbebcda1039b778bae45b6b9c3f46dd49a1",
+  "accuracy_table_sha256": "c86cb2cec271a5346e116b00c012376024c5af44897ee1f119d9f8834cfe3534",
+  "tuning_list_sha256": "7bf24d2ef834bb39ddd1c8c2b02c177339921dce694354e258ed2b77d8d5cd1c",
+  "evaluation_list_sha256": "6f4e1d4ddbde195f9687f2c5a951b51faff54dda4b658d85f0c07e3e2879615a",
+  "tsb_uad_commit": "313f0fdeba14292b9db4e1aa94c74a983a25de31",
+  "population_manifest_sha256": "2a35c1443bb6f75b59703aac6082ae7a405204611c1667375139061b764f9793"
+}

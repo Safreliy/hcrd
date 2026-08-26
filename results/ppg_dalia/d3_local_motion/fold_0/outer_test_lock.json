@@ -1,0 +1,53 @@
+{
+  "status": "post-outer-test exploratory development",
+  "fold": 0,
+  "protocol_sha256": "38fd5b9053fe8024595c48156e26a14d16faed7d36019798beef490bc840a838",
+  "development_subjects": [
+    "S11",
+    "S12",
+    "S14",
+    "S15",
+    "S2",
+    "S4",
+    "S6",
+    "S7",
+    "S8"
+  ],
+  "validation_subjects": [
+    "S1",
+    "S10",
+    "S3"
+  ],
+  "test_subjects": [
+    "S13",
+    "S5",
+    "S9"
+  ],
+  "p0": {
+    "maximum_bpm": 160,
+    "prominence": 0.1
+  },
+  "models": [
+    {
+      "feature_set": "geometry_motion",
+      "input_features": 151,
+      "training_candidates": 120681,
+      "training_positive_candidates": 67152,
+      "descriptive_training_average_precision": 0.8595074200433557,
+      "model_file": "results/ppg_dalia/models/d3_fold_0_geometry_motion.joblib",
+      "model_sha256": "2bc7f7ed734e94759143c910c0aa821abff237add7b11c0f4f0751ef65894b2b",
+      "threshold": 0.35000000000000003
+    },
+    {
+      "feature_set": "hybrid_motion",
+      "input_features": 158,
+      "training_candidates": 120681,
+      "training_positive_candidates": 67152,
+      "descriptive_training_average_precision": 0.8722378154085401,
+      "model_file": "results/ppg_dalia/models/d3_fold_0_hybrid_motion.joblib",
+      "model_sha256": "afd6d3e00e5bd8abdf416264597c1f0539b473f737b53408698d230c5b12292e",
+      "threshold": 0.35000000000000003
+    }
+  ],
+  "primary_model": "hybrid_motion"
+}

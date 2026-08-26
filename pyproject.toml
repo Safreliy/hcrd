@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hcrd-research"
+version = "0.1.0"
+description = "Research implementation of Hierarchical Convexity-Run Decomposition"
+authors = [
+  {name = "Saveliy Baturin"},
+]
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "matplotlib>=3.9",
+]
+comparisons = [
+  "scipy>=1.14",
+  "EMD-signal>=1.6",
+  "vmdpy>=0.2",
+  "PyWavelets>=1.8",
+  "scikit-learn>=1.6",
+  "osqp>=1.0",
+  "wfdb>=4.3",
+  "psutil>=6.0",
+  "neurokit2==0.2.13",
+]
+iterative-filtering = [
+  "iterativefiltering==1.0.4; python_version < '3.13'",
+  "pyfftw>=0.15; python_version < '3.13'",
+]
+rul = [
+  "pandas>=2.2",
+  "scipy>=1.14",
+  "scikit-learn>=1.6",
+  "lightgbm>=4.5",
+  "torch>=2.5",
+  "gdown>=5.2",
+]
+tsc = [
+  "aeon==1.5.0",
+  "PyWavelets>=1.8",
+  "scikit-learn>=1.6,<1.9",
+  "scipy>=1.14,<1.18",
+]
+ppg = [
+  "scipy>=1.14,<1.18",
+  "scikit-learn>=1.6,<1.9",
+  "heartpy>=1.2.7",
+]
+tsad = [
+  "pandas>=2.2",
+  "scipy>=1.14",
+  "scikit-learn>=1.6",
+  "statsmodels>=0.14",
+]
+lcms = [
+  "pandas>=2.2",
+  "openpyxl>=3.1",
+  "scipy>=1.14,<1.18",
+  "scikit-learn>=1.6,<1.9",
+  "joblib>=1.4",
+  "pyteomics>=4.7",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

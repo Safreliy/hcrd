@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "PowerCons",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 180,
+  "test_size": 180,
+  "length": 144,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 14.565561899915338,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.8444444444444444,
+      "balanced_accuracy": 0.8444444444444446,
+      "macro_f1": 0.8434977021488014,
+      "feature_count": 595,
+      "fit_seconds": 11.401460599969141,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.8222222222222223,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 4
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.8277777777777777,
+      "balanced_accuracy": 0.8277777777777777,
+      "macro_f1": 0.827132191207906,
+      "feature_count": 595,
+      "fit_seconds": 0.19197330006863922,
+      "min_child_samples": 9
+    }
+  },
+  "wall_seconds": 26.330772800021805
+}

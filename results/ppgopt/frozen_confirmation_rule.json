@@ -1,0 +1,75 @@
+{
+  "protocol_sha256": "1e33526deb7e3f24f426c8a2d92506c203e17bcbdee56200b2bde11388cbc782",
+  "created_after_validation_subjects": [
+    4,
+    5
+  ],
+  "confirmation_subjects": [
+    6,
+    7
+  ],
+  "p0": {
+    "distance_bpm": 140,
+    "prominence": 0.5
+  },
+  "p1": {
+    "minimum_persistence": 2
+  },
+  "models": [
+    {
+      "name": "logistic_geometry",
+      "family": "logistic",
+      "feature_set": "geometry",
+      "params": {
+        "C": 0.1
+      },
+      "pooled_average_precision": 0.9481689201847749,
+      "fold_average_precision": [
+        0.9781788867685046,
+        0.8976296930834147,
+        0.996831569002332
+      ],
+      "model_file": "results/ppgopt/models/logistic_geometry.joblib",
+      "model_sha256": "cebff0b14cecf007c31336b827c43cb52c9d7443e31f1269f16760f69b82cb69",
+      "threshold": 0.55
+    },
+    {
+      "name": "hgb_geometry",
+      "family": "hist_gradient_boosting",
+      "feature_set": "geometry",
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31
+      },
+      "pooled_average_precision": 0.9787426267778685,
+      "fold_average_precision": [
+        0.9881044960584209,
+        0.9518505780914862,
+        0.9997426541273785
+      ],
+      "model_file": "results/ppgopt/models/hgb_geometry.joblib",
+      "model_sha256": "2ebd55a26325867dd5a4d18ecdc2253ec8afe773ab9f7e099a67a5d88f6b2f26",
+      "threshold": 0.5
+    },
+    {
+      "name": "hgb_hybrid",
+      "family": "hist_gradient_boosting",
+      "feature_set": "hybrid",
+      "params": {
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 15
+      },
+      "pooled_average_precision": 0.9903864414830422,
+      "fold_average_precision": [
+        0.9934343608459971,
+        0.971735051120949,
+        0.9999636544700293
+      ],
+      "model_file": "results/ppgopt/models/hgb_hybrid.joblib",
+      "model_sha256": "6a7134064671166edf138ca36e9eadf8da436e51d5d9945789c1eb1fbb1c6afe",
+      "threshold": 0.35000000000000003
+    }
+  ],
+  "primary_model": "hgb_hybrid",
+  "benchmark_script_sha256": "0890391d5a4272783f65b9aab574e6627c5c4d7ce331e67e4497ff85f88eb466"
+}

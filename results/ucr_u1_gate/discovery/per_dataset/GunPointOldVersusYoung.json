@@ -1,0 +1,14 @@
+{
+  "dataset": "GunPointOldVersusYoung",
+  "assignment": "discovery",
+  "train_size": 136,
+  "length": 150,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 1.0,
+  "wavelet_cv_accuracy": 1.0,
+  "raw_transform_seconds": 0.06366240000352263,
+  "wavelet_transform_seconds": 0.11097310006152838,
+  "wall_seconds": 0.6961411000229418,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

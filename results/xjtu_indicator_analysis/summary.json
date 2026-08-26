@@ -1,0 +1,40 @@
+{
+  "analysis_status": "exploratory and post-outcome; not confirmatory",
+  "target": "monotonic association with normalized life progress",
+  "n_bearings": 15,
+  "n_files": 9216,
+  "selection_warning": "Features ranked on all 15 bearings must be confirmed without reselection on an independent run-to-failure dataset.",
+  "best_exact_polygon_mass": {
+    "family": "hcrd_exact_polygon_mass",
+    "feature": "h_env_level_3_log1p_polygon_area",
+    "n_bearings": 15,
+    "median_rho": 0.7433797732320137,
+    "median_abs_rho": 0.7433797732320137,
+    "q25_rho": 0.21688971873336915,
+    "q75_rho": 0.8474875456058716,
+    "min_rho": 0.05062838408424817,
+    "max_rho": 0.9196329555083295,
+    "positive_fraction": 1.0,
+    "same_direction_fraction": 1.0,
+    "exploratory_consistency_score": 0.7433797732320137
+  },
+  "best_standard_feature": {
+    "family": "standard",
+    "feature": "v_band_power_0_1k",
+    "n_bearings": 15,
+    "median_rho": 0.8913618587531631,
+    "median_abs_rho": 0.8913618587531631,
+    "q25_rho": 0.56813579365495,
+    "q75_rho": 0.9322963235204719,
+    "min_rho": -0.07006170805712379,
+    "max_rho": 0.973421926910299,
+    "positive_fraction": 0.9333333333333333,
+    "same_direction_fraction": 0.9333333333333333,
+    "exploratory_consistency_score": 0.8319377348362855
+  },
+  "all_positive_exact_polygon_mass_features": [
+    "h_env_level_3_log1p_polygon_area",
+    "h_env_level_4_log1p_polygon_area",
+    "h_env_level_5_log1p_polygon_area"
+  ]
+}

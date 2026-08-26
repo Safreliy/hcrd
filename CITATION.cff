@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use HCRD, please cite the software and accompanying preprint."
+title: "Hierarchical Convexity-Run Decomposition: Detection Theory and Cross-Study Validation for Interpretable Chord Lobes"
+type: software
+authors:
+  - family-names: Baturin
+    given-names: Saveliy
+    affiliation: Independent Researcher
+version: 0.1.0
+date-released: 2026-08-25
+license: MIT
+abstract: >-
+  Reference implementation and reproducibility archive for a finite nonlinear
+  geometric decomposition of discrete signals into nested signed chord
+  structures, with finite and continuous lobe-scan detection theory,
+  bidirectional cross-study LC-MS mass-feature quality validation, and
+  conditional external residual-error triage.
+keywords:
+  - signal decomposition
+  - discrete curvature
+  - convexity
+  - transient morphology
+  - persistence
+  - LC-MS
+  - chromatographic quality control
+  - interpretable signal representation

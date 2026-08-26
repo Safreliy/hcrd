@@ -1,0 +1,48 @@
+{
+  "protocol": "hcrd-e3-targetedmsqc-v1",
+  "frozen_source_commit": "5439ba9f102d043241ccb8207e7ec9f1a35ebc63",
+  "source_commit": "5439ba9f102d043241ccb8207e7ec9f1a35ebc63",
+  "source_sha256": {
+    "labels": "3ebed8b7ebbd6ce5da9591ac77139fe81220da4069ff7dfdfe2da81f8249463d",
+    "features": "986d1ee684ea618b12b4919445360263c2f97b07572fdc530bef8f48841e39ab",
+    "boundaries": "3d0a3902cb141e1beee1976a18e666898fa2945e9230e9e388a1bf39d88a9d8f",
+    "chromatograms": "a1eecd5a88e3dadccd5e26d56dad348df4bb0c5212ccc88bb2bf4a50696911b2"
+  },
+  "annotated_count": 600,
+  "eligible_count": 576,
+  "ok_count": 377,
+  "flag_count": 199,
+  "run_count": 4,
+  "peptide_count": 36,
+  "exclusion_counts": {
+    "missing_official_features": 24,
+    "missing_boundary": 0,
+    "missing_light_chromatogram": 0,
+    "missing_heavy_chromatogram": 0
+  },
+  "qc_feature_count": 52,
+  "base_feature_widths": {
+    "raw64": 300,
+    "hcrd_1": 708,
+    "hcrd_8": 3792,
+    "hcrd_geometry": 1188,
+    "area_only": 192,
+    "qc52": 52
+  },
+  "windows": {
+    "short": "[start,end]",
+    "context": "[start-(end-start),end+(end-start)] clipped to trace"
+  },
+  "isotope_order": [
+    "light",
+    "heavy"
+  ],
+  "workers": 3,
+  "versions": {
+    "python": "3.13.3",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0"
+  }
+}

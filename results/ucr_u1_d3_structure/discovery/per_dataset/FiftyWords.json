@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "FiftyWords",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 450,
+  "test_size": 455,
+  "length": 270,
+  "class_count": 50,
+  "workers": 8,
+  "representation_seconds": 14.30984489992261,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.4725274725274725,
+      "balanced_accuracy": 0.2909833798296647,
+      "macro_f1": 0.266626514844329,
+      "feature_count": 595,
+      "fit_seconds": 1.5986057000700384,
+      "cv_folds": 1,
+      "best_cv_accuracy": null,
+      "best_parameters": {
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.5142857142857142,
+      "balanced_accuracy": 0.27065658565720485,
+      "macro_f1": 0.2645868845992902,
+      "feature_count": 595,
+      "fit_seconds": 10.498643700033426,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 26.666694000014104
+}

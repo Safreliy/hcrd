@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "ECG5000",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 500,
+  "test_size": 4500,
+  "length": 140,
+  "class_count": 5,
+  "workers": 8,
+  "representation_seconds": 52.00335300003644,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.92,
+      "balanced_accuracy": 0.4038937741498662,
+      "macro_f1": 0.40354054721090593,
+      "feature_count": 595,
+      "fit_seconds": 13.6833459000336,
+      "cv_folds": 2,
+      "best_cv_accuracy": 0.918,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.9268888888888889,
+      "balanced_accuracy": 0.4129448460028341,
+      "macro_f1": 0.41654005946997746,
+      "feature_count": 595,
+      "fit_seconds": 1.4150424000108615,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 67.59982469992246
+}

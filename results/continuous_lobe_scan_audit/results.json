@@ -1,0 +1,137 @@
+{
+  "protocol": "hcrd-continuous-lobe-audit-v1",
+  "seed": 20260825,
+  "grid": {
+    "sample_count": 129,
+    "template_count": 595,
+    "center_count": 17,
+    "width_count": 7,
+    "apex_count": 5
+  },
+  "analytic_certificate": {
+    "maximum_grid_spacing": 0.0078125,
+    "minimum_apex_segment": 0.045,
+    "sampled_apex_height_lower": 0.9131944444444444,
+    "residual_norm_lower": 0.6457259842085485,
+    "raw_template_lipschitz": 680.0653563363516,
+    "normalized_template_lipschitz": 2106.3589602016464,
+    "canonical_diameter_upper": 2.0,
+    "entropy_integral_upper": 11.742537051179475,
+    "continuous_level_threshold": 284.26863605898825,
+    "continuous_power_sufficient_norm_beta_0.2": 286.0627586369823
+  },
+  "finite_sieve_null": {
+    "alpha": 0.05,
+    "threshold": 4.332272770521178,
+    "draws": 50000,
+    "exceedances": 22,
+    "empirical_fwer": 0.00044,
+    "empirical_fwer_95_ci": [
+      0.0002757655490093465,
+      0.0006660899538915626
+    ],
+    "null_supremum_mean": 1.7291458320033917,
+    "null_supremum_q95": 2.853231060113388,
+    "continuous_threshold_exceedances_on_sieve": 0
+  },
+  "mesh_audit": {
+    "status": "empirical_only_not_a_continuum_certificate",
+    "validation_parameter_count": 10000,
+    "maximum_observed_canonical_radius": 0.1800795106743786,
+    "q99_observed_canonical_radius": 0.1485559526313435,
+    "parameter_half_cell_radius": 0.05303300858899107,
+    "analytic_lipschitz_mesh_upper": 111.70655282787222,
+    "analytic_sieve_condition_eta_lt_sqrt2_met": false
+  },
+  "finite_sieve_power_sufficient_norm_beta_0.2": 6.126395348515279,
+  "power_and_localization": [
+    {
+      "signal_norm": 3.0,
+      "finite_sieve_empirical_power": 0.1621,
+      "finite_sieve_power_95_ci": [
+        0.15492587347955925,
+        0.16947148546444482
+      ],
+      "included_true_template_power_lower": 0.09138528572221088,
+      "exact_grid_localization_rate": 0.0065,
+      "canonical_localization_error_median": 0.3706142994812303,
+      "canonical_localization_error_q95": 0.9366683574370742
+    },
+    {
+      "signal_norm": 4.0,
+      "finite_sieve_empirical_power": 0.501,
+      "finite_sieve_power_95_ci": [
+        0.49115110884142543,
+        0.5108483084719171
+      ],
+      "included_true_template_power_lower": 0.3698416494786382,
+      "exact_grid_localization_rate": 0.013,
+      "canonical_localization_error_median": 0.35162582083783345,
+      "canonical_localization_error_q95": 0.6762910916275526
+    },
+    {
+      "signal_norm": 5.0,
+      "finite_sieve_empirical_power": 0.8346,
+      "finite_sieve_power_95_ci": [
+        0.8271707308622923,
+        0.8418338518869248
+      ],
+      "included_true_template_power_lower": 0.7478461373218842,
+      "exact_grid_localization_rate": 0.0221,
+      "canonical_localization_error_median": 0.3064116568412528,
+      "canonical_localization_error_q95": 0.5195879400385135
+    },
+    {
+      "signal_norm": 6.0,
+      "finite_sieve_empirical_power": 0.9739,
+      "finite_sieve_power_95_ci": [
+        0.9705837515528418,
+        0.9769361950324811
+      ],
+      "included_true_template_power_lower": 0.9523150562737137,
+      "exact_grid_localization_rate": 0.0416,
+      "canonical_localization_error_median": 0.259519429284708,
+      "canonical_localization_error_q95": 0.4179129688284013
+    },
+    {
+      "signal_norm": 6.126395348515279,
+      "finite_sieve_empirical_power": 0.9838,
+      "finite_sieve_power_95_ci": [
+        0.9811299036412967,
+        0.9861826638664684
+      ],
+      "included_true_template_power_lower": 0.9636031969681834,
+      "exact_grid_localization_rate": 0.0445,
+      "canonical_localization_error_median": 0.24393062301248275,
+      "canonical_localization_error_q95": 0.4179129688284013
+    },
+    {
+      "signal_norm": 7.0,
+      "finite_sieve_empirical_power": 0.9984,
+      "finite_sieve_power_95_ci": [
+        0.9974029972339906,
+        0.9990851938768042
+      ],
+      "included_true_template_power_lower": 0.9961816885143935,
+      "exact_grid_localization_rate": 0.0587,
+      "canonical_localization_error_median": 0.2336250487536388,
+      "canonical_localization_error_q95": 0.3990471812360782
+    },
+    {
+      "signal_norm": 286.0627586369823,
+      "finite_sieve_empirical_power": 1.0,
+      "finite_sieve_power_95_ci": [
+        0.999631180085378,
+        1.0
+      ],
+      "included_true_template_power_lower": 1.0,
+      "exact_grid_localization_rate": 1.0,
+      "canonical_localization_error_median": 0.0,
+      "canonical_localization_error_q95": 0.0
+    }
+  ],
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.1"
+  }
+}

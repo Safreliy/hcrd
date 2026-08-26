@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Computers",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 250,
+  "test_size": 250,
+  "length": 720,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 21.375708400039002,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.724,
+      "balanced_accuracy": 0.724,
+      "macro_f1": 0.7238895558223288,
+      "feature_count": 595,
+      "fit_seconds": 13.947538000065833,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.8160000000000001,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.74,
+      "balanced_accuracy": 0.74,
+      "macro_f1": 0.7390606182256123,
+      "feature_count": 595,
+      "fit_seconds": 0.290006099967286,
+      "min_child_samples": 12
+    }
+  },
+  "wall_seconds": 35.905825799913146
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "SemgHandMovementCh2",
+  "assignment": "discovery",
+  "train_size": 450,
+  "length": 1500,
+  "class_count": 6,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.6066666666666667,
+  "wavelet_cv_accuracy": 0.6822222222222223,
+  "raw_transform_seconds": 0.6131533000152558,
+  "wavelet_transform_seconds": 8.904145499924198,
+  "wall_seconds": 11.208182999980636,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

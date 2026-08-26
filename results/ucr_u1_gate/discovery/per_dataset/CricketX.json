@@ -1,0 +1,14 @@
+{
+  "dataset": "CricketX",
+  "assignment": "discovery",
+  "train_size": 390,
+  "length": 300,
+  "class_count": 12,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.8333333333333334,
+  "wavelet_cv_accuracy": 0.7999999999999999,
+  "raw_transform_seconds": 0.12972299999091774,
+  "wavelet_transform_seconds": 0.41662509995512664,
+  "wall_seconds": 1.606670800014399,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "method": "HCRD",
+  "file": "122_WSD_id_94_WebService_tr_4559_1st_8618.csv",
+  "length": 18236,
+  "window": 60,
+  "auc_pr": 0.09238744269766834,
+  "auc_roc": 0.5356656647807638,
+  "vus_pr": 0.019636584053579053,
+  "vus_roc": 0.6589584910351733,
+  "score_sha256_float64_le": "090b4ed7533a16cff5e803c9430a8058c438edb6c208c251db0e44affa13680c",
+  "diagnostic_wall_seconds_excluded_from_claims": 0.11218479997478426,
+  "parameters": {
+    "max_levels": 8,
+    "aggregation": "max"
+  }
+}

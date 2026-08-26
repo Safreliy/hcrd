@@ -1,0 +1,14 @@
+{
+  "dataset": "Fish",
+  "assignment": "discovery",
+  "train_size": 175,
+  "length": 463,
+  "class_count": 7,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9657142857142856,
+  "wavelet_cv_accuracy": 0.9199999999999999,
+  "raw_transform_seconds": 0.1614500000141561,
+  "wavelet_transform_seconds": 0.3628061000490561,
+  "wall_seconds": 1.2792281999718398,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

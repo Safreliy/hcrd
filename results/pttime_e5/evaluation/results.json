@@ -1,0 +1,207 @@
+{
+  "protocol": "hcrd-e5-v1",
+  "protocol_sha256": "ee74bd64f0339f9893509c280d0541e423e40f886996d8d5de537462cc2749a6",
+  "runner_sha256": "1616b93294446012970150c5b1d0f2e2db7a532194a78854c99f67d2b71271f5",
+  "source_repository_commit": "491deaf1d5f27f9d276e58acb4c1dfca2a2e21b9",
+  "dataset_metadata": {
+    "falkor": {
+      "protocol": "hcrd-e2-v1",
+      "dataset": "falkor",
+      "mzml_file_count": 41,
+      "feature_count": 2040,
+      "good_count": 242,
+      "bad_count": 1579,
+      "excluded_count": 219,
+      "source_archive_sha256": "e9322956871f39b5ace76ddd05c8f37b91773923893ad6d6649d844a0963a9aa",
+      "labels_sha256": "78177556a501150499e5f60785663beb284390c7cb768067f2f9cb3b778839be",
+      "source_repository_commit": "491deaf1d5f27f9d276e58acb4c1dfca2a2e21b9",
+      "final_widths": {
+        "qscore": 2,
+        "domain_q": 336,
+        "hcrd_1_q": 534,
+        "hcrd_8_q": 2847,
+        "hcrd_geometry_q": 894,
+        "area_only_q": 147
+      }
+    },
+    "mesoscope": {
+      "protocol": "hcrd-e2-v1",
+      "dataset": "mesoscope",
+      "mzml_file_count": 168,
+      "feature_count": 2534,
+      "good_count": 249,
+      "bad_count": 1944,
+      "excluded_count": 341,
+      "source_archive_sha256": "08e44c2512de1122bec831ec1bc79caa49a1167c09b44bc90413dbead97d45c2",
+      "labels_sha256": "a821ae612c3358f3fb84cba12a6ae9d7b04a59e087f5cd27c5b56ea63478e3c1",
+      "source_repository_commit": "491deaf1d5f27f9d276e58acb4c1dfca2a2e21b9",
+      "final_widths": {
+        "qscore": 2,
+        "domain_q": 336,
+        "hcrd_1_q": 534,
+        "hcrd_8_q": 2847,
+        "hcrd_geometry_q": 894,
+        "area_only_q": 147
+      }
+    },
+    "pttime": {
+      "protocol": "hcrd-e5-v1",
+      "ion_mode": "positive",
+      "raw_file_selection": "basename contains _POS_",
+      "expected_raw_file_count": 52,
+      "raw_file_count": 52,
+      "feature_count": 400,
+      "good_count": 348,
+      "bad_count": 17,
+      "excluded_count": 35,
+      "source_archive_bytes": 2916229074,
+      "source_archive_sha256": "6e06eed561c82a5d4667b88089a37ea620b2c7cedc7a35fa46f9bd5d727d5040",
+      "labels_sha256": "0a9e03ed7afdc8dc9181137f0f8ebd748467afa72c94443d88ff5b93c8ce778d",
+      "source_repository_commit": "491deaf1d5f27f9d276e58acb4c1dfca2a2e21b9",
+      "protocol_sha256": "ee74bd64f0339f9893509c280d0541e423e40f886996d8d5de537462cc2749a6",
+      "final_widths": {
+        "qscore": 2,
+        "domain_q": 336,
+        "hcrd_1_q": 534,
+        "hcrd_8_q": 2847,
+        "hcrd_geometry_q": 894,
+        "area_only_q": 147
+      }
+    }
+  },
+  "target_evaluable": {
+    "total": 365,
+    "good": 348,
+    "bad": 17,
+    "excluded_ambiguous": 35,
+    "selection": "source two-variable model probability > 0.9"
+  },
+  "metrics": {
+    "qscore": {
+      "average_precision_bad": 0.0390922040703677,
+      "roc_auc_bad": 0.34026369168356996,
+      "bad_in_top_17": 0,
+      "bad_in_top_5_percent": 0,
+      "top_5_percent_count": 19
+    },
+    "domain_q": {
+      "average_precision_bad": 0.38730798808073075,
+      "roc_auc_bad": 0.8115280594996619,
+      "bad_in_top_17": 5,
+      "bad_in_top_5_percent": 6,
+      "top_5_percent_count": 19
+    },
+    "hcrd_1_q": {
+      "average_precision_bad": 0.2845215745011985,
+      "roc_auc_bad": 0.7792427315753887,
+      "bad_in_top_17": 5,
+      "bad_in_top_5_percent": 5,
+      "top_5_percent_count": 19
+    },
+    "hcrd_8_q": {
+      "average_precision_bad": 0.5085346960642899,
+      "roc_auc_bad": 0.864604462474645,
+      "bad_in_top_17": 7,
+      "bad_in_top_5_percent": 7,
+      "top_5_percent_count": 19
+    },
+    "hcrd_geometry_q": {
+      "average_precision_bad": 0.3539628818195515,
+      "roc_auc_bad": 0.8081473968897903,
+      "bad_in_top_17": 6,
+      "bad_in_top_5_percent": 6,
+      "top_5_percent_count": 19
+    },
+    "area_only_q": {
+      "average_precision_bad": 0.13674882509041275,
+      "roc_auc_bad": 0.7194050033806626,
+      "bad_in_top_17": 3,
+      "bad_in_top_5_percent": 3,
+      "top_5_percent_count": 19
+    }
+  },
+  "comparisons": {
+    "domain_q": {
+      "left": "domain_q",
+      "right": "qscore",
+      "ap_bad_difference": 0.348215784010363,
+      "stratified_bootstrap_95_ci": [
+        0.14574685672056262,
+        0.5632695842672015
+      ],
+      "two_sided_bootstrap_p": 0.00039996000399960006
+    },
+    "hcrd_1_q": {
+      "left": "hcrd_1_q",
+      "right": "qscore",
+      "ap_bad_difference": 0.24542937043083082,
+      "stratified_bootstrap_95_ci": [
+        0.08148322058401802,
+        0.47876549653010186
+      ],
+      "two_sided_bootstrap_p": 0.00039996000399960006
+    },
+    "hcrd_8_q": {
+      "left": "hcrd_8_q",
+      "right": "qscore",
+      "ap_bad_difference": 0.4694424919939222,
+      "stratified_bootstrap_95_ci": [
+        0.2489340537923106,
+        0.6762237462824927
+      ],
+      "two_sided_bootstrap_p": 0.00019998000199980003
+    },
+    "hcrd_geometry_q": {
+      "left": "hcrd_geometry_q",
+      "right": "qscore",
+      "ap_bad_difference": 0.31487067774918376,
+      "stratified_bootstrap_95_ci": [
+        0.11723160211172544,
+        0.5440082950014076
+      ],
+      "two_sided_bootstrap_p": 0.00019998000199980003
+    },
+    "area_only_q": {
+      "left": "area_only_q",
+      "right": "qscore",
+      "ap_bad_difference": 0.09765662102004505,
+      "stratified_bootstrap_95_ci": [
+        0.021153497215361687,
+        0.2844277269291619
+      ],
+      "two_sided_bootstrap_p": 0.008999100089991
+    },
+    "hcrd_8_q_vs_domain_q": {
+      "left": "hcrd_8_q",
+      "right": "domain_q",
+      "ap_bad_difference": 0.12122670798355917,
+      "stratified_bootstrap_95_ci": [
+        -0.009990449120666456,
+        0.2793821586112405
+      ],
+      "two_sided_bootstrap_p": 0.0817918208179182
+    },
+    "hcrd_8_q_vs_hcrd_1_q": {
+      "left": "hcrd_8_q",
+      "right": "hcrd_1_q",
+      "ap_bad_difference": 0.2240131215630914,
+      "stratified_bootstrap_95_ci": [
+        0.07072733223776041,
+        0.3544467953141808
+      ],
+      "two_sided_bootstrap_p": 0.0005999400059994001
+    }
+  },
+  "prospective_success": true,
+  "success_components": {
+    "hcrd8_exceeds_qscore": true,
+    "positive_primary_ci_lower": true,
+    "hcrd8_exceeds_hcrd1": true
+  },
+  "bootstrap": {
+    "replicates": 10000,
+    "sampling": "paired class-stratified target-feature bootstrap",
+    "seed": 20260825
+  },
+  "claim_boundary": "Conditional reranking of the source-model-selected Pttime subset; not performance on the complete 7,781-feature population."
+}

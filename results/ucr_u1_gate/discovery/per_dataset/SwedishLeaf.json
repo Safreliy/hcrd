@@ -1,0 +1,14 @@
+{
+  "dataset": "SwedishLeaf",
+  "assignment": "discovery",
+  "train_size": 500,
+  "length": 128,
+  "class_count": 15,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.946,
+  "wavelet_cv_accuracy": 0.95,
+  "raw_transform_seconds": 0.13231879996601492,
+  "wavelet_transform_seconds": 0.6175996999954805,
+  "wall_seconds": 2.636044600047171,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

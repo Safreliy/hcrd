@@ -1,0 +1,139 @@
+{
+  "protocol": "U1-D2 exploratory",
+  "dataset": "ScreenType",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 375,
+  "test_size": 375,
+  "length": 720,
+  "class_count": 3,
+  "workers": 6,
+  "requested_total_kernels": 1000,
+  "kernels_per_component": 168,
+  "representation_seconds": 19.43346410000231,
+  "metrics": {
+    "raw_minirocket": {
+      "accuracy": 0.4666666666666667,
+      "balanced_accuracy": 0.4666666666666666,
+      "macro_f1": 0.4583203637275071,
+      "feature_count": 924,
+      "transform_seconds": 0.08075909991748631,
+      "head_fit_seconds": 0.0978842000477016,
+      "head_predict_seconds": 0.0021482999436557293,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "wavelet_componentwise": {
+      "accuracy": 0.37866666666666665,
+      "balanced_accuracy": 0.37866666666666665,
+      "macro_f1": 0.37415879423947107,
+      "feature_count": 1008,
+      "transform_seconds": 0.17702300008386374,
+      "head_fit_seconds": 0.10665349999908358,
+      "head_predict_seconds": 0.0031113000586628914,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise": {
+      "accuracy": 0.45066666666666666,
+      "balanced_accuracy": 0.4506666666666667,
+      "macro_f1": 0.4519314985182654,
+      "feature_count": 1008,
+      "transform_seconds": 0.16608749993611127,
+      "head_fit_seconds": 0.09371440007817,
+      "head_predict_seconds": 0.0017197999404743314,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise_hybrid": {
+      "accuracy": 0.48,
+      "balanced_accuracy": 0.48,
+      "macro_f1": 0.48093545612412153,
+      "feature_count": 1603,
+      "transform_seconds": 0.16608749993611127,
+      "head_fit_seconds": 0.09305070003028959,
+      "head_predict_seconds": 0.0032015000469982624,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "raw_hcrd_fusion": {
+      "accuracy": 0.5013333333333333,
+      "balanced_accuracy": 0.5013333333333333,
+      "macro_f1": 0.5001902487282605,
+      "feature_count": 2527,
+      "transform_seconds": 0.24684659985359758,
+      "head_fit_seconds": 0.10756190004758537,
+      "head_predict_seconds": 0.011548299924470484,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_structure_extratrees": {
+      "accuracy": 0.5093333333333333,
+      "balanced_accuracy": 0.5093333333333333,
+      "macro_f1": 0.5092709223144006,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.6976554000284523
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.52,
+      "balanced_accuracy": 0.52,
+      "macro_f1": 0.5195395219300775,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 1.115122599992901,
+      "min_child_samples": 18
+    }
+  },
+  "wall_seconds": 22.439337000017986
+}

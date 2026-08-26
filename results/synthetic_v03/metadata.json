@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-08-24T10:49:58.489931+00:00",
+  "command": [
+    "experiments\\run_synthetic_benchmark.py",
+    "--trials",
+    "100",
+    "--noise",
+    "0",
+    "0.03",
+    "0.1",
+    "--suite",
+    "all"
+  ],
+  "git_commit": "deecb56b8ae977239277c288eacad6f3f4770db2",
+  "python": "3.13.3",
+  "numpy": "2.5.2",
+  "protocol": "docs/experiment_protocol.md version 0.3; see docs/protocol_amendments.md"
+}

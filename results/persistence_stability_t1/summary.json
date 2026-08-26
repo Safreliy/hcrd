@@ -1,0 +1,84 @@
+{
+  "seed": 20261003,
+  "trials": 1000,
+  "uniform_trials": 500,
+  "irregular_trials": 500,
+  "violations": 0,
+  "maximum_bound_ratio": 0.9898587824980766,
+  "median_bound_ratio": 0.6272544786981678,
+  "q95_bound_ratio": 0.8943367649172913,
+  "discontinuity": [
+    {
+      "epsilon": 0.1,
+      "input_distance": 0.20000000000000018,
+      "hard_baseline_distance": 4.1,
+      "hard_amplification": 20.49999999999998,
+      "persistence_distance": 0.39999999999999947,
+      "persistence_bound": 0.8000000000000007,
+      "persistence_bound_ratio": 0.4999999999999989
+    },
+    {
+      "epsilon": 0.01,
+      "input_distance": 0.019999999999999796,
+      "hard_baseline_distance": 4.01,
+      "hard_amplification": 200.50000000000205,
+      "persistence_distance": 0.03999999999999915,
+      "persistence_bound": 0.07999999999999918,
+      "persistence_bound_ratio": 0.49999999999999445
+    },
+    {
+      "epsilon": 0.001,
+      "input_distance": 0.0019999999999997797,
+      "hard_baseline_distance": 4.0009999999999994,
+      "hard_amplification": 2000.50000000022,
+      "persistence_distance": 0.003999999999998671,
+      "persistence_bound": 0.007999999999999119,
+      "persistence_bound_ratio": 0.499999999999889
+    },
+    {
+      "epsilon": 0.0001,
+      "input_distance": 0.00020000000000020002,
+      "hard_baseline_distance": 4.0001,
+      "hard_amplification": 20000.499999979995,
+      "persistence_distance": 0.00039999999999906777,
+      "persistence_bound": 0.0008000000000008001,
+      "persistence_bound_ratio": 0.49999999999833467
+    },
+    {
+      "epsilon": 1e-05,
+      "input_distance": 2.0000000000131024e-05,
+      "hard_baseline_distance": 4.00001,
+      "hard_amplification": 200000.49999868975,
+      "persistence_distance": 3.999999999937387e-05,
+      "persistence_bound": 8.00000000005241e-05,
+      "persistence_bound_ratio": 0.49999999998889777
+    },
+    {
+      "epsilon": 1e-06,
+      "input_distance": 2.0000000000575113e-06,
+      "hard_baseline_distance": 4.000001,
+      "hard_amplification": 2000000.4999424887,
+      "persistence_distance": 4.000000000559112e-06,
+      "persistence_bound": 8.000000000230045e-06,
+      "persistence_bound_ratio": 0.5000000000555112
+    },
+    {
+      "epsilon": 1e-07,
+      "input_distance": 1.9999999989472883e-07,
+      "hard_baseline_distance": 4.000000099999999,
+      "hard_amplification": 20000000.510527115,
+      "persistence_distance": 3.9999999934536845e-07,
+      "persistence_bound": 7.999999995789153e-07,
+      "persistence_bound_ratio": 0.4999999994448885
+    },
+    {
+      "epsilon": 1e-08,
+      "input_distance": 1.999999987845058e-08,
+      "hard_baseline_distance": 4.00000001,
+      "hard_amplification": 200000001.71549422,
+      "persistence_distance": 3.999999975690116e-08,
+      "persistence_bound": 7.999999951380232e-08,
+      "persistence_bound_ratio": 0.5
+    }
+  ]
+}

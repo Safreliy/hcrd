@@ -1,0 +1,14 @@
+{
+  "dataset": "InsectEPGRegularTrain",
+  "assignment": "discovery",
+  "train_size": 62,
+  "length": 601,
+  "class_count": 3,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9846153846153847,
+  "wavelet_cv_accuracy": 1.0,
+  "raw_transform_seconds": 0.11466359999030828,
+  "wavelet_transform_seconds": 0.2076001000823453,
+  "wall_seconds": 0.7280062000500038,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

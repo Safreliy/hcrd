@@ -1,0 +1,112 @@
+{
+  "confirmation_summary_sha256": "91f99b573a2e640e5b4c23b7c91fc81e33ef0b15fcc12c29ba9e81c32018e3c3",
+  "primary_model": "hgb_hybrid",
+  "primary_metrics": {
+    "f1": 0.9872370389930464,
+    "precision": 0.9966234227830105,
+    "recall": 0.9780258109522149,
+    "mean_absolute_error_ms": 9.523448644786676,
+    "median_absolute_error_ms": 7.499999999993179,
+    "false_positives_per_minute": 0.2857325468171056
+  },
+  "baselines": {
+    "p0": {
+      "f1": 0.9670112359550562,
+      "precision": 0.9977740678909294,
+      "recall": 0.9380885943494942,
+      "mean_absolute_error_ms": 9.638873396535473,
+      "false_positives_per_minute": 0.18046266114764564
+    },
+    "p1": {
+      "f1": 0.797962648556876,
+      "precision": 0.8689400164338538,
+      "recall": 0.7377049180327869,
+      "mean_absolute_error_ms": 14.903664302590172,
+      "false_positives_per_minute": 9.594598151016493
+    },
+    "heartpy": {
+      "f1": 0.9727654254844182,
+      "precision": 0.9967063129002744,
+      "recall": 0.9499476805022672,
+      "mean_absolute_error_ms": 9.354231687160977,
+      "false_positives_per_minute": 0.27069399172146846
+    }
+  },
+  "paired_subject_bootstrap": {
+    "p0": {
+      "repetitions": 10000,
+      "seed": 1729,
+      "subjects": [
+        6,
+        7
+      ],
+      "point_difference": 0.020225803037990153,
+      "percentile_95_interval": [
+        0.0011593095763647865,
+        0.0375223540723888
+      ],
+      "probability_difference_above_zero": 1.0,
+      "warning": "Only two locked subjects; the cluster bootstrap has very low resolution."
+    },
+    "p1": {
+      "repetitions": 10000,
+      "seed": 1729,
+      "subjects": [
+        6,
+        7
+      ],
+      "point_difference": 0.18927439043617034,
+      "percentile_95_interval": [
+        0.1708243524050127,
+        0.20954046031465567
+      ],
+      "probability_difference_above_zero": 1.0,
+      "warning": "Only two locked subjects; the cluster bootstrap has very low resolution."
+    },
+    "heartpy": {
+      "repetitions": 10000,
+      "seed": 1729,
+      "subjects": [
+        6,
+        7
+      ],
+      "point_difference": 0.014471613508628134,
+      "percentile_95_interval": [
+        0.014098918994587373,
+        0.014891145222554747
+      ],
+      "probability_difference_above_zero": 1.0,
+      "warning": "Only two locked subjects; the cluster bootstrap has very low resolution."
+    }
+  },
+  "activity_f1_deltas": {
+    "p0": {
+      "rest": -0.001220383565164851,
+      "squat": 0.016157045568810258,
+      "step": 0.1067129354077313
+    },
+    "p1": {
+      "rest": 0.21491517043270258,
+      "squat": 0.14264965153290032,
+      "step": 0.13511403467397498
+    },
+    "heartpy": {
+      "rest": 0.006385198419259774,
+      "squat": 0.016791541791541853,
+      "step": 0.041661255821167975
+    }
+  },
+  "ablations": {
+    "geometry_only_f1": 0.9835718071012188,
+    "hybrid_f1": 0.9872370389930464,
+    "hybrid_minus_geometry": 0.0036652318918275473,
+    "geometry_minus_deterministic_persistence": 0.1856091585443428
+  },
+  "success_rule_checks": {
+    "beats_p0": true,
+    "beats_heartpy": true,
+    "no_activity_more_than_0_01_below_p0": true,
+    "bootstrap_lower_bound_above_zero_vs_p0": true,
+    "geometry_materially_beats_p1": true
+  }
+}

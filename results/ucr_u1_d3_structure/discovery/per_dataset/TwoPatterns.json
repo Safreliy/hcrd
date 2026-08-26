@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "TwoPatterns",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 1000,
+  "test_size": 4000,
+  "length": 128,
+  "class_count": 4,
+  "workers": 8,
+  "representation_seconds": 50.20653259998653,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.99725,
+      "balanced_accuracy": 0.9972498676527465,
+      "macro_f1": 0.9972457710245587,
+      "feature_count": 595,
+      "fit_seconds": 45.18276540003717,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.992,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.96525,
+      "balanced_accuracy": 0.965364181168265,
+      "macro_f1": 0.9654062894764006,
+      "feature_count": 595,
+      "fit_seconds": 2.7077683999668807,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 98.82353589998093
+}

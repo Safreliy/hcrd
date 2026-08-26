@@ -1,0 +1,25 @@
+{
+  "status": "frozen_before_yahoo_confirmation_execution",
+  "selected_candidate": "hcrd_L8_max",
+  "primary_stratum": "official TSB-UAD point_anom == 1",
+  "primary_metric": "mean per-series AUC-PR",
+  "primary_comparator": "NORMA",
+  "learned_ceiling": "CNN",
+  "matched_series": 220,
+  "point_series": 134,
+  "excluded_nonunique_matches": 4,
+  "primary_comparator_mean_before_hcrd": 0.33828595726119404,
+  "learned_ceiling_mean_before_hcrd": 0.9051622078507463,
+  "archive_sha256": "ff4aa83a5a111835d410d962152e8dbebcda1039b778bae45b6b9c3f46dd49a1",
+  "accuracy_table_sha256": "c86cb2cec271a5346e116b00c012376024c5af44897ee1f119d9f8834cfe3534",
+  "tuning_list_sha256": "7bf24d2ef834bb39ddd1c8c2b02c177339921dce694354e258ed2b77d8d5cd1c",
+  "evaluation_list_sha256": "6f4e1d4ddbde195f9687f2c5a951b51faff54dda4b658d85f0c07e3e2879615a",
+  "tsb_uad_commit": "313f0fdeba14292b9db4e1aa94c74a983a25de31",
+  "confirmation_manifest_sha256": "871aa4752bd463b8de1791ac6b6e2ac2431058cdb29a5b7a401e51dcc91d6cd9",
+  "implementation_sha256": {
+    "experiments/run_tsb_uad_yahoo_confirmation.py": "63e2901f20fd0ba12e4d305323e9dbf360978ca65750008f58d40b73f516ff3a",
+    "src/hcrd/anomaly.py": "2459cfd73d2e8b5effd45f30db620078486cc369fb37b9e7465d960f64809939",
+    "src/hcrd/energy.py": "6bd972e53b245c6c323f5020608e566872ef2f4650af7086c0749e59813d12bb",
+    "docs/tsb_uad_yahoo_c1_protocol.md": "12c05f467cdf04e7b2b444e04b808de57efe8ffc62c075254dd5f7753b1f1671"
+  }
+}

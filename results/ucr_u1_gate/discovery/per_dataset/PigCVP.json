@@ -1,0 +1,14 @@
+{
+  "dataset": "PigCVP",
+  "assignment": "discovery",
+  "train_size": 104,
+  "length": 2000,
+  "class_count": 52,
+  "cv_folds": 2,
+  "raw_cv_accuracy": 0.6634615384615385,
+  "wavelet_cv_accuracy": 0.7115384615384616,
+  "raw_transform_seconds": 0.34394199994858354,
+  "wavelet_transform_seconds": 2.8347075999481604,
+  "wall_seconds": 3.740449900040403,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

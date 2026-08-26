@@ -1,0 +1,14 @@
+{
+  "dataset": "GunPointAgeSpan",
+  "assignment": "discovery",
+  "train_size": 135,
+  "length": 150,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.9851851851851852,
+  "wavelet_cv_accuracy": 0.9925925925925926,
+  "raw_transform_seconds": 0.09087910002563149,
+  "wavelet_transform_seconds": 0.14291419996879995,
+  "wall_seconds": 0.808752000099048,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

@@ -1,0 +1,54 @@
+{
+  "status": "exploratory pilot only",
+  "source_plan": "docs/qt_database_plan.md",
+  "records": [
+    "sel117",
+    "sele0607",
+    "sele0116",
+    "sele0107",
+    "sele0609",
+    "sele0106",
+    "sele0303",
+    "sele0409",
+    "sele0612",
+    "sel16265",
+    "sele0136",
+    "sele0124",
+    "sel847",
+    "sel16539",
+    "sel840",
+    "sele0603",
+    "sel45",
+    "sel46",
+    "sel221",
+    "sel48",
+    "sele0121",
+    "sele0114",
+    "sel14046",
+    "sel16773",
+    "sel14172"
+  ],
+  "failure_penalty_ms": 160.0,
+  "hcrd_amplitude_ratios": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "gaussian_sigmas": [
+    1.0,
+    2.0,
+    4.0
+  ],
+  "quadratic_regularizations": [
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+  ],
+  "derivative_threshold_ratios": [
+    0.05,
+    0.1,
+    0.2,
+    0.3
+  ]
+}

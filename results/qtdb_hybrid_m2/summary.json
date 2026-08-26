@@ -1,0 +1,95 @@
+{
+  "analysis_status": "post-M1 development; protocol fixed before M2 run",
+  "protocol": "docs/qtdb_hybrid_fusion_protocol.md",
+  "pilot_records": 25,
+  "evaluation_records": 80,
+  "ecgpuwave_feature_count": 8,
+  "hcrd_feature_count": 144,
+  "aggregate": [
+    {
+      "method": "learned_ecgpuwave",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 12.497352535676992,
+      "median_record_joint_absolute_error_ms": 9.933333333333334,
+      "macro_failure_rate": 0.0
+    },
+    {
+      "method": "learned_ecgpuwave_hcrd",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 13.012566786025605,
+      "median_record_joint_absolute_error_ms": 10.346666666666668,
+      "macro_failure_rate": 0.0
+    },
+    {
+      "method": "official_pu0",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 13.944723566076851,
+      "median_record_joint_absolute_error_ms": 12.366666666666667,
+      "macro_failure_rate": 0.004092507268058739
+    },
+    {
+      "method": "official_pu1",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 15.750377364819268,
+      "median_record_joint_absolute_error_ms": 12.8,
+      "macro_failure_rate": 0.004606060606060605
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison": "learned_ecgpuwave_hcrd - learned_ecgpuwave",
+      "mean_difference_ms": 0.5152142503486118,
+      "bootstrap_95_ci_ms": [
+        -0.030355431809803747,
+        1.0794110690864283
+      ],
+      "records_improved": 34,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.30816823194368076
+    },
+    {
+      "comparison": "learned_ecgpuwave_hcrd - official_pu0",
+      "mean_difference_ms": -0.9321567800512465,
+      "bootstrap_95_ci_ms": [
+        -2.491698374027202,
+        0.6747874046017422
+      ],
+      "records_improved": 48,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.09291188222054621
+    },
+    {
+      "comparison": "learned_ecgpuwave_hcrd - official_pu1",
+      "mean_difference_ms": -2.737810578793666,
+      "bootstrap_95_ci_ms": [
+        -5.459570573565558,
+        -0.2412783137052165
+      ],
+      "records_improved": 54,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.0023245412880887038
+    },
+    {
+      "comparison": "learned_ecgpuwave - official_pu0",
+      "mean_difference_ms": -1.4473710303998584,
+      "bootstrap_95_ci_ms": [
+        -2.8645843141492273,
+        -0.014183003055753072
+      ],
+      "records_improved": 49,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.05666442634512114
+    },
+    {
+      "comparison": "learned_ecgpuwave - official_pu1",
+      "mean_difference_ms": -3.253024829142278,
+      "bootstrap_95_ci_ms": [
+        -5.757193560024385,
+        -1.0060280388058571
+      ],
+      "records_improved": 57,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.00018311656412975104
+    }
+  ]
+}

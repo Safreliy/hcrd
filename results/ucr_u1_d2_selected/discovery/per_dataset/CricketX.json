@@ -1,0 +1,139 @@
+{
+  "protocol": "U1-D2 exploratory",
+  "dataset": "CricketX",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 390,
+  "test_size": 390,
+  "length": 300,
+  "class_count": 12,
+  "workers": 8,
+  "requested_total_kernels": 10000,
+  "kernels_per_component": 1680,
+  "representation_seconds": 29.158320599934086,
+  "metrics": {
+    "raw_minirocket": {
+      "accuracy": 0.8256410256410256,
+      "balanced_accuracy": 0.8354271799393715,
+      "macro_f1": 0.8281978942464029,
+      "feature_count": 9996,
+      "transform_seconds": 0.27039920003153384,
+      "head_fit_seconds": 0.24994559993501753,
+      "head_predict_seconds": 0.013861800078302622,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "wavelet_componentwise": {
+      "accuracy": 0.6410256410256411,
+      "balanced_accuracy": 0.6579308410898177,
+      "macro_f1": 0.6374028217760376,
+      "feature_count": 10080,
+      "transform_seconds": 0.4905385000165552,
+      "head_fit_seconds": 0.2015918999677524,
+      "head_predict_seconds": 0.013050599955022335,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise": {
+      "accuracy": 0.5641025641025641,
+      "balanced_accuracy": 0.5737809381851867,
+      "macro_f1": 0.5612683831771192,
+      "feature_count": 10080,
+      "transform_seconds": 0.48336810001637787,
+      "head_fit_seconds": 0.20624820003286004,
+      "head_predict_seconds": 0.012571200029924512,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise_hybrid": {
+      "accuracy": 0.5666666666666667,
+      "balanced_accuracy": 0.5773993809941402,
+      "macro_f1": 0.5639360775039884,
+      "feature_count": 10675,
+      "transform_seconds": 0.48336810001637787,
+      "head_fit_seconds": 0.18787740007974207,
+      "head_predict_seconds": 0.02294539997819811,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "raw_hcrd_fusion": {
+      "accuracy": 0.7615384615384615,
+      "balanced_accuracy": 0.773947578223478,
+      "macro_f1": 0.7627865280504736,
+      "feature_count": 20671,
+      "transform_seconds": 0.7537673000479117,
+      "head_fit_seconds": 0.28448339994065464,
+      "head_predict_seconds": 0.04842220002319664,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_structure_extratrees": {
+      "accuracy": 0.5358974358974359,
+      "balanced_accuracy": 0.5436842600323465,
+      "macro_f1": 0.5163762439321554,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.7601175999734551
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.4948717948717949,
+      "balanced_accuracy": 0.5019640221955874,
+      "macro_f1": 0.5001416366627203,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 3.5615310999564826,
+      "min_child_samples": 19
+    }
+  },
+  "wall_seconds": 36.21601800003555
+}

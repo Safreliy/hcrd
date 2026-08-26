@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "DistalPhalanxTW",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 400,
+  "test_size": 139,
+  "length": 80,
+  "class_count": 6,
+  "workers": 8,
+  "representation_seconds": 10.786349800066091,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.6402877697841727,
+      "balanced_accuracy": 0.4123931623931624,
+      "macro_f1": 0.3699233716475096,
+      "feature_count": 595,
+      "fit_seconds": 18.547764800023288,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.7799999999999999,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.6546762589928058,
+      "balanced_accuracy": 0.47956965062228224,
+      "macro_f1": 0.46072906082388815,
+      "feature_count": 595,
+      "fit_seconds": 1.5437630000524223,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 31.039038100047037
+}

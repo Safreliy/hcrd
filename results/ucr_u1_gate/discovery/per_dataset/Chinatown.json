@@ -1,0 +1,14 @@
+{
+  "dataset": "Chinatown",
+  "assignment": "discovery",
+  "train_size": 20,
+  "length": 24,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 1.0,
+  "wavelet_cv_accuracy": 1.0,
+  "raw_transform_seconds": 0.027444200008176267,
+  "wavelet_transform_seconds": 0.025575699983164668,
+  "wall_seconds": 0.16015060001518577,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

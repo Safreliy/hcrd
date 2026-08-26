@@ -1,0 +1,14 @@
+{
+  "dataset": "BirdChicken",
+  "assignment": "discovery",
+  "train_size": 20,
+  "length": 512,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.85,
+  "wavelet_cv_accuracy": 0.95,
+  "raw_transform_seconds": 0.4529418000020087,
+  "wavelet_transform_seconds": 0.17751179996412247,
+  "wall_seconds": 14.46330439997837,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

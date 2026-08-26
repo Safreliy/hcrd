@@ -1,0 +1,26 @@
+{
+  "hcrd": {
+    "family": "hcrd",
+    "method": "hcrd_quadratic",
+    "channel": 0,
+    "guide_parameter": 10.0,
+    "selection_ratio": 0.2,
+    "records": 25,
+    "beats": 838,
+    "mean_record_joint_absolute_error_ms": 16.49441454939747,
+    "median_record_joint_absolute_error_ms": 14.16,
+    "failure_rate": 0.0
+  },
+  "derivative": {
+    "family": "derivative",
+    "method": "derivative_threshold",
+    "channel": 0,
+    "guide_parameter": 2.0,
+    "selection_ratio": 0.05,
+    "records": 25,
+    "beats": 838,
+    "mean_record_joint_absolute_error_ms": 26.67044685510568,
+    "median_record_joint_absolute_error_ms": 19.133333333333333,
+    "failure_rate": 0.06682577565632464
+  }
+}

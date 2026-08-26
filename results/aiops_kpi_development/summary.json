@@ -1,0 +1,21 @@
+{
+  "status": "development_only",
+  "dataset": "AIOps2018 preliminary train",
+  "primary_series": 15,
+  "selection_metric": "mean per-series AUC-PR",
+  "mean_auc_pr": {
+    "a2_area_sr": 0.26033535509372824,
+    "a2_fuse_direct_spectrum_sr": 0.2441578178871894,
+    "a2_fuse_direct_area_sr": 0.24227511370914712,
+    "a2_direct": 0.2403136493412498,
+    "a2_fuse_three": 0.12930775247120432,
+    "a2_fuse_h075_raw": 0.1282410848521622,
+    "a2_fuse_h050_raw": 0.11351504626108572,
+    "a2_fuse_h025_raw": 0.10193509485742619,
+    "a2_spectrum_sr_max": 0.10033725757463247,
+    "a2_fuse_raw_spectrum_sr": 0.09951459240913547,
+    "a2_raw_abs": 0.0837590114498592,
+    "a2_spectrum_sr_mean": 0.007868767141600265
+  },
+  "selected_candidate": "a2_area_sr"
+}

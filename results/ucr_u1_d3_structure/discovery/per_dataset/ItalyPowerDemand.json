@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "ItalyPowerDemand",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 67,
+  "test_size": 1029,
+  "length": 24,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 18.68556550005451,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.782312925170068,
+      "balanced_accuracy": 0.7822204089033955,
+      "macro_f1": 0.782060785767235,
+      "feature_count": 595,
+      "fit_seconds": 8.593928899965249,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.8494505494505494,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.8532555879494655,
+      "balanced_accuracy": 0.8531438415159345,
+      "macro_f1": 0.8530107078292309,
+      "feature_count": 595,
+      "fit_seconds": 0.1136208000825718,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 27.564322700025514
+}

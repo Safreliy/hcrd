@@ -1,0 +1,16 @@
+\begin{table}[H]
+\centering
+\caption{Mean baseline MSE over 100 preregistered trials. Oracle labels indicate per-signal ground-truth tuning.}
+\label{tab:synthetic}
+\begin{tabular}{lrrr}
+\toprule
+Method & Exact, $\sigma=0$ & Exact, $\sigma=0.1$ & Variable, $\sigma=0.1$ \\
+\midrule
+Centred HCRD & 0 & 0.787 & 0.887 \\
+Thresholded HCRD & 3.78e-32 & 0.00778 & 0.312 \\
+Adaptive guided HCRD & 0.0124 & 0.0385 & 0.0856 \\
+Gaussian oracle & 0.0433 & 0.0382 & 0.0632 \\
+Moving-average oracle & 0.0516 & 0.0486 & 0.0743 \\
+\bottomrule
+\end{tabular}
+\end{table}

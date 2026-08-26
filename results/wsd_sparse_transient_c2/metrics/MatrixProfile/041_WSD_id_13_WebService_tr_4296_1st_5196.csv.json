@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "method": "MatrixProfile",
+  "file": "041_WSD_id_13_WebService_tr_4296_1st_5196.csv",
+  "length": 17186,
+  "window": 4,
+  "auc_pr": 0.009340993815840885,
+  "auc_roc": 0.5113681361699565,
+  "vus_pr": 0.009847391186584805,
+  "vus_roc": 0.5053891907522734,
+  "score_sha256_float64_le": "be0f0185749f792fd000e91c568a348273d43d4833afc516490d44af035a8022",
+  "diagnostic_wall_seconds_excluded_from_claims": 143.70920569996815,
+  "parameters": {
+    "periodicity": 1,
+    "n_jobs": 1
+  }
+}

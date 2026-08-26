@@ -1,0 +1,37 @@
+{
+  "dataset": "Optimal Preprocessing of Raw Reflective PPG (PPGopt)",
+  "source": "https://www.eti.uni-siegen.de/ubicomp/home/datasets/embc21/",
+  "records": [
+    {
+      "file": "ppgopt_annot.zip",
+      "url": "https://www.eti.uni-siegen.de/ubicomp/home/datasets/embc21/ppgopt_annot.zip",
+      "bytes": 358199,
+      "sha256": "6ceee248965d53822055b59ecfecdbae3a434941ea67ab71be9812e34ff45886",
+      "members": 333,
+      "nested_archives": []
+    },
+    {
+      "file": "ppgopt_viridis.zip",
+      "url": "https://www.eti.uni-siegen.de/ubicomp/home/datasets/embc21/ppgopt_viridis.zip",
+      "bytes": 5315799,
+      "sha256": "721cab2f661845975ce819939ce6b771c38858d1f73e8c50d71a0d9998d3e58a",
+      "members": 16,
+      "nested_archives": []
+    },
+    {
+      "file": "PMC6971339_supplementary.zip",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6971339/supplementaryFiles",
+      "bytes": 31074735,
+      "sha256": "ae4029baaef5765c4b86c9ee8638ce4bab0547f2395c25ecfa7e006fecf12633",
+      "members": 11,
+      "nested_archives": [
+        {
+          "file": "mmc1.zip",
+          "bytes": 30057275,
+          "sha256": "e47bd63ca722895f4072f29ebd9822751396883fb238b039c64041512d031e8e",
+          "members": 218
+        }
+      ]
+    }
+  ]
+}

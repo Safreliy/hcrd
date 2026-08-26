@@ -1,0 +1,72 @@
+{
+  "dataset": "PPG-DaLiA data in MATLAB format",
+  "zenodo_record": "12793711",
+  "doi": "10.5281/zenodo.12793711",
+  "license": "CC BY 4.0",
+  "files": [
+    {
+      "activity": "car_driving",
+      "file": "data/raw/ppg_dalia/ppg_dalia_car_driving_data.mat",
+      "bytes": 55829057,
+      "md5": "51bbf3afa1da4c0f7dc566628cd7fc04",
+      "sha256": "2d5e1ce2f3baf54e09cd0ae35366b54cd2ced0b03b6f9af12e63e4cc31824bc5",
+      "source": "https://zenodo.org/api/records/12793711/files/ppg_dalia_car_driving_data.mat/content"
+    },
+    {
+      "activity": "cycling",
+      "file": "data/raw/ppg_dalia/ppg_dalia_cycling_data.mat",
+      "bytes": 31577565,
+      "md5": "0b0811ba7c11d443eb92c7ffe59cfc82",
+      "sha256": "e78e3dc06ad5ab7baa080c38e6163decd27bfba5e0cb5340eb182bcc61af76f4",
+      "source": "https://zenodo.org/api/records/12793711/files/ppg_dalia_cycling_data.mat/content"
+    },
+    {
+      "activity": "lunch_break",
+      "file": "data/raw/ppg_dalia/ppg_dalia_lunch_break_data.mat",
+      "bytes": 107308927,
+      "md5": "0b57bcf4f1c732a8117a4896b46cb337",
+      "sha256": "b88193d58b4f718b86d6eaae6adc91d9ad4bc17de74e1cf18bbae8faef10b84f",
+      "source": "https://zenodo.org/api/records/12793711/files/ppg_dalia_lunch_break_data.mat/content"
+    },
+    {
+      "activity": "sitting",
+      "file": "data/raw/ppg_dalia/ppg_dalia_sitting_data.mat",
+      "bytes": 35095812,
+      "md5": "f4740c0a43923588f15d1bde7d4accd3",
+      "sha256": "bc1156ab6e52da2a5698d0b48184b46ac936389f8e7a08a55dc9fb5954b10d55",
+      "source": "https://zenodo.org/api/records/12793711/files/ppg_dalia_sitting_data.mat/content"
+    },
+    {
+      "activity": "stair_climbing",
+      "file": "data/raw/ppg_dalia/ppg_dalia_stair_climbing_data.mat",
+      "bytes": 29156227,
+      "md5": "b4ec6bda461acc3a2c910381e725cc61",
+      "sha256": "9bb57b8fbe91c37c1485627a49df7bef1921fb5a281c6dafe5c776ce003bdf23",
+      "source": "https://zenodo.org/api/records/12793711/files/ppg_dalia_stair_climbing_data.mat/content"
+    },
+    {
+      "activity": "table_soccer",
+      "file": "data/raw/ppg_dalia/ppg_dalia_table_soccer_data.mat",
+      "bytes": 19800136,
+      "md5": "253bc1a31f7d1ed78ea95c5f8336c262",
+      "sha256": "5f6f1e6ccc9f0931080b62cff060603f7078af28d824754aa998d45d24533a50",
+      "source": "https://zenodo.org/api/records/12793711/files/ppg_dalia_table_soccer_data.mat/content"
+    },
+    {
+      "activity": "walking",
+      "file": "data/raw/ppg_dalia/ppg_dalia_walking_data.mat",
+      "bytes": 40273752,
+      "md5": "b8237bb6358208b99a2dd9be22150996",
+      "sha256": "bc6dd296786c5caf88bdd55c7d997533a1f2e39c9b8f5de7b176accfedafe9e1",
+      "source": "https://zenodo.org/api/records/12793711/files/ppg_dalia_walking_data.mat/content"
+    },
+    {
+      "activity": "working",
+      "file": "data/raw/ppg_dalia/ppg_dalia_working_data.mat",
+      "bytes": 66196769,
+      "md5": "8c014242af4c95526a4dcefdfe64e604",
+      "sha256": "f22a5f055f4554c897490355c179de3171c52848c50c9b298fbcfd98fb277622",
+      "source": "https://zenodo.org/api/records/12793711/files/ppg_dalia_working_data.mat/content"
+    }
+  ]
+}

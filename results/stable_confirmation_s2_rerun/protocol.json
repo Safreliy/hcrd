@@ -1,0 +1,20 @@
+{
+  "frozen_protocol": "docs/stable_confirmation_protocol.md",
+  "seed": 20260950,
+  "noise_levels": [
+    0.01,
+    0.03,
+    0.05,
+    0.1
+  ],
+  "latent_signals": 30,
+  "repetitions": 10,
+  "quadratic_regularization": 3.0,
+  "methods": [
+    "hcrd_raw",
+    "hcrd_robust",
+    "hcrd_gaussian_guided",
+    "hcrd_adaptive_guided",
+    "hcrd_quadratic_guided"
+  ]
+}

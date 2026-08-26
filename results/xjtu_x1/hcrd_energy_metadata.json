@@ -1,0 +1,22 @@
+{
+  "protocol": "X1",
+  "exploratory_stage": "feature extraction before model outcome",
+  "rows": 9216,
+  "columns": 294,
+  "profile_bins": 256,
+  "max_levels": 6,
+  "profiles": [
+    "block_rms",
+    "log_power"
+  ],
+  "channels": [
+    "horizontal",
+    "vertical"
+  ],
+  "workers": 15,
+  "seconds": 378.96586400002707,
+  "milliseconds_per_file": 41.120427951391825,
+  "python": "3.13.3",
+  "numpy": "2.5.2",
+  "output_sha256": "e66fcb30adfef8b1f713ed1ff08b9e14bcf63f53bdb3f20875ea835038059904"
+}

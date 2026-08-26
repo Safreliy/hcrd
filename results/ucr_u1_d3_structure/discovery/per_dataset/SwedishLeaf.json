@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "SwedishLeaf",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 500,
+  "test_size": 625,
+  "length": 128,
+  "class_count": 15,
+  "workers": 8,
+  "representation_seconds": 14.199771699961275,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.7872,
+      "balanced_accuracy": 0.7885958765151312,
+      "macro_f1": 0.7848944126169582,
+      "feature_count": 595,
+      "fit_seconds": 35.144337599980645,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.7620000000000001,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.7728,
+      "balanced_accuracy": 0.7748942260743501,
+      "macro_f1": 0.76919593555187,
+      "feature_count": 595,
+      "fit_seconds": 4.044631700031459,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 53.55693840002641
+}

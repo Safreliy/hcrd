@@ -1,0 +1,9 @@
+method,primary_ok,primary_required,eligible
+MMPAD,37,71,False
+KShapeAD,5,71,False
+SAND,2,71,False
+Sub_PCA,71,71,True
+MatrixProfile,21,71,False
+SR,71,71,True
+POLY,71,71,True
+Sub_IForest,71,71,True

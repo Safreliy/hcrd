@@ -1,0 +1,242 @@
+{
+  "protocol": "U1",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "dataset": "NonInvasiveFetalECGThorax1",
+  "assignment": "discovery",
+  "train_size": 1800,
+  "test_size": 1965,
+  "length": 750,
+  "class_count": 42,
+  "max_levels": 5,
+  "spatial_bins": 8,
+  "top_k": 8,
+  "requested_kernels": 10000,
+  "workers": 8,
+  "metrics": {
+    "raw_minirocket": {
+      "accuracy": 0.9450381679389313,
+      "balanced_accuracy": 0.9431559376534013,
+      "macro_f1": 0.940726825222743,
+      "transform_seconds": 1.5450554999988526,
+      "head_fit_seconds": 1.8870122999651358,
+      "head_predict_seconds": 0.05977880000136793,
+      "feature_count": 9996,
+      "representation_seconds": 0.28108970005996525
+    },
+    "wavelet_minirocket": {
+      "accuracy": 0.9353689567430026,
+      "balanced_accuracy": 0.9336553362999359,
+      "macro_f1": 0.9308421419345534,
+      "transform_seconds": 9.458339300006628,
+      "head_fit_seconds": 1.766239000018686,
+      "head_predict_seconds": 0.058260399964638054,
+      "feature_count": 9996,
+      "representation_seconds": 1.8040622000116855
+    },
+    "hcrd_minirocket": {
+      "accuracy": 0.8900763358778626,
+      "balanced_accuracy": 0.889132503279053,
+      "macro_f1": 0.8825719416428289,
+      "transform_seconds": 8.812860299949534,
+      "head_fit_seconds": 1.7628384999698028,
+      "head_predict_seconds": 0.07493490003980696,
+      "feature_count": 9996,
+      "representation_seconds": 106.36759439995512
+    },
+    "hcrd_energy": {
+      "accuracy": 0.43307888040712467,
+      "balanced_accuracy": 0.4342216256376694,
+      "macro_f1": 0.4003426732770597,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.08369139989372343,
+      "head_predict_seconds": 0.002174900029785931,
+      "feature_count": 85,
+      "representation_seconds": 106.36759439995512
+    },
+    "hcrd_structure": {
+      "accuracy": 0.5328244274809161,
+      "balanced_accuracy": 0.5348559938297299,
+      "macro_f1": 0.5144227462129916,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.4825656999601051,
+      "head_predict_seconds": 0.006003499962389469,
+      "feature_count": 595,
+      "representation_seconds": 106.36759439995512
+    },
+    "hcrd_hybrid": {
+      "accuracy": 0.889058524173028,
+      "balanced_accuracy": 0.8882589174608759,
+      "macro_f1": 0.8828133430234101,
+      "transform_seconds": 8.812860299949534,
+      "head_fit_seconds": 1.8610280000139028,
+      "head_predict_seconds": 0.10948850004933774,
+      "feature_count": 10591,
+      "representation_seconds": 106.36759439995512
+    }
+  },
+  "training_geometry": {
+    "depth_fraction": {
+      "mean": 1.0,
+      "median": 1.0,
+      "standard_deviation": 0.0
+    },
+    "level_0_knot_fraction": {
+      "mean": 0.3389244444444445,
+      "median": 0.3373333333333333,
+      "standard_deviation": 0.02560510597228318
+    },
+    "level_0_structure_density": {
+      "mean": 0.3375911111111111,
+      "median": 0.336,
+      "standard_deviation": 0.02560510597228318
+    },
+    "level_0_area_concentration": {
+      "mean": 0.08823473706481104,
+      "median": 0.0771797029834165,
+      "standard_deviation": 0.05795925728591271
+    },
+    "level_0_sign_balance": {
+      "mean": -0.08498366763064975,
+      "median": -0.08419057913594444,
+      "standard_deviation": 0.14801248928488442
+    },
+    "level_0_mean_duration_fraction": {
+      "mean": 0.003971901605788143,
+      "median": 0.003968253968253968,
+      "standard_deviation": 0.00029663922341543076
+    },
+    "level_0_detail_energy_fraction": {
+      "mean": 0.008256229868689433,
+      "median": 0.005696140305553083,
+      "standard_deviation": 0.010026345666434485
+    },
+    "level_1_knot_fraction": {
+      "mean": 0.1409,
+      "median": 0.14,
+      "standard_deviation": 0.011809051769879904
+    },
+    "level_1_structure_density": {
+      "mean": 0.13956666666666667,
+      "median": 0.13866666666666666,
+      "standard_deviation": 0.011809051769879904
+    },
+    "level_1_area_concentration": {
+      "mean": 0.30937369982456,
+      "median": 0.28787776582776475,
+      "standard_deviation": 0.09754295840604128
+    },
+    "level_1_sign_balance": {
+      "mean": -0.4939825954640513,
+      "median": -0.5173890717306266,
+      "standard_deviation": 0.181828641441685
+    },
+    "level_1_mean_duration_fraction": {
+      "mean": 0.009622660715879883,
+      "median": 0.009615384615384614,
+      "standard_deviation": 0.0008260533166087122
+    },
+    "level_1_detail_energy_fraction": {
+      "mean": 0.08290488770931534,
+      "median": 0.0722506300970853,
+      "standard_deviation": 0.050618610981967745
+    },
+    "level_2_knot_fraction": {
+      "mean": 0.058457037037037037,
+      "median": 0.058666666666666666,
+      "standard_deviation": 0.005849512471917816
+    },
+    "level_2_structure_density": {
+      "mean": 0.057123703703703704,
+      "median": 0.05733333333333333,
+      "standard_deviation": 0.005849512471917816
+    },
+    "level_2_area_concentration": {
+      "mean": 0.4343665385488127,
+      "median": 0.4298132962031424,
+      "standard_deviation": 0.11657708762344596
+    },
+    "level_2_sign_balance": {
+      "mean": -0.7152330764330619,
+      "median": -0.7538466854719048,
+      "standard_deviation": 0.16099415177323545
+    },
+    "level_2_mean_duration_fraction": {
+      "mean": 0.023600489984090034,
+      "median": 0.023255813953488372,
+      "standard_deviation": 0.002564335830435347
+    },
+    "level_2_detail_energy_fraction": {
+      "mean": 0.311840929654041,
+      "median": 0.29333222747183507,
+      "standard_deviation": 0.15695876620960647
+    },
+    "level_3_knot_fraction": {
+      "mean": 0.023748148148148147,
+      "median": 0.024,
+      "standard_deviation": 0.0030961190805213184
+    },
+    "level_3_structure_density": {
+      "mean": 0.022414814814814818,
+      "median": 0.02266666666666667,
+      "standard_deviation": 0.003096119080521319
+    },
+    "level_3_area_concentration": {
+      "mean": 0.2817604873690305,
+      "median": 0.26735780539738174,
+      "standard_deviation": 0.06799455416565821
+    },
+    "level_3_sign_balance": {
+      "mean": -0.5132301098690486,
+      "median": -0.5426765325492913,
+      "standard_deviation": 0.21095116722896923
+    },
+    "level_3_mean_duration_fraction": {
+      "mean": 0.0606955455557174,
+      "median": 0.05882352941176471,
+      "standard_deviation": 0.008966873882533045
+    },
+    "level_3_detail_energy_fraction": {
+      "mean": 0.23588335093247634,
+      "median": 0.1868039157060022,
+      "standard_deviation": 0.16787536286698654
+    },
+    "level_4_knot_fraction": {
+      "mean": 0.010942962962962963,
+      "median": 0.010666666666666666,
+      "standard_deviation": 0.0014658941100359653
+    },
+    "level_4_structure_density": {
+      "mean": 0.00960962962962963,
+      "median": 0.009333333333333334,
+      "standard_deviation": 0.001465894110035965
+    },
+    "level_4_area_concentration": {
+      "mean": 0.3693182990925402,
+      "median": 0.3516400699645226,
+      "standard_deviation": 0.10286501254357697
+    },
+    "level_4_sign_balance": {
+      "mean": -0.6497958333098404,
+      "median": -0.705126984489814,
+      "standard_deviation": 0.21484320303129686
+    },
+    "level_4_mean_duration_fraction": {
+      "mean": 0.1421533189033189,
+      "median": 0.14285714285714285,
+      "standard_deviation": 0.022991608902530953
+    },
+    "level_4_detail_energy_fraction": {
+      "mean": 0.48773524857090766,
+      "median": 0.41540681546866814,
+      "standard_deviation": 0.3247676715264955
+    }
+  },
+  "prediction_file": "results\\ucr_u1\\discovery\\predictions\\NonInvasiveFetalECGThorax1.npz",
+  "wall_seconds": 138.12228170002345,
+  "versions": {
+    "python": "3.13.3",
+    "numpy": "2.3.5",
+    "aeon": "1.5.0",
+    "sklearn": "1.8.0"
+  }
+}

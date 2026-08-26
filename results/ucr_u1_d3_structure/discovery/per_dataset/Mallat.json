@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Mallat",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 55,
+  "test_size": 2345,
+  "length": 1024,
+  "class_count": 8,
+  "workers": 8,
+  "representation_seconds": 34.07617210003082,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.9304904051172708,
+      "balanced_accuracy": 0.9310032251369256,
+      "macro_f1": 0.9298531932535941,
+      "feature_count": 595,
+      "fit_seconds": 4.051591500057839,
+      "cv_folds": 2,
+      "best_cv_accuracy": 0.9814814814814814,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 4
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.6976545842217484,
+      "balanced_accuracy": 0.6993655479374853,
+      "macro_f1": 0.6704234509281688,
+      "feature_count": 595,
+      "fit_seconds": 0.5722289000404999,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 39.62849619996268
+}

@@ -1,0 +1,139 @@
+{
+  "protocol": "U1-D2 exploratory",
+  "dataset": "MiddlePhalanxOutlineAgeGroup",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 400,
+  "test_size": 154,
+  "length": 80,
+  "class_count": 3,
+  "workers": 8,
+  "requested_total_kernels": 10000,
+  "kernels_per_component": 1680,
+  "representation_seconds": 25.132275499985553,
+  "metrics": {
+    "raw_minirocket": {
+      "accuracy": 0.5714285714285714,
+      "balanced_accuracy": 0.4419744980089808,
+      "macro_f1": 0.45230974710374267,
+      "feature_count": 9996,
+      "transform_seconds": 0.08308509993366897,
+      "head_fit_seconds": 0.2524894999805838,
+      "head_predict_seconds": 0.00618280004709959,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "wavelet_componentwise": {
+      "accuracy": 0.5584415584415584,
+      "balanced_accuracy": 0.4500621310966138,
+      "macro_f1": 0.45910151073989297,
+      "feature_count": 10080,
+      "transform_seconds": 0.2639107999857515,
+      "head_fit_seconds": 0.27592629997525364,
+      "head_predict_seconds": 0.011068899999372661,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise": {
+      "accuracy": 0.5909090909090909,
+      "balanced_accuracy": 0.4921206472930611,
+      "macro_f1": 0.5046518144878801,
+      "feature_count": 10080,
+      "transform_seconds": 0.19402219995390624,
+      "head_fit_seconds": 0.22677639999892563,
+      "head_predict_seconds": 0.006745700025931001,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise_hybrid": {
+      "accuracy": 0.6038961038961039,
+      "balanced_accuracy": 0.4944752746476884,
+      "macro_f1": 0.5097380325664604,
+      "feature_count": 10675,
+      "transform_seconds": 0.19402219995390624,
+      "head_fit_seconds": 0.24714569991920143,
+      "head_predict_seconds": 0.010068400064483285,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "raw_hcrd_fusion": {
+      "accuracy": 0.6103896103896104,
+      "balanced_accuracy": 0.4880715354853286,
+      "macro_f1": 0.5092445162078049,
+      "feature_count": 20671,
+      "transform_seconds": 0.2771072998875752,
+      "head_fit_seconds": 0.3752098000841215,
+      "head_predict_seconds": 0.026106799952685833,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_structure_extratrees": {
+      "accuracy": 0.6363636363636364,
+      "balanced_accuracy": 0.4878103024654749,
+      "macro_f1": 0.5086073770284296,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.875876700039953
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.564935064935065,
+      "balanced_accuracy": 0.45111412352791663,
+      "macro_f1": 0.46006734006734007,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 1.0818885000189766,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 29.322820500005037
+}

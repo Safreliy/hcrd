@@ -1,0 +1,84 @@
+{
+  "protocol_sha256": "510e47b365ef2e284ebd7adb8d5ecec4bd41ed2b4492a6c7ca6531e4cb76a511",
+  "record_manifest_sha256": "8d2511c3ce018ed5094b8a03fcaf95b652cb5cec051822e0cea68a17a675f517",
+  "development_summary_sha256": "ba60a14f94228552156ebf6487757ed9689812041873d6286e2e8f070aa1073f",
+  "p0": {
+    "maximum_bpm": 200,
+    "prominence": 0.1
+  },
+  "p1": {
+    "minimum_persistence": 1
+  },
+  "models": [
+    {
+      "name": "hgb_mass_control",
+      "family": "hist_gradient_boosting",
+      "feature_set": "mass",
+      "eligible_primary": false,
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31
+      },
+      "input_features": 39,
+      "training_candidates": 226869,
+      "training_positive_candidates": 143113,
+      "descriptive_training_average_precision": 0.8689181132589308,
+      "model_file": "results/mimic_perform/models/mimic_hgb_mass_control.joblib",
+      "model_sha256": "2018b47f7acf84708e5cf43913acf198eed41fa223f55ff0bf4366af37e3846f",
+      "threshold": 0.2
+    },
+    {
+      "name": "logistic_geometry",
+      "family": "logistic",
+      "feature_set": "geometry",
+      "eligible_primary": true,
+      "params": {
+        "C": 0.1
+      },
+      "input_features": 140,
+      "training_candidates": 226869,
+      "training_positive_candidates": 143113,
+      "descriptive_training_average_precision": 0.8529617541343741,
+      "model_file": "results/mimic_perform/models/mimic_logistic_geometry.joblib",
+      "model_sha256": "e138c71913e5c70c63c970fd74d337b0004ead50b0763ccd63445d8ad31b217f",
+      "threshold": 0.2
+    },
+    {
+      "name": "hgb_geometry",
+      "family": "hist_gradient_boosting",
+      "feature_set": "geometry",
+      "eligible_primary": true,
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31
+      },
+      "input_features": 140,
+      "training_candidates": 226869,
+      "training_positive_candidates": 143113,
+      "descriptive_training_average_precision": 0.9005749552747169,
+      "model_file": "results/mimic_perform/models/mimic_hgb_geometry.joblib",
+      "model_sha256": "267df880d61ffb4e37894a32fd2b7f09eacabb80e9e4a19683a93c8a01a0cbf0",
+      "threshold": 0.15000000000000002
+    },
+    {
+      "name": "hgb_hybrid",
+      "family": "hist_gradient_boosting",
+      "feature_set": "hybrid",
+      "eligible_primary": true,
+      "params": {
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 15
+      },
+      "input_features": 147,
+      "training_candidates": 226869,
+      "training_positive_candidates": 143113,
+      "descriptive_training_average_precision": 0.8984603076413441,
+      "model_file": "results/mimic_perform/models/mimic_hgb_hybrid.joblib",
+      "model_sha256": "50f9890616e18860b347259bc3d689db2b75c89e71cc768f7ae960d816bd587a",
+      "threshold": 0.25
+    }
+  ],
+  "primary_model": "hgb_hybrid",
+  "benchmark_script_sha256": "22b3d09670e9adf906fc551700727b2e02a093ca4ceed23948087369d7345ae3",
+  "confirmation_split": "official MIMIC PERform Testing (100 adult, 100 neonate)"
+}

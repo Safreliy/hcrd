@@ -1,0 +1,14 @@
+{
+  "dataset": "DistalPhalanxOutlineCorrect",
+  "assignment": "discovery",
+  "train_size": 600,
+  "length": 80,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.8699999999999999,
+  "wavelet_cv_accuracy": 0.8583333333333334,
+  "raw_transform_seconds": 0.06342490005772561,
+  "wavelet_transform_seconds": 0.14888110000174493,
+  "wall_seconds": 1.7989037000807002,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

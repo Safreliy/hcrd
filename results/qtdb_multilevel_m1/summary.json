@@ -1,0 +1,101 @@
+{
+  "analysis_status": "post-R2 development; protocol fixed before M1 run",
+  "protocol": "docs/qtdb_multilevel_fusion_protocol.md",
+  "pilot_records": 25,
+  "evaluation_records": 80,
+  "pilot_beats": 838,
+  "evaluation_beats": 2785,
+  "feature_count_level1": 36,
+  "feature_count_multilevel": 144,
+  "seconds": 29.32258030003868,
+  "versions": {
+    "python": "3.13.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "wfdb": "4.3.1",
+    "lightgbm": "4.7.0"
+  },
+  "aggregate": [
+    {
+      "method": "official_pu0",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 13.944723566076851,
+      "median_record_joint_absolute_error_ms": 12.366666666666667,
+      "macro_failure_rate": 0.004092507268058739
+    },
+    {
+      "method": "learned_multilevel",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 14.785662691646882,
+      "median_record_joint_absolute_error_ms": 11.526666666666667,
+      "macro_failure_rate": 0.0
+    },
+    {
+      "method": "learned_level1",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 15.197823366971903,
+      "median_record_joint_absolute_error_ms": 11.755483870967742,
+      "macro_failure_rate": 0.0
+    },
+    {
+      "method": "official_pu1",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 15.750377364819268,
+      "median_record_joint_absolute_error_ms": 12.8,
+      "macro_failure_rate": 0.004606060606060605
+    },
+    {
+      "method": "pilot_constant",
+      "records": 80,
+      "macro_joint_absolute_error_ms": 15.819796230016038,
+      "median_record_joint_absolute_error_ms": 11.766666666666666,
+      "macro_failure_rate": 0.0
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison": "learned_multilevel - learned_level1",
+      "mean_difference_ms": -0.41216067532502254,
+      "bootstrap_95_ci_ms": [
+        -0.7815727835630213,
+        -0.05827912790880545
+      ],
+      "records_improved": 44,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.3681876338306308
+    },
+    {
+      "comparison": "learned_multilevel - pilot_constant",
+      "mean_difference_ms": -1.0341335383691568,
+      "bootstrap_95_ci_ms": [
+        -1.9710912996320742,
+        -0.09754673488408198
+      ],
+      "records_improved": 45,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.26042552589724327
+    },
+    {
+      "comparison": "learned_multilevel - official_pu0",
+      "mean_difference_ms": 0.8409391255700299,
+      "bootstrap_95_ci_ms": [
+        -1.0551136691700143,
+        2.824521186470221
+      ],
+      "records_improved": 42,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.7375543089843226
+    },
+    {
+      "comparison": "learned_multilevel - official_pu1",
+      "mean_difference_ms": -0.9647146731723891,
+      "bootstrap_95_ci_ms": [
+        -3.8719929302619462,
+        1.7882432666630164
+      ],
+      "records_improved": 50,
+      "records_total": 80,
+      "exact_sign_test_p_two_sided": 0.03299261842647618
+    }
+  ]
+}

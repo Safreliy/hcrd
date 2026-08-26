@@ -1,0 +1,51 @@
+[
+  {
+    "suite": "exact",
+    "noise_sigma": 0.03,
+    "method": "emd_residue",
+    "mean_mse": 0.02875083996748684,
+    "median_mse": 0.007274739516289189
+  },
+  {
+    "suite": "exact",
+    "noise_sigma": 0.03,
+    "method": "gaussian_oracle",
+    "mean_mse": 0.033600565718582234,
+    "median_mse": 0.01286004933651828
+  },
+  {
+    "suite": "exact",
+    "noise_sigma": 0.03,
+    "method": "hcrd_adaptive_guided",
+    "mean_mse": 0.013699941415088615,
+    "median_mse": 0.012393893953638758
+  },
+  {
+    "suite": "exact",
+    "noise_sigma": 0.03,
+    "method": "hcrd_centered",
+    "mean_mse": 0.7620745188744196,
+    "median_mse": 0.749736070456618
+  },
+  {
+    "suite": "exact",
+    "noise_sigma": 0.03,
+    "method": "hcrd_thresholded",
+    "mean_mse": 0.00355719685796675,
+    "median_mse": 0.0003752615001847674
+  },
+  {
+    "suite": "exact",
+    "noise_sigma": 0.03,
+    "method": "l1_trend_oracle",
+    "mean_mse": 0.04190012282939334,
+    "median_mse": 0.03920465749263195
+  },
+  {
+    "suite": "exact",
+    "noise_sigma": 0.03,
+    "method": "vmd_low_mode",
+    "mean_mse": 0.03435304225900312,
+    "median_mse": 0.025446940653016142
+  }
+]

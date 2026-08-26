@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "CricketZ",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 390,
+  "test_size": 390,
+  "length": 300,
+  "class_count": 12,
+  "workers": 8,
+  "representation_seconds": 16.593832599930465,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.5128205128205128,
+      "balanced_accuracy": 0.5032897093350347,
+      "macro_f1": 0.49406907044866877,
+      "feature_count": 595,
+      "fit_seconds": 25.55728139996063,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.535897435897436,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 4
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.4897435897435897,
+      "balanced_accuracy": 0.4798607125025669,
+      "macro_f1": 0.4749162425903313,
+      "feature_count": 595,
+      "fit_seconds": 2.9747977000661194,
+      "min_child_samples": 19
+    }
+  },
+  "wall_seconds": 45.35256220004521
+}

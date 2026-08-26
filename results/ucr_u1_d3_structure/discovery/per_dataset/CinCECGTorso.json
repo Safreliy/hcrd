@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "CinCECGTorso",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 40,
+  "test_size": 1380,
+  "length": 1639,
+  "class_count": 4,
+  "workers": 8,
+  "representation_seconds": 112.5390606999863,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.886231884057971,
+      "balanced_accuracy": 0.8872943412954154,
+      "macro_f1": 0.8849078923995906,
+      "feature_count": 595,
+      "fit_seconds": 7.585992399952374,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.975,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.9507246376811594,
+      "balanced_accuracy": 0.9508876672604314,
+      "macro_f1": 0.95097130549844,
+      "feature_count": 595,
+      "fit_seconds": 0.270590600091964,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 121.20084629999474
+}

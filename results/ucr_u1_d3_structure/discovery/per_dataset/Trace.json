@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Trace",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 100,
+  "test_size": 100,
+  "length": 275,
+  "class_count": 4,
+  "workers": 8,
+  "representation_seconds": 16.95368649996817,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "feature_count": 595,
+      "fit_seconds": 11.24930869997479,
+      "cv_folds": 5,
+      "best_cv_accuracy": 1.0,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.97,
+      "balanced_accuracy": 0.9647556390977444,
+      "macro_f1": 0.9678432107306199,
+      "feature_count": 595,
+      "fit_seconds": 0.375798900029622,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 28.78649199998472
+}

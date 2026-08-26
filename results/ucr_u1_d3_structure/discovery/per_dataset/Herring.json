@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Herring",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 64,
+  "test_size": 64,
+  "length": 512,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 13.299142699921504,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.578125,
+      "balanced_accuracy": 0.5232793522267206,
+      "macro_f1": 0.502160760587727,
+      "feature_count": 595,
+      "fit_seconds": 9.115534999989904,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.641025641025641,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.484375,
+      "balanced_accuracy": 0.4504048582995951,
+      "macro_f1": 0.44523246650906223,
+      "feature_count": 595,
+      "fit_seconds": 0.17581679997965693,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 22.717080099973828
+}

@@ -1,0 +1,13 @@
+{
+  "protocol": "X1",
+  "upstream_url": "https://github.com/thfmn/xjtu-sy-bearing.git",
+  "upstream_commit": "7d7231c582961741bde629da6731e6c169d88785",
+  "upstream_license": "MIT",
+  "rows": 9216,
+  "feature_count": 65,
+  "workers": 15,
+  "seconds": 157.97221919998992,
+  "milliseconds_per_file": 17.141082812498908,
+  "python": "3.13.3",
+  "output_sha256": "951770ca3a4c98d4e3d5c7fcbca5920c962b45141d34dace977c4799a8e6680d"
+}

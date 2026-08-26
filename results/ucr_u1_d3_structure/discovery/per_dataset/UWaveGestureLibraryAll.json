@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "UWaveGestureLibraryAll",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 896,
+  "test_size": 3582,
+  "length": 945,
+  "class_count": 8,
+  "workers": 8,
+  "representation_seconds": 71.17562250001356,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.7855946398659966,
+      "balanced_accuracy": 0.7858544148529107,
+      "macro_f1": 0.7854116458158413,
+      "feature_count": 595,
+      "fit_seconds": 66.28620390000287,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.7868218497827436,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.8235622557230597,
+      "balanced_accuracy": 0.8238429419059318,
+      "macro_f1": 0.8228453770235612,
+      "feature_count": 595,
+      "fit_seconds": 9.523244599928148,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 148.39098150003701
+}

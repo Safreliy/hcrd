@@ -1,0 +1,28 @@
+{
+  "status": "exploratory parameter pilot; not confirmatory evidence",
+  "seed": 20260825,
+  "signals": 8,
+  "repetitions": 5,
+  "noise_sigmas": [
+    0.01,
+    0.03,
+    0.05,
+    0.1
+  ],
+  "regularization_rule": "lambda = ratio * known noise sigma",
+  "ratios": [
+    0.3,
+    1.0,
+    3.0,
+    10.0,
+    30.0
+  ],
+  "metrics": [
+    "baseline_mse",
+    "target_knot_f1_tolerance_1",
+    "pairwise_knot_jaccard_tolerance_1",
+    "pairwise_guide_l2_ratio",
+    "pairwise_hcrd_baseline_l2_ratio"
+  ],
+  "selection_note": "Any chosen ratio must be written to a separate frozen confirmation protocol and evaluated on new seeds."
+}

@@ -1,0 +1,122 @@
+{
+  "protocol": "P1",
+  "exploratory_scaling_characterization": true,
+  "timestamp_utc": "2026-08-24T13:14:54Z",
+  "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "physical_cores": 16,
+  "logical_cpus": 22,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "python": "3.13.3",
+  "numpy": "2.5.2",
+  "psutil": "7.2.2",
+  "windows": 384,
+  "samples_per_window": 2048,
+  "features": 50,
+  "repetitions": 5,
+  "initial_idle_cpu_samples": [
+    29.1,
+    29.5,
+    11.9,
+    11.8,
+    14.2
+  ],
+  "reference_digest": "ef6621468e1a5519109c294e146eadc0f84ed84c1b0da0b72db1abd815751352",
+  "previous_reference_exists": true,
+  "previous_reference_equal": true,
+  "previous_reference_digest": "ef6621468e1a5519109c294e146eadc0f84ed84c1b0da0b72db1abd815751352",
+  "summary": [
+    {
+      "backend": "serial",
+      "workers": 1,
+      "median_seconds": 10.2787123,
+      "q1_seconds": 9.5199392,
+      "q3_seconds": 12.0410682,
+      "median_windows_per_second": 37.35876526089751,
+      "speedup_vs_serial": 1.0,
+      "parallel_efficiency": 1.0
+    },
+    {
+      "backend": "thread",
+      "workers": 4,
+      "median_seconds": 18.5326535,
+      "q1_seconds": 17.0828901,
+      "q3_seconds": 23.8477105,
+      "median_windows_per_second": 20.72018451108472,
+      "speedup_vs_serial": 0.5546271234175938,
+      "parallel_efficiency": 0.13865678085439845
+    },
+    {
+      "backend": "thread",
+      "workers": 8,
+      "median_seconds": 17.2493101,
+      "q1_seconds": 16.6596261,
+      "q3_seconds": 17.6394775,
+      "median_windows_per_second": 22.261759906559973,
+      "speedup_vs_serial": 0.5958912119041794,
+      "parallel_efficiency": 0.07448640148802242
+    },
+    {
+      "backend": "process",
+      "workers": 2,
+      "median_seconds": 5.8431027,
+      "q1_seconds": 5.8051984,
+      "q3_seconds": 6.3107747,
+      "median_windows_per_second": 65.71850944875571,
+      "speedup_vs_serial": 1.7591188838765406,
+      "parallel_efficiency": 0.8795594419382703
+    },
+    {
+      "backend": "process",
+      "workers": 4,
+      "median_seconds": 4.7671817,
+      "q1_seconds": 4.3866105,
+      "q3_seconds": 6.101619,
+      "median_windows_per_second": 80.55073713678671,
+      "speedup_vs_serial": 2.1561402410988446,
+      "parallel_efficiency": 0.5390350602747112
+    },
+    {
+      "backend": "process",
+      "workers": 8,
+      "median_seconds": 4.1628385,
+      "q1_seconds": 3.5506189,
+      "q3_seconds": 5.5332481,
+      "median_windows_per_second": 92.24475078723327,
+      "speedup_vs_serial": 2.469159516997837,
+      "parallel_efficiency": 0.3086449396247296
+    },
+    {
+      "backend": "process",
+      "workers": 16,
+      "median_seconds": 5.1346348,
+      "q1_seconds": 4.1487535,
+      "q3_seconds": 5.8132489,
+      "median_windows_per_second": 74.78623406673441,
+      "speedup_vs_serial": 2.0018390207615155,
+      "parallel_efficiency": 0.12511493879759472
+    }
+  ]
+}

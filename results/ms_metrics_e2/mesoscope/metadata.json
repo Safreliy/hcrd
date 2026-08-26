@@ -1,0 +1,20 @@
+{
+  "protocol": "hcrd-e2-v1",
+  "dataset": "mesoscope",
+  "mzml_file_count": 168,
+  "feature_count": 2534,
+  "good_count": 249,
+  "bad_count": 1944,
+  "excluded_count": 341,
+  "source_archive_sha256": "08e44c2512de1122bec831ec1bc79caa49a1167c09b44bc90413dbead97d45c2",
+  "labels_sha256": "a821ae612c3358f3fb84cba12a6ae9d7b04a59e087f5cd27c5b56ea63478e3c1",
+  "source_repository_commit": "491deaf1d5f27f9d276e58acb4c1dfca2a2e21b9",
+  "final_widths": {
+    "qscore": 2,
+    "domain_q": 336,
+    "hcrd_1_q": 534,
+    "hcrd_8_q": 2847,
+    "hcrd_geometry_q": 894,
+    "area_only_q": 147
+  }
+}

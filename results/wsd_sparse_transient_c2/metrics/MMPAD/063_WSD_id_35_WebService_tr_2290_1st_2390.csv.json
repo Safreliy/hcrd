@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "method": "MMPAD",
+  "file": "063_WSD_id_35_WebService_tr_2290_1st_2390.csv",
+  "length": 18236,
+  "window": 125,
+  "auc_pr": 0.3128704570580341,
+  "auc_roc": 0.858919120069201,
+  "vus_pr": 0.18050896267990865,
+  "vus_roc": 0.8660373870536366,
+  "score_sha256_float64_le": "aae625cbead39ba5ca656b99656ed227450dc14fea9e69a0bbf2728bb02e29eb",
+  "diagnostic_wall_seconds_excluded_from_claims": 114.29556999995839,
+  "parameters": {
+    "n_neighbor": 5,
+    "n_job": 1
+  }
+}

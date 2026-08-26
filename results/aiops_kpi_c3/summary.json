@@ -1,0 +1,37 @@
+{
+  "status": "complete",
+  "primary": {
+    "series": 13,
+    "hcrd_area_sr_mean_auc_pr": 0.36746946789617074,
+    "raw_sr_mean_auc_pr": 0.385041188000724,
+    "mean_difference": -0.017571720104553327,
+    "bootstrap_95_low": -0.11860751869251002,
+    "bootstrap_95_high": 0.11357222791004458,
+    "paired_t_p": 0.7825293588742152,
+    "wilcoxon_p": 0.375732421875,
+    "exact_sign_p": 0.09228515625,
+    "wins": 3,
+    "ties": 0,
+    "losses": 10,
+    "exact_sign_flip_p": 0.803955078125
+  },
+  "all_phase2": {
+    "series": 29,
+    "hcrd_area_sr_mean_auc_pr": 0.2633075218818691,
+    "raw_sr_mean_auc_pr": 0.2744595667804235,
+    "mean_difference": -0.01115204489855432,
+    "bootstrap_95_low": -0.05984036064458427,
+    "bootstrap_95_high": 0.04906321010000708,
+    "paired_t_p": 0.6975679896649104,
+    "wilcoxon_p": 0.1008644811809063,
+    "exact_sign_p": 0.06142834573984146,
+    "wins": 9,
+    "ties": 0,
+    "losses": 20
+  },
+  "ablations_primary_mean_auc_pr": {
+    "hcrd_direct": 0.4156968840094537,
+    "raw_absolute_deviation": 0.41877211274883047
+  },
+  "interpretation_boundary": "independent phase release and inherited class threshold; only 13 primary KPIs and one domain-aligned comparator"
+}

@@ -1,0 +1,56 @@
+{
+  "analysis_status": "post-outcome robustness analysis",
+  "unit_of_generalization": "bearing",
+  "baseline": "standard",
+  "candidate": "hybrid_mass6",
+  "n_bearings": 15,
+  "n_seeds": 5,
+  "bootstrap_draws": 200000,
+  "metrics": {
+    "rmse": {
+      "baseline_macro_mean": 0.19090487040275292,
+      "candidate_macro_mean": 0.19268696755452971,
+      "candidate_minus_baseline": 0.0017820971517767763,
+      "relative_change_percent": 0.9335000977277728,
+      "bearing_cluster_bootstrap_95_ci": [
+        0.0005647473749724869,
+        0.003119039232234566
+      ],
+      "bearings_improved": 4,
+      "bearings_total": 15,
+      "exact_sign_test_p_two_sided": 0.11846923828124999,
+      "wilcoxon_p_two_sided": 0.03533935546875,
+      "exact_mean_sign_flip_p_two_sided": 0.01544189453125
+    },
+    "mae": {
+      "baseline_macro_mean": 0.1573242777006901,
+      "candidate_macro_mean": 0.15912019173610406,
+      "candidate_minus_baseline": 0.001795914035413962,
+      "relative_change_percent": 1.141536488621733,
+      "bearing_cluster_bootstrap_95_ci": [
+        0.0006484484892511264,
+        0.0030785105480293316
+      ],
+      "bearings_improved": 3,
+      "bearings_total": 15,
+      "exact_sign_test_p_two_sided": 0.03515625,
+      "wilcoxon_p_two_sided": 0.01025390625,
+      "exact_mean_sign_flip_p_two_sided": 0.00933837890625
+    },
+    "late_rmse": {
+      "baseline_macro_mean": 0.21332878618521003,
+      "candidate_macro_mean": 0.21496337727822085,
+      "candidate_minus_baseline": 0.0016345910930107969,
+      "relative_change_percent": 0.7662309068742651,
+      "bearing_cluster_bootstrap_95_ci": [
+        -0.0012258501892434943,
+        0.004133764412957128
+      ],
+      "bearings_improved": 6,
+      "bearings_total": 15,
+      "exact_sign_test_p_two_sided": 0.6072387695312499,
+      "wilcoxon_p_two_sided": 0.10699462890625,
+      "exact_mean_sign_flip_p_two_sided": 0.27069091796875
+    }
+  }
+}

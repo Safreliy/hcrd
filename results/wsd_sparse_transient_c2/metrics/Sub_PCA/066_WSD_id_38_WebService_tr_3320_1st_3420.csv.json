@@ -1,0 +1,18 @@
+{
+  "status": "ok",
+  "method": "Sub_PCA",
+  "file": "066_WSD_id_38_WebService_tr_3320_1st_3420.csv",
+  "length": 18302,
+  "window": 4,
+  "auc_pr": 0.4677576272163346,
+  "auc_roc": 0.8582183106887615,
+  "vus_pr": 0.31941921889282193,
+  "vus_roc": 0.8759766626608784,
+  "score_sha256_float64_le": "77cd4ceb104e98366ef10fe49f320e2173d658c5b19186d6691a46e60eb926da",
+  "diagnostic_wall_seconds_excluded_from_claims": 12.01593460002914,
+  "parameters": {
+    "periodicity": 1,
+    "n_components": null,
+    "n_jobs": 1
+  }
+}

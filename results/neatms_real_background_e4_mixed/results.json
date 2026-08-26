@@ -1,0 +1,124 @@
+{
+  "status": "post-E4 exploratory class development; not confirmation",
+  "aggregate": [
+    {
+      "method": "signed_asls_oracle",
+      "mean_mse": 0.10976176519444988,
+      "median_mse": 0.10780560764662186
+    },
+    {
+      "method": "symmetric_morph_oracle",
+      "mean_mse": 0.12500543141906015,
+      "median_mse": 0.1260343796647728
+    },
+    {
+      "method": "gaussian_oracle",
+      "mean_mse": 0.1357310250589902,
+      "median_mse": 0.1331310288064423
+    },
+    {
+      "method": "hcrd_l8",
+      "mean_mse": 0.13686224912650216,
+      "median_mse": 0.12661026840075632
+    },
+    {
+      "method": "l1_trend_oracle",
+      "mean_mse": 0.13712663596625016,
+      "median_mse": 0.13444751343688133
+    },
+    {
+      "method": "wavelet_oracle",
+      "mean_mse": 0.13804059652494208,
+      "median_mse": 0.13599495896535663
+    },
+    {
+      "method": "median_oracle",
+      "mean_mse": 0.139310028002059,
+      "median_mse": 0.13412227429081208
+    },
+    {
+      "method": "savgol_oracle",
+      "mean_mse": 0.14170842238663642,
+      "median_mse": 0.1370210764145926
+    },
+    {
+      "method": "hcrd_l1",
+      "mean_mse": 0.14775795941770112,
+      "median_mse": 0.14569709897021382
+    }
+  ],
+  "hcrd_l8_comparisons": {
+    "signed_asls_oracle": {
+      "mean_difference": 0.027100483932052243,
+      "bootstrap_95_ci": [
+        0.020819552325733095,
+        0.03320822574394218
+      ],
+      "wins": 9,
+      "losses": 51
+    },
+    "symmetric_morph_oracle": {
+      "mean_difference": 0.011856817707441998,
+      "bootstrap_95_ci": [
+        0.002027143792164094,
+        0.021963425970531584
+      ],
+      "wins": 25,
+      "losses": 35
+    },
+    "gaussian_oracle": {
+      "mean_difference": 0.0011312240675119426,
+      "bootstrap_95_ci": [
+        -0.008308541999658336,
+        0.011134328399893192
+      ],
+      "wins": 38,
+      "losses": 22
+    },
+    "l1_trend_oracle": {
+      "mean_difference": -0.00026438683974803085,
+      "bootstrap_95_ci": [
+        -0.010303329910579452,
+        0.010220645193929727
+      ],
+      "wins": 36,
+      "losses": 24
+    },
+    "wavelet_oracle": {
+      "mean_difference": -0.0011783473984399559,
+      "bootstrap_95_ci": [
+        -0.01135886514724061,
+        0.009435090157318764
+      ],
+      "wins": 37,
+      "losses": 23
+    },
+    "median_oracle": {
+      "mean_difference": -0.0024477788755568526,
+      "bootstrap_95_ci": [
+        -0.013166889542920444,
+        0.008508378677458439
+      ],
+      "wins": 33,
+      "losses": 27
+    },
+    "savgol_oracle": {
+      "mean_difference": -0.004846173260134304,
+      "bootstrap_95_ci": [
+        -0.01521708375255855,
+        0.006017154832532106
+      ],
+      "wins": 39,
+      "losses": 21
+    },
+    "hcrd_l1": {
+      "mean_difference": -0.010895710291198981,
+      "bootstrap_95_ci": [
+        -0.020484229599150833,
+        -0.0004191304402763872
+      ],
+      "wins": 41,
+      "losses": 19
+    }
+  }
+}

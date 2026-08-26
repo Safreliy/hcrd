@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "SmallKitchenAppliances",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 375,
+  "test_size": 375,
+  "length": 720,
+  "class_count": 3,
+  "workers": 8,
+  "representation_seconds": 11.845251300022937,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.776,
+      "balanced_accuracy": 0.7760000000000001,
+      "macro_f1": 0.7754508455277046,
+      "feature_count": 595,
+      "fit_seconds": 15.076686099986546,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.8160000000000001,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.7786666666666666,
+      "balanced_accuracy": 0.7786666666666667,
+      "macro_f1": 0.7785050860334951,
+      "feature_count": 595,
+      "fit_seconds": 0.8797376999864355,
+      "min_child_samples": 18
+    }
+  },
+  "wall_seconds": 28.039734499994665
+}

@@ -1,0 +1,55 @@
+{
+  "status": "primary_comparator_frozen_before_HCRD_execution",
+  "primary_comparator": "POLY",
+  "selection_metric": "mean per-series VUS-PR on the fixed 71-series primary stratum",
+  "eligible_baseline_means": {
+    "Sub_PCA": 0.11359575592262697,
+    "SR": 0.17507927209186072,
+    "POLY": 0.4115314333194507,
+    "Sub_IForest": 0.033177516687079245
+  },
+  "baseline_completeness": {
+    "MMPAD": {
+      "primary_ok": 37,
+      "primary_required": 71,
+      "eligible": false
+    },
+    "KShapeAD": {
+      "primary_ok": 5,
+      "primary_required": 71,
+      "eligible": false
+    },
+    "SAND": {
+      "primary_ok": 2,
+      "primary_required": 71,
+      "eligible": false
+    },
+    "Sub_PCA": {
+      "primary_ok": 71,
+      "primary_required": 71,
+      "eligible": true
+    },
+    "MatrixProfile": {
+      "primary_ok": 21,
+      "primary_required": 71,
+      "eligible": false
+    },
+    "SR": {
+      "primary_ok": 71,
+      "primary_required": 71,
+      "eligible": true
+    },
+    "POLY": {
+      "primary_ok": 71,
+      "primary_required": 71,
+      "eligible": true
+    },
+    "Sub_IForest": {
+      "primary_ok": 71,
+      "primary_required": 71,
+      "eligible": true
+    }
+  },
+  "selection_rule": "largest eligible primary mean",
+  "frozen_population_sha256": "5f403f7bfa5ece0aeeb00b6096fc41eb14d13cb37325d8a612bc1d70d32090b3"
+}

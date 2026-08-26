@@ -1,0 +1,139 @@
+{
+  "protocol": "U1-D2 exploratory",
+  "dataset": "ScreenType",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 375,
+  "test_size": 375,
+  "length": 720,
+  "class_count": 3,
+  "workers": 8,
+  "requested_total_kernels": 10000,
+  "kernels_per_component": 1680,
+  "representation_seconds": 41.69916069996543,
+  "metrics": {
+    "raw_minirocket": {
+      "accuracy": 0.47733333333333333,
+      "balanced_accuracy": 0.47733333333333333,
+      "macro_f1": 0.47100143298059965,
+      "feature_count": 9996,
+      "transform_seconds": 0.6034945999272168,
+      "head_fit_seconds": 0.3689155000029132,
+      "head_predict_seconds": 0.0172249999595806,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "wavelet_componentwise": {
+      "accuracy": 0.44533333333333336,
+      "balanced_accuracy": 0.44533333333333336,
+      "macro_f1": 0.44082700173973066,
+      "feature_count": 10080,
+      "transform_seconds": 1.6679866999620572,
+      "head_fit_seconds": 0.331102600088343,
+      "head_predict_seconds": 0.017094100010581315,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise": {
+      "accuracy": 0.44533333333333336,
+      "balanced_accuracy": 0.44533333333333336,
+      "macro_f1": 0.4456192106663515,
+      "feature_count": 10080,
+      "transform_seconds": 1.3746823000255972,
+      "head_fit_seconds": 0.285405799979344,
+      "head_predict_seconds": 0.015598399913869798,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise_hybrid": {
+      "accuracy": 0.4533333333333333,
+      "balanced_accuracy": 0.4533333333333333,
+      "macro_f1": 0.45290220209760434,
+      "feature_count": 10675,
+      "transform_seconds": 1.3746823000255972,
+      "head_fit_seconds": 0.24595550005324185,
+      "head_predict_seconds": 0.03349719999823719,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "raw_hcrd_fusion": {
+      "accuracy": 0.4666666666666667,
+      "balanced_accuracy": 0.4666666666666666,
+      "macro_f1": 0.4646704259250385,
+      "feature_count": 20671,
+      "transform_seconds": 1.978176899952814,
+      "head_fit_seconds": 0.5227093999274075,
+      "head_predict_seconds": 0.07556210004258901,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_structure_extratrees": {
+      "accuracy": 0.5093333333333333,
+      "balanced_accuracy": 0.5093333333333333,
+      "macro_f1": 0.5092709223144006,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 1.397128399927169
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.52,
+      "balanced_accuracy": 0.52,
+      "macro_f1": 0.5195395219300775,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 2.6697725999401882,
+      "min_child_samples": 18
+    }
+  },
+  "wall_seconds": 51.85976399993524
+}

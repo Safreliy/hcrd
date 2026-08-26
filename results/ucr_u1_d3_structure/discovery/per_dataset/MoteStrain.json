@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "MoteStrain",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 20,
+  "test_size": 1252,
+  "length": 84,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 13.348156800027937,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.7308306709265175,
+      "balanced_accuracy": 0.728227742473843,
+      "macro_f1": 0.728619989901816,
+      "feature_count": 595,
+      "fit_seconds": 3.8596202000044286,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.6,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.6198083067092651,
+      "balanced_accuracy": 0.6172129148212337,
+      "macro_f1": 0.6172679982017854,
+      "feature_count": 595,
+      "fit_seconds": 0.04542570002377033,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 17.378764000022784
+}

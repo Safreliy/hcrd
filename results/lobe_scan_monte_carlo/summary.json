@@ -1,0 +1,35 @@
+{
+  "protocol": "hcrd-lobe-scan-mc-v1",
+  "seed": 20260825,
+  "replicates": 50000,
+  "sample_count": 257,
+  "template_count": 24,
+  "maximum_coherence": 0.037640705606766384,
+  "targets": {
+    "alpha": 0.05,
+    "beta": 0.2,
+    "delta": 0.1
+  },
+  "theorem_bounds": {
+    "scan_threshold": 3.513911240740704,
+    "power_sufficient_standardized_norm": 5.308033818734805,
+    "localization_sufficient_standardized_norm": 7.302701311688834
+  },
+  "empirical": {
+    "null_false_rejection_rate": 0.00524,
+    "null_false_rejection_wilson_95_ci": [
+      0.0046440617160680864,
+      0.005911956450163873
+    ],
+    "miss_rate_at_power_bound": 0.03626,
+    "miss_rate_wilson_95_ci": [
+      0.034656762136377646,
+      0.03793448991392636
+    ],
+    "localization_error_at_bound": 0.0,
+    "localization_error_wilson_95_ci": [
+      0.0,
+      7.682327414500052e-05
+    ]
+  }
+}

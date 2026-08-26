@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "PigArtPressure",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 104,
+  "test_size": 208,
+  "length": 2000,
+  "class_count": 52,
+  "workers": 8,
+  "representation_seconds": 26.97604589990806,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.8509615384615384,
+      "balanced_accuracy": 0.8509615384615384,
+      "macro_f1": 0.8403749028749027,
+      "feature_count": 595,
+      "fit_seconds": 6.349719800055027,
+      "cv_folds": 2,
+      "best_cv_accuracy": 0.5096153846153846,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.3076923076923077,
+      "balanced_accuracy": 0.3076923076923077,
+      "macro_f1": 0.30259625994920114,
+      "feature_count": 595,
+      "fit_seconds": 3.600351999979466,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 37.165394000010565
+}

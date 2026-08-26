@@ -1,0 +1,70 @@
+{
+  "protocol": "H1 independent confirmation",
+  "protocol_file": "docs/pronostia_health_indicator_protocol.md",
+  "success": false,
+  "primary": {
+    "contrast": "abs(Spearman HCRD level-3 polygon mass) - abs(Spearman horizontal RMS)",
+    "mean_difference": -0.08384361714527329,
+    "bearing_bootstrap_95_ci": [
+      -0.17332758505651125,
+      0.0030933155317668225
+    ],
+    "bearings_improved": 8,
+    "bearings_total": 17,
+    "exact_sign_test_p_two_sided": 1.0,
+    "hcrd_positive_on_all_bearings": false
+  },
+  "aggregates": [
+    {
+      "indicator": "hcrd_level3_log1p_polygon_mass",
+      "mean_spearman": 0.11879184450203312,
+      "median_spearman": 0.027866229081342047,
+      "median_absolute_spearman": 0.4484903310948159,
+      "positive_bearings": 9,
+      "bearings": 17
+    },
+    {
+      "indicator": "horizontal_0_1khz_band_power",
+      "mean_spearman": 0.39684432148466575,
+      "median_spearman": 0.3541964695297997,
+      "median_absolute_spearman": 0.5214494348168663,
+      "positive_bearings": 14,
+      "bearings": 17
+    },
+    {
+      "indicator": "horizontal_kurtosis",
+      "mean_spearman": 0.39352114391762827,
+      "median_spearman": 0.37196233584910465,
+      "median_absolute_spearman": 0.37196233584910465,
+      "positive_bearings": 16,
+      "bearings": 17
+    },
+    {
+      "indicator": "horizontal_rms",
+      "mean_spearman": -0.05381516049578347,
+      "median_spearman": -0.1435042671396966,
+      "median_absolute_spearman": 0.5175139821107863,
+      "positive_bearings": 8,
+      "bearings": 17
+    },
+    {
+      "indicator": "horizontal_variance",
+      "mean_spearman": -0.05461351998197415,
+      "median_spearman": -0.14501690913981272,
+      "median_absolute_spearman": 0.5177712917742481,
+      "positive_bearings": 8,
+      "bearings": 17
+    }
+  ],
+  "metadata": {
+    "complete_bearings": 17,
+    "acquisitions": 24889,
+    "archive_sha256": "e21bb22bd8d54fd18ebe98b4b4e094c0c40469bda19811a2a642d5cc84ebd81f",
+    "features_sha256": "0ad52f5985d78d89a7918e9ac34a6c527dc1945d34055d14022384386cd563bd",
+    "workers": 8,
+    "seconds": 150.019760999945,
+    "python": "3.13.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  }
+}

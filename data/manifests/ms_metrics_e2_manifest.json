@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "protocol": "hcrd-e2-v1",
+  "source_article_doi": "10.1186/s12859-023-05533-4",
+  "source_repository": "https://github.com/wkumler/MS_metrics.git",
+  "source_repository_commit": "491deaf1d5f27f9d276e58acb4c1dfca2a2e21b9",
+  "datasets": [
+    {
+      "name": "falkor",
+      "study": "ST002788",
+      "archive_url": "https://www.metabolomicsworkbench.org/studydownload/ST002788_HILIC_POS.zip",
+      "archive_file": "ST002788_HILIC_POS.zip",
+      "archive_bytes": 531534801,
+      "archive_sha256": "e9322956871f39b5ace76ddd05c8f37b91773923893ad6d6649d844a0963a9aa",
+      "labels_file": "made_data_FT2040/classified_feats.csv",
+      "labels_sha256": "78177556a501150499e5f60785663beb284390c7cb768067f2f9cb3b778839be",
+      "mzml_count": 41
+    },
+    {
+      "name": "mesoscope",
+      "study": "ST002789",
+      "archive_url": "https://www.metabolomicsworkbench.org/studydownload/ST002789_HILIC_POS.zip",
+      "archive_file": "ST002789_HILIC_POS.zip",
+      "archive_bytes": 1503194756,
+      "archive_sha256": "08e44c2512de1122bec831ec1bc79caa49a1167c09b44bc90413dbead97d45c2",
+      "labels_file": "made_data_MS3000/classified_feats.csv",
+      "labels_sha256": "a821ae612c3358f3fb84cba12a6ae9d7b04a59e087f5cd27c5b56ea63478e3c1",
+      "mzml_count": 168
+    }
+  ]
+}

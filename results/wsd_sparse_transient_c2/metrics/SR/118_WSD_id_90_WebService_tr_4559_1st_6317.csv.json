@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "method": "SR",
+  "file": "118_WSD_id_90_WebService_tr_4559_1st_6317.csv",
+  "length": 18236,
+  "window": 125,
+  "auc_pr": 0.6555555555555554,
+  "auc_roc": 0.9998537450410427,
+  "vus_pr": 0.3603603603603603,
+  "vus_roc": 0.9987019872392547,
+  "score_sha256_float64_le": "33aa80cc95db0833d2e34d906a92b1d67f0bea51f0c62959818f45c7f5c36a79",
+  "diagnostic_wall_seconds_excluded_from_claims": 0.029488899977877736,
+  "parameters": {
+    "periodicity": 1
+  }
+}

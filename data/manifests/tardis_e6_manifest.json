@@ -1,0 +1,18 @@
+{
+  "dataset": "TARDIS publication data",
+  "record_doi": "10.5281/zenodo.14548033",
+  "record_url": "https://zenodo.org/records/14548033",
+  "archive_url": "https://zenodo.org/records/14548033/files/data_zenodo.rar?download=1",
+  "archive_name": "data_zenodo.rar",
+  "archive_size_bytes": 5669337245,
+  "archive_md5": "38ddb2822551b1d281b57d610eb56986",
+  "fame_positive_labels_sha256": "f06b75999ddbe9ec7c4fa3159032fe9db427acab9b86d74dd39955b6498be357",
+  "expected_positive_qc_files": 119,
+  "selected_archive_paths": [
+    "data_zenodo\\quality_analysis\\*",
+    "data_zenodo\\targeted_results\\FAME\\*",
+    "data_zenodo\\scale_analysis\\targets_adjusted_pos.xlsx",
+    "data_zenodo\\scale_analysis\\files700\\*QC*.mzXML"
+  ],
+  "redistribution": "Third-party archive and extracted raw data are not redistributed."
+}

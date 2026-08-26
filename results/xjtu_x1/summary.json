@@ -1,0 +1,33 @@
+{
+  "protocol": "X1",
+  "calibration": "fraction20",
+  "window_size": 10,
+  "max_epochs": 100,
+  "seeds": [
+    9
+  ],
+  "standard_feature_count": 65,
+  "hcrd_feature_count": 288,
+  "rows": 9216,
+  "torch": "2.13.0+cpu",
+  "python": "3.13.3",
+  "seconds": 266.85852909996174,
+  "aggregate": [
+    {
+      "representation": "standard",
+      "macro_rmse": 0.2291921118895213,
+      "macro_mae": 0.18693329741557438,
+      "macro_late_rmse": 0.24194221297899882,
+      "macro_r_squared": 0.23880772061961614,
+      "fold_seed_count": 15
+    },
+    {
+      "representation": "hybrid",
+      "macro_rmse": 0.2605311870574951,
+      "macro_mae": 0.21560562799374264,
+      "macro_late_rmse": 0.27760063012441,
+      "macro_r_squared": -0.04397659383610574,
+      "fold_seed_count": 15
+    }
+  ]
+}

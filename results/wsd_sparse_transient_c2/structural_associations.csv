@@ -1,0 +1,6 @@
+feature,alternative,confirmatory_directional,spearman_rho,permutation_p,permutations,holm_permutation_p
+median_sign_coherence,greater,True,-0.09839859177706341,0.7944320556794432,100000,1.0
+median_peak_to_background_mad,greater,True,-0.16153588195841717,0.9084709152908471,100000,1.0
+median_curvature_contrast,greater,True,0.05503018108651911,0.3256167438325617,100000,0.976850231497685
+median_duration_fraction,less,True,-0.19723647683425727,0.04873951260487395,100000,0.1949580504194958
+median_shape_concentration,two-sided,False,0.31569416498993963,0.007909920900790991,100000,

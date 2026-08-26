@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "ChlorineConcentration",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 467,
+  "test_size": 3840,
+  "length": 166,
+  "class_count": 3,
+  "workers": 8,
+  "representation_seconds": 31.559649100061506,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.6049479166666667,
+      "balanced_accuracy": 0.44206963803777705,
+      "macro_f1": 0.43014184322948185,
+      "feature_count": 595,
+      "fit_seconds": 26.41002109996043,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.608144589338824,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.6010416666666667,
+      "balanced_accuracy": 0.4647640637424782,
+      "macro_f1": 0.46766177267990666,
+      "feature_count": 595,
+      "fit_seconds": 1.6535204999381676,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 59.89587050001137
+}

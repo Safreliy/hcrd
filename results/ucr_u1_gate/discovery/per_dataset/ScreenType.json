@@ -1,0 +1,14 @@
+{
+  "dataset": "ScreenType",
+  "assignment": "discovery",
+  "train_size": 375,
+  "length": 720,
+  "class_count": 3,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.5760000000000001,
+  "wavelet_cv_accuracy": 0.6266666666666667,
+  "raw_transform_seconds": 0.34821650001686066,
+  "wavelet_transform_seconds": 1.5490398000692949,
+  "wall_seconds": 3.3743228000821546,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

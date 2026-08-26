@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "PigCVP",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 104,
+  "test_size": 208,
+  "length": 2000,
+  "class_count": 52,
+  "workers": 8,
+  "representation_seconds": 49.08535109995864,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.40384615384615385,
+      "balanced_accuracy": 0.40384615384615385,
+      "macro_f1": 0.3692042466080928,
+      "feature_count": 595,
+      "fit_seconds": 18.527251999941655,
+      "cv_folds": 2,
+      "best_cv_accuracy": 0.3173076923076923,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.11538461538461539,
+      "balanced_accuracy": 0.11538461538461539,
+      "macro_f1": 0.10259644201951895,
+      "feature_count": 595,
+      "fit_seconds": 4.822752799955197,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 72.71076150005683
+}

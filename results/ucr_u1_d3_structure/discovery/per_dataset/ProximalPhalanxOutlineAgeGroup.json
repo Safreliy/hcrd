@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "ProximalPhalanxOutlineAgeGroup",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 400,
+  "test_size": 205,
+  "length": 80,
+  "class_count": 3,
+  "workers": 8,
+  "representation_seconds": 11.915035100071691,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.8390243902439024,
+      "balanced_accuracy": 0.7832620320855616,
+      "macro_f1": 0.7544055394847818,
+      "feature_count": 595,
+      "fit_seconds": 18.394996399991214,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.8324999999999999,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 4
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.8292682926829268,
+      "balanced_accuracy": 0.7440463458110518,
+      "macro_f1": 0.7289533663217874,
+      "feature_count": 595,
+      "fit_seconds": 0.9689686000347137,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 31.417781200027093
+}

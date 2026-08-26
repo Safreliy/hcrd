@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "NonInvasiveFetalECGThorax2",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 1800,
+  "test_size": 1965,
+  "length": 750,
+  "class_count": 42,
+  "workers": 8,
+  "representation_seconds": 136.24693270004354,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.7236641221374046,
+      "balanced_accuracy": 0.7232582778858551,
+      "macro_f1": 0.7155238671040721,
+      "feature_count": 595,
+      "fit_seconds": 193.005154299899,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.7144444444444444,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.7022900763358778,
+      "balanced_accuracy": 0.7016228239515183,
+      "macro_f1": 0.6974152477196649,
+      "feature_count": 595,
+      "fit_seconds": 31.991198600037023,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 362.39107380004134
+}

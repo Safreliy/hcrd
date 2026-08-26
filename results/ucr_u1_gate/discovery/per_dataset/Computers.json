@@ -1,0 +1,14 @@
+{
+  "dataset": "Computers",
+  "assignment": "discovery",
+  "train_size": 250,
+  "length": 720,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.8400000000000001,
+  "wavelet_cv_accuracy": 0.8240000000000001,
+  "raw_transform_seconds": 0.16189750004559755,
+  "wavelet_transform_seconds": 0.5242459999863058,
+  "wall_seconds": 1.4788102000020444,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

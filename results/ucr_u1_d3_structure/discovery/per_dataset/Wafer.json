@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Wafer",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 1000,
+  "test_size": 6164,
+  "length": 152,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 49.636225900030695,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "feature_count": 595,
+      "fit_seconds": 17.565775500028394,
+      "cv_folds": 5,
+      "best_cv_accuracy": 1.0,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "feature_count": 595,
+      "fit_seconds": 0.39391919993795455,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 68.09546910005156
+}

@@ -1,0 +1,47 @@
+{
+  "datasets": 4,
+  "summary": [
+    {
+      "method": "raw_minirocket",
+      "dataset_count": 4,
+      "mean_accuracy": 0.6546007326007326,
+      "median_accuracy": 0.6577142857142857
+    },
+    {
+      "method": "wavelet_componentwise",
+      "dataset_count": 4,
+      "mean_accuracy": 0.5902001332001332,
+      "median_accuracy": 0.5997335997335997
+    },
+    {
+      "method": "hcrd_componentwise",
+      "dataset_count": 4,
+      "mean_accuracy": 0.5760862470862471,
+      "median_accuracy": 0.5775058275058276
+    },
+    {
+      "method": "hcrd_componentwise_hybrid",
+      "dataset_count": 4,
+      "mean_accuracy": 0.5779740259740259,
+      "median_accuracy": 0.5852813852813853
+    },
+    {
+      "method": "raw_hcrd_fusion",
+      "dataset_count": 4,
+      "mean_accuracy": 0.6436486846486846,
+      "median_accuracy": 0.6731948051948051
+    },
+    {
+      "method": "hcrd_structure_extratrees",
+      "dataset_count": 4,
+      "mean_accuracy": 0.6013986013986014,
+      "median_accuracy": 0.5861305361305361
+    },
+    {
+      "method": "hcrd_structure_lightgbm",
+      "dataset_count": 4,
+      "mean_accuracy": 0.5799517149517149,
+      "median_accuracy": 0.5424675324675325
+    }
+  ]
+}

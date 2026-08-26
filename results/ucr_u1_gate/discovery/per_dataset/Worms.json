@@ -1,0 +1,14 @@
+{
+  "dataset": "Worms",
+  "assignment": "discovery",
+  "train_size": 181,
+  "length": 900,
+  "class_count": 5,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.7013513513513514,
+  "wavelet_cv_accuracy": 0.7402402402402403,
+  "raw_transform_seconds": 0.37377700000070035,
+  "wavelet_transform_seconds": 1.977944100042805,
+  "wall_seconds": 3.91538640006911,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "WordSynonyms",
+  "assignment": "discovery",
+  "train_size": 267,
+  "length": 270,
+  "class_count": 25,
+  "cv_folds": 2,
+  "raw_cv_accuracy": 0.7041577825159915,
+  "wavelet_cv_accuracy": 0.625490966221524,
+  "raw_transform_seconds": 0.14971969998441637,
+  "wavelet_transform_seconds": 0.38210659998003393,
+  "wall_seconds": 2.901620000018738,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

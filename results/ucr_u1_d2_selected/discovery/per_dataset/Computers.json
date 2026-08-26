@@ -1,0 +1,139 @@
+{
+  "protocol": "U1-D2 exploratory",
+  "dataset": "Computers",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 250,
+  "test_size": 250,
+  "length": 720,
+  "class_count": 2,
+  "workers": 8,
+  "requested_total_kernels": 10000,
+  "kernels_per_component": 1680,
+  "representation_seconds": 21.266537900082767,
+  "metrics": {
+    "raw_minirocket": {
+      "accuracy": 0.744,
+      "balanced_accuracy": 0.744,
+      "macro_f1": 0.742947111368164,
+      "feature_count": 9996,
+      "transform_seconds": 0.6501400000415742,
+      "head_fit_seconds": 0.10846609994769096,
+      "head_predict_seconds": 0.0073376999935135245,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "wavelet_componentwise": {
+      "accuracy": 0.716,
+      "balanced_accuracy": 0.716,
+      "macro_f1": 0.7159590981101278,
+      "feature_count": 10080,
+      "transform_seconds": 0.6242112999316305,
+      "head_fit_seconds": 0.08799259993247688,
+      "head_predict_seconds": 0.007065600017085671,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise": {
+      "accuracy": 0.704,
+      "balanced_accuracy": 0.704,
+      "macro_f1": 0.703525641025641,
+      "feature_count": 10080,
+      "transform_seconds": 0.7756180999567732,
+      "head_fit_seconds": 0.12136720004491508,
+      "head_predict_seconds": 0.007878599921241403,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_componentwise_hybrid": {
+      "accuracy": 0.688,
+      "balanced_accuracy": 0.688,
+      "macro_f1": 0.6872794919494516,
+      "feature_count": 10675,
+      "transform_seconds": 0.7756180999567732,
+      "head_fit_seconds": 0.09703589999116957,
+      "head_predict_seconds": 0.015227199997752905,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "raw_hcrd_fusion": {
+      "accuracy": 0.736,
+      "balanced_accuracy": 0.736,
+      "macro_f1": 0.7359831029185868,
+      "feature_count": 20671,
+      "transform_seconds": 1.4257580999983475,
+      "head_fit_seconds": 0.1605683999368921,
+      "head_predict_seconds": 0.0251269000582397,
+      "ridge_alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.154434690031882,
+        10.0,
+        46.41588833612773,
+        215.44346900318823,
+        1000.0
+      ]
+    },
+    "hcrd_structure_extratrees": {
+      "accuracy": 0.724,
+      "balanced_accuracy": 0.724,
+      "macro_f1": 0.7238895558223288,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.7176355000119656
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.74,
+      "balanced_accuracy": 0.74,
+      "macro_f1": 0.7390606182256123,
+      "feature_count": 595,
+      "transform_seconds": 0.0,
+      "head_fit_seconds": 0.268981899949722,
+      "min_child_samples": 12
+    }
+  },
+  "wall_seconds": 25.20280540001113
+}

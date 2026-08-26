@@ -1,0 +1,270 @@
+{
+  "source": "results/ppg_dalia/nested_subjectwise_summary.json",
+  "comparisons": {
+    "primary_vs_p0": {
+      "subjects": 15,
+      "replicates": 20000,
+      "median_record_f1_difference": {
+        "estimate": -0.009420350771006891,
+        "ci95_low": -0.047649067984448235,
+        "ci95_high": 0.012528200412457252,
+        "probability_positive": 0.1701
+      },
+      "micro_f1_difference": {
+        "estimate": -0.01545275897564058,
+        "ci95_low": -0.02579107411998051,
+        "ci95_high": -0.005511916660510084,
+        "probability_positive": 0.0009
+      },
+      "motion_macro_difference": {
+        "estimate": 0.010678222222149092,
+        "ci95_low": -0.006939506746371116,
+        "ci95_high": 0.02704399664075059,
+        "probability_positive": 0.8339
+      }
+    },
+    "geometry_vs_p0": {
+      "subjects": 15,
+      "replicates": 20000,
+      "median_record_f1_difference": {
+        "estimate": -0.00680704757542272,
+        "ci95_low": -0.04693119909023591,
+        "ci95_high": 0.013839191109882742,
+        "probability_positive": 0.16945
+      },
+      "micro_f1_difference": {
+        "estimate": -0.017344168034632013,
+        "ci95_low": -0.02646441647362337,
+        "ci95_high": -0.007786678318980612,
+        "probability_positive": 0.0002
+      },
+      "motion_macro_difference": {
+        "estimate": 0.013756437800562793,
+        "ci95_low": -0.013467406980698926,
+        "ci95_high": 0.029960880193076522,
+        "probability_positive": 0.6957
+      }
+    },
+    "primary_vs_mass": {
+      "subjects": 15,
+      "replicates": 20000,
+      "median_record_f1_difference": {
+        "estimate": 0.025944106949203016,
+        "ci95_low": 0.01516522407539378,
+        "ci95_high": 0.05625692111372782,
+        "probability_positive": 0.99965
+      },
+      "micro_f1_difference": {
+        "estimate": 0.031044037007983083,
+        "ci95_low": 0.026082950570869626,
+        "ci95_high": 0.0358140066733748,
+        "probability_positive": 1.0
+      },
+      "motion_macro_difference": {
+        "estimate": 0.024461017768889537,
+        "ci95_low": 0.007514532641078153,
+        "ci95_high": 0.04111121331750367,
+        "probability_positive": 0.9999
+      }
+    },
+    "geometry_vs_mass": {
+      "subjects": 15,
+      "replicates": 20000,
+      "median_record_f1_difference": {
+        "estimate": 0.028557410144787188,
+        "ci95_low": 0.014574100137891486,
+        "ci95_high": 0.05437077872882312,
+        "probability_positive": 0.99955
+      },
+      "micro_f1_difference": {
+        "estimate": 0.02915262794899165,
+        "ci95_low": 0.024065550186304446,
+        "ci95_high": 0.034707774512236,
+        "probability_positive": 1.0
+      },
+      "motion_macro_difference": {
+        "estimate": 0.027539233347303238,
+        "ci95_low": 0.00019024370006509358,
+        "ci95_high": 0.041502953935682374,
+        "probability_positive": 0.9752
+      }
+    }
+  },
+  "activity": {
+    "primary": {
+      "car_driving": {
+        "exact_median_f1": 0.831306990881459,
+        "compatible_median_f1": 0.8161094224924011
+      },
+      "cycling": {
+        "exact_median_f1": 0.8760330578512396,
+        "compatible_median_f1": 0.8675623800383876
+      },
+      "lunch_break": {
+        "exact_median_f1": 0.8089169096734709,
+        "compatible_median_f1": 0.7927391366958275
+      },
+      "sitting": {
+        "exact_median_f1": 0.7627627627627628,
+        "compatible_median_f1": 0.7477477477477478
+      },
+      "stair_climbing": {
+        "exact_median_f1": 0.7743271221532091,
+        "compatible_median_f1": 0.7525879917184264
+      },
+      "table_soccer": {
+        "exact_median_f1": 0.6547507055503292,
+        "compatible_median_f1": 0.6152398871119474
+      },
+      "walking": {
+        "exact_median_f1": 0.7855503379730042,
+        "compatible_median_f1": 0.7725256160735607
+      },
+      "working": {
+        "exact_median_f1": 0.8203952984724925,
+        "compatible_median_f1": 0.8109867640878305
+      }
+    },
+    "geometry": {
+      "car_driving": {
+        "exact_median_f1": 0.824952741020794,
+        "compatible_median_f1": 0.810586011342155
+      },
+      "cycling": {
+        "exact_median_f1": 0.8912839737582006,
+        "compatible_median_f1": 0.8884723523898782
+      },
+      "lunch_break": {
+        "exact_median_f1": 0.8010211320802203,
+        "compatible_median_f1": 0.7868021370397866
+      },
+      "sitting": {
+        "exact_median_f1": 0.7741347905282332,
+        "compatible_median_f1": 0.7446808510638299
+      },
+      "stair_climbing": {
+        "exact_median_f1": 0.781827259111333,
+        "compatible_median_f1": 0.7618572141787319
+      },
+      "table_soccer": {
+        "exact_median_f1": 0.6547842401500938,
+        "compatible_median_f1": 0.6172607879924953
+      },
+      "walking": {
+        "exact_median_f1": 0.7872513131503565,
+        "compatible_median_f1": 0.7682419234052358
+      },
+      "working": {
+        "exact_median_f1": 0.811922473927822,
+        "compatible_median_f1": 0.8024466083277741
+      }
+    },
+    "mass": {
+      "car_driving": {
+        "exact_median_f1": 0.7982677733670155,
+        "compatible_median_f1": 0.7831107903284014
+      },
+      "cycling": {
+        "exact_median_f1": 0.8730916030534351,
+        "compatible_median_f1": 0.8699029126213592
+      },
+      "lunch_break": {
+        "exact_median_f1": 0.7720712277413309,
+        "compatible_median_f1": 0.7582683332234297
+      },
+      "sitting": {
+        "exact_median_f1": 0.7277227722772277,
+        "compatible_median_f1": 0.7138643067846608
+      },
+      "stair_climbing": {
+        "exact_median_f1": 0.7688345138441726,
+        "compatible_median_f1": 0.7455919395465994
+      },
+      "table_soccer": {
+        "exact_median_f1": 0.633175355450237,
+        "compatible_median_f1": 0.5895734597156398
+      },
+      "walking": {
+        "exact_median_f1": 0.7392352430754646,
+        "compatible_median_f1": 0.7266442665688095
+      },
+      "working": {
+        "exact_median_f1": 0.7702213534048965,
+        "compatible_median_f1": 0.7594788171980104
+      }
+    },
+    "p0": {
+      "car_driving": {
+        "exact_median_f1": 0.841169937060348,
+        "compatible_median_f1": 0.8204368752313957
+      },
+      "cycling": {
+        "exact_median_f1": 0.8802083333333334,
+        "compatible_median_f1": 0.8593749999999999
+      },
+      "lunch_break": {
+        "exact_median_f1": 0.8236106388664464,
+        "compatible_median_f1": 0.7859608679874267
+      },
+      "sitting": {
+        "exact_median_f1": 0.8544747081712062,
+        "compatible_median_f1": 0.8351822503961963
+      },
+      "stair_climbing": {
+        "exact_median_f1": 0.7538564721663313,
+        "compatible_median_f1": 0.732394366197183
+      },
+      "table_soccer": {
+        "exact_median_f1": 0.646,
+        "compatible_median_f1": 0.5960000000000001
+      },
+      "walking": {
+        "exact_median_f1": 0.7827370268437637,
+        "compatible_median_f1": 0.7590160135690829
+      },
+      "working": {
+        "exact_median_f1": 0.8451266809326725,
+        "compatible_median_f1": 0.8236299219935629
+      }
+    }
+  },
+  "primary_activity_wins_vs_p0": 3,
+  "primary_hard_activity_wins_vs_p0": 3,
+  "predeclared_success": {
+    "overall_median_and_micro": false,
+    "at_least_five_activities": false,
+    "motion_macro": true,
+    "full_geometry_over_mass": true,
+    "positive_subject_bootstrap_vs_p0": false
+  },
+  "exploratory_motion_gate": {
+    "motion_gate_vs_p0": {
+      "subjects": 15,
+      "replicates": 20000,
+      "median_record_f1_difference": {
+        "estimate": 0.002743693629851607,
+        "ci95_low": -0.005802871773548546,
+        "ci95_high": 0.021364989740039753,
+        "probability_positive": 0.61505
+      },
+      "micro_f1_difference": {
+        "estimate": 0.0014219758790511294,
+        "ci95_low": -0.0003886304555477088,
+        "ci95_high": 0.004085747047066362,
+        "probability_positive": 0.8681
+      },
+      "motion_macro_difference": {
+        "estimate": 0.005701649629213823,
+        "ci95_low": -0.0022799648092387548,
+        "ci95_high": 0.020137182547608257,
+        "probability_positive": 0.6706
+      }
+    },
+    "gate_metrics": {
+      "median_record_f1": 0.8040080160320642,
+      "micro_f1": 0.809175273536238,
+      "motion_intensive_macro_median_f1": 0.7332328159659123
+    },
+    "status": "post-outer-test exploratory; requires independent confirmation"
+  }
+}

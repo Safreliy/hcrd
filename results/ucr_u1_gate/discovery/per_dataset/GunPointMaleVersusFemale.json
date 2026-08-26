@@ -1,0 +1,14 @@
+{
+  "dataset": "GunPointMaleVersusFemale",
+  "assignment": "discovery",
+  "train_size": 135,
+  "length": 150,
+  "class_count": 2,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 1.0,
+  "wavelet_cv_accuracy": 1.0,
+  "raw_transform_seconds": 0.08560650004073977,
+  "wavelet_transform_seconds": 0.12723650003317744,
+  "wall_seconds": 0.8542330999625847,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

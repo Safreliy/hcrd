@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "FordB",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 3636,
+  "test_size": 810,
+  "length": 500,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 58.922783299931325,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.7567901234567901,
+      "balanced_accuracy": 0.7561200909706174,
+      "macro_f1": 0.7554029176291694,
+      "feature_count": 595,
+      "fit_seconds": 234.328062399989,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.9048418912586726,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 4
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.7469135802469136,
+      "balanced_accuracy": 0.7460718619100172,
+      "macro_f1": 0.7447250086475268,
+      "feature_count": 595,
+      "fit_seconds": 2.086633599945344,
+      "min_child_samples": 20
+    }
+  },
+  "wall_seconds": 296.28261540003587
+}

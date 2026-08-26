@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "EOGHorizontalSignal",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 362,
+  "test_size": 362,
+  "length": 1250,
+  "class_count": 12,
+  "workers": 8,
+  "representation_seconds": 44.2248636999866,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.425414364640884,
+      "balanced_accuracy": 0.4272679520454827,
+      "macro_f1": 0.40771529576569204,
+      "feature_count": 595,
+      "fit_seconds": 28.474658399936743,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.6079528158295282,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.4143646408839779,
+      "balanced_accuracy": 0.4149610678531703,
+      "macro_f1": 0.40369618310909233,
+      "feature_count": 595,
+      "fit_seconds": 2.8415901999687776,
+      "min_child_samples": 18
+    }
+  },
+  "wall_seconds": 75.96305060002487
+}

@@ -1,0 +1,206 @@
+{
+  "protocol": "hcrd-e4-neatms-real-background-v1",
+  "prospective_success": false,
+  "success_components": {
+    "lowest_mean_nested_mse": false,
+    "all_simultaneous_upper_bounds_negative": false,
+    "multilevel_beats_level1": true,
+    "wins_at_least_45_of_60_vs_strongest_classical": false
+  },
+  "strongest_classical_oracle": "asls_oracle",
+  "primary_comparisons": {
+    "hcrd_l1": {
+      "mean_difference_hcrd_l8_minus_comparator": -0.3941982937486295,
+      "simultaneous_confidence_level": 0.9916666666666667,
+      "bonferroni_bootstrap_interval": [
+        -0.40824542958592813,
+        -0.3801305708405485
+      ],
+      "wins": 60,
+      "ties": 0,
+      "losses": 0,
+      "exact_sign_p": 1.734723475976807e-18,
+      "bonferroni_sign_p": 1.0408340855860843e-17
+    },
+    "gaussian_oracle": {
+      "mean_difference_hcrd_l8_minus_comparator": -0.1936432927496794,
+      "simultaneous_confidence_level": 0.9916666666666667,
+      "bonferroni_bootstrap_interval": [
+        -0.2021618120339852,
+        -0.18518714635800868
+      ],
+      "wins": 60,
+      "ties": 0,
+      "losses": 0,
+      "exact_sign_p": 1.734723475976807e-18,
+      "bonferroni_sign_p": 1.0408340855860843e-17
+    },
+    "savgol_oracle": {
+      "mean_difference_hcrd_l8_minus_comparator": -0.3769993421776559,
+      "simultaneous_confidence_level": 0.9916666666666667,
+      "bonferroni_bootstrap_interval": [
+        -0.3885967567316457,
+        -0.36518257479429383
+      ],
+      "wins": 60,
+      "ties": 0,
+      "losses": 0,
+      "exact_sign_p": 1.734723475976807e-18,
+      "bonferroni_sign_p": 1.0408340855860843e-17
+    },
+    "morph_open_oracle": {
+      "mean_difference_hcrd_l8_minus_comparator": 0.009878461774845028,
+      "simultaneous_confidence_level": 0.9916666666666667,
+      "bonferroni_bootstrap_interval": [
+        0.0023202449469371163,
+        0.017442017908854232
+      ],
+      "wins": 19,
+      "ties": 0,
+      "losses": 41,
+      "exact_sign_p": 0.0062176026593266705,
+      "bonferroni_sign_p": 0.03730561595596002
+    },
+    "asls_oracle": {
+      "mean_difference_hcrd_l8_minus_comparator": 0.022778950834033883,
+      "simultaneous_confidence_level": 0.9916666666666667,
+      "bonferroni_bootstrap_interval": [
+        0.01839442617207403,
+        0.02738105247503571
+      ],
+      "wins": 2,
+      "ties": 0,
+      "losses": 58,
+      "exact_sign_p": 3.1762786845135338e-15,
+      "bonferroni_sign_p": 1.9057672107081203e-14
+    },
+    "wavelet_oracle": {
+      "mean_difference_hcrd_l8_minus_comparator": -0.38476523473340124,
+      "simultaneous_confidence_level": 0.9916666666666667,
+      "bonferroni_bootstrap_interval": [
+        -0.39804585409411875,
+        -0.37122180746131134
+      ],
+      "wins": 60,
+      "ties": 0,
+      "losses": 0,
+      "exact_sign_p": 1.734723475976807e-18,
+      "bonferroni_sign_p": 1.0408340855860843e-17
+    }
+  },
+  "aggregate": [
+    {
+      "suite": "nested",
+      "method": "asls_oracle",
+      "mean_baseline_mse": 0.11408329829246824,
+      "median_baseline_mse": 0.10901203652044728,
+      "mean_detail_mse": 0.11408329829246824
+    },
+    {
+      "suite": "nested",
+      "method": "morph_open_oracle",
+      "mean_baseline_mse": 0.1269837873516571,
+      "median_baseline_mse": 0.11905495789708442,
+      "mean_detail_mse": 0.1269837873516571
+    },
+    {
+      "suite": "nested",
+      "method": "hcrd_l8",
+      "mean_baseline_mse": 0.13686224912650216,
+      "median_baseline_mse": 0.12661026840075632,
+      "mean_detail_mse": 0.13686224912650216
+    },
+    {
+      "suite": "nested",
+      "method": "gaussian_oracle",
+      "mean_baseline_mse": 0.33050554187618153,
+      "median_baseline_mse": 0.3261728561517805,
+      "mean_detail_mse": 0.33050554187618153
+    },
+    {
+      "suite": "nested",
+      "method": "savgol_oracle",
+      "mean_baseline_mse": 0.5138615913041581,
+      "median_baseline_mse": 0.51448659548493,
+      "mean_detail_mse": 0.5138615913041581
+    },
+    {
+      "suite": "nested",
+      "method": "wavelet_oracle",
+      "mean_baseline_mse": 0.5216274838599033,
+      "median_baseline_mse": 0.5203231968123918,
+      "mean_detail_mse": 0.5216274838599033
+    },
+    {
+      "suite": "nested",
+      "method": "hcrd_l1",
+      "mean_baseline_mse": 0.5310605428751317,
+      "median_baseline_mse": 0.5306787571083059,
+      "mean_detail_mse": 0.5310605428751317
+    },
+    {
+      "suite": "single",
+      "method": "asls_oracle",
+      "mean_baseline_mse": 0.11257124961568261,
+      "median_baseline_mse": 0.10610355411324111,
+      "mean_detail_mse": 0.11257124961568261
+    },
+    {
+      "suite": "single",
+      "method": "morph_open_oracle",
+      "mean_baseline_mse": 0.12106613400403791,
+      "median_baseline_mse": 0.11748126455690373,
+      "mean_detail_mse": 0.12106613400403791
+    },
+    {
+      "suite": "single",
+      "method": "hcrd_l8",
+      "mean_baseline_mse": 0.13686224912650216,
+      "median_baseline_mse": 0.12661026840075632,
+      "mean_detail_mse": 0.13686224912650216
+    },
+    {
+      "suite": "single",
+      "method": "gaussian_oracle",
+      "mean_baseline_mse": 0.1480129240856269,
+      "median_baseline_mse": 0.15284698429194632,
+      "mean_detail_mse": 0.1480129240856269
+    },
+    {
+      "suite": "single",
+      "method": "wavelet_oracle",
+      "mean_baseline_mse": 0.16798311453111062,
+      "median_baseline_mse": 0.16615662229814965,
+      "mean_detail_mse": 0.16798311453111062
+    },
+    {
+      "suite": "single",
+      "method": "savgol_oracle",
+      "mean_baseline_mse": 0.17125676311593535,
+      "median_baseline_mse": 0.16731563120972628,
+      "mean_detail_mse": 0.17125676311593535
+    },
+    {
+      "suite": "single",
+      "method": "hcrd_l1",
+      "mean_baseline_mse": 0.17893683255478857,
+      "median_baseline_mse": 0.17497169903883764,
+      "mean_detail_mse": 0.17893683255478857
+    }
+  ],
+  "background_count": 60,
+  "bootstrap_replicates": 50000,
+  "bootstrap_seed": 20260825,
+  "source": {
+    "doi": "10.5281/zenodo.3973172",
+    "archive_md5": "47a63b1bcba15d9b5ce6c6e4b6d5537e",
+    "archive_sha256": "68eb6ac210122ff08f82a075eea515f46de602cd7a0e963a058d48557514a6fc"
+  },
+  "versions": {
+    "python": "3.13.3",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "pandas": "2.3.3",
+    "pywavelets": "1.8.0"
+  }
+}

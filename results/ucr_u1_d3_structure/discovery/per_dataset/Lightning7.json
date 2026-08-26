@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Lightning7",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 70,
+  "test_size": 73,
+  "length": 319,
+  "class_count": 7,
+  "workers": 8,
+  "representation_seconds": 16.780647200066596,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.5616438356164384,
+      "balanced_accuracy": 0.5303854875283447,
+      "macro_f1": 0.49470767327910187,
+      "feature_count": 595,
+      "fit_seconds": 10.396108699962497,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.6571428571428571,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.5753424657534246,
+      "balanced_accuracy": 0.5675438596491228,
+      "macro_f1": 0.5502069359212216,
+      "feature_count": 595,
+      "fit_seconds": 0.8320193000836298,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 28.219896399998106
+}

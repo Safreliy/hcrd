@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "FreezerRegularTrain",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 150,
+  "test_size": 2850,
+  "length": 301,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 45.312886300031096,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.9870175438596491,
+      "balanced_accuracy": 0.9870175438596491,
+      "macro_f1": 0.9870165448249326,
+      "feature_count": 595,
+      "fit_seconds": 6.658116900012828,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.9800000000000001,
+      "best_parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.964561403508772,
+      "balanced_accuracy": 0.964561403508772,
+      "macro_f1": 0.9645611897197041,
+      "feature_count": 595,
+      "fit_seconds": 0.13810119999106973,
+      "min_child_samples": 7
+    }
+  },
+  "wall_seconds": 52.559464899939485
+}

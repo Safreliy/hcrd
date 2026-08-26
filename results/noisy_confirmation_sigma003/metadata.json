@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-08-24T11:42:43.420768+00:00",
+  "command": [
+    "experiments\\run_external_comparison.py",
+    "--trials",
+    "100",
+    "--suite",
+    "exact",
+    "--noise",
+    "0.03",
+    "--seed",
+    "20261101",
+    "--primary-noise",
+    "0.03",
+    "--reference",
+    "hcrd_thresholded",
+    "--output",
+    "results\\noisy_confirmation_sigma003"
+  ],
+  "python": "3.13.3",
+  "numpy": "2.5.2",
+  "protocol": "docs/experiment_protocol.md version 0.5",
+  "primary_noise": 0.03,
+  "reference": "hcrd_thresholded"
+}

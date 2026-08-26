@@ -1,0 +1,14 @@
+{
+  "dataset": "UWaveGestureLibraryZ",
+  "assignment": "discovery",
+  "train_size": 896,
+  "length": 315,
+  "class_count": 8,
+  "cv_folds": 5,
+  "raw_cv_accuracy": 0.7812662942271882,
+  "wavelet_cv_accuracy": 0.7790130353817505,
+  "raw_transform_seconds": 0.2984057000139728,
+  "wavelet_transform_seconds": 2.024764299974777,
+  "wall_seconds": 7.339376699994318,
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e"
+}

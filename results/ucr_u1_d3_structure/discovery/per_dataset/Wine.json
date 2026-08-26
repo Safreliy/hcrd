@@ -1,0 +1,36 @@
+{
+  "protocol": "U1-D3 exploratory",
+  "dataset": "Wine",
+  "assignment": "discovery",
+  "manifest_sha256": "e3ef3733f789c262433172566555870076e1fb59bb8be64bdcd42909fa54175e",
+  "train_size": 57,
+  "test_size": 54,
+  "length": 234,
+  "class_count": 2,
+  "workers": 8,
+  "representation_seconds": 15.897705500014126,
+  "metrics": {
+    "hcrd_structure_extratrees_cv": {
+      "accuracy": 0.5370370370370371,
+      "balanced_accuracy": 0.537037037037037,
+      "macro_f1": 0.5368782161234991,
+      "feature_count": 595,
+      "fit_seconds": 9.048326899996027,
+      "cv_folds": 5,
+      "best_cv_accuracy": 0.6666666666666666,
+      "best_parameters": {
+        "max_features": 0.5,
+        "min_samples_leaf": 2
+      }
+    },
+    "hcrd_structure_lightgbm": {
+      "accuracy": 0.5185185185185185,
+      "balanced_accuracy": 0.5185185185185185,
+      "macro_f1": 0.5185185185185185,
+      "feature_count": 595,
+      "fit_seconds": 0.14260009990539402,
+      "min_child_samples": 5
+    }
+  },
+  "wall_seconds": 25.246844400069676
+}
