@@ -23,6 +23,11 @@ def _interval_tex(summary: dict) -> str:
     return f"{_fmt(summary['mean'])} [{_fmt(low)}, {_fmt(high)}]"
 
 
+def _fixed_interval_tex(summary: dict) -> str:
+    low, high = summary["percentile_95_ci"]
+    return f"{_fmt(summary['point_ap_difference'])} [{_fmt(low)}, {_fmt(high)}]"
+
+
 def _bootstrap_tex(comparison: dict) -> str:
     low, high = comparison["bootstrap_95_ci"]
     return f"{_fmt(comparison['difference'])} [{_fmt(low)}, {_fmt(high)}]"
@@ -41,12 +46,14 @@ def _holm(values: list[float]) -> list[float]:
 
 def main() -> None:
     refit_path = PROJECT / "results" / "ms_metrics_e2_refit_sensitivity" / "summary.json"
+    fixed_path = PROJECT / "results" / "ms_metrics_e2_fixed_source_block" / "summary.json"
     files_path = PROJECT / "results" / "ms_metrics_e2_file_group_sensitivity" / "summary.json"
     qscore_path = PROJECT / "results" / "qscore_implementation_sensitivity" / "summary.json"
-    missing = [path for path in (refit_path, files_path, qscore_path) if not path.exists()]
+    missing = [path for path in (fixed_path, refit_path, files_path, qscore_path) if not path.exists()]
     if missing:
         raise SystemExit("missing sensitivity results: " + ", ".join(map(str, missing)))
     refit = _load(refit_path)
+    fixed = _load(fixed_path)
     files = _load(files_path)
     qscore = _load(qscore_path)
 
@@ -55,7 +62,7 @@ def main() -> None:
     lines = [
         r"\begin{table}[H]",
         r"\centering",
-        r"\caption{E2 dependence and refitting sensitivity for HCRD-8+Q minus qscore AP. RT-block rows refit the source model and give bootstrap mean and percentile 95\% interval. The file row gives the range across ten delete-group representation-and-model refits.}",
+        r"\caption{E2 dependence and refitting sensitivity for HCRD-8+Q minus qscore AP. Fixed-source rows report the original point difference and target RT-block percentile interval; source-refit rows give the bootstrap mean and interval. The file row gives the range across ten delete-group representation-and-model refits.}",
         r"\label{tab:e2-refit-sensitivity}",
         r"\small",
         r"\resizebox{\linewidth}{!}{%",
@@ -64,6 +71,16 @@ def main() -> None:
         f"Design & {labels[0]} & {labels[1]} " + r"\\",
         r"\midrule",
     ]
+    for block in (30, 60, 120):
+        values = [
+            fixed["directions"][str(block)][direction]["hcrd_8_q_minus_qscore"]
+            for direction in directions
+        ]
+        lines.append(
+            f"Fixed-source target RT blocks ({block} s) & {_fixed_interval_tex(values[0])} & {_fixed_interval_tex(values[1])} "
+            + r"\\"
+        )
+    lines.append(r"\midrule")
     for block in (30, 60, 120):
         values = [
             refit["directions"][str(block)][direction]["hcrd_8_q_minus_qscore"]
@@ -127,13 +144,21 @@ def main() -> None:
     )
 
     report = [
-        "# E2 source-refit and acquisition-file sensitivity",
+        "# E2 dependence, source-refit, and acquisition-file sensitivity",
         "",
-        "The source learner was refit inside every RT-block bootstrap replicate; target RT blocks were resampled independently and paired across representations. The primary block width used 1,000 replicates, and the two width sensitivities used 300 each.",
+        "The fixed-source analysis resampled target RT blocks while preserving the original no-refit estimand. It used 10,000 paired replicates at each width. The source-refit analysis then refit the learner inside every RT-block replicate; its primary width used 1,000 replicates and the two width sensitivities used 300 each.",
         "",
         "| Design | Falkor to MESOSCOPE | MESOSCOPE to Falkor |",
         "|---|---:|---:|",
     ]
+    for block in (30, 60, 120):
+        values = [
+            fixed["directions"][str(block)][direction]["hcrd_8_q_minus_qscore"]
+            for direction in directions
+        ]
+        report.append(
+            f"| Fixed-source target RT blocks ({block} s) | {_fixed_interval_tex(values[0])} | {_fixed_interval_tex(values[1])} |"
+        )
     for block in (30, 60, 120):
         values = [
             refit["directions"][str(block)][direction]["hcrd_8_q_minus_qscore"]
@@ -153,6 +178,8 @@ def main() -> None:
     report.extend(
         [
             "",
+            "At the primary 60-second width, both fixed-source target-block intervals remained above zero. Five of the six width-by-direction intervals were positive; the Falkor-to-MESOSCOPE interval crossed zero only at 120 seconds. This supports the stated conditional transfer estimand under local target dependence.",
+            "",
             "The source-refit mean was positive in every direction and block-width design. The fraction of positive paired replicates was "
             + "; ".join(
                 f"{block} s: {refit['directions'][str(block)][directions[0]]['hcrd_8_q_minus_qscore']['positive_fraction']:.1%}/{refit['directions'][str(block)][directions[1]]['hcrd_8_q_minus_qscore']['positive_fraction']:.1%}"
@@ -160,7 +187,7 @@ def main() -> None:
             )
             + " for Falkor-to-MESOSCOPE/MESOSCOPE-to-Falkor. All six percentile intervals nevertheless crossed zero, so this sensitivity supports a positive point effect but not a bootstrap sign claim after source refitting and RT-block resampling.",
             "",
-            "The RT-block intervals propagate source refitting and local retention-time dependence. The deterministic file deletion repeats per-file aggregation and model fitting. Neither analysis can recover unavailable compound/adduct identifiers or represent additional laboratories.",
+            "The fixed-source analysis isolates target dependence. The source-refit intervals additionally propagate source-model uncertainty, and deterministic file deletion repeats per-file aggregation and model fitting. None of the analyses can recover unavailable compound/adduct identifiers or represent additional laboratories.",
             "",
         ]
     )

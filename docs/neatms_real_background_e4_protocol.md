@@ -73,7 +73,7 @@ oracle tuning of the comparison methods.
 case using the known injected ground truth. This intentionally advantages the
 classical comparator and must not be described as a deployable selection rule.
 
-## Endpoints, inference, and prospective success
+## Endpoints, inference, and pre-specified success
 
 The primary population is the 60 `nested` cases. The primary loss is mean
 squared error between estimated and true normalized background. Detail MSE is
@@ -85,7 +85,7 @@ report paired mean MSE difference, win/tie/loss counts, exact sign test, and a
 Bonferroni two-sided intervals/tests over the six primary comparisons
 (`alpha=0.05/6`).
 
-Prospective E4 success requires all of:
+Pre-specified E4 success requires all of:
 
 1. HCRD-L8 has the lowest mean nested-case baseline MSE of every fixed method;
 2. every simultaneous upper confidence bound for

@@ -1,0 +1,103 @@
+{
+  "estimand": "fixed-source paired target RT-block AP difference",
+  "primary_block_seconds": 60,
+  "replicates_per_cell": 10000,
+  "directions": {
+    "30": {
+      "falkor_to_mesoscope": {
+        "hcrd_8_q_minus_qscore": {
+          "target_block_count": 48,
+          "target_feature_count": 2193,
+          "point_ap_difference": 0.11805252682305845,
+          "bootstrap_mean": 0.11869363636102534,
+          "bootstrap_median": 0.11807532049313124,
+          "percentile_95_ci": [
+            0.03396629058124363,
+            0.2050668769538916
+          ],
+          "positive_fraction": 0.9962,
+          "two_sided_sign_probability": 0.007600000000000051
+        }
+      },
+      "mesoscope_to_falkor": {
+        "hcrd_8_q_minus_qscore": {
+          "target_block_count": 43,
+          "target_feature_count": 1821,
+          "point_ap_difference": 0.10054566031439527,
+          "bootstrap_mean": 0.10040768576023072,
+          "bootstrap_median": 0.09791976631195193,
+          "percentile_95_ci": [
+            0.04021525218757117,
+            0.17623924618833414
+          ],
+          "positive_fraction": 0.9997,
+          "two_sided_sign_probability": 0.0005999999999999339
+        }
+      }
+    },
+    "60": {
+      "falkor_to_mesoscope": {
+        "hcrd_8_q_minus_qscore": {
+          "target_block_count": 24,
+          "target_feature_count": 2193,
+          "point_ap_difference": 0.11805252682305845,
+          "bootstrap_mean": 0.11653409804334536,
+          "bootstrap_median": 0.1161598443621848,
+          "percentile_95_ci": [
+            0.013013895019049346,
+            0.21903033666025634
+          ],
+          "positive_fraction": 0.9847,
+          "two_sided_sign_probability": 0.03059999999999996
+        }
+      },
+      "mesoscope_to_falkor": {
+        "hcrd_8_q_minus_qscore": {
+          "target_block_count": 22,
+          "target_feature_count": 1821,
+          "point_ap_difference": 0.10054566031439527,
+          "bootstrap_mean": 0.09985186915219856,
+          "bootstrap_median": 0.09548327760959574,
+          "percentile_95_ci": [
+            0.03378307544858645,
+            0.1964542330726721
+          ],
+          "positive_fraction": 0.9988,
+          "two_sided_sign_probability": 0.0023999999999999577
+        }
+      }
+    },
+    "120": {
+      "falkor_to_mesoscope": {
+        "hcrd_8_q_minus_qscore": {
+          "target_block_count": 12,
+          "target_feature_count": 2193,
+          "point_ap_difference": 0.11805252682305845,
+          "bootstrap_mean": 0.11284994923099896,
+          "bootstrap_median": 0.11448555188486953,
+          "percentile_95_ci": [
+            -0.022712734133971693,
+            0.24180942662836657
+          ],
+          "positive_fraction": 0.9513,
+          "two_sided_sign_probability": 0.09739999999999993
+        }
+      },
+      "mesoscope_to_falkor": {
+        "hcrd_8_q_minus_qscore": {
+          "target_block_count": 11,
+          "target_feature_count": 1821,
+          "point_ap_difference": 0.10054566031439527,
+          "bootstrap_mean": 0.10402808878383375,
+          "bootstrap_median": 0.09689684014199368,
+          "percentile_95_ci": [
+            0.04148887484572445,
+            0.20816521843432725
+          ],
+          "positive_fraction": 0.9993,
+          "two_sided_sign_probability": 0.0014000000000000679
+        }
+      }
+    }
+  }
+}

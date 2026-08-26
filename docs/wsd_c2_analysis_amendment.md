@@ -1,6 +1,6 @@
 # WSD C2 analysis export amendment
 
-The prospective C2 runner froze two distinct rules before HCRD execution:
+The C2 runner froze two distinct rules before HCRD execution:
 
 1. the primary comparator is the largest mean primary VUS-PR among official
    wrappers complete on all 71 primary series; and

@@ -66,7 +66,7 @@ bank as E2.
 The frozen representations are exactly E2's `qscore`, `DOMAIN+Q`, `HCRD-1+Q`,
 `HCRD-8+Q`, `HCRD-GEOMETRY+Q` and `AREA-ONLY+Q`.  File-level features are
 aggregated by median, 90th percentile and maximum, with availability appended.
-HCRD-8 remains the prospective representation because it was selected before
+HCRD-8 remains the pre-specified representation because it was selected before
 Pttime waveform inspection and passed both E2 transfer directions.
 
 ## Frozen learner
@@ -94,7 +94,7 @@ Use 10,000 paired, class-stratified target-feature bootstrap replicates: sample
 Report percentile 95% intervals and two-sided bootstrap p-values for all fixed
 contrasts.
 
-Prospective E5 success requires both:
+Pre-specified E5 success requires both:
 
 1. `HCRD-8+Q` AP-bad exceeds qscore-only AP-bad with a positive 95% bootstrap
    lower bound;

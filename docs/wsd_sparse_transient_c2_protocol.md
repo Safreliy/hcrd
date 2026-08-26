@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Test the prospectively stated positioning that the unchanged `hcrd_L8_max`
+Test the pre-specified positioning that the unchanged `hcrd_L8_max`
 area-density detector is especially useful for short, low-occupancy local
 events, while remaining training-free and directly traceable to signed chord
 structures.
@@ -24,7 +24,7 @@ R/n\le0.005,\qquad M/n\le0.01.
 Exactly 71 of 86 unused real WSD series satisfy it.  The thresholds were chosen
 after inspecting only label durations and occupancies, but before executing or
 inspecting any C2 baseline or HCRD score.  Consequently the score comparison
-is prospective, while the exact class threshold should be externally
+was fixed before outcome inspection, while the exact class threshold should be externally
 replicated rather than described as historically preregistered.  All 86 series
 form a fixed secondary analysis, and the 15 outside-class series are retained.
 

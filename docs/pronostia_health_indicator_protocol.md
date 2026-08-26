@@ -1,6 +1,6 @@
 # Frozen PRONOSTIA health-indicator confirmation H1
 
-Status: prospectively fixed before downloading or inspecting PRONOSTIA signal
+Status: fixed before downloading or inspecting PRONOSTIA signal
 outcomes in this project.
 
 Date fixed: 2026-08-24.

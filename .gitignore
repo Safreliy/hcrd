@@ -24,4 +24,16 @@ paper/*.out
 paper/main.pdf
 paper/supplement.pdf
 paper/qa*/
+paper/arxiv_source/
+paper/hcrd_arxiv_source.zip
+paper/signal_processing/submission_source/
+paper/signal_processing/hcrd_signal_processing_source.zip
+paper/signal_processing/*.aux
+paper/signal_processing/*.bbl
+paper/signal_processing/*.blg
+paper/signal_processing/*.fdb_latexmk
+paper/signal_processing/*.fls
+paper/signal_processing/*.log
+paper/signal_processing/*.out
+paper/signal_processing/*.spl
 texput.log

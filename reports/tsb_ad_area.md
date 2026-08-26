@@ -12,7 +12,7 @@ the official score tables.
 That sentence is intentionally narrower than a state-of-the-art claim. The
 paired bootstrap interval versus the strongest nonpretrained point estimate
 includes zero, and pretrained models remain better. The result locates a useful
-task class. A later prospectively fixed extension on 134 additional Yahoo
+task class. A later pre-specified extension on 134 additional Yahoo
 point-anomaly series confirms the unchanged detector against the strongest
 published non-neural comparator, while still leaving cross-source replication
 open.

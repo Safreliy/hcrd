@@ -29,7 +29,8 @@ Source: Müller et al. (2020), DOI `10.3390/metabo10040162`; Zenodo record
 
 `HCRD-8 - DOMAIN` AP = `+0.027217`, two-way cluster 95% CI
 `[-0.056573, 0.101046]`, two-sided bootstrap `p=0.51695`. HCRD-8 exceeded
-HCRD-1, but the interval criterion failed, so prospective success is **false**.
+HCRD-1, but the interval criterion failed, so the pre-specified success
+criterion is **not met**.
 
 ## Interpretation
 

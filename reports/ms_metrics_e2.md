@@ -22,8 +22,7 @@ inspection. Source: Kumler, Hazelton and Ingalls (2023), DOI
 | Falkor → MESOSCOPE | 0.777441 | 0.851557 | **0.895494** | +0.118053 | [0.061314, 0.178074] | 0.000400 |
 | MESOSCOPE → Falkor | 0.798416 | 0.844576 | **0.898962** | +0.100546 | [0.055896, 0.146970] | 0.000400 |
 
-Every predeclared success component is true in both directions. Prospective E2
-success is therefore **true**.
+Every pre-specified E2 success criterion was met in both directions.
 
 ## Strong comparators and ablations
 
@@ -46,8 +45,8 @@ consistent in both transfers and statistically resolved in one.
 
 ## Interpretation
 
-This is the first independent, prospectively successful real-data task-class
-confirmation for HCRD. It supports multilevel convex-lobe geometry as an
+This is the first independent real-data task-class confirmation for HCRD to
+meet its pre-specified success criteria. It supports multilevel convex-lobe geometry as an
 incremental representation for curation of pre-bounded HILIC LC--MS mass
 features. It does not show that the dense full hierarchy is always the optimal
 summary: E1 favored raw plus full HCRD-8, whereas E2 favored compact multilevel

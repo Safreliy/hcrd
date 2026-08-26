@@ -2,7 +2,7 @@
 
 ## Decision
 
-The prospectively frozen E5 success rule **passed**. A model trained only on
+The E5 success rule, frozen before outcome inspection, **passed**. A model trained only on
 the pooled, fully labelled Falkor and MESOSCOPE studies transferred without
 refitting to the independently acquired Pttime selected subset. The primary
 operational task was to rank the 17 residual `Bad` features among 348 `Good`

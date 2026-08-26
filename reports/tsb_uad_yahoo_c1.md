@@ -2,7 +2,7 @@
 
 ## Result
 
-The unchanged, training-free `hcrd_L8_max` detector passed its prospective
+The unchanged, training-free `hcrd_L8_max` detector passed its pre-specified
 confirmation criterion on 134 additional Yahoo point-anomaly series:
 
 | Method | Training | Mean per-series AUC-PR |
@@ -96,4 +96,3 @@ parallel processing across independent series.
 - `experiments/run_tsb_uad_yahoo_confirmation.py`: freeze/evaluate runner.
 
 The external archives and benchmark repositories are not redistributed.
-

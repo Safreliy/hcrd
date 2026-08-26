@@ -79,8 +79,13 @@ MESOSCOPE and +0.0517 to +0.1058 in the reverse direction.
 Source-refit RT-block bootstraps also had positive mean differences in both
 directions at 30, 60, and 120 seconds (+0.0515 to +0.1087 AP; 80.7--96.3% of
 paired replicates positive), although all six percentile intervals crossed
-zero.  The prospective E2 claim therefore remains the conditional no-refit
-transfer result.
+zero. With the saved source model held fixed, paired resampling of whole target
+retention-time blocks gave positive 95% intervals in both directions at the
+pre-specified 60-second width: +0.1181 `[0.0130, 0.2190]` and +0.1005
+`[0.0338, 0.1965]`. Five of six fixed-model intervals were positive over the
+30-, 60-, and 120-second sensitivity grid; only the coarsest Falkor-to-MESOSCOPE
+interval crossed zero. The supported E2 estimand remains conditional on the
+saved source fit rather than source-training uncertainty.
 HCRD-8 also had positive AP differences over HCRD-1 in both transfers,
 with multiplicity-adjusted support in one. An equal-dimensional 2847-variable
 Gaussian-derivative control tied HCRD-8 in Falkor-to-MESOSCOPE; HCRD-8 exceeded
@@ -145,6 +150,7 @@ python experiments/run_ms_metrics_e2.py extract-dataset --help
 python experiments/run_ms_metrics_e2.py fit-evaluate --help
 python experiments/run_ms_metrics_e2_matched_capacity.py --help
 python experiments/run_ms_metrics_e2_refit_sensitivity.py --help
+python experiments/run_ms_metrics_e2_fixed_source_block.py --help
 python experiments/run_ms_metrics_e2_file_group_sensitivity.py --help
 python experiments/run_qscore_implementation_sensitivity.py --help
 ```
@@ -184,7 +190,11 @@ The compiled main manuscript is
 [`paper/hcrd_preprint.pdf`](paper/hcrd_preprint.pdf); detailed proofs, optional
 scan theory, and secondary experiments are in
 [`paper/hcrd_supplement.pdf`](paper/hcrd_supplement.pdf). Citation metadata are
-provided in [`CITATION.cff`](CITATION.cff).
+provided in [`CITATION.cff`](CITATION.cff). The venue-formatted manuscript,
+highlights, graphical abstract, and build instructions for *Signal Processing*
+are under [`paper/signal_processing/`](paper/signal_processing/). A
+compile-tested arXiv upload archive with POSIX-only internal paths can be built
+with `python paper/build_arxiv_source.py`.
 
 ## Data and licenses
 

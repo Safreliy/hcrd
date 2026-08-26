@@ -13,3 +13,8 @@ RUL stages. `xjtu_indicator_analysis` is exploratory.
 
 `pronostia_h1` is the independently specified transfer of the XJTU-selected
 polygon-mass coordinate and contains the bearing-level trendability results.
+
+`ms_metrics_e2_fixed_source_block` contains the paired target retention-time
+block sensitivity for the saved-source-model E2 estimand. The pre-specified
+60-second intervals are positive in both transfer directions; the accompanying
+protocol and runner hashes are stored in `metadata.json`.

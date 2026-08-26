@@ -5,6 +5,10 @@ from experiments.run_ms_metrics_e2_file_group_sensitivity import (
     _file_folds,
     _nan_summary,
 )
+from experiments.run_ms_metrics_e2_fixed_source_block import (
+    _block_index,
+    _draw_weights,
+)
 from experiments.run_qscore_implementation_sensitivity import _summaries
 
 
@@ -49,3 +53,16 @@ def test_vectorized_nan_summary_matches_numpy_linear_quantiles():
     np.testing.assert_allclose(median, expected_median, equal_nan=True)
     np.testing.assert_allclose(q90, expected_q90, equal_nan=True)
     np.testing.assert_allclose(maximum, expected_maximum, equal_nan=True)
+
+
+def test_target_block_resampling_preserves_whole_block_multiplicities():
+    blocks = np.array([10, 10, 20, 30, 30, 30])
+    labels = np.array([0, 1, 0, 1, 1, 0])
+    inverse, count = _block_index(blocks)
+    weights = _draw_weights(inverse, count, labels, np.random.default_rng(9))
+    assert count == 3
+    for block in np.unique(blocks):
+        indices = np.flatnonzero(blocks == block)
+        assert np.unique(weights[indices]).size == 1
+    assert np.sum(weights[labels == 0]) > 0
+    assert np.sum(weights[labels == 1]) > 0

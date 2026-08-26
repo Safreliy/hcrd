@@ -117,7 +117,7 @@ comparator name, threshold, data hashes, feature schema and package versions in
 ## Endpoints and inference
 
 Primary endpoint: confirmation AP difference, `HCRD-8 - frozen comparator`.
-The prospective success criterion requires all of:
+The pre-specified success criterion requires all of:
 
 1. positive AP difference;
 2. a positive 95% two-way cluster-bootstrap confidence lower bound, resampling

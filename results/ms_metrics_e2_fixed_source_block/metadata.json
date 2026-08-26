@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-08-26T14:13:54.992443+00:00",
+  "command": [
+    "python",
+    "experiments/run_ms_metrics_e2_fixed_source_block.py",
+    "--replicates",
+    "10000"
+  ],
+  "git_commit": "67ad4661abb81d602428c1589132ec259be7a0a2",
+  "python": "3.13.3",
+  "numpy": "2.3.5",
+  "pandas": "2.3.3",
+  "scikit_learn": "1.8.0",
+  "protocol": "docs/ms_metrics_e2_fixed_source_block_protocol.md",
+  "protocol_sha256": "d97cc7f42a894a7f01d6ef61e677ae972d0d09aa76b2900bdff6557474254e67",
+  "runner_sha256": "d8bbf6269fcea6fd46b14fbac80a6d7c3648e949818bcb64d168bd74a8bd35bd",
+  "input_sha256": {
+    "falkor": {
+      "labels": "42e914f859f20c656bc677d174762978d118d5f4fb9be65e1dad545ad917dfa3",
+      "qscore": "9b7db060e565197c49e3ae6e25cf97d83130706f23b673a7dfe29c9226ca12a7",
+      "hcrd_8_q": "c50e9e5508933b0c023e5124709c0bb1ef6c3e507d5658395b967d2c9b55eff2",
+      "classified_features": "78177556a501150499e5f60785663beb284390c7cb768067f2f9cb3b778839be"
+    },
+    "mesoscope": {
+      "labels": "e60463d35aa42c23b5aa99720a771860b8229ae7d36edf91de781e8e4bb9e91d",
+      "qscore": "432f748f864fc2563deb4ce345d8074aa2c28f7e707d7f6b3d661c0a5ccb531d",
+      "hcrd_8_q": "9087ef4c4fe48ce9c9eb55e357d988351c086ab7ab06fe835d53bdd84336a2e7",
+      "classified_features": "a821ae612c3358f3fb84cba12a6ae9d7b04a59e087f5cd27c5b56ea63478e3c1"
+    }
+  },
+  "model_sha256": {
+    "falkor_to_mesoscope": {
+      "qscore": "626be3b297858531ff2c1958e316ad732a6ce93ba02ec033f584b325b03b901a",
+      "hcrd_8_q": "2797e493bef32de27cf315a93d7c176ea08794a1b48c7561eca82960fb2884b1"
+    },
+    "mesoscope_to_falkor": {
+      "qscore": "3b8d3a7d520b00512638400a927351e01f641498067db83480d1ba7850c29887",
+      "hcrd_8_q": "7f035b127c1100795cf211895963de5dcfd499ed02d2bd1fa2f6ebd988bf3181"
+    }
+  }
+}

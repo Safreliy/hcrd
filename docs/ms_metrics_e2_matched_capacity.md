@@ -2,7 +2,7 @@
 
 This supplementary sensitivity analysis was specified on 2026-08-26 after the
 primary E2 result and before any matched-control score was computed. It is not
-part of the prospective E2 success rule and does not alter the primary E2
+part of the pre-specified E2 success rule and does not alter the primary E2
 inference.
 
 ## Question

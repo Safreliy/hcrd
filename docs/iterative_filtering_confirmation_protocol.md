@@ -7,7 +7,7 @@ implementation of Iterative Filtering (IF).  It tests the same affine
 chord-lobe baseline-recovery class used by the exact-recovery theorem.  It is
 not a claim that HCRD is a better IMF or time-frequency decomposition.
 
-The three prospective paired hypotheses are:
+The three pre-specified paired hypotheses are:
 
 1. at noise sigma 0, centred HCRD has lower baseline MSE than an oracle
    slow-tail IF baseline;
@@ -41,7 +41,7 @@ The three prospective paired hypotheses are:
 For each noise condition, form one paired baseline-MSE difference per latent
 signal (HCRD minus oracle IF).  Report the mean difference, a seeded 20,000-draw
 paired bootstrap 95% interval, HCRD win rate, and an exact two-sided sign test.
-Apply Holm correction across the three prospective comparisons.  Superiority
+Apply Holm correction across the three pre-specified comparisons.  Superiority
 is supported only if the interval lies strictly below zero and the adjusted
 sign-test p-value is below 0.05.  Ties within `1e-12` are excluded from the sign
 test.

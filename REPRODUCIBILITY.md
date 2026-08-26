@@ -9,7 +9,7 @@ python examples/quickstart.py
 python scripts/verify_release.py
 ```
 
-Expected unit-test result for this snapshot: `179 passed`.
+Expected unit-test result for this snapshot: `180 passed`.
 
 ## Tier 2: synthetic and theorem-linked studies
 
@@ -70,8 +70,8 @@ python experiments/run_lcms_eic_e1.py --help
 
 Expected primary result: HCRD-8 has the best confirmation point AP (0.4092),
 but its two-way cluster-bootstrap advantage over the frozen conventional bank
-has interval `[-0.0566, 0.1010]`. The prospective success flag is therefore
-false. Large flattened feature caches are deliberately excluded.
+has interval `[-0.0566, 0.1010]`. The pre-specified success criterion is
+therefore not met. Large flattened feature caches are deliberately excluded.
 
 ### LC--MS E2: cross-study HILIC transfer
 
@@ -86,6 +86,7 @@ python experiments/run_ms_metrics_e2.py extract-dataset --help
 python experiments/run_ms_metrics_e2.py fit-evaluate --help
 python experiments/run_ms_metrics_e2_matched_capacity.py --bootstrap 10000
 python experiments/run_ms_metrics_e2_refit_sensitivity.py --help
+python experiments/run_ms_metrics_e2_fixed_source_block.py --help
 python experiments/run_ms_metrics_e2_file_group_sensitivity.py --help
 python experiments/run_qscore_implementation_sensitivity.py extract-min5 --help
 python experiments/run_qscore_implementation_sensitivity.py evaluate --bootstrap 10000
@@ -98,6 +99,15 @@ Expected primary AP results:
   0.118053, paired 95% CI `[0.061314, 0.178074]`;
 - MESOSCOPE to Falkor: qscore 0.798416, HCRD-8+Q 0.898962, difference
   0.100546, paired 95% CI `[0.055896, 0.146970]`.
+
+At the pre-specified 60-second block width, conditional target-side
+retention-time resampling with the saved source model gave intervals
+`[0.013014, 0.219030]` and `[0.033783, 0.196454]` in the two transfer
+directions. Five of six fixed-model intervals were positive across the 30-,
+60-, and 120-second sensitivity grid; the 120-second Falkor-to-MESOSCOPE
+interval was `[-0.022713, 0.241809]`. Source-refit block bootstraps retain wider
+intervals crossing zero, so this experiment addresses target dependence but
+does not absorb source-training uncertainty.
 
 The Holm-adjusted primary value is 0.000400 in both directions. Exact source
 ZIP hashes, repository commit, labels, runner hash, compact models, and
@@ -340,7 +350,7 @@ learning, sealed evaluation, and runtime recalculation, follow
 VUS-PR is `0.34687822104563465` over 350 series. A2 and A3 are retained
 negative development stages and must precede evaluation in the protocol order.
 
-For the prospectively fixed C1 extension, download the verified TSB-UAD Public
+For the pre-specified C1 extension, download the verified TSB-UAD Public
 archive (only its Yahoo and KDD21 subsets are extracted), freeze the matched
 manifest, and only then evaluate:
 

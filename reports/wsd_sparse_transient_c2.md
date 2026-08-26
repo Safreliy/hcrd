@@ -2,7 +2,7 @@
 
 ## Outcome
 
-The broad class hypothesis did not confirm.  On the 71 prospectively fixed
+The broad class hypothesis did not confirm.  On the 71 pre-specified
 primary WSD series, HCRD L8-max had mean VUS-PR 0.375596 and the comparator
 POLY, frozen before HCRD execution, had 0.411531.  The paired mean difference
 was -0.035935 with a 50,000-draw file-bootstrap 95% interval

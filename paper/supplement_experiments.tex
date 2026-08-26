@@ -63,8 +63,9 @@ are constant pulses and do not define a unique final chord baseline at a
 matched scale; it is therefore included in the structural comparison rather
 than assigned an artificial baseline-MSE endpoint.
 
-After that result, two fresh 100-trial noisy confirmations were prospectively
-frozen for the plug-in MAD-thresholded variant.  Table~\ref{tab:external}
+After that result, two fresh 100-trial noisy confirmations were locked on new
+seeds before outcome inspection for the plug-in MAD-thresholded variant.
+Table~\ref{tab:external}
 reports their means.  At $\sigma=0.03$, its win rates against EMD, VMD,
 $\ell_1$, and Gaussian were respectively $0.86$, $0.99$, $0.99$, and $0.98$;
 at $\sigma=0.10$ they were $0.81$, $0.93$, $0.96$, and $0.74$.  All paired
@@ -259,7 +260,7 @@ largest confirmation AP, 0.4092 versus 0.3820 for the frozen comparator, and
 exceeded the one-level representation by 0.0321.  The primary difference was
 $0.0272$, but its cluster interval $[-0.0566,0.1010]$ crossed zero because the
 double holdout left only eight independent confirmation samples.  The
-prospective success rule therefore failed.  The ablations are nevertheless
+pre-specified success rule therefore failed.  The ablations are nevertheless
 informative: area alone was weakest, and scalar geometry without the signed
 detail channels was also below the conventional comparator.  The useful object
 is the complete multilevel decomposition in combination with the raw shape;
@@ -295,7 +296,7 @@ modality, width, elution shift, transition ratios, and light/heavy consistency.
 On 576 eligible labelled transition pairs, QC52 AP was 0.9247 versus 0.8862
 after adding the complete HCRD-8 bank.  The difference was $-0.0384$ with a
 two-way run/peptide cluster interval $[-0.1455,0.0505]$, and HCRD won only one
-of four held-out runs.  HCRD-8 did exceed HCRD-1, but the prospective test
+of four held-out runs.  HCRD-8 did exceed HCRD-1, but the pre-specified test
 failed.  A later compact-geometry search reached AP 0.9372 and is reported only
 as development because it used these outcomes.
 

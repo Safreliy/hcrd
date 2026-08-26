@@ -1,0 +1,7 @@
+Highlights
+
+- Curvature-sign runs yield an exact hierarchy of signed chord residuals
+- Sparse knot recursion has linear total work and interpretable lobe shapes
+- Finite-sample recovery allows noisy joins with bounded curvature departure
+- Retention-time block resampling supports both fixed-model transfers
+- Multilevel morphology improves cross-study chromatographic peak curation

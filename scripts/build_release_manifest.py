@@ -53,10 +53,25 @@ def included_paths() -> list[Path]:
             and not any(part.endswith(".egg-info") for part in path.parts)
             and path.suffix != ".pyc"
             and path.suffix.lower() not in {".npy", ".npz", ".mzml", ".mzxml"}
-            and path.suffix not in {".aux", ".bbl", ".blg", ".fdb_latexmk", ".fls", ".log", ".out"}
+            and path.suffix
+            not in {
+                ".aux",
+                ".bbl",
+                ".blg",
+                ".fdb_latexmk",
+                ".fls",
+                ".log",
+                ".out",
+                ".spl",
+                ".zip",
+            }
             and path.relative_to(ROOT).as_posix()
             not in {"paper/main.pdf", "paper/supplement.pdf"}
             and not path.relative_to(ROOT).as_posix().startswith("paper/qa")
+            and not path.relative_to(ROOT)
+            .as_posix()
+            .startswith("paper/signal_processing/submission_source/")
+            and not path.relative_to(ROOT).as_posix().startswith("paper/arxiv_source/")
         )
     paths.extend(
         (
@@ -88,7 +103,8 @@ def main() -> None:
         "algorithm": "SHA-256",
         "files": entries,
     }
-    OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    with OUTPUT.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(payload, indent=2) + "\n")
     print(f"wrote {OUTPUT} with {len(entries)} files")
 
 

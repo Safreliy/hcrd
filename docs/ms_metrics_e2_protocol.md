@@ -92,7 +92,7 @@ features found (recall).  For each transfer direction use 10,000 paired feature
 bootstrap replicates (seed 20260825) for AP differences.  Holm-correct the two
 directional primary p-values.
 
-Prospective E2 success requires in both transfer directions:
+Pre-specified E2 success requires in both transfer directions:
 
 1. `HCRD-8+Q` AP exceeds qscore-only AP;
 2. the paired 95% bootstrap lower bound is positive after reporting both raw

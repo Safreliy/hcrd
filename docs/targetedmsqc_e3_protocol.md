@@ -1,4 +1,4 @@
-# E3 prospective protocol: TargetedMSQC run-transfer confirmation
+# E3 pre-specified protocol: TargetedMSQC run-transfer confirmation
 
 Status: **frozen before any HCRD score or outcome comparison was computed**.
 
@@ -107,7 +107,7 @@ small number of run clusters is an explicit inferential limitation; the
 per-run direction is therefore a co-primary robustness check, not a replacement
 for the interval.
 
-Prospective success requires all of:
+Pre-specified success requires all of:
 
 1. pooled AP difference `qc52_hcrd8 - qc52 > 0`;
 2. the two-way cluster-bootstrap 95% lower bound is above zero;

@@ -9,7 +9,7 @@ The original E2 intervals resampled target mass features conditional on each
 fitted source model. This secondary analysis asks whether its AP contrasts are
 robust to source-model refitting, local retention-time dependence, and removal
 of acquisition-file groups. It does not replace or retroactively alter the
-prospective E2 endpoint.
+pre-specified E2 endpoint.
 
 The public label schema has no compound or adduct identifier. Consequently,
 no result is described as a compound-cluster bootstrap. Retention-time blocks

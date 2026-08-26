@@ -1,6 +1,6 @@
 # Frozen XJTU-SY remaining-useful-life protocol X1
 
-Status: prospectively fixed before HCRD-energy outcome inspection.
+Status: fixed before HCRD-energy outcome inspection.
 Date fixed: 2026-08-24.
 
 ## Why this task
