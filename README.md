@@ -1,8 +1,8 @@
 # Hierarchical Convexity-Run Decomposition (HCRD)
 
 Reference implementation and reproducibility materials for *Hierarchical
-Convexity-Run Decomposition for Interpretable LC--MS Peak-Quality Curation:
-Finite Chord-Lobe Theory and Cross-Study Validation*.
+Convexity-Run Decomposition: Finite-Sample Chord-Lobe Recovery and
+Interpretable LC--MS Transfer*.
 
 **Saveliy Baturin**  
 Independent Researcher
@@ -21,8 +21,25 @@ reconstructing, and interpretable at every level.
 - signed lobe support, amplitude, shape, area, and quadratic-energy summaries;
 - deterministic process-parallel decomposition of independent signals;
 - stable proximal and persistence-based companion representations;
+- finite-sample recovery thresholds for an explicit chord-lobe class;
 - calibrated finite-dictionary and continuous-family lobe scans;
 - tests, experiment protocols, compact results, and source-data manifests.
+
+## Theorem-linked recovery experiment
+
+For alternating one-sign curvature blocks separated by isolated sampled
+zero-curvature joins, the paper proves exact first-level boundary recovery when
+the minimum active curvature satisfies `gamma > 2 tau`. The reproducible phase
+diagram contains 44,000 Gaussian-noise draws across four event-count/width
+configurations. All eight cells above the strict boundary had exact recovery
+1.000; the smallest cellwise 95% Wilson lower bound was 0.9962.
+
+```bash
+python experiments/run_recovery_phase_diagram.py
+python experiments/generate_recovery_phase_figure.py
+```
+
+![Finite-sample recovery phase diagram](paper/figures/recovery_phase_diagram.png)
 
 ## LC--MS application
 

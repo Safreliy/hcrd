@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use HCRD, please cite the software and accompanying preprint."
-title: "Hierarchical Convexity-Run Decomposition for Interpretable LC-MS Peak-Quality Curation: Finite Chord-Lobe Theory and Cross-Study Validation"
+title: "Hierarchical Convexity-Run Decomposition: Finite-Sample Chord-Lobe Recovery and Interpretable LC-MS Transfer"
 type: software
 authors:
   - family-names: Baturin
@@ -12,9 +12,9 @@ license: MIT
 abstract: >-
   Reference implementation and reproducibility archive for a finite nonlinear
   geometric decomposition of discrete signals into nested signed chord
-  structures, with finite and continuous lobe-scan detection theory,
-  bidirectional cross-study LC-MS mass-feature quality validation, and
-  conditional external residual-error triage.
+  structures, with finite-sample chord-lobe recovery, continuous lobe-scan
+  detection theory, bidirectional cross-study LC-MS mass-feature quality
+  validation, and conditional external residual-error triage.
 keywords:
   - signal decomposition
   - discrete curvature

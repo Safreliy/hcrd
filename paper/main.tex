@@ -15,9 +15,8 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{remark}{Remark}
 
-\title{Hierarchical Convexity-Run Decomposition for Interpretable
-LC--MS Peak-Quality Curation:\
-Finite Chord-Lobe Theory and Cross-Study Validation}
+\title{Hierarchical Convexity-Run Decomposition:\
+Finite-Sample Chord-Lobe Recovery and Interpretable LC--MS Transfer}
 \author{Saveliy Baturin\\Independent Researcher}
 \date{Draft \today}
 
@@ -26,30 +25,26 @@ Finite Chord-Lobe Theory and Cross-Study Validation}
 
 \begin{abstract}
 We introduce Hierarchical Convexity-Run Decomposition (HCRD), a finite
-nonlinear geometric transform, and evaluate it for expert curation of
-pre-bounded LC--MS extracted-ion chromatograms.  Each level partitions the
-current graph into runs of one discrete-curvature sign, replaces each run by
-its endpoint chord, and recurses only on retained knots; signed deviations form
-localized lobes.  We give complete pseudocode and prove exact reconstruction,
-nested termination, linear knot-only work, affine equivariance, variation
-control, and local and stochastic hierarchy-agreement guarantees.  The hard
-knot map is globally discontinuous, motivating stable proximal-curvature and
-signed-curvature-persistence companions.  Supporting Gaussian inference for
-fixed or independent-guide templates provides finite-sample scan bounds and a
-rank-aware projected-$\chi$ envelope for continuous families.  In frozen
-no-refit transfers between two fully labelled studies, HCRD-8 plus an
-independent reimplementation of a published two-component quality score
+nonlinear transform that replaces runs of one discrete-curvature sign by
+endpoint chords and recurses on retained knots.  Signed residuals form an
+exactly reconstructing, interpretable lobe hierarchy with linear total
+knot-only work.  For a non-circular signal class with alternating curvature
+blocks and isolated zero-curvature joins, we prove finite-sample boundary and
+component recovery under Gaussian noise.  If the minimum active curvature
+$\gamma$ exceeds twice the simultaneous threshold $\tau$, every first-level
+boundary is recovered with probability at least $1-\delta$, with explicit
+baseline and detail error bounds.  A 44,000-draw phase diagram across four
+event-count/width configurations followed the predicted transition: all eight
+cells with $\gamma/\tau>2$ had exact-recovery rate 1.000 (smallest 95\% Wilson
+lower bound 0.996).  Structural results further establish finite termination,
+affine equivariance, variation control, the hard map's global discontinuity,
+and stable companions.  In frozen no-refit transfers between two fully labelled
+LC--MS studies, HCRD-8 plus an independently reimplemented quality score
 improved average precision by 0.1181 and 0.1005 (Holm-adjusted $p=0.00040$ in
-both).  HCRD-8 had positive point differences over HCRD-1 in both directions,
-with multiplicity-adjusted support in one.  In a conditionally labelled study,
-it placed 7 of 17 residual bad features in the first 5\% of a review queue,
-versus none for the reimplemented score.  Under a larger independent
-TARDIS/FAME laboratory shift, the HCRD-8 gain was not confirmed and a compact
-conventional bank was point-best.  An equal-dimensional Gaussian-derivative
-control tied HCRD in one transfer, whereas HCRD was superior in the reverse.
-These results identify a specific domain
-for a simple, interpretable chord-lobe representation without claiming
-universal signal-processing superiority.
+both).  An equal-dimensional Gaussian-derivative control tied HCRD in one
+direction, whereas HCRD was superior in the reverse; a larger TARDIS/FAME shift
+did not confirm superiority.  HCRD therefore supplies a simple morphological
+inductive bias with a stated recovery regime and explicit application boundaries.
 \end{abstract}
 
 \section{Introduction}
@@ -155,9 +150,11 @@ Our contributions are:
   \item a complete finite algorithm for the centred curvature-run operator,
         with nested-hierarchy, exact-reconstruction, sparse linear-work, affine,
         variation, and interpretable lobe-shape results;
-  \item HCRD-specific local, deterministic-noise, and stochastic
-        hierarchy-agreement guarantees, together with a sharp global
-        discontinuity boundary and stable proximal/persistence companions;
+  \item an HCRD-specific finite-sample recovery theorem for an explicit
+        alternating chord-lobe class, local and stochastic hierarchy-agreement
+        guarantees, and a theorem-linked 44,000-draw phase diagram;
+  \item a sharp global discontinuity boundary and stable
+        proximal-curvature/persistence companions;
   \item supporting inference for fixed or independently guided HCRD-shaped
         templates: finite-sample scans, a matching-order $\sqrt{\log M}$
         benchmark over an orthonormal subclass, projected-norm control for a
@@ -664,6 +661,75 @@ curved backgrounds when decision surfaces are transverse.  Atoms on a tie,
 tangencies, infinite-dimensional backgrounds, and same-data estimation of
 $H$ remain outside the result.
 
+\section{Finite-sample recovery on a chord-lobe class}
+On a uniform grid $x_i=x_0+ih$, define the divided-slope curvature
+\begin{equation}
+ \kappa_i(z)=\frac{z_{i+1}-2z_i+z_{i-1}}{h},\qquad 1\le i\le n-2.
+\end{equation}
+This scaling matches Algorithm~\ref{alg:hcrd}; it is a slope difference rather
+than a divided second derivative.
+
+\begin{theorem}[Finite-sample generative chord-lobe recovery]
+\label{thm:generative-recovery}
+Let $0=k_0<k_1<\cdots<k_J=n-1$, with $k_r-k_{r-1}\ge2$, and write
+$f=b+q$.  Suppose $b$ is affine on each $[x_{k_{r-1}},x_{k_r}]$,
+$q_{k_r}=0$, and the population curvatures of $f$ satisfy
+\begin{enumerate}
+ \item $\kappa_{k_r}(f)=0$ at every interior knot;
+ \item inside successive knot intervals they have alternating constant sign
+       and magnitude at least $\gamma>0$.
+\end{enumerate}
+Observe $Y_i=f_i+e_i$ with independent $e_i\sim N(0,\sigma^2)$ and fix
+$0<\delta<1$.  Set
+\begin{equation}
+ \tau_\delta=\frac{\sigma}{h}
+ \sqrt{12\log\frac{4(n-2)}{\delta}},\qquad
+ \epsilon_\delta=\sigma\sqrt{2\log\frac{4n}{\delta}}.
+\end{equation}
+Run the first centred HCRD step with absolute curvature tolerance
+$\tau_\delta$.  If $\gamma>2\tau_\delta$, then with probability at least
+$1-\delta$ its knot set is exactly $\{k_0,\ldots,k_J\}$.  On the same event,
+for its chord baseline $\widehat b$ and detail $\widehat q=Y-\widehat b$,
+\begin{equation}
+ \|\widehat b-b\|_\infty\le\epsilon_\delta,
+ \quad n^{-1}\|\widehat b-b\|_2^2\le\epsilon_\delta^2,
+ \quad \|\widehat q-q\|_\infty\le2\epsilon_\delta,
+ \quad n^{-1}\|\widehat q-q\|_2^2\le4\epsilon_\delta^2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+With probability at least $1-\delta/2$, every curvature error is at most
+$\tau_\delta$: this is Theorem~\ref{thm:noise} with its error budget replaced
+by $\delta/2$.  Population zeros are then inactive, whereas
+$\gamma>2\tau_\delta$ makes every active curvature remain active with the
+correct sign.  Hence each declared knot is the unique inactive eligible point
+between opposite active blocks.  The centred transition rule selects that
+point, and the two-segment gap prevents the strict-coarsening correction from
+moving it.  Induction along the first-level walk proves exact knot recovery.
+
+Independently, a Gaussian maximum bound gives
+$\|e\|_\infty\le\epsilon_\delta$ with probability at least $1-\delta/2$.
+On exact recovery, $f_{k_r}=b_{k_r}$ and $b$ is its own chord interpolant, so
+$\widehat b-b$ is the chord interpolant of the knot errors.  Its sup norm is at
+most $\|e\|_\infty$; subtracting it from $e$ gives the detail bound.  The MSE
+bounds follow from the sup-norm bounds, and a union bound completes the proof.
+\end{proof}
+
+The assumptions are structural rather than circular: they describe sampled
+curvature before running HCRD.  An explicit subclass has $k_r=rm$, a globally
+affine $b$, and equal alternating parabolic lobes
+\begin{equation}
+ q_i=s(-1)^r4A u_i(1-u_i),\qquad
+ u_i=(i-rm)/m,quad rm\le i\le(r+1)m.
+\end{equation}
+Here every join has zero sampled curvature and
+$\gamma=8A/(m^2h)$.  Unequal adjacent amplitudes can destroy the zero join and
+move a boundary by one sample, so the theorem does not silently extend to that
+case.  The noiseless version is exact for every $A>0$; the noisy guarantee is a
+sufficient, not necessary, separation condition.
+
+\section{Template scans for chord lobes}
+
 These are conservative sup-norm certificates.  They are not sharp detection
 boundaries when location and scale are unknown.  Modern multiscale shape tests
 and scan statistics provide the relevant calibration and minimax comparison
@@ -976,16 +1042,6 @@ uniformly dominate Holm for isolated leaves.  Geometric containment alone is
 insufficient: the node nulls must be subtree intersection nulls and a
 same-scoring-noise tree does not automatically have valid node p-values.
 
-\section{Exact recovery task class}
-\begin{corollary}[Chord-lobe recovery]
-Suppose the first HCRD knot set is $K=\{k_r\}$, a baseline $b$ is affine on
-each interval $[x_{k_r},x_{k_{r+1}}]$, and $q_k=0$ for every $k\in K$.  Then
-$T(b+q)=b$ and $(I-T)(b+q)=q$.
-\end{corollary}
-\begin{proof}
-At every selected knot, $b+q=b$.  Their chord interpolants therefore coincide.
-\end{proof}
-
 \section{Experiments}
 The primary comparison protocol was frozen locally before inspecting results;
 it was not deposited in a public preregistration registry.  It tests
@@ -997,6 +1053,31 @@ a paired bootstrap interval below zero and a multiplicity-corrected exact sign
 test.  Out-of-class tests include polynomial trends, crossing chirps, weak
 oscillations under strong background curvature, boundary outliers, irregular
 sampling, and non-Gaussian noise.
+
+The theorem-linked R1 experiment varied
+$\rho=\gamma/\tau_\delta$ over 11 values on four fixed event-count/width
+configurations: $(J,m)=(2,4),(4,8),(8,16),(16,8)$.  Each cell contained 1000
+independent draws, for 44,000 trials in total.  Figure~\ref{fig:recovery-phase}
+shows a clear transition.  Exact recovery ranged from 0.433 to 0.879 across
+configurations at $\rho=1.45$, from 0.980 to 0.991 at $\rho=1.75$, and was
+0.999 throughout at $\rho=1.90$.  In all eight cells above the strict theorem
+boundary $\rho>2$, it was 1.000; the smallest cellwise 95\% Wilson lower bound
+was 0.9962.  The joint event of exact knots and both reconstruction bounds had
+minimum probability 0.9980 above the boundary (minimum Wilson lower bound
+0.9927).  The result validates a sufficient condition on its declared class,
+not a necessary boundary for arbitrary waveforms.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\linewidth]{figures/recovery_phase_diagram.pdf}
+\caption{Theorem-linked recovery phase diagram under iid Gaussian noise.
+Rows vary lobe count $J$, samples per lobe $m$, and total length $n$; columns
+vary normalized active curvature $\rho=\gamma/\tau_\delta$.  Left: exact
+first-level knot recovery.  Right: symmetric Hausdorff boundary error divided
+by lobe width.  The dashed line marks the strict sufficient region $\rho>2$;
+all 8000 draws in that region recovered the exact knots.}
+\label{fig:recovery-phase}
+\end{figure}
 
 \IfFileExists{generated/results_table.tex}{\input{generated/results_table.tex}}{}
 
@@ -1031,7 +1112,10 @@ legacy rule and the oracle-tuned Gaussian, moving-average, and Fourier
 comparators.  All corresponding paired bootstrap intervals were below zero and
 Holm-adjusted sign-test values were below $1.6\times10^{-29}$.  Thresholded HCRD
 and an endpoint-only RDP baseline were also exact within $10^{-12}$ and are
-reported as ties, not losses.  On the exploratory variable-amplitude,
+reported as ties, not losses.  That RDP solution uses only the two domain
+endpoints: it recovers the global affine baseline but not the $J-1$ lobe
+boundaries, so it does not tie the boundary-recovery endpoint in
+Figure~\ref{fig:recovery-phase}.  On the exploratory variable-amplitude,
 piecewise-affine class without noise, centred HCRD had mean MSE $0.0179$, versus
 $0.0645$ for the Gaussian oracle, but the raw method failed under sample-level
 white noise.  Adaptive guidance improved knot accuracy substantially; its
@@ -1519,16 +1603,6 @@ anomaly-detection performance.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.92\linewidth]{figures/exact_class_benchmark.pdf}
-\caption{Baseline error on the theorem-matched noiseless class.  Centred HCRD
-recovers the baseline to machine precision; thresholded HCRD and an
-endpoint-only RDP solution tie it numerically and are therefore not labelled as
-strictly inferior.}
-\label{fig:benchmark}
-\end{figure}
-
-\begin{figure}[H]
-\centering
 \includegraphics[width=0.92\linewidth]{figures/stability_accuracy.pdf}
 \caption{Knot accuracy under repeated Gaussian perturbations.  Stability alone
 is insufficient: the thresholded method is stable because it often retains
@@ -1575,6 +1649,16 @@ or a continuous smoothing parameter.  This combination of simplicity and
 interpretability is the main contribution; its intended use is as a geometric
 representation of bounded waveform morphology, not as a replacement for every
 task-specific detector or decomposition.
+
+The generative recovery result makes that niche testable.  On alternating
+one-sign curvature blocks separated by sampled zero-curvature joins, the same
+geometry used by the algorithm yields exact first-level boundary recovery and
+explicit component-error control once $\gamma>2\tau_\delta$.  The R1 phase
+diagram tracks this margin across event count and width rather than showing a
+single favourable waveform.  Its conservative boundary was respected in all
+8000 above-threshold draws, while the empirical transition occurred slightly
+earlier.  This is a class-specific mechanism result, not a separation theorem
+against every adaptive representation.
 
 The clearest practical evidence is expert curation of pre-bounded LC--MS
 features.  In the two frozen no-refit E2 transfers, multilevel HCRD improved
@@ -1627,7 +1711,9 @@ The theory now states the same boundary precisely.  A hard knot map cannot be
 globally continuous while preserving every generic raw branch decision
 (Theorem~\ref{thm:impossibility}); persistence matching and the proximal outer
 split provide well-posed stable alternatives, while deterministic and
-stochastic margins certify local hard-HCRD decisions.  The rank-aware scan,
+stochastic margins certify local hard-HCRD decisions.  The explicit
+chord-lobe theorem turns those decision margins into boundary and component
+recovery on a declared generative class.  The rank-aware scan,
 buffered $m$-dependent split, matched-replicate statistic, and nested-tree
 procedure supply finite-sample inference under explicit assumptions rather
 than broad asymptotics.  These results justify a signed curvature-lobe
@@ -1635,8 +1721,10 @@ representation, but do not identify its details with intrinsic modes.
 
 The remaining gaps are consequently focused.  The theory still assumes known
 or conservatively supplied scale, covariance, dependence lag, and stability
-radius; estimated versions, infinite-memory noise, and general polygonal
-templates remain open.  Empirically, representation selection must be frozen
+radius; estimated versions, infinite-memory noise, unequal or unsampled lobe
+joins, and general polygonal templates remain open.  A minimax separation from
+all competing adaptive dictionaries is not claimed.  Empirically,
+representation selection must be frozen
 outside E2, and a further waveform-backed cross-laboratory LC--MS cohort is
 needed to resolve the roughly 0.07 AP effect seen in E6 and determine when
 multilevel depth transfers.  The present evidence therefore supports a

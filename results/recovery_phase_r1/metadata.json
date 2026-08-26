@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-08-26T10:03:42.382288+00:00",
+  "command": [
+    "experiments/run_recovery_phase_diagram.py",
+    "--output",
+    "results/recovery_phase_r1"
+  ],
+  "git_commit": "865d746e105642f35b46f8f9c9009e8b4de41ab5",
+  "python": "3.13.3",
+  "numpy": "2.3.5",
+  "protocol": "docs/recovery_phase_diagram_protocol.md",
+  "runner_sha256": "79672156b524380c90993359fb7a7bea60ca06d628cf40d3889659749c35c6fb",
+  "protocol_sha256": "1c6f207f16bd6ad9a782bc64c6ffe184857909e7a1d303dd63c3842be5e50671"
+}

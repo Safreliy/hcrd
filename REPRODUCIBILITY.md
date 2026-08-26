@@ -9,13 +9,15 @@ python examples/quickstart.py
 python scripts/verify_release.py
 ```
 
-Expected unit-test result for this snapshot: `168 passed`.
+Expected unit-test result for this snapshot: `172 passed`.
 
 ## Tier 2: synthetic and theorem-linked studies
 
 These runs need no external signal dataset:
 
 ```bash
+python experiments/run_recovery_phase_diagram.py
+python experiments/generate_recovery_phase_figure.py
 python experiments/run_synthetic_benchmark.py
 python experiments/run_external_comparison.py --trials 50 --output results/external_comparison_v02
 python experiments/run_external_comparison.py --trials 50 --noise 0 --suite exact --output results/external_comparison_itd_c2
@@ -27,6 +29,12 @@ python experiments/run_ceemdan_confirmation.py
 python experiments/run_lobe_scan_monte_carlo.py
 python experiments/run_continuous_lobe_scan_audit.py
 ```
+
+Expected finite-sample recovery result: 44,000 trials; exact recovery 1.000 in
+all eight cells with `gamma/tau > 2`; smallest cellwise 95% Wilson lower bound
+0.9962. The joint knot-and-reconstruction certificate has minimum probability
+0.9980 above the boundary. Compact outputs are in
+`results/recovery_phase_r1/`.
 
 Expected rank-aware continuum audit: affine-residual rank 127, exact
 projected-norm quantile 12.421816, direct projected-norm exceedance 0.05074 in

@@ -28,7 +28,7 @@ The paired subject-cluster bootstrap interval for hybrid minus P0 is
 [0.001159,
 0.037522]. This meets the frozen
 rule, but there are only two confirmation subjects; replication on an
-independent PPG dataset is still required for a strong publication claim.
+independent PPG data are still required to establish population-level transfer.
 
 Published all-data optima from Wolling et al. (Karlen 0.958, van Gent 0.970)
 are contextual rather than held-out comparisons. The primary direct

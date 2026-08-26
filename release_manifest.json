@@ -16,8 +16,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 964,
-      "sha256": "a3681b2f08786114846b792720362b93493a34a887de52bcec9aa745960850c3"
+      "bytes": 957,
+      "sha256": "ca327e0ac64d51f4dcd58ee3edd9089d0c98c928ee619c02a04c06417270a900"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -36,13 +36,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 5749,
-      "sha256": "7d85d699970e4cad6cc8cc2f3cecbd7c05bd0607e3b61f891e622d301a9adcac"
+      "bytes": 6473,
+      "sha256": "6ac1be65047835b216556b7671387627ad52e8cce2f6ce76527c6563e2ce2202"
     },
     {
       "path": "REPRODUCIBILITY.md",
-      "bytes": 14801,
-      "sha256": "fa2265854eb78424ca3e012ec58722ae730b27b9269dd3a3e2d9922ab9b20eb0"
+      "bytes": 15220,
+      "sha256": "a74ab2b05f0913f2b767b70adf175e1fb3b02ec90f2f9cccac4a15720b5a414a"
     },
     {
       "path": "data/README.md",
@@ -248,6 +248,11 @@
       "path": "docs/qtdb_multilevel_fusion_protocol.md",
       "bytes": 3103,
       "sha256": "715998fe73d37f5b1b6e35f8273afe692118eb4d9b79a1788b8463e31639d95f"
+    },
+    {
+      "path": "docs/recovery_phase_diagram_protocol.md",
+      "bytes": 1655,
+      "sha256": "1c6f207f16bd6ad9a782bc64c6ffe184857909e7a1d303dd63c3842be5e50671"
     },
     {
       "path": "docs/reproducibility_audit.md",
@@ -490,6 +495,11 @@
       "sha256": "0569121a1ae94dad567958f6450054018aa74267b652cdd4786deb366306e575"
     },
     {
+      "path": "experiments/generate_recovery_phase_figure.py",
+      "bytes": 3917,
+      "sha256": "fd58de899fba9b058c52d48779f264656a4235d4d52bc4cda134f00d5f222508"
+    },
+    {
       "path": "experiments/generate_stability_figures.py",
       "bytes": 3510,
       "sha256": "ff105a8d9eaaf061d0ef41f0149b390f884af91b3496b2c83de6eaac44154b15"
@@ -683,6 +693,11 @@
       "path": "experiments/run_quadratic_pilot.py",
       "bytes": 7975,
       "sha256": "7f31f7a9563e35660a6783d6eaeea81e340fe5eafc11632e35c119e4e759da6e"
+    },
+    {
+      "path": "experiments/run_recovery_phase_diagram.py",
+      "bytes": 11292,
+      "sha256": "79672156b524380c90993359fb7a7bea60ca06d628cf40d3889659749c35c6fb"
     },
     {
       "path": "experiments/run_sparse_parallel_throughput.py",
@@ -940,6 +955,21 @@
       "sha256": "473824a0a3ed87d9e9fc4f96815106000c3b50a6ed6a7420294cab019d71577c"
     },
     {
+      "path": "paper/figures/recovery_phase_diagram.pdf",
+      "bytes": 26115,
+      "sha256": "26fc7ea973b8cf1c6b5c5b65abc94231b52d98f85b49057aea6f80b3c360cf7e"
+    },
+    {
+      "path": "paper/figures/recovery_phase_diagram.png",
+      "bytes": 100808,
+      "sha256": "ff0dc7a60797ade8bb439e8681547a2d1243b24a007937357cae3fd8320b6731"
+    },
+    {
+      "path": "paper/figures/recovery_phase_diagram.svg",
+      "bytes": 68129,
+      "sha256": "3dff27b375a523250e4b832d16394f8cea60ba118a97b2dc7892ba7c3c5db7f8"
+    },
+    {
       "path": "paper/figures/stability_accuracy.pdf",
       "bytes": 16297,
       "sha256": "27c5e17adb0a3e186d008a9ca616b23e0867c6a3357bead5cffc77230c81094d"
@@ -976,13 +1006,13 @@
     },
     {
       "path": "paper/hcrd_preprint.pdf",
-      "bytes": 663596,
-      "sha256": "562a7a20bdc68e9bd1dbfddf332ff49d5c88f1db91928c9044ef831a5094786d"
+      "bytes": 692510,
+      "sha256": "fe3c5b3685e4ecc1f59cb8e0c94bdf8e854273dfad93f062f4fcf58d7d846422"
     },
     {
       "path": "paper/main.tex",
-      "bytes": 83721,
-      "sha256": "84633a9ac16827dce3c3ef7344cdaea76bccba938a90e1e37a52e46ef7b33186"
+      "bytes": 88729,
+      "sha256": "f39e2b46655d073ffd5c08c1cbac5741c67e025d374f1a37b20359683160f202"
     },
     {
       "path": "paper/references.bib",
@@ -1036,13 +1066,18 @@
     },
     {
       "path": "reports/ppgopt_confirmation.md",
-      "bytes": 1708,
-      "sha256": "6512b6876de7c95b96010d59018d4046c115954a7bda4ba6e7579a31db764b04"
+      "bytes": 1713,
+      "sha256": "e6a79ffa9d3a79c5f56bd951f18349c362628a6b722d7828c2372db94bb4a665"
     },
     {
       "path": "reports/pttime_e5.md",
       "bytes": 3308,
       "sha256": "f6fb6665012c56320d1cd6052f8d791529ce74c6e29754539dc3f2827a6a699b"
+    },
+    {
+      "path": "reports/recovery_phase_diagram.md",
+      "bytes": 1014,
+      "sha256": "148fceb85b90fb322677933f690ad3384b64e16d679a11785b8d29cfc61f757a"
     },
     {
       "path": "reports/tardis_e6.md",
@@ -2228,6 +2263,26 @@
       "path": "results/quadratic_pilot_high/trials.csv",
       "bytes": 46774,
       "sha256": "7527aa8a437ead51e2cfa4ff4ba5a1a88a0f63468cb928551a4c03d6a120383f"
+    },
+    {
+      "path": "results/recovery_phase_r1/aggregate.csv",
+      "bytes": 7710,
+      "sha256": "55924dac437587a09b67b8c59312d14a63fc75b197ce2e8f1c46767a258d829a"
+    },
+    {
+      "path": "results/recovery_phase_r1/metadata.json",
+      "bytes": 508,
+      "sha256": "fb8d610cf383cef755aeb62c5009a878ba75e1296dc668cdec8a733dadb0c7b9"
+    },
+    {
+      "path": "results/recovery_phase_r1/summary.json",
+      "bytes": 556,
+      "sha256": "6add188f908ce9284f5e41b0d305ac0fd8787dc4bb29f21b6bf680e8246b377b"
+    },
+    {
+      "path": "results/recovery_phase_r1/trials.csv",
+      "bytes": 9046798,
+      "sha256": "240ab6f98290f51e7ef8ccd91d942887bca3b9b3d0162df6e3366664903dec77"
     },
     {
       "path": "results/sparse_parallel_p3/summary.json",
@@ -6386,8 +6441,8 @@
     },
     {
       "path": "src/hcrd/__init__.py",
-      "bytes": 9288,
-      "sha256": "84c4f42e460993890cb778c048ce0e6e777a71cccf145f190cf878e4db1fea56"
+      "bytes": 9612,
+      "sha256": "6074712c179ac4a1c3580b8d36647a2c9c6d17c96da3cf3b2abdfdbd39e96a78"
     },
     {
       "path": "src/hcrd/anomaly.py",
@@ -6503,6 +6558,11 @@
       "path": "src/hcrd/ppg_benchmark.py",
       "bytes": 7405,
       "sha256": "316c1063360dd27f3fbb1d392575ebff634e5be59918fc76faf0287d154b33b0"
+    },
+    {
+      "path": "src/hcrd/recovery.py",
+      "bytes": 4301,
+      "sha256": "7a2870b71533b9c574ff0f47fd4426b2b4626b6a5f7195f6dd562f82acaa92d0"
     },
     {
       "path": "src/hcrd/robust.py",
@@ -6700,6 +6760,11 @@
       "sha256": "f926e8d54a2264d268ba10d54e7b9c46355cc331191a9fa22598c46e0ed400ab"
     },
     {
+      "path": "tests/test_recovery.py",
+      "bytes": 2166,
+      "sha256": "0a9d2dc4ac8d35091f8b0601b94e434eb3eda144ef68e628b81720fdd67592d0"
+    },
+    {
       "path": "tests/test_run_pttime_e5.py",
       "bytes": 1959,
       "sha256": "5b08ffb275844ab6e3f66609e3d5c38fe022658398f76817681694ff706c8ed9"
@@ -6780,6 +6845,11 @@
       "sha256": "279aa77ed3b2b9953f66b5160387d4411b99d545cff852c339588af814cde0ce"
     },
     {
+      "path": "theory/chord_lobe_recovery_proof_dag.md",
+      "bytes": 3347,
+      "sha256": "38b5704041fa116b03080bd0c9f38cfdf0046b11dc92fa46faa2675778478548"
+    },
+    {
       "path": "theory/continuous_lobe_scan_proof_dag.md",
       "bytes": 14395,
       "sha256": "473c6c324aec239c4fe46eedd670544af6641a57c78856ddf5f16c6a9868a74d"
@@ -6801,8 +6871,8 @@
     },
     {
       "path": "theory/proof_dag.md",
-      "bytes": 21792,
-      "sha256": "61986fa67d61f1380492715b235bbf27a5bf77931ae202f1e77d08e3ebdd55d1"
+      "bytes": 24023,
+      "sha256": "3b01f58663531ff86bcc145f3291da08ff9c045633c83eaac4965d30b00547db"
     },
     {
       "path": "theory/rank_aware_continuous_scan_proof_dag.md",

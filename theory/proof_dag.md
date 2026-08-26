@@ -52,9 +52,16 @@ $|\kappa_i|\le\tau$ insignificant.
    $\tau=(\sigma/h)\sqrt{12\log(2(n-2)/\delta)}$.  Thus true zero curvatures are
    declared insignificant and curvatures of magnitude greater than $2\tau$
    retain their correct thresholded sign simultaneously.
-9. **Exact chord-lobe recovery.** If the first HCRD knot set is
-   $K=\{k_r\}$, $b$ is affine on every $[x_{k_r},x_{k_{r+1}}]$, and a detail
-   $q$ vanishes on $K$, then $T(b+q)=b$ and the first detail equals $q$.
+9. **Finite-sample generative chord-lobe recovery.** On a uniform grid, suppose
+   declared knots are at least two segments apart, the population curvature is
+   zero at each interior knot, and the curvatures inside successive intervals
+   have alternating constant sign and magnitude at least $\gamma$.  If
+   $f=b+q$, $b$ is affine between declared knots, $q$ vanishes at them, and
+   Gaussian-noise HCRD uses
+   $\tau_\delta=(\sigma/h)\sqrt{12\log(4(n-2)/\delta)}$, then
+   $\gamma>2\tau_\delta$ gives exact first-level knots with probability at
+   least $1-\delta$, together with the stated baseline/detail sup-norm and MSE
+   bounds.
 10. **Curvature visibility.** If $y=g+a\sin(\omega t)$ and
     $g''\ge c>|a|\omega^2$ on an interval, then $y''>0$ there and the oscillation
     creates no inflection knot.
@@ -112,6 +119,8 @@ $|\kappa_i|\le\tau$ insignificant.
 | L11 | LEM | Each difference of absolute curvature magnitudes moves by at most $8\|e\|_\infty$ on the unit grid |
 | L6 | LEM | One HCRD interval passes at least one old interior eligible knot |
 | L7 | LEM | Gaussian tail plus union bound for $n-2$ dependent curvature errors |
+| A7 | ASM | Alternating active curvature blocks, isolated zero-curvature joins, and two-segment knot gaps |
+| L13 | LEM | Preserved active signs plus isolated inactive joins force the centred first-level walk to select the declared knots |
 | D5 | DEF | Convex proximal curvature guide $P_\phi$ and residual $Q_\phi=I-P_\phi$ |
 | A5 | ASM | Exact proximal minimizer of the proper closed convex curvature penalty |
 | L8 | EXT | A proximal map and its Moreau residual are firmly nonexpansive |
@@ -132,7 +141,8 @@ $|\kappa_i|\le\tau$ insignificant.
 | T9 | THM | Exact, affine-equivariant, globally nonexpansive proximal guide/residual split |
 | T10 | THM | Input-ball certificate for proximal-guide curvature signs on irregular grids |
 | T11 | THM | Global $d_{\rm SC}\le C_x\|y-z\|_\infty$ stability of signed-curvature persistence |
-| C1 | COR | Exact recovery on the chord-lobe signal class |
+| T12 | THM | Finite-sample boundary and component recovery on the generative chord-lobe class |
+| C1 | COR | Deterministic chord interpolation after correct knot selection |
 | C2 | COR | Implemented centred knot-only hierarchy has $O(n)$ total work/storage |
 | C3 | COR | Strong background curvature can hide a real oscillation |
 | C4 | COR | Bars with lifetime $>2C_x\varepsilon$ survive as finite same-sign matches |
@@ -162,12 +172,14 @@ $|\kappa_i|\le\tau$ insignificant.
 | A4 | used first in | L4 |
 | L4, D7, L11, L5 | imply | T6 |
 | A4, L7 | imply | T7 |
+| T7, A7 | imply | L13 |
+| L13, C1, Gaussian maximum bound | imply | T12 |
 | X1, genericity of both one-sided sequences | imply | T8 |
 | D5, A5, L12, L8 | imply | T9 |
 | T9, L9 | imply | T10 |
 | D1, L9, L10, A6, EXT2 | imply | T11 |
 | T11, diagonal matching cost | imply | C4 |
-| D3, T4 | imply | C1 |
+| D3, piecewise-affine $b$, and $q=0$ on selected knots | imply | C1 |
 | T2 | implies | C2 |
 | X1 | contradicts | global continuity of $T$ |
 | T8 | contradicts | any globally continuous hard-knot replacement that preserves every generic raw decision |
@@ -206,6 +218,11 @@ flowchart TD
   L5 --> T6
   A4 --> L7["L7 Gaussian union bound"]
   L7 --> T7["T7 robust threshold"]
+  A7["A7 isolated alternating joins"] --> L13["L13 exact centred walk"]
+  T7 --> L13
+  D3 --> C1["C1 chord interpolation"]
+  L13 --> T12["T12 generative recovery"]
+  C1 --> T12
   X1 --> T8["T8 no continuous generic extension"]
   D5["D5 proximal guide split"] --> T9["T9 global nonexpansiveness"]
   A5["A5 exact convex prox"] --> T9
@@ -220,7 +237,6 @@ flowchart TD
   L10["L10 ReLU contraction"] --> T11
   EXT2 --> T11
   T11 --> C4["C4 robust bars"]
-  T4 --> C1["C1 chord-lobe recovery"]
   X1["X1 discontinuity"] -. contradicts .-> T6
   T8 -. excludes hard coordinates .-> T11
   T10 --> T11
@@ -238,6 +254,10 @@ flowchart TD
   implementation may insert redundant grid points inside an old affine segment.
 - Uniform spacing is first used in the constant 4 in the deterministic
   perturbation bound and in the variance $6\sigma^2/h^2$.
+- Isolated zero-curvature joins and two-segment gaps are first used to turn
+  simultaneous sign preservation into exact centred boundary selection.  The
+  explicit unequal-amplitude counterexample in
+  `chord_lobe_recovery_proof_dag.md` shows that this is not cosmetic.
 - The curvature margin $\gamma>0$ is first used to preserve the sign cell.  It
   cannot be removed, as X1 shows.
 - The centred comparison margin $\eta>0$ is first used after signs are fixed,
@@ -299,8 +319,19 @@ solve for $\tau$.  On the simultaneous event, true zeros remain within the
 threshold and signals exceeding $2\tau$ cannot cross zero or fall below
 $\tau$.
 
-**C1.** Since $q$ vanishes at every selected knot, the interpolant through
-$b+q$ at those knots equals the piecewise-affine $b$.  Subtraction returns $q$.
+**C1.** Since $q$ vanishes at every correctly selected knot, the interpolant
+through $b+q$ at those knots equals the piecewise-affine $b$.  Under noisy knot
+ordinates the difference is instead the chord interpolant of the knot noise.
+
+**T12.** Allocate $\delta/2$ to T7 and $\delta/2$ to the Gaussian sample
+maximum.  On the T7 event, population joins remain inactive and every active
+curvature remains active with its sign preserved.  A7 then presents the centred
+walk with exactly one inactive eligible point between opposite blocks; the
+two-segment gap makes the strict-coarsening correction inert.  Induction along
+the walk gives the declared first-level knots.  C1 expresses the baseline error
+as interpolated knot noise, so the sample-maximum event gives baseline sup error
+$\epsilon_\delta$, detail sup error $2\epsilon_\delta$, and their squared MSE
+bounds.  A union bound gives probability at least $1-\delta$.
 
 **T8.** For $0<\varepsilon<1$, both
 $y^\pm_\varepsilon=(-2,0,2\pm\varepsilon,-2)$ belong to $G$ and converge to
@@ -379,10 +410,13 @@ established trend filtering and is not claimed as a novel operator.
 1. Define divided curvature, eligible greedy knots, chord operator, and details.
 2. Use the greedy progression to prove nested halving and finite termination.
 3. Use secant geometry for signed lobes, range preservation, and TV contraction.
-4. Use affine cancellation for equivariance and chord-lobe exact recovery.
+4. Use affine cancellation for equivariance and deterministic chord
+   interpolation after correct selection.
 5. Split stability into fixed-sign cells; prove local Lipschitz bounds and show
    global discontinuity by X1.
-6. Add a simultaneous Gaussian curvature threshold using a union bound.
+6. Add a simultaneous Gaussian curvature threshold using a union bound, then
+   combine it with isolated alternating joins and a sample-maximum event for
+   finite-sample generative recovery.
 7. Use X1 twice, through generic one-sided sequences, to rule out a continuous
    exact-agreement extension.
 8. Introduce the proximal curvature guide, invoke firm nonexpansiveness, and

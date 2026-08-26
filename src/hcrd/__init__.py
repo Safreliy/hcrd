@@ -56,6 +56,12 @@ from .robust import (
     robust_decompose,
     stability_certificate,
 )
+from .recovery import (
+    AlternatingChordLobeSignal,
+    alternating_parabolic_chord_lobes,
+    amplitude_for_curvature_ratio,
+    finite_sample_recovery_thresholds,
+)
 from .stable import (
     CertifiedProximalGuidedDecomposition,
     ProximalCurvatureSplit,
@@ -163,6 +169,7 @@ from .ppg import (
 
 __all__ = [
     "AdaptiveGuidedResult",
+    "AlternatingChordLobeSignal",
     "AreaAggregation",
     "BufferedFold",
     "CertifiedAreaScore",
@@ -204,6 +211,8 @@ __all__ = [
     "Structure",
     "StructureEnergy",
     "adaptive_gaussian_guided_decompose",
+    "alternating_parabolic_chord_lobes",
+    "amplitude_for_curvature_ratio",
     "asymmetric_triangular_lobes",
     "affine_residual_subspace_rank",
     "aggregate_area_density",
@@ -246,6 +255,7 @@ __all__ = [
     "gaussian_guided_decompose",
     "gaussian_contrast_pivot",
     "find_convexity_knots",
+    "finite_sample_recovery_thresholds",
     "fano_localization_error_lower",
     "hcrd_qrs_delineate",
     "hcrd_qrs_multilevel_candidates",
