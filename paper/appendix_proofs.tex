@@ -38,7 +38,7 @@ the last interval also contains at least two, the stronger
 $N'\le\lfloor N/2\rfloor$ holds.
 \end{proof}
 
-\begin{proof}[Detailed completion of Theorem~\ref{thm:finite} and Corollary~\ref{cor:sparse}]
+\begin{proof}[Detailed completion of Theorem~\ref{M-thm:finite} and Corollary~\ref{M-cor:sparse}]
 Every new knot is selected from the current eligible list, so the mapped knot
 sets are nested.  Let $N_0=n-1$ and let $N_j$ be the number of intervals after
 level $j$.  Lemma~\ref{lem:halving} and the identity
@@ -60,7 +60,7 @@ length-$n$ level remains $O(n\log n)$ in the worst case.
 \begin{lemma}[Centred decision margin]
 \label{lem:decision}
 On a uniform grid of spacing $h$, define $\gamma$ and $\eta$ as in
-Theorem~\ref{thm:local-stability}.
+Theorem~\ref{M-thm:local-stability}.
 If
 $\|e\|_\infty<\min\{\gamma h/4,\eta h/8\}$, every curvature sign and every
 adjacent opposite-sign magnitude comparison made by the centred walk is
@@ -82,7 +82,7 @@ comparison pairs are the adjacent entries across sign-run boundaries.  These
 data determine the same knot walk.
 \end{proof}
 
-\begin{proof}[Detailed completion of Theorem~\ref{thm:local-stability}]
+\begin{proof}[Detailed completion of Theorem~\ref{M-thm:local-stability}]
 Lemma~\ref{lem:decision} fixes the knot set.  At any sample between two fixed
 knots, the interpolation error is a convex combination of the two endpoint
 errors and is therefore at most $\|e\|_\infty$.  This proves the baseline
@@ -92,7 +92,7 @@ the explicit $(1,1,-1)$ counterexample in the main text changes the selected
 side while preserving every sign.
 \end{proof}
 
-\begin{lemma}[Essential class in the signed persistence metric]
+\begin{lemma}[Essential class in the signed persistence distance]
 \label{lem:essential}
 For a nonempty connected finite path, the ordinary zero-dimensional superlevel
 diagram has exactly one essential class.  Under a finite-cost bottleneck
@@ -109,7 +109,7 @@ two function maxima.  Removing that pair leaves precisely a matching of the
 finite parts.
 \end{proof}
 
-\begin{proof}[Detailed completion of Theorem~\ref{thm:persistence}]
+\begin{proof}[Detailed completion of Theorem~\ref{M-thm:persistence}]
 The $i$th divided-curvature row is
 \[
 \left(h_{i-1}^{-1},
@@ -123,13 +123,14 @@ differ by a convex combination of endpoint differences and obey the same bound.
 Apply persistence-diagram stability to their negatives, which converts
 superlevel filtrations to sublevel filtrations without changing the sup norm.
 Lemma~\ref{lem:essential} identifies the essential and finite costs used in
-$d_{\rm SC}$.  Taking the maximum over signs proves the metric bound.  Finally,
+$d_{\rm SC}$.  Taking the maximum over signs proves the displayed distance
+bound.  Finally,
 a finite bar $(b,d)$ has diagonal cost $(b-d)/2$; if its lifetime is strictly
-greater than twice the metric bound, a bottleneck matching attaining that bound
+greater than twice that bound, a bottleneck matching attaining the bound
 cannot send it to the diagonal.
 \end{proof}
 
-\begin{proof}[Domain detail for Theorem~\ref{thm:prox}]
+\begin{proof}[Domain detail for Theorem~\ref{M-thm:prox}]
 For $n\ge3$, the divided-curvature matrix has rank $n-2$: given any target
 curvature vector, choose an initial value and slope and integrate the target
 curvatures successively to construct a preimage.  Thus $D$ is surjective.

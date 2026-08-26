@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-08-26T11:41:29.846665+00:00",
+  "command": [
+    "experiments/run_qscore_implementation_sensitivity.py",
+    "evaluate",
+    "--bootstrap",
+    "10000",
+    "--output",
+    "results/qscore_implementation_sensitivity"
+  ],
+  "git_commit": "deecb56b8ae977239277c288eacad6f3f4770db2",
+  "python": "3.13.3",
+  "numpy": "2.3.5",
+  "pandas": "2.3.3",
+  "protocol": "docs/qscore_implementation_sensitivity_protocol.md",
+  "protocol_sha256": "78a1422a4e78cce4b52ac90cd5949d7290699fd9a99df5b17ee12a12cd432ad4",
+  "runner_sha256": "52502e2bebb65cd3a050d1c84a0655b53ff921125c05f35cb341d140b4f9823d"
+}

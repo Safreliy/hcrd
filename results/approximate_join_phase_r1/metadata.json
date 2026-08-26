@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-08-26T10:59:40.439387+00:00",
+  "command": [
+    "experiments/run_approximate_join_phase.py",
+    "--output",
+    "results/approximate_join_phase_r1"
+  ],
+  "git_commit": "deecb56b8ae977239277c288eacad6f3f4770db2",
+  "python": "3.13.3",
+  "numpy": "2.3.5",
+  "protocol": "docs/approximate_join_phase_protocol.md",
+  "protocol_sha256": "c3324a6e8356667cf422770e2a5c1214854d3b460ef918687799970f43a623a5",
+  "runner_sha256": "75fe0ce4d3e0149743f646b6c0222e7e109f737b0d9373505ed77f7c127f9b32"
+}

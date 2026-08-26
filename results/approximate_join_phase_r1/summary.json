@@ -1,0 +1,35 @@
+{
+  "draws": 162000,
+  "configurations": [
+    "K=4,m=8,n=33",
+    "K=8,m=8,n=65",
+    "K=8,m=16,n=129"
+  ],
+  "join_ratios": [
+    0.0,
+    0.25,
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "curvature_ratios": [
+    1.5,
+    2.0,
+    2.25,
+    2.5,
+    2.75,
+    3.0,
+    3.5,
+    4.0,
+    4.5
+  ],
+  "trials_per_configuration_cell": 1000,
+  "strict_boundary": "curvature_ratio > join_ratio + 2",
+  "minimum_aware_exact_probability_certified": 1.0,
+  "minimum_aware_wilson_low_certified": 0.996173241514445,
+  "theorem_implication_violations": 0,
+  "noise_only_theorem_implication_violations": 0,
+  "maximum_aware_minus_naive_positive_eta": 0.0,
+  "minimum_aware_minus_naive_positive_eta": -1.0
+}

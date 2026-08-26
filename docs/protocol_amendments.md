@@ -1,5 +1,25 @@
 # Protocol amendments and pilot decisions
 
+## Recovery and E2 robustness sensitivities
+
+Three secondary protocols were fixed to test approximate sampled joins,
+conditional source-model inference, and qscore implementation choices before
+their outcomes were computed.  The approximate-join phase
+experiment varies structural join curvature and active curvature on fresh
+seeds; its sufficient boundary is inherited from the new corollary.  The E2
+sensitivity refits source learners inside paired retention-time-block
+resamples and separately recomputes representations after acquisition-file
+delete groups.  The qscore sensitivity changes its minimum-point and
+across-file aggregation rules while pairing every HCRD comparison with the
+identical qscore variant.  These analyses test robustness of the established
+mechanism and E2 contrast; they do not retroactively redefine the frozen
+primary endpoints.
+
+The complete specifications are
+`docs/approximate_join_phase_protocol.md`,
+`docs/ms_metrics_e2_refit_sensitivity_protocol.md`, and
+`docs/qscore_implementation_sensitivity_protocol.md`.
+
 ## E2/E3 — modern decomposition confirmations
 
 The CEEMDAN E2 protocol and the Iterative Filtering E3 protocol were written

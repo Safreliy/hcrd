@@ -1,0 +1,313 @@
+\section{Template scans for chord lobes}
+
+These are conservative sup-norm certificates.  They are not sharp detection
+boundaries when location and scale are unknown.  Modern multiscale shape tests
+and scan statistics provide the relevant calibration and minimax comparison
+targets \citep{dumbgen2001multiscale,ariascastro2005geometric,
+sharpnack2018scan}.
+
+The complete HCRD shapes also admit a sharper finite-dictionary statement.
+Let $P$ project onto $\operatorname{span}\{\mathbf 1,x\}$ and let $M\ge2$ and
+$v_1,\ldots,v_M\in\operatorname{range}(I-P)$ be unit-norm, oriented lobe
+templates.  They may be fixed in advance or extracted from an independent
+guide replicate; in the latter case all statements below are conditional on
+that guide.  Write $\rho_m=\max_{k\ne m}\langle v_k,v_m\rangle<1$.
+
+\begin{theorem}[Lobe-dictionary detection, localisation, and lower bound]
+\label{thm:lobe-scan}
+For $Y=g+\epsilon$, $g\in\operatorname{range}(P)$ and
+$\epsilon\sim N(0,\sigma^2I)$, the scan
+\begin{equation}
+ S=\max_{1\le m\le M}\frac{\langle v_m,Y\rangle}{\sigma}
+\end{equation}
+has level at most $\alpha$ at threshold
+$t_\alpha=\sqrt{2\log(M/\alpha)}$.  Under
+$Y=g+\sigma\mu v_m+\epsilon$, its miss probability is at most $\beta$ whenever
+\begin{equation}
+ \mu\ge t_\alpha+\sqrt{2\log(1/\beta)}.
+\end{equation}
+Moreover, the maximiser of the scan equals $m$ with probability at least
+$1-\delta$ if
+\begin{equation}
+ \mu(1-\rho_m)>2\sqrt{2\log(2M/\delta)}.
+\end{equation}
+Conversely, if the $v_m$ are orthonormal and $\alpha+\beta<1$, no level-$\alpha$
+test has power greater than $1-\beta$ uniformly over all $M$ alternatives when
+\begin{equation}
+ e^{\mu^2}-1\le4M(1-\alpha-\beta)^2.
+\end{equation}
+Under a uniform unknown index, every index estimator also has mean error at
+least $1-(\mu^2+\log2)/\log M$.  Thus both detection and localisation have
+critical standardised lobe norm of order $\sqrt{\log M}$.  Over the stated
+orthonormal subclass, the scan therefore matches the lower-bound order
+$\sqrt{\log M}$, with an explicit constant gap; this is not a minimax claim
+for every correlated HCRD dictionary.
+\end{theorem}
+\begin{proof}
+Under the null each scan coordinate is standard Gaussian, possibly correlated,
+so a Gaussian tail bound and union bound give
+$\Pr(S>t_\alpha)\le M e^{-t_\alpha^2/2}=\alpha$.  Under the stated alternative,
+the true coordinate is $N(\mu,1)$, which proves the miss bound.  With probability
+at least $1-\delta$, all $M$ centred coordinates have magnitude at most
+$u=\sqrt{2\log(2M/\delta)}$.  The true coordinate then exceeds every competitor
+when $\mu-u>\mu\rho_m+u$.
+
+For the lower bound, restrict the affine nuisance to $g=0$ and mix the $M$
+orthogonal alternatives uniformly.  Its chi-squared divergence from the null is
+$(e^{\mu^2}-1)/M$, hence total variation is at most one half of its square root.
+The displayed condition makes average power at most $1-\beta$, so at least one
+alternative has no greater power.  Finally the pairwise Gaussian
+Kullback--Leibler divergence is $\mu^2$; Fano's inequality
+\citep{cover2006elements} gives the localisation claim.
+\end{proof}
+
+The theorem concerns fixed or independently selected residual shapes.  It does
+not make the discontinuous same-replicate knot selector innocuous, and its
+orthogonal lower-bound subclass is a benchmark rather than a claim that all
+HCRD lobes are mutually orthogonal.
+
+The finite dictionary is not the mathematical end point: location, scale, and
+asymmetry are naturally continuous.  Let $\Theta$ be compact, let $w_\theta$
+be raw lobe samples, and suppose
+$\inf_\theta\|(I-P)w_\theta\|_2>0$.  Define
+\begin{equation}
+ v_\theta=\frac{(I-P)w_\theta}{\|(I-P)w_\theta\|_2},\qquad
+ d(\theta,\vartheta)=\|v_\theta-v_\vartheta\|_2,
+\end{equation}
+and let $N(\epsilon)$ be the covering number in $d$.  Write
+$J(\Theta)=\int_0^2\sqrt{\log N(\epsilon)}\,d\epsilon$.
+
+\begin{theorem}[Continuous chord-lobe scan]
+\label{thm:continuous-scan}
+Assume $\theta\mapsto v_\theta$ is continuous,
+$J(\Theta)<\infty$, and the family is fixed or selected from an independent
+guide.  For $Y=g+e$, $g\in\operatorname{range}(P)$ and
+$e\sim N(0,\sigma^2I)$, the continuous scan
+\begin{equation}
+ S_c=\sup_{\theta\in\Theta}\frac{\langle v_\theta,Y\rangle}{\sigma}
+\end{equation}
+has level at most $\alpha$ at the safe threshold
+\begin{equation}
+ t_\alpha=24J(\Theta)+\sqrt{2\log(1/\alpha)}.
+\end{equation}
+Under $Y=g+\sigma\mu v_{\theta_0}+e$, its miss probability is at most
+$\beta$ whenever
+$\mu\ge t_\alpha+\Phi^{-1}(1-\beta)$.
+
+If $G_\eta\subset\Theta$ is a finite $\eta$-net in $d$, scanning its $M$
+templates at $\sqrt{2\log(M/\alpha)}$ still has level at most $\alpha$.
+Every continuous alternative has a net template with correlation at least
+$1-\eta^2/2$; hence the sieve has miss probability at most $\beta$ whenever
+\begin{equation}
+ \mu\ge\frac{\sqrt{2\log(M/\alpha)}+\Phi^{-1}(1-\beta)}
+ {1-\eta^2/2},\qquad \eta<\sqrt2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Affine residualisation centres the Gaussian process
+$Z_\theta=\langle v_\theta,e\rangle/\sigma$; its canonical metric is exactly
+$d$ and every marginal variance is one.  Dudley's entropy inequality bounds
+$\mathbb E\sup_\theta Z_\theta$ by $24J(\Theta)$
+\citep{dudley1967sizes}.  Gaussian concentration about this mean gives the
+stated tail
+\citep{tsirelson1976norms}.  At the true template the alternative score is
+$N(\mu,1)$, proving the power statement.  For the sieve, the finite union
+bound gives level and the unit-vector identity
+$\langle u,v\rangle=1-\|u-v\|_2^2/2$ gives the approximation factor.
+\end{proof}
+
+\begin{theorem}[Rank-aware projected-norm control for continuous scans]
+\label{thm:rank-scan}
+Let every $v_\theta$ be a unit vector in a fixed or independent-guide
+$q$-dimensional subspace
+$U\subseteq\operatorname{range}(I-P)$.  If
+$Q_q(1-\alpha)$ is the $(1-\alpha)$ quantile of $\chi_q^2$, set
+\begin{equation}
+ t_{q,\alpha}=\sqrt{Q_q(1-\alpha)}.
+\end{equation}
+Then the same continuous scan has level at most $\alpha$ at
+$t_{q,\alpha}$.  Its miss probability under
+$g+\sigma\mu v_{\theta_0}$ is at most $\beta$ whenever
+\begin{equation}
+ \mu\ge t_{q,\alpha}+\Phi^{-1}(1-\beta).
+\end{equation}
+For a parameter metric $d_\Theta$, define
+\begin{equation}
+ \Delta_{\theta_0}(r)=
+ \inf_{d_\Theta(\theta,\theta_0)\ge r}
+ \{1-\langle v_\theta,v_{\theta_0}\rangle\}.
+\end{equation}
+If this modulus is positive, every measurable scan maximiser lies within
+$r$ of $\theta_0$ with probability at least $1-\delta$ whenever
+\begin{equation}
+ \mu\Delta_{\theta_0}(r)>2t_{q,\delta}.
+\end{equation}
+A closed-form, dependency-free replacement for the projected-norm quantile is
+\begin{equation}
+ \bar t_{q,\alpha}=
+ \sqrt{q+2\sqrt{q\log(1/\alpha)}+2\log(1/\alpha)}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Under the affine null,
+$S_c\le\|\Pi_U e/\sigma\|_2$ by Cauchy--Schwarz, simultaneously over the
+uncountable unit-template family.  Because $U$ is fixed relative to the scoring
+noise, the squared projected norm is $\chi_q^2$.  Thus the $\chi_q$ quantile
+exactly calibrates the dominating projected norm and gives scan size at most
+$\alpha$; it is the scan's exact null quantile only when the template family
+attains the relevant unit-sphere directions.  The true-template coordinate
+is $N(\mu,1)$, giving the stated sufficient power condition.  On the projected-norm
+event at level $\delta$, every signed noise inner product is bounded by
+$t_{q,\delta}$; the mean score gap outside radius $r$ is at least
+$\mu\Delta_{\theta_0}(r)$, proving localisation.  The last display follows
+from the Laurent--Massart chi-squared tail bound
+\citep{laurent2000adaptive}.
+\end{proof}
+
+No entropy or discretisation is needed for this conservative envelope in
+Theorem~\ref{thm:rank-scan}; compact continuity supplies measurability.
+For affine residualisation on a strictly increasing grid,
+$U=\operatorname{range}(I-P)$ has $q=n-2$.  Selecting $U$ from the scoring
+noise, using unnormalised templates, or replacing $\sigma$ by a same-sample
+estimate invalidates the displayed pivot.
+
+The entropy input can itself be certified analytically.  If
+$\Theta=\prod_{j=1}^d[a_j,b_j]$ and
+$\|v_\theta-v_\vartheta\|_2\le L\|\theta-\vartheta\|_2$, coordinate grids
+give
+\begin{equation}
+ N(\epsilon)\le\prod_{j=1}^d
+ \left(1+\frac{L\sqrt d\,(b_j-a_j)}{\epsilon}\right),
+\end{equation}
+which has an explicit finite entropy integral.
+
+\begin{corollary}[Interior triangular-family certificate]
+\label{cor:triangular-continuous}
+Let $x_0<\cdots<x_{n-1}$ have maximum gap $\Delta$.  Parameterise a
+unit-height triangular lobe by centre $c$, support width $s$, and apex fraction
+$a$ on a box whose supports lie strictly inside $(x_0,x_{n-1})$.  With
+\begin{equation}
+ h=s_-\min\{a_-,1-a_+\},\quad
+ \gamma=1-\frac{\Delta}{2h}>0,\quad
+ B=\sqrt{\frac72+\max\{|a_--1/2|,|a_+-1/2|\}^2+s_+^2},
+\end{equation}
+the residuals and normalized template map satisfy
+\begin{equation}
+ \inf_\theta\|(I-P)w_\theta\|_2\ge\frac{\gamma}{\sqrt2},\qquad
+ \|v_\theta-v_\vartheta\|_2
+ \le\frac{4\sqrt n B}{h\gamma}\|\theta-\vartheta\|_2.
+\end{equation}
+Thus Theorem~\ref{thm:continuous-scan} has a fully analytic certificate for
+this declared location--width--asymmetry family.
+\end{corollary}
+\begin{proof}
+A grid point lies within $\Delta/2$ of every apex, so the sampled height is at
+least $\gamma$.  Contrast that sample using a vector supported on it and the
+two zero domain-endpoint samples and orthogonal
+to $1$ and $x$ to obtain the residual lower bound.  On
+each triangle branch, derivatives with respect to the left, apex, and right
+knots are bounded by $\sqrt2/h$.  Combining their parameter Jacobian bound
+$B$, summing over samples, projecting nonexpansively, and applying the
+$2/m$ normalization inequality with $m=\gamma/\sqrt2$ gives the stated
+Lipschitz constant.
+\end{proof}
+
+The constants are deliberately safe.  Boundary-touching supports, general
+polygonal lobes, estimated or dependent noise, and sharper generic chaining
+remain outside this corollary.
+
+\section{Replicate-split inference for selected structures}
+Let a guide $G$ be independent of a scoring replicate
+$Y=f+e$, $e\sim N(0,\sigma^2I)$.  HCRD may select any finite family of
+intervals and shapes from $G$.  On an active interval $I_s$, let $c_s$ be the
+trapezoidal coefficient vector for signed area relative to the endpoint chord;
+it annihilates every affine vector.  Alternatively let $q_s(G)$ be the complete
+guide detail and $v_s=(I-P_s)q_s(G)$, where $P_s$ projects onto
+$\operatorname{span}\{\mathbf 1,x\}$.
+
+\begin{theorem}[Exact post-selection area and shape pivots]
+\label{thm:replicate}
+Conditionally on $G$, every nondegenerate selected structure satisfies
+\begin{equation}
+ \frac{c_s^T Y_{I_s}}{\sigma\|c_s\|_2}
+ \sim N\!\left(\frac{c_s^Tf_{I_s}}{\sigma\|c_s\|_2},1\right),\qquad
+ \frac{v_s^T Y_{I_s}}{\sigma\|v_s\|_2}
+ \sim N\!\left(\frac{v_s^Tf_{I_s}}{\sigma\|v_s\|_2},1\right).
+\end{equation}
+Two-sided Gaussian $p$-values followed by Holm correction control conditional
+and unconditional family-wise error over all selected, overlapping structures.
+Under $f_{I_s}=a+bx+a_s v_s$, the matched-shape noncentrality is
+$a_s\|v_s\|_2/\sigma$.
+\end{theorem}
+\begin{proof}
+Conditionally on the independent guide, $c_s$ and $v_s$ are fixed.  Fixed
+linear functionals of the Gaussian scoring noise have the displayed laws, and
+both coefficient vectors annihilate affine means.  Holm control requires valid
+marginal $p$-values but no independence among the overlapping tests.
+\end{proof}
+
+Reusing the scoring noise to select its largest structure invalidates these
+pivots; with two independent null candidates, selecting the smaller naive
+$p$-value already inflates rejection probability to $1-(1-\alpha)^2$.
+Independent replicates are therefore a substantive assumption, not a notation
+for adjacent samples in one autocorrelated series.
+
+\begin{theorem}[Buffered single-stream post-selection pivots]
+\label{thm:buffered}
+Let $Y_t=f_t+e_t$, where $e$ is a mean-zero Gaussian $m$-dependent process.
+Partition the stream into contiguous scoring blocks $B_k$ and let guide
+$\sigma$-field $\mathcal G_k$ use only indices at distance greater than $m$
+from $B_k$.  Suppose a finite family of contrasts $c_{ks}$, supported on
+$B_k$, is $\mathcal G_k$-measurable and the positive block covariance
+$\Sigma_{B_k}$ is known.  Under
+$H_{ks}:c_{ks}^Tf_{B_k}=0$,
+\begin{equation}
+ Z_{ks}=\frac{c_{ks}^TY_{B_k}}
+ {\sqrt{c_{ks}^T\Sigma_{B_k}c_{ks}}}
+ \ \bigg|\ \mathcal G_k \sim N(0,1).
+\end{equation}
+Consequently two-sided Gaussian p-values remain valid after guide-side HCRD
+selection, and Holm correction over every fold and selected structure controls
+strong family-wise error without assuming cross-fold independence.
+\end{theorem}
+\begin{proof}
+$m$-dependence and the buffer make $e_{B_k}$ independent of
+$\mathcal G_k$.  Conditional on that guide, each contrast is fixed; Gaussianity
+and the full block covariance give the displayed law.  Holm requires valid
+marginal p-values, not mutual independence.
+\end{proof}
+
+Every index can be scored once: only the $m$ neighbours of a scoring block are
+omitted from that fold's guide, not from their own scoring folds.  The theorem
+is exact for known-covariance Gaussian finite-memory noise.  An AR(1) process is
+not $m$-dependent for any finite $m$; estimated covariance, data-selected lag,
+and general mixing therefore require additional error control.
+
+\begin{theorem}[Nested subtree gatekeeping]
+\label{thm:tree}
+Let $T$ be a fixed or independent-guide finite rooted tree and associate to
+each node $v$ the intersection null $H_v$ that there is no signal anywhere in
+the subtree rooted at $v$.  Let $p_v$ be marginally valid for $H_v$ under
+arbitrary dependence.  The tree and all local level allocations are
+deterministic or measurable with respect to the independent guide.  Assign
+$a_{\rm root}=\alpha$ and local levels satisfying
+\begin{equation}
+ \sum_{u\in{\rm child}(v)}a_u\le a_v .
+\end{equation}
+Test the root at $a_{\rm root}$ and a non-root node at $a_v$ only after every
+ancestor rejects.  Then the probability of rejecting any true null is at most
+$\alpha$.
+\end{theorem}
+\begin{proof}
+The minimal true nodes form an antichain, and rejection of any true descendant
+requires rejection of one such boundary node.  Child-budget conservation
+implies inductively that the levels assigned to any antichain sum to at most
+$\alpha$.  A union bound over the minimal true nodes completes the proof.
+\end{proof}
+
+Allocating a parent's budget to children in proportion to descendant leaf
+counts conserves the full budget and retains level $\alpha$ along a one-child
+chain.  This may improve power for coherent nested alternatives but does not
+uniformly dominate Holm for isolated leaves.  Geometric containment alone is
+insufficient: the node nulls must be subtree intersection nulls and a
+same-scoring-noise tree does not automatically have valid node p-values.

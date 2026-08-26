@@ -54,7 +54,8 @@ def included_paths() -> list[Path]:
             and path.suffix != ".pyc"
             and path.suffix.lower() not in {".npy", ".npz", ".mzml", ".mzxml"}
             and path.suffix not in {".aux", ".bbl", ".blg", ".fdb_latexmk", ".fls", ".log", ".out"}
-            and path.relative_to(ROOT).as_posix() != "paper/main.pdf"
+            and path.relative_to(ROOT).as_posix()
+            not in {"paper/main.pdf", "paper/supplement.pdf"}
             and not path.relative_to(ROOT).as_posix().startswith("paper/qa")
         )
     paths.extend(

@@ -1,0 +1,18 @@
+\begin{table}[H]
+\centering
+\caption{qscore implementation sensitivity. Entries are HCRD-8 plus the indicated qscore summary minus that same qscore alone in target AP, with paired target-feature 95\% bootstrap intervals.}
+\label{tab:qscore-sensitivity}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrcc}
+\toprule
+Variant & Width & Falkor $\to$ MESOSCOPE & MESOSCOPE $\to$ Falkor \\
+\midrule
+Current median, $m\geq8$ & 2 & 0.1181 [0.0628, 0.1769] & 0.1005 [0.0554, 0.1457] \\
+Median, $m\geq5$ & 2 & 0.1244 [0.0688, 0.1832] & 0.0987 [0.0538, 0.1432] \\
+Author-like five-summary, $m\geq5$ & 5 & 0.1517 [0.0813, 0.2184] & 0.0765 [0.0324, 0.1211] \\
+Multisummary seven-variable, $m\geq8$ & 7 & 0.0847 [0.0320, 0.1407] & 0.0798 [0.0347, 0.1262] \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

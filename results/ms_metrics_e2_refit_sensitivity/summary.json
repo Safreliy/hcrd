@@ -1,0 +1,89 @@
+{
+  "estimand": "source-refit and paired target RT-block AP difference",
+  "primary_block_seconds": 60,
+  "designs": {
+    "30": 300,
+    "60": 1000,
+    "120": 300
+  },
+  "directions": {
+    "30": {
+      "falkor_to_mesoscope": {
+        "hcrd_8_q_minus_qscore": {
+          "mean": 0.10873928963618186,
+          "median": 0.10866838316752292,
+          "percentile_95_ci": [
+            -0.01048091656517694,
+            0.20742526246265156
+          ],
+          "positive_fraction": 0.9633333333333334,
+          "two_sided_sign_probability": 0.07333333333333325
+        }
+      },
+      "mesoscope_to_falkor": {
+        "hcrd_8_q_minus_qscore": {
+          "mean": 0.05561413321758803,
+          "median": 0.05715929893273963,
+          "percentile_95_ci": [
+            -0.06708641680427828,
+            0.16017539204878273
+          ],
+          "positive_fraction": 0.8533333333333334,
+          "two_sided_sign_probability": 0.2933333333333332
+        }
+      }
+    },
+    "60": {
+      "falkor_to_mesoscope": {
+        "hcrd_8_q_minus_qscore": {
+          "mean": 0.100014048307275,
+          "median": 0.10429966450875727,
+          "percentile_95_ci": [
+            -0.04444780853812035,
+            0.21785777851051374
+          ],
+          "positive_fraction": 0.929,
+          "two_sided_sign_probability": 0.1419999999999999
+        }
+      },
+      "mesoscope_to_falkor": {
+        "hcrd_8_q_minus_qscore": {
+          "mean": 0.05152259800649469,
+          "median": 0.05632260514699339,
+          "percentile_95_ci": [
+            -0.09354548956564651,
+            0.17415109102011783
+          ],
+          "positive_fraction": 0.81,
+          "two_sided_sign_probability": 0.3799999999999999
+        }
+      }
+    },
+    "120": {
+      "falkor_to_mesoscope": {
+        "hcrd_8_q_minus_qscore": {
+          "mean": 0.08860247556549322,
+          "median": 0.09994902795790206,
+          "percentile_95_ci": [
+            -0.151378008252104,
+            0.2507676163664042
+          ],
+          "positive_fraction": 0.8733333333333333,
+          "two_sided_sign_probability": 0.2533333333333334
+        }
+      },
+      "mesoscope_to_falkor": {
+        "hcrd_8_q_minus_qscore": {
+          "mean": 0.057409262913554145,
+          "median": 0.06544278793017089,
+          "percentile_95_ci": [
+            -0.08031320113325773,
+            0.17614676453024658
+          ],
+          "positive_fraction": 0.8066666666666666,
+          "two_sided_sign_probability": 0.3866666666666667
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import numpy as np
 
+from hcrd.core import discrete_curvature
 from hcrd.persistence import (
     CurvaturePersistenceDiagram,
     PersistenceBar,
@@ -8,6 +9,21 @@ from hcrd.persistence import (
     curvature_persistence,
     curvature_persistence_distance,
 )
+
+
+def test_signal_pullback_is_a_pseudometric_not_a_metric():
+    first = np.asarray([0.0, 0.0, 1.0, 2.0, 5.0])
+    second = np.asarray([0.0, 0.0, 2.0, 4.0, 7.0])
+
+    np.testing.assert_allclose(discrete_curvature(first), [1.0, 0.0, 2.0])
+    np.testing.assert_allclose(discrete_curvature(second), [2.0, 0.0, 1.0])
+    assert not np.allclose(discrete_curvature(second - first), 0.0)
+    assert (
+        curvature_persistence_distance(
+            curvature_persistence(first), curvature_persistence(second)
+        )
+        == 0.0
+    )
 
 
 def _integrate_curvature(curvature: np.ndarray) -> np.ndarray:

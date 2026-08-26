@@ -1,9 +1,7 @@
 """Finite-sample chord-lobe recovery helpers.
 
-The generator in this module is the explicit parabolic subclass used to audit
-the recovery theorem in the manuscript.  It is intentionally narrow: adjacent
-lobes have equal width and amplitude, so their alternating one-sign curvature
-blocks meet at a single sampled zero-curvature point.
+The generators in this module implement the parabolic subclasses used to audit
+the exact- and approximate-join recovery theorems in the manuscript.
 """
 
 from __future__ import annotations
@@ -11,6 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import numpy as np
+from numpy.typing import ArrayLike
 from numpy.typing import NDArray
 
 from .robust import familywise_curvature_threshold
@@ -27,7 +26,9 @@ class AlternatingChordLobeSignal:
     knots: NDArray[np.int64]
     noise: NDArray[np.float64]
     amplitude: float
+    amplitudes: NDArray[np.float64]
     curvature_magnitude: float
+    join_curvature_bound: float
 
 
 def finite_sample_recovery_thresholds(
@@ -85,21 +86,90 @@ def amplitude_for_curvature_ratio(
     )
 
 
+def approximate_join_tolerance(
+    join_curvature_bound: float, curvature_noise_radius: float
+) -> float:
+    """Return the absolute tolerance for approximate sampled joins.
+
+    If population join curvatures are bounded by ``eta`` and all curvature
+    errors are bounded by ``tau``, the join-aware HCRD tolerance is
+    ``eta + tau``.
+    """
+
+    if join_curvature_bound < 0 or curvature_noise_radius < 0:
+        raise ValueError("join and noise curvature bounds must be nonnegative")
+    return float(join_curvature_bound + curvature_noise_radius)
+
+
+def amplitudes_for_recovery_ratios(
+    *,
+    lobes: int,
+    samples_per_lobe: int,
+    curvature_ratio: float,
+    join_ratio: float,
+    curvature_threshold: float,
+    spacing: float = 1.0,
+) -> NDArray[np.float64]:
+    """Construct alternating amplitudes with requested ``gamma/tau`` and ``eta/tau``.
+
+    For parabolic lobes of width ``m``, the minimum active curvature is
+    ``gamma = 8 A_min / (m^2 h)``.  Alternating amplitudes separated by
+    ``Delta A`` give join magnitude
+    ``eta = 4 (m-1) Delta A / (m^2 h)``.
+    """
+
+    if lobes < 2 or samples_per_lobe < 2:
+        raise ValueError("lobes >= 2 and samples_per_lobe >= 2 are required")
+    if curvature_ratio <= 0 or join_ratio < 0 or curvature_threshold < 0:
+        raise ValueError("curvature ratio must be positive; bounds nonnegative")
+    if spacing <= 0:
+        raise ValueError("spacing must be positive")
+    minimum = amplitude_for_curvature_ratio(
+        curvature_ratio,
+        curvature_threshold,
+        samples_per_lobe,
+        spacing=spacing,
+    )
+    difference = (
+        join_ratio
+        * curvature_threshold
+        * samples_per_lobe**2
+        * spacing
+        / (4.0 * (samples_per_lobe - 1))
+    )
+    return minimum + difference * (np.arange(lobes, dtype=float) % 2.0)
+
+
 def alternating_parabolic_chord_lobes(
     *,
     seed: int,
     lobes: int,
     samples_per_lobe: int,
-    amplitude: float,
+    amplitude: float | None = None,
+    amplitudes: ArrayLike | None = None,
     noise_sigma: float,
     spacing: float = 1.0,
 ) -> AlternatingChordLobeSignal:
-    """Generate alternating equal parabolic lobes about an affine baseline."""
+    """Generate alternating parabolic lobes about an affine baseline.
+
+    Supply exactly one of a common ``amplitude`` or a length-``lobes`` vector
+    ``amplitudes``.  Unequal adjacent values create approximate, rather than
+    exactly zero-curvature, sampled joins.
+    """
 
     if lobes < 2 or samples_per_lobe < 2:
         raise ValueError("lobes >= 2 and samples_per_lobe >= 2 are required")
-    if amplitude <= 0 or noise_sigma < 0 or spacing <= 0:
-        raise ValueError("amplitude and spacing must be positive; noise nonnegative")
+    if (amplitude is None) == (amplitudes is None):
+        raise ValueError("supply exactly one of amplitude or amplitudes")
+    amplitude_values = (
+        np.full(lobes, float(amplitude), dtype=float)
+        if amplitudes is None
+        else np.asarray(amplitudes, dtype=float)
+    )
+    if amplitude_values.shape != (lobes,) or np.any(amplitude_values <= 0):
+        raise ValueError("amplitudes must contain one positive value per lobe")
+    if noise_sigma < 0 or spacing <= 0:
+        raise ValueError("spacing must be positive and noise nonnegative")
 
     rng = np.random.default_rng(seed)
     n = lobes * samples_per_lobe + 1
@@ -114,7 +184,9 @@ def alternating_parabolic_chord_lobes(
     for lobe in range(lobes):
         left = lobe * samples_per_lobe
         right = left + samples_per_lobe + 1
-        detail[left:right] += first_sign * (-1.0) ** lobe * amplitude * shape
+        detail[left:right] += (
+            first_sign * (-1.0) ** lobe * amplitude_values[lobe] * shape
+        )
 
     noise = rng.normal(0.0, noise_sigma, size=n)
     return AlternatingChordLobeSignal(
@@ -124,8 +196,15 @@ def alternating_parabolic_chord_lobes(
         detail=detail,
         knots=knots,
         noise=noise,
-        amplitude=float(amplitude),
+        amplitude=float(np.min(amplitude_values)),
+        amplitudes=amplitude_values,
         curvature_magnitude=float(
-            8.0 * amplitude / (samples_per_lobe**2 * spacing)
+            8.0 * np.min(amplitude_values) / (samples_per_lobe**2 * spacing)
+        ),
+        join_curvature_bound=float(
+            4.0
+            * (samples_per_lobe - 1)
+            * np.max(np.abs(np.diff(amplitude_values)))
+            / (samples_per_lobe**2 * spacing)
         ),
     )

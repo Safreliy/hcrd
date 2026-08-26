@@ -1,0 +1,32 @@
+{
+  "analysis": "acquisition-file delete-group representation and model refit",
+  "fold_count": 10,
+  "evaluated_folds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "directions": {
+    "falkor_to_mesoscope": {
+      "delta_mean": 0.11887902291822557,
+      "delta_min": 0.10299389533304937,
+      "delta_max": 0.13971988430180537,
+      "positive_folds": 10,
+      "evaluated_folds": 10
+    },
+    "mesoscope_to_falkor": {
+      "delta_mean": 0.08819222101815714,
+      "delta_min": 0.05174704048744383,
+      "delta_max": 0.10575403397593142,
+      "positive_folds": 10,
+      "evaluated_folds": 10
+    }
+  }
+}

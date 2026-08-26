@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-08-26T12:59:04.212619+00:00",
+  "command": [
+    "experiments/run_ms_metrics_e2_refit_sensitivity.py",
+    "--jobs",
+    "10",
+    "--primary-replicates",
+    "1000",
+    "--sensitivity-replicates",
+    "300",
+    "--output",
+    "results/ms_metrics_e2_refit_sensitivity"
+  ],
+  "git_commit": "deecb56b8ae977239277c288eacad6f3f4770db2",
+  "python": "3.13.3",
+  "numpy": "2.3.5",
+  "pandas": "2.3.3",
+  "scikit_learn": "1.8.0",
+  "protocol": "docs/ms_metrics_e2_refit_sensitivity_protocol.md",
+  "protocol_sha256": "86c3531ceec6e2d302f137d0d3de333ff6e368ddc489875b857bfbd0f90ac304",
+  "runner_sha256": "f8e2535e8690910940e77b45efb21e0f0f87efb7d43812ec4f7d7a9693b0d402",
+  "matrix_sha256": {
+    "falkor": {
+      "qscore": "9b7db060e565197c49e3ae6e25cf97d83130706f23b673a7dfe29c9226ca12a7",
+      "hcrd_8_q": "c50e9e5508933b0c023e5124709c0bb1ef6c3e507d5658395b967d2c9b55eff2"
+    },
+    "mesoscope": {
+      "qscore": "432f748f864fc2563deb4ce345d8074aa2c28f7e707d7f6b3d661c0a5ccb531d",
+      "hcrd_8_q": "9087ef4c4fe48ce9c9eb55e357d988351c086ab7ab06fe835d53bdd84336a2e7"
+    }
+  }
+}

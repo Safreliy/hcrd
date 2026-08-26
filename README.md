@@ -21,7 +21,7 @@ reconstructing, and interpretable at every level.
 - signed lobe support, amplitude, shape, area, and quadratic-energy summaries;
 - deterministic process-parallel decomposition of independent signals;
 - stable proximal and persistence-based companion representations;
-- finite-sample recovery thresholds for an explicit chord-lobe class;
+- finite-sample recovery thresholds for exact and approximate sampled joins;
 - calibrated finite-dictionary and continuous-family lobe scans;
 - tests, experiment protocols, compact results, and source-data manifests.
 
@@ -41,6 +41,21 @@ python experiments/generate_recovery_phase_figure.py
 
 ![Finite-sample recovery phase diagram](paper/figures/recovery_phase_diagram.png)
 
+The approximate-join corollary permits join curvature up to `eta` and proves
+the same recovery and component bounds when `gamma > eta + 2 tau`. A second
+phase experiment contains 162,000 unequal-amplitude signals. Both the
+conservative `eta + tau` tolerance and the original noise-only `tau` tolerance
+recovered all 72,000 draws in the strict certified region; the smallest
+cellwise Wilson lower bound was 0.9962. The noise-only rule was more accurate
+below that conservative boundary and does not require `eta` as an input.
+
+```bash
+python experiments/run_approximate_join_phase.py
+python experiments/generate_approximate_join_phase_figure.py
+```
+
+![Approximate-join recovery phase diagram](paper/figures/approximate_join_phase.png)
+
 ## LC--MS application
 
 The principal real-data application is quality curation of pre-bounded LC--MS
@@ -54,7 +69,19 @@ two independently labelled HILIC studies without target refitting.
 
 The score is an independent global-window reimplementation of the published
 two-component definition. The Holm-adjusted p-value was 0.00040 in both
-directions. HCRD-8 had positive AP differences over HCRD-1 in both transfers,
+directions. Four fixed qscore implementations changed the minimum-point and
+across-file aggregation rules; HCRD-8 remained positive in all eight
+direction/implementation contrasts (+0.0765 to +0.1517 AP), with every paired
+95% interval above zero and maximum Holm-adjusted bootstrap value 0.0020.
+In ten acquisition-file delete-group representation refits, the HCRD gain was
+positive in every fold, ranging from +0.1030 to +0.1397 AP for Falkor to
+MESOSCOPE and +0.0517 to +0.1058 in the reverse direction.
+Source-refit RT-block bootstraps also had positive mean differences in both
+directions at 30, 60, and 120 seconds (+0.0515 to +0.1087 AP; 80.7--96.3% of
+paired replicates positive), although all six percentile intervals crossed
+zero.  The prospective E2 claim therefore remains the conditional no-refit
+transfer result.
+HCRD-8 also had positive AP differences over HCRD-1 in both transfers,
 with multiplicity-adjusted support in one. An equal-dimensional 2847-variable
 Gaussian-derivative control tied HCRD-8 in Falkor-to-MESOSCOPE; HCRD-8 exceeded
 it by 0.1175 AP in the reverse transfer (95% CI [0.0624, 0.1654]). On the
@@ -76,7 +103,7 @@ conditions.
 Python 3.11 or later is recommended.
 
 ```bash
-python -m pip install -e ".[dev]"
+python -m pip install -e ".[dev,comparisons,lcms]"
 python -m pytest -q
 python examples/quickstart.py
 ```
@@ -117,6 +144,9 @@ python experiments/download_ms_metrics_e2.py
 python experiments/run_ms_metrics_e2.py extract-dataset --help
 python experiments/run_ms_metrics_e2.py fit-evaluate --help
 python experiments/run_ms_metrics_e2_matched_capacity.py --help
+python experiments/run_ms_metrics_e2_refit_sensitivity.py --help
+python experiments/run_ms_metrics_e2_file_group_sensitivity.py --help
+python experiments/run_qscore_implementation_sensitivity.py --help
 ```
 
 The downloader verifies the official archives and pinned source revision. Raw
@@ -150,8 +180,11 @@ python scripts/verify_release.py
 
 ## Paper and citation
 
-The compiled manuscript is [`paper/hcrd_preprint.pdf`](paper/hcrd_preprint.pdf).
-Citation metadata are provided in [`CITATION.cff`](CITATION.cff).
+The compiled main manuscript is
+[`paper/hcrd_preprint.pdf`](paper/hcrd_preprint.pdf); detailed proofs, optional
+scan theory, and secondary experiments are in
+[`paper/hcrd_supplement.pdf`](paper/hcrd_supplement.pdf). Citation metadata are
+provided in [`CITATION.cff`](CITATION.cff).
 
 ## Data and licenses
 

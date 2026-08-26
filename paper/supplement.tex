@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,array,booktabs,graphicx,microtype,float}
+\usepackage[numbers]{natbib}
+\usepackage{hyperref}
+\usepackage{xr}
+\hypersetup{hidelinks}
+\externaldocument[M-]{main}
+\renewcommand{\bibfont}{\footnotesize}
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}
+\floatname{algorithm}{Algorithm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+
+\title{Supplementary Material for\\
+Hierarchical Convexity-Run Decomposition:\\
+Finite-Sample Chord-Lobe Recovery and Interpretable LC--MS Transfer}
+\author{Saveliy Baturin\\Independent Researcher}
+\date{Draft \today}
+
+\begin{document}
+\maketitle
+
+This supplement contains optional scan and post-selection theory, complete
+secondary experimental results, and detailed proof edges.  Numbered references
+to theorems, figures, and tables in the main article use the main-article
+numbering.
+
+\input{supplement_theory}
+\input{supplement_experiments}
+
+\appendix
+\input{appendix_proofs}
+
+\footnotesize
+\setlength{\bibsep}{1pt}
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

@@ -121,6 +121,8 @@ $|\kappa_i|\le\tau$ insignificant.
 | L7 | LEM | Gaussian tail plus union bound for $n-2$ dependent curvature errors |
 | A7 | ASM | Alternating active curvature blocks, isolated zero-curvature joins, and two-segment knot gaps |
 | L13 | LEM | Preserved active signs plus isolated inactive joins force the centred first-level walk to select the declared knots |
+| A8 | ASM | Approximate sampled joins satisfy $|\kappa|\le\eta$ and active blocks satisfy $\gamma>\eta+2\tau$ |
+| L14 | LEM | On the simultaneous noise event, an active approximate join is strictly smaller than either adjacent active curvature and is selected by the centred transition rule |
 | D5 | DEF | Convex proximal curvature guide $P_\phi$ and residual $Q_\phi=I-P_\phi$ |
 | A5 | ASM | Exact proximal minimizer of the proper closed convex curvature penalty |
 | L8 | EXT | A proximal map and its Moreau residual are firmly nonexpansive |
@@ -146,13 +148,14 @@ $|\kappa_i|\le\tau$ insignificant.
 | C2 | COR | Implemented centred knot-only hierarchy has $O(n)$ total work/storage |
 | C3 | COR | Strong background curvature can hide a real oscillation |
 | C4 | COR | Bars with lifetime $>2C_x\varepsilon$ survive as finite same-sign matches |
+| C5 | COR | Approximate-join recovery holds for every threshold $t\in[\tau,\eta+\tau]$, including the noise-only threshold |
 | X1 | CTR | Global discontinuity at a zero-curvature boundary |
 | X2 | CTR | $L_2$ energy need not contract |
 | X3 | CTR | Quadratic trend is extracted as a single curvature lobe |
 | X4 | CTR | Fixed curvature signs alone do not fix a tied centred transition |
 | O1 | OPEN | Full characterization of which sign patterns the centred rule can produce |
 | O2 | OPEN | Stability of the plug-in MAD threshold when signal curvature contaminates MAD |
-| O3 | RESOLVED | Signed-curvature lobe persistence is stable; hard coordinates are excluded from the metric |
+| O3 | RESOLVED | Signed-curvature lobe persistence is stable; hard coordinates are excluded from the pseudometric |
 | O4 | OPEN | Conditions under which Hilbert instantaneous frequency is meaningful |
 
 ## Edge table
@@ -174,6 +177,8 @@ $|\kappa_i|\le\tau$ insignificant.
 | A4, L7 | imply | T7 |
 | T7, A7 | imply | L13 |
 | L13, C1, Gaussian maximum bound | imply | T12 |
+| T7, A8 | imply | L14 |
+| L14, C1, Gaussian maximum bound | imply | C5 |
 | X1, genericity of both one-sided sequences | imply | T8 |
 | D5, A5, L12, L8 | imply | T9 |
 | T9, L9 | imply | T10 |
@@ -220,9 +225,13 @@ flowchart TD
   L7 --> T7["T7 robust threshold"]
   A7["A7 isolated alternating joins"] --> L13["L13 exact centred walk"]
   T7 --> L13
+  A8["A8 approximate joins and separation"] --> L14["L14 centred join selection"]
+  T7 --> L14
   D3 --> C1["C1 chord interpolation"]
   L13 --> T12["T12 generative recovery"]
   C1 --> T12
+  L14 --> C5["C5 approximate-join recovery"]
+  C1 --> C5
   X1 --> T8["T8 no continuous generic extension"]
   D5["D5 proximal guide split"] --> T9["T9 global nonexpansiveness"]
   A5["A5 exact convex prox"] --> T9
@@ -254,10 +263,12 @@ flowchart TD
   implementation may insert redundant grid points inside an old affine segment.
 - Uniform spacing is first used in the constant 4 in the deterministic
   perturbation bound and in the variance $6\sigma^2/h^2$.
-- Isolated zero-curvature joins and two-segment gaps are first used to turn
-  simultaneous sign preservation into exact centred boundary selection.  The
-  explicit unequal-amplitude counterexample in
-  `chord_lobe_recovery_proof_dag.md` shows that this is not cosmetic.
+- Exact sampled joins are first used to make a boundary inactive under the
+  noise-only threshold.  They may be weakened to $|\kappa|\le\eta$ when
+  $\gamma>\eta+2\tau$: an active observed join is then the unique
+  smaller-magnitude side of an adjacent sign transition.  The explicit
+  unequal-amplitude counterexample in `chord_lobe_recovery_proof_dag.md`
+  violates this separation and shows why some margin remains necessary.
 - The curvature margin $\gamma>0$ is first used to preserve the sign cell.  It
   cannot be removed, as X1 shows.
 - The centred comparison margin $\eta>0$ is first used after signs are fixed,
@@ -370,7 +381,7 @@ the two maxima.  The remaining matching is between finite diagrams.  Taking
 the maximum over both signs gives T11.  A finite bar costs half its lifetime to
 match to the diagonal, so a lifetime exceeding $2C_x\varepsilon$ forces a
 finite same-sign match, proving C4.  Peak indices are metadata and are excluded
-from the metric because arbitrarily small perturbations can swap two equal
+from the pseudometric because arbitrarily small perturbations can swap two equal
 distant maxima.
 
 ## Counterexamples
@@ -400,7 +411,7 @@ sign-only form of T6 was false; the corrected form includes $\eta$.
 T8 closes the originally overstrong hard-coordinate version of O3 negatively:
 no continuous hard-knot map can preserve all generic raw HCRD decisions.  T11
 closes the well-posed replacement positively: signed curvature lobes have a
-globally stable persistence metric, while peak indices remain non-metric
+globally stable persistence pseudometric, while peak indices remain outside it
 metadata.  T9 independently supplies a globally stable exact outer split and
 T10 supplies honest sign certificates.  The proximal guide itself is
 established trend filtering and is not claimed as a novel operator.
@@ -437,8 +448,8 @@ selecting an arbitrary zero inside an old affine plateau would break the path.
 - **O2:** quantify bias and concentration of the MAD plug-in noise estimate in
   the presence of deterministic signal curvature.
 - **O3 (resolved in the admissible form):** signed curvature-lobe persistence
-  has metric stability without exact hard-coordinate agreement.  Peak and knot
-  coordinates remain explicitly outside the stable metric.
+  has distance stability without exact hard-coordinate agreement.  Peak and
+  knot coordinates remain explicitly outside the stable pseudometric.
 - **O4:** either prove conditions for meaningful instantaneous phase/frequency
   or explicitly exclude Hilbert-spectrum claims from the paper.
 - **O5 (resolved):** exhaustive finite sign patterns agree with the logarithmic

@@ -58,6 +58,8 @@ from .robust import (
 )
 from .recovery import (
     AlternatingChordLobeSignal,
+    amplitudes_for_recovery_ratios,
+    approximate_join_tolerance,
     alternating_parabolic_chord_lobes,
     amplitude_for_curvature_ratio,
     finite_sample_recovery_thresholds,
@@ -170,6 +172,8 @@ from .ppg import (
 __all__ = [
     "AdaptiveGuidedResult",
     "AlternatingChordLobeSignal",
+    "amplitudes_for_recovery_ratios",
+    "approximate_join_tolerance",
     "AreaAggregation",
     "BufferedFold",
     "CertifiedAreaScore",

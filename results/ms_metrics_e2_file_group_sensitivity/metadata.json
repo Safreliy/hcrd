@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-08-26T12:41:07.979867+00:00",
+  "command": [
+    "experiments/run_ms_metrics_e2_file_group_sensitivity.py",
+    "--fold-count",
+    "10",
+    "--jobs",
+    "5",
+    "--output",
+    "results/ms_metrics_e2_file_group_sensitivity"
+  ],
+  "git_commit": "deecb56b8ae977239277c288eacad6f3f4770db2",
+  "python": "3.13.3",
+  "numpy": "2.3.5",
+  "protocol": "docs/ms_metrics_e2_refit_sensitivity_protocol.md",
+  "protocol_sha256": "86c3531ceec6e2d302f137d0d3de333ff6e368ddc489875b857bfbd0f90ac304",
+  "runner_sha256": "5cc81797e945475700c79a010c3206f09a9e6adb95193ccd61be5b30451aacf6",
+  "cube_sha256": {
+    "falkor": {
+      "qscore": "6f97e0c55e19a294ee26bef6b0f1d30b49dba12de7724999d14bc6cc6b40c610",
+      "hcrd_8": "8adfd596d6ee440860431df9c04f4fd3ecaa4f035c2d877177c09838abdf78b2"
+    },
+    "mesoscope": {
+      "qscore": "72e16a31ea4213cf09ceadf2d27e899b3a972a7dca5c7d394cdb747835dd58e3",
+      "hcrd_8": "9f6181c1038a783fc94890259a030ea2b2ce16c01a8d512e532399f7214bda72"
+    }
+  }
+}

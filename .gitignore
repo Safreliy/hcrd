@@ -22,5 +22,6 @@ paper/*.fls
 paper/*.log
 paper/*.out
 paper/main.pdf
+paper/supplement.pdf
 paper/qa*/
 texput.log

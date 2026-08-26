@@ -1,23 +1,30 @@
 # Finite-sample chord-lobe recovery
 
-## First-failure review
+## Selection obligation
 
-First failure: the earlier recovery corollary assumed that the desired points
-were already the first HCRD knot set.
+Reconstruction conditional on a supplied knot set does not itself show that
+noisy HCRD selects that set.  A generative selection result therefore assumes
+alternating active curvature blocks, a sampled join, a two-segment minimum
+lobe width, and an active-curvature margin relative to a simultaneous noise
+threshold.  Exact knot recovery is then separated from latent-baseline error:
+the retained knot ordinates still contain sample noise, which is controlled by
+a second maximum-noise event.
 
-Why it matters: this proves reconstruction conditional on selection, but does
-not give a generative condition under which noisy HCRD selects the points.
+## Approximate-join selection
 
-Precise question: which observable curvature pattern makes the centred knot
-walk recover every chord boundary with finite-sample probability at least
-`1-delta`?
+Weakening exact joins to `|kappa| <= eta` does not necessarily make an observed
+join inactive at the noise-only threshold `tau`.  Inactivity is nevertheless
+unnecessary for the centred minimum-curvature rule. Under
+`gamma > eta + 2 tau`, an observed join is strictly smaller than both adjacent
+active curvatures. If its sign matches the left block, the walk selects it as
+the smaller left side of the next transition; if its sign matches the right
+block, it is the smaller right side of the preceding transition. If it is
+inactive, the isolated-inactive rule selects it directly. Therefore every
+threshold from `tau` through `eta + tau` is valid, including the original
+noise-only implementation.
 
-Repair: require alternating active curvature blocks, a single sampled zero at
-each boundary, a two-segment minimum lobe width, and an active-curvature margin
-strictly greater than twice a simultaneous noise threshold.
-
-Next likely risk: confusing exact knot recovery with exact latent-baseline
-recovery when the retained knot ordinates themselves contain noise.
+The algorithm does not need `eta`, but a data-derived recovery certificate
+requires a separate simultaneous upper-confidence bound for it.
 
 ## Claim signature
 
@@ -54,6 +61,18 @@ L5 + L6
 
 L1 + L6 + union bound
   -> theorem probability >= 1-delta
+
+A4 approximate joins satisfy |kappa| <= eta
+  + L1
+  -> L7 observed joins have magnitude <= eta+tau
+
+A5 gamma > eta + 2 tau
+  + L1
+  -> L8 active curvatures exceed eta+tau, retain their signs,
+        and are strictly larger than observed joins
+
+L7 + L8 + centred minimum-magnitude transition rule + A2 + A3 + L6
+  -> approximate-join corollary with the same recovery and error bounds
 ```
 
 ## Counterexample ledger
@@ -74,8 +93,10 @@ Conclusion failure: the intended join is displaced by one sample.
 Status: CTR.
 
 Minimal repaired statement: require a single inactive sampled curvature
-between opposite active blocks, or replace exact boundary recovery by a
-margin-dependent localization result for unsampled crossings.
+between opposite active blocks. For joins bounded by `eta`, require
+`gamma > eta + 2 tau`; both the noise-only threshold `tau` and the conservative
+join-inactivating threshold `eta + tau` then recover the join. Otherwise replace
+exact boundary recovery by a separately defined localization result.
 
 Other necessary boundaries:
 

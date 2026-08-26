@@ -3,13 +3,13 @@
 ## Tier 1: implementation audit
 
 ```bash
-python -m pip install -e ".[dev,comparisons]"
+python -m pip install -e ".[dev,comparisons,lcms]"
 python -m pytest -q
 python examples/quickstart.py
 python scripts/verify_release.py
 ```
 
-Expected unit-test result for this snapshot: `172 passed`.
+Expected unit-test result for this snapshot: `179 passed`.
 
 ## Tier 2: synthetic and theorem-linked studies
 
@@ -18,6 +18,8 @@ These runs need no external signal dataset:
 ```bash
 python experiments/run_recovery_phase_diagram.py
 python experiments/generate_recovery_phase_figure.py
+python experiments/run_approximate_join_phase.py
+python experiments/generate_approximate_join_phase_figure.py
 python experiments/run_synthetic_benchmark.py
 python experiments/run_external_comparison.py --trials 50 --output results/external_comparison_v02
 python experiments/run_external_comparison.py --trials 50 --noise 0 --suite exact --output results/external_comparison_itd_c2
@@ -35,6 +37,12 @@ all eight cells with `gamma/tau > 2`; smallest cellwise 95% Wilson lower bound
 0.9962. The joint knot-and-reconstruction certificate has minimum probability
 0.9980 above the boundary. Compact outputs are in
 `results/recovery_phase_r1/`.
+
+Expected approximate-join result: 162,000 unequal-amplitude signals; exact
+recovery in all 72,000 draws satisfying `gamma/tau > eta/tau + 2` under both
+the join-inactivating and noise-only tolerances; smallest cellwise 95% Wilson
+lower bound 0.9962 and zero theorem-implication violations. Compact outputs are
+in `results/approximate_join_phase_r1/`.
 
 Expected rank-aware continuum audit: affine-residual rank 127, exact
 projected-norm quantile 12.421816, direct projected-norm exceedance 0.05074 in
@@ -77,6 +85,11 @@ python experiments/download_ms_metrics_e2.py
 python experiments/run_ms_metrics_e2.py extract-dataset --help
 python experiments/run_ms_metrics_e2.py fit-evaluate --help
 python experiments/run_ms_metrics_e2_matched_capacity.py --bootstrap 10000
+python experiments/run_ms_metrics_e2_refit_sensitivity.py --help
+python experiments/run_ms_metrics_e2_file_group_sensitivity.py --help
+python experiments/run_qscore_implementation_sensitivity.py extract-min5 --help
+python experiments/run_qscore_implementation_sensitivity.py evaluate --bootstrap 10000
+python experiments/generate_revision_sensitivity_artifacts.py
 ```
 
 Expected primary AP results:
@@ -90,6 +103,33 @@ The Holm-adjusted primary value is 0.000400 in both directions. Exact source
 ZIP hashes, repository commit, labels, runner hash, compact models, and
 statistics are included. Raw mzML and multi-gigabyte per-file arrays are not.
 See `docs/ms_metrics_e2_protocol.md` and `reports/ms_metrics_e2.md`.
+
+The qscore implementation sensitivity evaluates the current two medians, the
+authors' five-point minimum, an author-like five-summary version, and a
+seven-variable robust summary. Across both transfer directions, HCRD-8 adds
+0.0765 to 0.1517 AP over the identical qscore variant, and all eight paired
+95% intervals remain positive (maximum Holm-adjusted bootstrap value 0.0020). See
+`docs/qscore_implementation_sensitivity_protocol.md` and
+`reports/qscore_implementation_sensitivity.md`.
+
+The source-refit sensitivity uses 1,000 paired 60-second RT-block bootstrap
+replicates and 300 replicates at 30 and 120 seconds. The acquisition-file
+sensitivity removes ten deterministic file groups, recomputes qscore and the
+full HCRD-8 aggregation, and refits both directions. See
+`docs/ms_metrics_e2_refit_sensitivity_protocol.md` and
+`reports/ms_metrics_e2_refit_sensitivity.md` for the reproduced intervals and
+delete-group ranges. Source-refit mean differences and percentile 95% intervals
+for Falkor to MESOSCOPE / MESOSCOPE to Falkor are:
+
+- 30 s: `0.108739 [-0.010481, 0.207425]` / `0.055614 [-0.067086, 0.160175]`;
+- 60 s: `0.100014 [-0.044448, 0.217858]` / `0.051523 [-0.093545, 0.174151]`;
+- 120 s: `0.088602 [-0.151378, 0.250768]` / `0.057409 [-0.080313, 0.176147]`.
+
+The mean is positive in all six designs and 80.7--96.3% of paired replicates
+are positive, but all percentile intervals cross zero. All ten file-deletion
+folds retain a positive HCRD gain:
+`[0.102994, 0.139720]` AP for Falkor to MESOSCOPE and
+`[0.051747, 0.105754]` in the reverse direction.
 
 The supplementary equal-dimensional sensitivity analysis compares HCRD-8+Q
 with a Gaussian smoothing/derivative/curvature bank of the same 2,847-variable

@@ -4,7 +4,8 @@ Hard HCRD knot coordinates are discontinuous.  This module instead computes
 ordinary zero-dimensional superlevel persistence on the path of positive and
 negative discrete curvatures.  The unique essential component is represented
 by its birth height; all finite bars use the usual bottleneck metric.  Peak
-indices are metadata only and deliberately do not enter the stable metric.
+indices are metadata only and deliberately do not enter the signal
+pseudometric.
 """
 
 from __future__ import annotations
@@ -208,7 +209,11 @@ def curvature_persistence_distance(
     first: CurvaturePersistenceSignature,
     second: CurvaturePersistenceSignature,
 ) -> float:
-    """Signed bottleneck metric, including both essential birth heights."""
+    """Signed bottleneck distance, including both essential birth heights.
+
+    Pulling this distance back from persistence summaries to signals gives a
+    pseudometric because distinct signals can have the same summaries.
+    """
 
     return max(
         bottleneck_distance(first.positive, second.positive),

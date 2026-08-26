@@ -61,7 +61,7 @@ finite bar of the same sign for (z); it cannot disappear into the diagonal.
 | D2 | DEF | Interior path (P) and PL extension of vertex functions |
 | D3 | DEF | (u_y^+=(D_xy)_+), (u_y^-=(-D_xy)_+) |
 | D4 | DEF | Finite superlevel diagrams and essential birth (M(u)) |
-| D5 | DEF | Signed metric (d_{\rm SC}) |
+| D5 | DEF | Signed-summary distance and signal pseudometric (d_{\rm SC}) |
 | L1 | LEM | (\|D_xv\|_\infty\le C_x\|v\|_\infty) with the stated exact row-sum constant |
 | L2 | LEM | Positive-part map is 1-Lipschitz in (\ell_\infty) |
 | EXT1 | EXT | Persistence-diagram stability: (d_B(\operatorname{Dgm}(f),\operatorname{Dgm}(g))\le\|f-g\|_\infty) for tame continuous functions on a common triangulable space |
@@ -69,8 +69,8 @@ finite bar of the same sign for (z); it cannot disappear into the diagonal.
 | T1 | THM | Global signed-curvature persistence stability |
 | C1 | COR | Lifetime (>2C_x\varepsilon) forces a same-sign finite match |
 | C2 | COR | Addition of an affine sampled function leaves the signature invariant |
-| C3 | COR | Positive rescaling scales all birth/death values and the metric; negative rescaling swaps signs and scales by its magnitude |
-| X1 | CTR | Peak/knot coordinates cannot be appended to this metric with a global Lipschitz guarantee |
+| C3 | COR | Positive rescaling scales all birth/death values and the distance; negative rescaling swaps signs and scales by its magnitude |
+| X1 | CTR | Peak/knot coordinates cannot be appended to this pseudometric with a global Lipschitz guarantee |
 | O1 | OPEN | Statistical calibration of a lifetime threshold when the perturbation radius is estimated from data |
 
 ## Edge table
@@ -105,7 +105,7 @@ flowchart TD
   D3 --> D4
   D2 --> EXT1["EXT1 persistence stability"]
   EXT1 --> L3["L3 finite + essential split"]
-  D4 --> D5["D5 signed metric"]
+  D4 --> D5["D5 signed-summary distance"]
   L1 --> T1["T1 global stability"]
   L2 --> T1
   L3 --> T1
@@ -185,7 +185,7 @@ not part of (d_{\rm SC}), and no coordinate-Lipschitz claim is made.
 
 ## Bottleneck and OPEN obligation
 
-The deterministic metric theorem is closed.  The remaining persistence issue
+The deterministic pseudometric stability theorem is closed.  The remaining persistence issue
 is statistical, not topological: estimating a valid perturbation radius from
 noisy observations without allowing deterministic curvature to contaminate the
 noise estimate.  Until O1 is solved, a lifetime threshold based on an estimated
