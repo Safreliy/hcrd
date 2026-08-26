@@ -23,6 +23,7 @@ dev = [
 comparisons = [
   "scipy>=1.14",
   "EMD-signal>=1.6",
+  "PySDKit==0.4.54",
   "vmdpy>=0.2",
   "PyWavelets>=1.8",
   "scikit-learn>=1.6",

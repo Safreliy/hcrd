@@ -1,8 +1,8 @@
 # Hierarchical Convexity-Run Decomposition (HCRD)
 
 Reference implementation and reproducibility materials for *Hierarchical
-Convexity-Run Decomposition: Detection Theory and Cross-Study Validation for
-Interpretable Chord Lobes*.
+Convexity-Run Decomposition for Interpretable LC--MS Peak-Quality Curation:
+Finite Chord-Lobe Theory and Cross-Study Validation*.
 
 **Saveliy Baturin**  
 Independent Researcher
@@ -35,9 +35,17 @@ two independently labelled HILIC studies without target refitting.
 | Falkor to MESOSCOPE | 0.7774 | 0.8516 | **0.8955** | +0.1181 [0.0613, 0.1781] |
 | MESOSCOPE to Falkor | 0.7984 | 0.8446 | **0.8990** | +0.1005 [0.0559, 0.1470] |
 
-The Holm-adjusted p-value was 0.00040 in both directions. On the conditionally
-labelled Pttime subset, HCRD-8+Q achieved residual-error AP 0.5085, compared
-with 0.0391 for qscore and 0.2845 for HCRD-1+Q. On the independent TARDIS/FAME
+The score is an independent global-window reimplementation of the published
+two-component definition. The Holm-adjusted p-value was 0.00040 in both
+directions. HCRD-8 had positive AP differences over HCRD-1 in both transfers,
+with multiplicity-adjusted support in one. An equal-dimensional 2847-variable
+Gaussian-derivative control tied HCRD-8 in Falkor-to-MESOSCOPE; HCRD-8 exceeded
+it by 0.1175 AP in the reverse transfer (95% CI [0.0624, 0.1654]). On the
+conditionally labelled Pttime subset, HCRD-8+Q achieved residual-error AP
+0.5085, compared
+with 0.0391 for qscore and 0.2845 for HCRD-1+Q. At 1%, 5%, and 10% review
+budgets it retrieved 4, 7, and 8 of 17 bad cases, versus 0, 0, and 1 for
+qscore. On the independent TARDIS/FAME
 shift, HCRD-8+Q improved AP by 0.0725 in point estimate, while the confidence
 interval crossed zero and a compact conventional feature bank was point-best.
 These results identify pre-bounded compact-lobe curation as the supported
@@ -91,6 +99,7 @@ python -m pip install -e ".[dev,lcms]"
 python experiments/download_ms_metrics_e2.py
 python experiments/run_ms_metrics_e2.py extract-dataset --help
 python experiments/run_ms_metrics_e2.py fit-evaluate --help
+python experiments/run_ms_metrics_e2_matched_capacity.py --help
 ```
 
 The downloader verifies the official archives and pinned source revision. Raw

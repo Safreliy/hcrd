@@ -137,6 +137,29 @@ def emd_residue(signal: ArrayLike, x: ArrayLike | None = None) -> NDArray[np.flo
     return np.asarray(residue, dtype=float)
 
 
+def itd_residue(signal: ArrayLike, *, maximum_components: int = 10) -> NDArray[np.float64]:
+    """Return the final baseline from PySDKit's ITD implementation.
+
+    ITD operates on an ordered, uniformly sampled series; unlike HCRD, this
+    public implementation does not accept an irregular sampling grid.
+    """
+
+    from pysdkit import ITD
+
+    y = np.asarray(signal, dtype=float)
+    if y.ndim != 1 or y.size < 4 or not np.all(np.isfinite(y)):
+        raise ValueError("signal must be finite, one-dimensional, and length >= 4")
+    if maximum_components < 1:
+        raise ValueError("maximum_components must be positive")
+    components = np.asarray(ITD(N_max=maximum_components).fit_transform(y), dtype=float)
+    if components.ndim != 2 or components.shape[1] != y.size:
+        raise RuntimeError("ITD returned an invalid component array")
+    reconstruction_error = float(np.max(np.abs(y - np.sum(components, axis=0))))
+    if reconstruction_error > 1e-8 * max(1.0, float(np.max(np.abs(y)))):
+        raise RuntimeError("ITD component reconstruction failed")
+    return np.asarray(components[-1], dtype=float)
+
+
 def ceemdan_slow_tail_path(
     signal: ArrayLike,
     x: ArrayLike | None = None,

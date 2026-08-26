@@ -17,7 +17,12 @@ sys.path.insert(0, str(PROJECT / "src"))
 
 from hcrd.baselines import gaussian_smooth  # noqa: E402
 from hcrd.core import decompose  # noqa: E402
-from hcrd.external_baselines import emd_residue, l1_trend_filter_path, vmd_low_frequency  # noqa: E402
+from hcrd.external_baselines import (  # noqa: E402
+    emd_residue,
+    itd_residue,
+    l1_trend_filter_path,
+    vmd_low_frequency,
+)
 from hcrd.metrics import (  # noqa: E402
     exact_sign_test,
     mse,
@@ -85,6 +90,7 @@ def main() -> None:
                     "hcrd_thresholded": ("z=3.5", thresholded),
                     "hcrd_adaptive_guided": ("pilot-calibrated", adaptive),
                     "emd_residue": ("default", emd_residue(signal.observed, signal.x)),
+                    "itd_residue": ("PySDKit-0.4.54;N_max=10", itd_residue(signal.observed)),
                     "vmd_low_mode": ("K=5;alpha=2000", vmd_low_frequency(signal.observed)),
                     "l1_trend_oracle": (l1_parameter, l1_estimate),
                     "gaussian_oracle": (gaussian_parameter, gaussian_estimate),

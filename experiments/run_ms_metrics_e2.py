@@ -90,7 +90,7 @@ def _retention_time_seconds(spectrum: dict) -> float | None:
 def global_window_qscore(
     retention_time: NDArray[np.float64], intensity: NDArray[np.float64]
 ) -> NDArray[np.float64]:
-    """Reproduce the source paper's qscore formula on one fixed global box."""
+    """Independent global-window implementation of the two-component score."""
 
     if retention_time.size < 5:
         return np.asarray([np.nan, np.nan])

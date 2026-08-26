@@ -312,7 +312,7 @@ entropy-free calibration. Every unit residual template lies in the deterministic
 affine-residual subspace, so the continuous supremum is bounded by a projected
 Gaussian norm with an exact chi-square law. This reduces the 129-sample
 80%-power sufficient norm from 285.1103 (safe Dudley certificate) to 13.2634
-with the exact chi-square quantile, or 13.9566 using the closed-form
+with the exact projected-norm quantile, or 13.9566 using the closed-form
 Laurent--Massart threshold. The original entropy theorem is retained because it
 can be sharper for genuinely low-complexity classes and supplies covering-based
 approximation/local geometry; the rank theorem closes the practical constant

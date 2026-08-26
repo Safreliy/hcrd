@@ -8,14 +8,19 @@ refitting to the independently acquired Pttime selected subset. The primary
 operational task was to rank the 17 residual `Bad` features among 348 `Good`
 features that the source two-variable model had already selected.
 
-| Representation | AP-bad | ROC AUC-bad | Bad in top 5% (19) |
-|---|---:|---:|---:|
-| qscore | 0.0391 | 0.3403 | 0/17 |
-| DOMAIN+Q | 0.3873 | 0.8115 | 6/17 |
-| HCRD-1+Q | 0.2845 | 0.7792 | 5/17 |
-| **HCRD-8+Q** | **0.5085** | **0.8646** | **7/17** |
-| HCRD geometry+Q | 0.3540 | 0.8081 | 6/17 |
-| Area/energy+Q | 0.1367 | 0.7194 | 3/17 |
+| Representation | AP-bad | ROC AUC-bad | Top 1% (4) | Top 5% (19) | Top 10% (37) |
+|---|---:|---:|---:|---:|---:|
+| qscore | 0.0391 | 0.3403 | 0 | 0 | 1 |
+| DOMAIN+Q | 0.3873 | 0.8115 | 4 | 6 | 6 |
+| HCRD-1+Q | 0.2845 | 0.7792 | 2 | 5 | 7 |
+| **HCRD-8+Q** | **0.5085** | **0.8646** | **4** | **7** | **8** |
+| HCRD geometry+Q | 0.3540 | 0.8081 | 3 | 6 | 7 |
+| Area/energy+Q | 0.1367 | 0.7194 | 1 | 3 | 5 |
+
+At the 5% budget, HCRD-8+Q has 36.8% queue precision and retrieves 41.2% of
+the residual bad cases. To retrieve at least 9 of 17 cases, HCRD-8+Q requires
+44 reviews versus 284 for qscore, an 84.5% workload reduction at the same
+integer recall target.
 
 The 10,000-replicate paired class-stratified bootstrap gave:
 
@@ -51,6 +56,8 @@ peak-picking comparison.
 - runner: `experiments/run_pttime_e5.py`;
 - compact result: `results/pttime_e5/evaluation/results.json`;
 - target predictions: `results/pttime_e5/evaluation/predictions.csv`;
+- review-utility output: `results/pttime_e5/evaluation/review_utility.json`;
+- utility runner: `experiments/analyze_pttime_review_utility.py`;
 - source repository commit: `491deaf1d5f27f9d276e58acb4c1dfca2a2e21b9`;
 - ST002077 archive SHA-256:
   `6e06eed561c82a5d4667b88089a37ea620b2c7cedc7a35fa46f9bd5d727d5040`;

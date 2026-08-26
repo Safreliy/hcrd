@@ -1,0 +1,320 @@
+{
+  "n": 365,
+  "bad": 17,
+  "budgets": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "models": {
+    "qscore": {
+      "budget_metrics": [
+        {
+          "budget_fraction": 0.01,
+          "reviewed": 4,
+          "bad_captured": 0,
+          "recall_bad": 0.0,
+          "precision_bad": 0.0,
+          "bad_per_100_reviews": 0.0,
+          "reviews_per_bad_found": null
+        },
+        {
+          "budget_fraction": 0.05,
+          "reviewed": 19,
+          "bad_captured": 0,
+          "recall_bad": 0.0,
+          "precision_bad": 0.0,
+          "bad_per_100_reviews": 0.0,
+          "reviews_per_bad_found": null
+        },
+        {
+          "budget_fraction": 0.1,
+          "reviewed": 37,
+          "bad_captured": 1,
+          "recall_bad": 0.058823529411764705,
+          "precision_bad": 0.02702702702702703,
+          "bad_per_100_reviews": 2.7027027027027026,
+          "reviews_per_bad_found": 37.0
+        }
+      ],
+      "fixed_recall_workload": {
+        "0.25": {
+          "required_bad": 5,
+          "reviewed": 181,
+          "workload_fraction": 0.4958904109589041,
+          "workload_reduction_vs_full_review": 0.5041095890410958
+        },
+        "0.5": {
+          "required_bad": 9,
+          "reviewed": 284,
+          "workload_fraction": 0.7780821917808219,
+          "workload_reduction_vs_full_review": 0.22191780821917806
+        },
+        "0.75": {
+          "required_bad": 13,
+          "reviewed": 333,
+          "workload_fraction": 0.9123287671232877,
+          "workload_reduction_vs_full_review": 0.0876712328767123
+        }
+      }
+    },
+    "DOMAIN+Q": {
+      "budget_metrics": [
+        {
+          "budget_fraction": 0.01,
+          "reviewed": 4,
+          "bad_captured": 4,
+          "recall_bad": 0.23529411764705882,
+          "precision_bad": 1.0,
+          "bad_per_100_reviews": 100.0,
+          "reviews_per_bad_found": 1.0
+        },
+        {
+          "budget_fraction": 0.05,
+          "reviewed": 19,
+          "bad_captured": 6,
+          "recall_bad": 0.35294117647058826,
+          "precision_bad": 0.3157894736842105,
+          "bad_per_100_reviews": 31.57894736842105,
+          "reviews_per_bad_found": 3.1666666666666665
+        },
+        {
+          "budget_fraction": 0.1,
+          "reviewed": 37,
+          "bad_captured": 6,
+          "recall_bad": 0.35294117647058826,
+          "precision_bad": 0.16216216216216217,
+          "bad_per_100_reviews": 16.216216216216218,
+          "reviews_per_bad_found": 6.166666666666667
+        }
+      ],
+      "fixed_recall_workload": {
+        "0.25": {
+          "required_bad": 5,
+          "reviewed": 7,
+          "workload_fraction": 0.019178082191780823,
+          "workload_reduction_vs_full_review": 0.9808219178082191
+        },
+        "0.5": {
+          "required_bad": 9,
+          "reviewed": 50,
+          "workload_fraction": 0.136986301369863,
+          "workload_reduction_vs_full_review": 0.863013698630137
+        },
+        "0.75": {
+          "required_bad": 13,
+          "reviewed": 83,
+          "workload_fraction": 0.2273972602739726,
+          "workload_reduction_vs_full_review": 0.7726027397260273
+        }
+      }
+    },
+    "HCRD-1+Q": {
+      "budget_metrics": [
+        {
+          "budget_fraction": 0.01,
+          "reviewed": 4,
+          "bad_captured": 2,
+          "recall_bad": 0.11764705882352941,
+          "precision_bad": 0.5,
+          "bad_per_100_reviews": 50.0,
+          "reviews_per_bad_found": 2.0
+        },
+        {
+          "budget_fraction": 0.05,
+          "reviewed": 19,
+          "bad_captured": 5,
+          "recall_bad": 0.29411764705882354,
+          "precision_bad": 0.2631578947368421,
+          "bad_per_100_reviews": 26.31578947368421,
+          "reviews_per_bad_found": 3.8
+        },
+        {
+          "budget_fraction": 0.1,
+          "reviewed": 37,
+          "bad_captured": 7,
+          "recall_bad": 0.4117647058823529,
+          "precision_bad": 0.1891891891891892,
+          "bad_per_100_reviews": 18.91891891891892,
+          "reviews_per_bad_found": 5.285714285714286
+        }
+      ],
+      "fixed_recall_workload": {
+        "0.25": {
+          "required_bad": 5,
+          "reviewed": 12,
+          "workload_fraction": 0.03287671232876712,
+          "workload_reduction_vs_full_review": 0.9671232876712329
+        },
+        "0.5": {
+          "required_bad": 9,
+          "reviewed": 46,
+          "workload_fraction": 0.12602739726027398,
+          "workload_reduction_vs_full_review": 0.873972602739726
+        },
+        "0.75": {
+          "required_bad": 13,
+          "reviewed": 129,
+          "workload_fraction": 0.35342465753424657,
+          "workload_reduction_vs_full_review": 0.6465753424657534
+        }
+      }
+    },
+    "HCRD-8+Q": {
+      "budget_metrics": [
+        {
+          "budget_fraction": 0.01,
+          "reviewed": 4,
+          "bad_captured": 4,
+          "recall_bad": 0.23529411764705882,
+          "precision_bad": 1.0,
+          "bad_per_100_reviews": 100.0,
+          "reviews_per_bad_found": 1.0
+        },
+        {
+          "budget_fraction": 0.05,
+          "reviewed": 19,
+          "bad_captured": 7,
+          "recall_bad": 0.4117647058823529,
+          "precision_bad": 0.3684210526315789,
+          "bad_per_100_reviews": 36.84210526315789,
+          "reviews_per_bad_found": 2.7142857142857144
+        },
+        {
+          "budget_fraction": 0.1,
+          "reviewed": 37,
+          "bad_captured": 8,
+          "recall_bad": 0.47058823529411764,
+          "precision_bad": 0.21621621621621623,
+          "bad_per_100_reviews": 21.62162162162162,
+          "reviews_per_bad_found": 4.625
+        }
+      ],
+      "fixed_recall_workload": {
+        "0.25": {
+          "required_bad": 5,
+          "reviewed": 5,
+          "workload_fraction": 0.0136986301369863,
+          "workload_reduction_vs_full_review": 0.9863013698630136
+        },
+        "0.5": {
+          "required_bad": 9,
+          "reviewed": 44,
+          "workload_fraction": 0.12054794520547946,
+          "workload_reduction_vs_full_review": 0.8794520547945206
+        },
+        "0.75": {
+          "required_bad": 13,
+          "reviewed": 80,
+          "workload_fraction": 0.2191780821917808,
+          "workload_reduction_vs_full_review": 0.7808219178082192
+        }
+      }
+    },
+    "HCRD geometry+Q": {
+      "budget_metrics": [
+        {
+          "budget_fraction": 0.01,
+          "reviewed": 4,
+          "bad_captured": 3,
+          "recall_bad": 0.17647058823529413,
+          "precision_bad": 0.75,
+          "bad_per_100_reviews": 75.0,
+          "reviews_per_bad_found": 1.3333333333333333
+        },
+        {
+          "budget_fraction": 0.05,
+          "reviewed": 19,
+          "bad_captured": 6,
+          "recall_bad": 0.35294117647058826,
+          "precision_bad": 0.3157894736842105,
+          "bad_per_100_reviews": 31.57894736842105,
+          "reviews_per_bad_found": 3.1666666666666665
+        },
+        {
+          "budget_fraction": 0.1,
+          "reviewed": 37,
+          "bad_captured": 7,
+          "recall_bad": 0.4117647058823529,
+          "precision_bad": 0.1891891891891892,
+          "bad_per_100_reviews": 18.91891891891892,
+          "reviews_per_bad_found": 5.285714285714286
+        }
+      ],
+      "fixed_recall_workload": {
+        "0.25": {
+          "required_bad": 5,
+          "reviewed": 10,
+          "workload_fraction": 0.0273972602739726,
+          "workload_reduction_vs_full_review": 0.9726027397260274
+        },
+        "0.5": {
+          "required_bad": 9,
+          "reviewed": 66,
+          "workload_fraction": 0.18082191780821918,
+          "workload_reduction_vs_full_review": 0.8191780821917808
+        },
+        "0.75": {
+          "required_bad": 13,
+          "reviewed": 90,
+          "workload_fraction": 0.2465753424657534,
+          "workload_reduction_vs_full_review": 0.7534246575342466
+        }
+      }
+    },
+    "Area/energy+Q": {
+      "budget_metrics": [
+        {
+          "budget_fraction": 0.01,
+          "reviewed": 4,
+          "bad_captured": 1,
+          "recall_bad": 0.058823529411764705,
+          "precision_bad": 0.25,
+          "bad_per_100_reviews": 25.0,
+          "reviews_per_bad_found": 4.0
+        },
+        {
+          "budget_fraction": 0.05,
+          "reviewed": 19,
+          "bad_captured": 3,
+          "recall_bad": 0.17647058823529413,
+          "precision_bad": 0.15789473684210525,
+          "bad_per_100_reviews": 15.789473684210526,
+          "reviews_per_bad_found": 6.333333333333333
+        },
+        {
+          "budget_fraction": 0.1,
+          "reviewed": 37,
+          "bad_captured": 5,
+          "recall_bad": 0.29411764705882354,
+          "precision_bad": 0.13513513513513514,
+          "bad_per_100_reviews": 13.513513513513514,
+          "reviews_per_bad_found": 7.4
+        }
+      ],
+      "fixed_recall_workload": {
+        "0.25": {
+          "required_bad": 5,
+          "reviewed": 34,
+          "workload_fraction": 0.09315068493150686,
+          "workload_reduction_vs_full_review": 0.9068493150684931
+        },
+        "0.5": {
+          "required_bad": 9,
+          "reviewed": 93,
+          "workload_fraction": 0.2547945205479452,
+          "workload_reduction_vs_full_review": 0.7452054794520548
+        },
+        "0.75": {
+          "required_bad": 13,
+          "reviewed": 185,
+          "workload_fraction": 0.5068493150684932,
+          "workload_reduction_vs_full_review": 0.4931506849315068
+        }
+      }
+    }
+  },
+  "source_predictions": "results/pttime_e5/evaluation/predictions.csv",
+  "ranking": "descending bad score; stable CSV-order tie handling",
+  "scope": "Conditional utility within the 365 source-model-selected, unambiguous Pttime features."
+}

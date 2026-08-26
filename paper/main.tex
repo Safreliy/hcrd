@@ -5,6 +5,9 @@
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 \renewcommand{\bibfont}{\footnotesize}
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}
+\floatname{algorithm}{Algorithm}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
@@ -12,8 +15,9 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{remark}{Remark}
 
-\title{Hierarchical Convexity-Run Decomposition:\
-Detection Theory and Cross-Study Validation for Interpretable Chord Lobes}
+\title{Hierarchical Convexity-Run Decomposition for Interpretable
+LC--MS Peak-Quality Curation:\
+Finite Chord-Lobe Theory and Cross-Study Validation}
 \author{Saveliy Baturin\\Independent Researcher}
 \date{Draft \today}
 
@@ -22,31 +26,30 @@ Detection Theory and Cross-Study Validation for Interpretable Chord Lobes}
 
 \begin{abstract}
 We introduce Hierarchical Convexity-Run Decomposition (HCRD), a finite
-nonlinear geometric transform for sampled signals.  Each level partitions the
-current graph into maximal runs of one discrete-curvature sign, replaces every
-run by its endpoint chord, and recurses only on retained knots; signed
-deviations form localized lobes.  We prove exact reconstruction, nested finite
-termination, linear total work, affine equivariance, variation control, and
-local decision-cell stability.  Because the hard knot map is globally
-discontinuous, we distinguish it from stable proximal-curvature and
-signed-curvature-persistence companions.  For fixed or independent-guide lobe
-dictionaries, Gaussian scan theory gives finite-sample detection and
-localisation bounds with matching $\sqrt{\log M}$ lower rates.  A projected
-$\chi$ norm provides exact rank-aware calibration for a continuous
-location--scale--asymmetry family; independent replicates and buffered Gaussian
-$m$-dependent splits provide valid adaptive tests with nested-tree family-wise
-error control.  We evaluate the predicted application class: expert curation of pre-bounded
-LC--MS extracted-ion chromatograms.  In frozen no-refit transfers between two
-fully labelled studies, HCRD-8 plus the published quality score improved
-average precision by 0.1181 and 0.1005 (Holm-adjusted $p=0.00040$ in both) and
-exceeded HCRD-1.  A third, conditionally labelled study showed strong
-residual-error reranking.  Under a larger independent TARDIS/FAME laboratory
-shift, HCRD-8 improved the source score by 0.0725 only in point estimate, tied
-HCRD-1, and did not beat a compact conventional feature bank. Results on
-additional benchmarks further delimit the application domain. Together, these results
-identify a specific application domain for a simple, interpretable chord-lobe
-representation; broader signal-processing tasks did not show a consistent
-state-of-the-art advantage.
+nonlinear geometric transform, and evaluate it for expert curation of
+pre-bounded LC--MS extracted-ion chromatograms.  Each level partitions the
+current graph into runs of one discrete-curvature sign, replaces each run by
+its endpoint chord, and recurses only on retained knots; signed deviations form
+localized lobes.  We give complete pseudocode and prove exact reconstruction,
+nested termination, linear knot-only work, affine equivariance, variation
+control, and local and stochastic hierarchy-agreement guarantees.  The hard
+knot map is globally discontinuous, motivating stable proximal-curvature and
+signed-curvature-persistence companions.  Supporting Gaussian inference for
+fixed or independent-guide templates provides finite-sample scan bounds and a
+rank-aware projected-$\chi$ envelope for continuous families.  In frozen
+no-refit transfers between two fully labelled studies, HCRD-8 plus an
+independent reimplementation of a published two-component quality score
+improved average precision by 0.1181 and 0.1005 (Holm-adjusted $p=0.00040$ in
+both).  HCRD-8 had positive point differences over HCRD-1 in both directions,
+with multiplicity-adjusted support in one.  In a conditionally labelled study,
+it placed 7 of 17 residual bad features in the first 5\% of a review queue,
+versus none for the reimplemented score.  Under a larger independent
+TARDIS/FAME laboratory shift, the HCRD-8 gain was not confirmed and a compact
+conventional bank was point-best.  An equal-dimensional Gaussian-derivative
+control tied HCRD in one transfer, whereas HCRD was superior in the reverse.
+These results identify a specific domain
+for a simple, interpretable chord-lobe representation without claiming
+universal signal-processing superiority.
 \end{abstract}
 
 \section{Introduction}
@@ -92,6 +95,47 @@ geometric sign, stability, limitation, and calibrated-inference results---not
 the generic idea of using curvature, inflection points, chord lobes, or a
 nonlinear component hierarchy.
 
+Table~\ref{tab:method-comparison} makes the closest distinctions explicit.
+ITD is the nearest chord-baseline recursion, whereas DPT is the nearest exact
+nonlinear pulse hierarchy; neither uses the HCRD curvature-run knot rule.
+Trend filtering supplies the closest globally stable piecewise-linear
+estimator, but it solves a penalized optimization problem rather than a finite
+run walk.
+
+\begin{table}[H]
+\centering
+\caption{Conceptual comparison with the closest one-dimensional methods.
+``Exact'' means that the native components plus the final baseline reconstruct
+the input. Costs are nominal algorithmic costs, not the runtime experiment.}
+\label{tab:method-comparison}
+\scriptsize
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllll}
+\toprule
+Method & Selection primitive & Baseline/detail & Exact & Nested & Nominal work & Stability/grid \\
+\midrule
+HCRD & curvature-sign runs & endpoint chords & yes & knot subsets & $O(n)$ total sparse & hard-discontinuous; irregular $x$ \\
+ITD \citep{frei2007itd} & extrema updates & linear baseline/rotations & yes & recursive baseline & $O(n)$ per level & hard extrema; ordered grid \\
+LULU/DPT \citep{anguelov2010lulu,laurie2011roadmaker} & order/flat zones & constant pulses & yes & size hierarchy & $O(n)$ Roadmaker & order-based sequence \\
+RDP \citep{douglas1973reduction} & maximum chord error & polygonal approximation & with residual & split tree & $O(n^2)$ worst case & hard ties; arbitrary coordinates \\
+$\ell_1$ trend filtering \citep{kim2009trend} & penalized curvature & piecewise-linear fit & with residual & not generally & convex optimization & continuous fit; irregular variants \\
+Gaussian scale space \citep{babaud1986scale} & convolution scale & smoothed signals & scale differences & scale-ordered & FFT/direct filtering & continuous; regular-grid standard \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The LC--MS use case is also distinct from end-to-end peak picking.  PeakBot
+detects local maxima and classifies two-dimensional chromatographic regions
+with a convolutional network \citep{bueschl2022peakbot}; PeakDetective combines
+an autoencoder with active learning for dataset-specific curation
+\citep{stancliffe2023peakdetective}; TMSQE learns targeted peak-quality
+embeddings \citep{yang2024tmsqe}; and MassCube integrates feature detection,
+evaluation, grouping, and annotation \citep{yu2025masscube}.  HCRD instead
+supplies transparent features for already bounded one-dimensional EICs and is
+tested here under no-target-refit transfer.  These systems therefore define the
+application landscape but are not interchangeable baselines for the present
+fixed-box question.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/method_overview.pdf}
@@ -108,29 +152,20 @@ proof and levels are not asserted to be frequency bands.}
 
 Our contributions are:
 \begin{enumerate}
-  \item a precise operator separating the historical implementation from a
-        centred inflection-localisation rule;
-  \item finite-hierarchy, sparse linear-work, geometric, and stability results;
-  \item a minimal discontinuity counterexample and explicit applicability
-        boundaries;
-  \item an impossibility theorem for continuous generic agreement and a
-        globally nonexpansive proximal companion with irregular-grid
-        certificates;
-  \item a globally stable signed-curvature persistence metric that replaces
-        unstable hard coordinates by same-sign lobe lifetimes;
-  \item common-scale affine-null and multilevel hierarchy-agreement
-        certificates plus an unconditional stochastic-margin bridge, a
-        rate-optimal finite lobe-dictionary scan, exact ambient-rank calibration
-        of a continuous triangular family, and exact replicate/buffered-split
-        tests with nested-tree family-wise control;
-  \item dimensionless lobe fullness and quadratic concentration descriptors,
-        with area/energy treated as hierarchy summaries rather than as the
-        decomposition itself;
-  \item bidirectional cross-study transfer on expert-labelled LC--MS
-        mass-feature quality, conditional residual-error reranking on Pttime,
-        an independent double holdout, ablations comparing one level, the full
-        hierarchy, scalar geometry, and area summaries, and evaluations in
-        adjacent and cross-domain tasks.
+  \item a complete finite algorithm for the centred curvature-run operator,
+        with nested-hierarchy, exact-reconstruction, sparse linear-work, affine,
+        variation, and interpretable lobe-shape results;
+  \item HCRD-specific local, deterministic-noise, and stochastic
+        hierarchy-agreement guarantees, together with a sharp global
+        discontinuity boundary and stable proximal/persistence companions;
+  \item supporting inference for fixed or independently guided HCRD-shaped
+        templates: finite-sample scans, a matching-order $\sqrt{\log M}$
+        benchmark over an orthonormal subclass, projected-norm control for a
+        continuous family, and replicate/buffered/tree procedures under explicit
+        independence assumptions;
+  \item frozen cross-study LC--MS validation, multilevel and area ablations,
+        a matched-capacity conventional control, operational review-queue
+        analysis, and external limitation studies.
 \end{enumerate}
 
 \section{Definition of the transform}
@@ -140,11 +175,54 @@ Define divided slopes and discrete curvatures by
 s_i(y)=\frac{y_{i+1}-y_i}{x_{i+1}-x_i},\qquad
 \kappa_i(y)=s_i(y)-s_{i-1}(y).
 \end{equation}
-Starting at the left endpoint, the knot walk passes insignificant curvatures
-and active curvatures of one sign.  A sampled zero between opposite signs, or
-otherwise the first opposite active curvature, closes the run.  The process is
-restarted at that knot.  Let $K(y)$ denote the resulting knot set and let $Ty$
-be linear interpolation through $(x_k,y_k)$ for $k\in K(y)$.
+For absolute and relative tolerances $a,r\ge0$, define
+\begin{equation}
+ \tau=a+r\max\{1,\max_i|s_i(y)|\}.
+\end{equation}
+A curvature is active when $|\kappa_i|>\tau$ and inactive otherwise.  The
+mathematical hard operator uses $a=r=0$; the implementation defaults to a tiny
+relative tolerance to suppress floating-point curvature on interpolated affine
+segments. Algorithm~\ref{alg:hcrd} specifies every branch of the centred rule.
+
+\begin{algorithm}[H]
+\caption{One centred HCRD hierarchy on an irregular grid}
+\label{alg:hcrd}
+\small
+\textbf{Input:} strictly increasing $x$, samples $y$, tolerances $a,r\ge0$,
+and optional depth cap $L$.  Initially $E=(0,\ldots,n-1)$.
+\begin{enumerate}
+\setlength{\itemsep}{1pt}
+\item On the current eligible list $E=(e_0,\ldots,e_{m-1})$, set
+$z_i=y_{e_i}$, $u_i=x_{e_i}$, compute divided curvatures, and compute $\tau$
+from the current divided slopes.  If $m=2$, stop.
+\item Set the local start $p=0$ and the new local knot list $K=(0)$.
+\item Let $f$ be the first active curvature index in
+$\{p+1,\ldots,m-2\}$.  If none exists, append $m-1$ to $K$ and finish this
+level.  Otherwise set the active sign to $\operatorname{sign}(\kappa_f)$,
+$\ell=f$, and scan right.
+\item Ignore inactive curvatures.  On each active curvature of the same sign,
+update $\ell$.  Let $q$ be the first active curvature of the opposite sign.  If
+no such $q$ exists, append $m-1$ and finish the level.
+\item If $q-\ell=2$, the single inactive curvature at $\ell+1$ is the sampled
+transition and the candidate is $c=\ell+1$.  At zero tolerance this is exactly
+the sampled-zero case.
+\item Otherwise set $c=\ell$ only when
+$|\kappa_\ell|<|\kappa_q|$ and $\ell\ne f$; set $c=q$ in every other case.
+Thus equal magnitudes are tied to the right, first-opposite side, and a long
+inactive plateau never creates an interior knot.
+\item Enforce strict coarsening by replacing
+$c$ with $\max\{p+2,\min(c,m-1)\}$.  Append $c$ to $K$, set $p=c$, and return
+to step 3.  The final remainder always closes at $m-1$.
+\item Map the local knots back to original indices, $E'=(e_k:k\in K)$.
+Interpolate the endpoint chords through $(x_i,y_i)$ for $i\in E'$ to obtain the
+next baseline; subtract it to obtain the signed detail.
+\item Set $E\leftarrow E'$ and repeat until $|E|=2$ or the optional cap $L$ is
+reached.  Later levels therefore use only previously retained knots.
+\end{enumerate}
+\end{algorithm}
+
+Let $K(y)$ denote the first mapped knot set and let $Ty$ be linear
+interpolation through $(x_k,y_k)$ for $k\in K(y)$.
 
 Set $b^0=y$ and recursively define
 \begin{equation}
@@ -624,8 +702,10 @@ test has power greater than $1-\beta$ uniformly over all $M$ alternatives when
 \end{equation}
 Under a uniform unknown index, every index estimator also has mean error at
 least $1-(\mu^2+\log2)/\log M$.  Thus both detection and localisation have
-critical standardised lobe norm of order $\sqrt{\log M}$; the scan is
-rate-optimal, with an explicit constant gap.
+critical standardised lobe norm of order $\sqrt{\log M}$.  Over the stated
+orthonormal subclass, the scan therefore matches the lower-bound order
+$\sqrt{\log M}$, with an explicit constant gap; this is not a minimax claim
+for every correlated HCRD dictionary.
 \end{theorem}
 \begin{proof}
 Under the null each scan coordinate is standard Gaussian, possibly correlated,
@@ -700,7 +780,7 @@ bound gives level and the unit-vector identity
 $\langle u,v\rangle=1-\|u-v\|_2^2/2$ gives the approximation factor.
 \end{proof}
 
-\begin{theorem}[Rank-aware exact continuum calibration]
+\begin{theorem}[Rank-aware projected-norm control for continuous scans]
 \label{thm:rank-scan}
 Let every $v_\theta$ be a unit vector in a fixed or independent-guide
 $q$-dimensional subspace
@@ -726,7 +806,7 @@ $r$ of $\theta_0$ with probability at least $1-\delta$ whenever
 \begin{equation}
  \mu\Delta_{\theta_0}(r)>2t_{q,\delta}.
 \end{equation}
-A closed-form, dependency-free replacement for the exact quantile is
+A closed-form, dependency-free replacement for the projected-norm quantile is
 \begin{equation}
  \bar t_{q,\alpha}=
  \sqrt{q+2\sqrt{q\log(1/\alpha)}+2\log(1/\alpha)}.
@@ -736,8 +816,11 @@ A closed-form, dependency-free replacement for the exact quantile is
 Under the affine null,
 $S_c\le\|\Pi_U e/\sigma\|_2$ by Cauchy--Schwarz, simultaneously over the
 uncountable unit-template family.  Because $U$ is fixed relative to the scoring
-noise, the squared projected norm is $\chi_q^2$.  The true-template coordinate
-is $N(\mu,1)$, giving the exact-normal power condition.  On the projected-norm
+noise, the squared projected norm is $\chi_q^2$.  Thus the $\chi_q$ quantile
+exactly calibrates the dominating projected norm and gives scan size at most
+$\alpha$; it is the scan's exact null quantile only when the template family
+attains the relevant unit-sphere directions.  The true-template coordinate
+is $N(\mu,1)$, giving the stated sufficient power condition.  On the projected-norm
 event at level $\delta$, every signed noise inner product is bounded by
 $t_{q,\delta}$; the mean score gap outside radius $r$ is at least
 $\mu\Delta_{\theta_0}(r)$, proving localisation.  The last display follows
@@ -745,7 +828,7 @@ from the Laurent--Massart chi-squared tail bound
 \citep{laurent2000adaptive}.
 \end{proof}
 
-No entropy or discretisation is needed for
+No entropy or discretisation is needed for this conservative envelope in
 Theorem~\ref{thm:rank-scan}; compact continuity supplies measurability.
 For affine residualisation on a strictly increasing grid,
 $U=\operatorname{range}(I-P)$ has $q=n-2$.  Selecting $U$ from the scoring
@@ -869,7 +952,9 @@ and general mixing therefore require additional error control.
 Let $T$ be a fixed or independent-guide finite rooted tree and associate to
 each node $v$ the intersection null $H_v$ that there is no signal anywhere in
 the subtree rooted at $v$.  Let $p_v$ be marginally valid for $H_v$ under
-arbitrary dependence.  Assign $a_{\rm root}=\alpha$ and local levels satisfying
+arbitrary dependence.  The tree and all local level allocations are
+deterministic or measurable with respect to the independent guide.  Assign
+$a_{\rm root}=\alpha$ and local levels satisfying
 \begin{equation}
  \sum_{u\in{\rm child}(v)}a_u\le a_v .
 \end{equation}
@@ -928,14 +1013,15 @@ Theorem~\ref{thm:lobe-scan}.
 We separately audited Theorem~\ref{thm:continuous-scan} on 129 samples and a
 595-template centre--width--asymmetry sieve.  In 50,000 null draws the finite
 threshold 4.332 was exceeded 22 times: empirical FWER 0.00044 with 95\%
-Wilson interval $[0.000276,0.000666]$.  Its exact-normal sufficient norm
+Wilson interval $[0.000276,0.000666]$.  Its true-template Gaussian sufficient norm
 5.1739 for $\beta=0.2$ gave empirical power 0.8773 in 10,000 draws.  For the
-complete continuum, $q=127$: the exact chi-squared threshold 12.4218 was
-exceeded in 2537/50,000 direct projected-norm draws, giving 0.05074
+complete continuum, $q=127$: the projected-norm envelope threshold 12.4218
+was exceeded in 2537/50,000 direct projected-norm draws, giving 0.05074
 ($[0.04883,0.05270]$), while the closed-form Laurent--Massart threshold
-13.1150 was exceeded with probability 0.00486.  The resulting exact-normal
+13.1150 was exceeded with probability 0.00486.  The resulting conservative
 80\%-power sufficient norm is 13.2634.  This replaces the earlier Dudley
 sufficient norm 285.1103 without treating the numerical grid as the continuum.
+These draws audit the dominating norm, not the generally smaller scan null.
 The finite sieve remains sharper because it declares only 595 templates rather
 than the full residual subspace.
 
@@ -957,9 +1043,19 @@ the final EMD residue, the lowest-frequency VMD mode, and per-signal
 oracle-tuned $\ell_1$ trend filtering.  The respective mean competitor MSEs
 were $0.0108$, $0.511$, and $0.0425$, versus zero for HCRD; every paired
 bootstrap interval was below zero and the Holm-adjusted sign-test value was
-$1.07\times10^{-14}$.  EMD and VMD settings follow their standard algorithms
-\citep{huang1998emd,dragomiretskiy2014vmd}; oracle tuning deliberately favours
-the smoothing comparators.
+$1.07\times10^{-14}$.  A supplementary direct comparison on the same 50 fixed
+draws used the final ITD baseline returned by PySDKit 0.4.54.  ITD mean MSE was
+$0.1473$; the HCRD--ITD paired difference was $-0.1473$
+($[-0.1871,-0.1085]$), with 50/50 HCRD wins and Holm-adjusted exact sign
+$p=1.24\times10^{-14}$.  EMD, VMD, and ITD settings follow their standard
+algorithms \citep{huang1998emd,dragomiretskiy2014vmd,frei2007itd}; oracle
+tuning deliberately favours the smoothing comparators.  This confirmation is
+specific to the chord-lobe class, rather than evidence of global dominance
+over ITD's time--frequency use cases.
+Although DPT is an exact nonlinear pulse decomposition, its native components
+are constant pulses and do not define a unique final chord baseline at a
+matched scale; it is therefore included in the structural comparison rather
+than assigned an artificial baseline-MSE endpoint.
 
 After that result, two fresh 100-trial noisy confirmations were prospectively
 frozen for the plug-in MAD-thresholded variant.  Table~\ref{tab:external}
@@ -1178,8 +1274,9 @@ of \citet{kumler2023picky}.  Their two-parameter logistic quality score combines
 correlation with an idealized beta-shaped peak and a residual SNR.  The source
 study found this simple model unusually robust under Falkor/MESOSCOPE transfer,
 making it a stronger and more interpretable primary comparator than a broad
-post-hoc model search.  Our qscore was independently recomputed from the raw
-mzML global feature boxes; on 1495 published Falkor features its Pearson
+post-hoc model search.  We used an independent global-window reimplementation
+of the published two-component score from the raw mzML feature boxes; on 1495
+Falkor features its Pearson
 correlations with the authors' SNR and bell-correlation values were 0.906 and
 0.789 (Spearman 0.871 and 0.805).
 
@@ -1195,6 +1292,15 @@ paired differences were 0.1181 ($[0.0613,0.1781]$) and 0.1005
 ($[0.0559,0.1470]$); both Holm-adjusted values were 0.00040.  Every prospective
 success component passed.
 
+The waveform representations were not equal in width: after fixed per-file
+aggregation, qscore had 2 variables, the conventional domain bank 336,
+HCRD-1 534, and HCRD-8 2847.  We therefore added a supplementary matched-capacity
+control, frozen before its scores were read, that expands the same 75 raw
+waveform inputs into Gaussian smoothing, first-derivative, and curvature
+channels and aggregates them to exactly 2847 variables.  Its result is
+reported separately below because it was not part of the prospective E2
+family.
+
 Multilevel HCRD also exceeded one-level HCRD in both directions, by 0.0439 and
 0.0544 AP; the second interval $[0.0076,0.0955]$ remained positive after Holm
 correction ($p=0.0372$), while the first $[-0.0167,0.1060]$ did not.  The best
@@ -1207,6 +1313,23 @@ multilevel convex-lobe information over the established minimal score, while
 the optimal compression of that hierarchy and superiority to every non-neural
 domain representation remain open.
 
+The E2 bootstrap estimand is conditional on the fitted source-study model: it
+resamples held-out target features and compares predictions from the already
+trained learners.  It therefore does not propagate source-model refitting or
+compound/adduct, $m/z$--retention-time-neighbourhood, and acquisition-file
+clustering.  The intervals quantify target-feature uncertainty under this
+transfer protocol, not the uncertainty of repeating the complete experimental
+pipeline.
+
+In the matched-capacity sensitivity analysis, the Gaussian-derivative control
+had AP 0.9063 versus 0.8955 for HCRD-8 in Falkor-to-MESOSCOPE; the HCRD minus
+control difference was $-0.0108$ ($[-0.0594,0.0405]$, Holm-adjusted
+$p=0.7653$).  In the reverse transfer, HCRD-8 had AP 0.8990 versus 0.7815, a
+difference of 0.1175 ($[0.0624,0.1654]$, adjusted $p=0.00040$).  Thus raw
+dimensionality does not explain the reverse-direction gain, but the first
+direction provides no evidence that HCRD uniformly dominates a comparably
+rich conventional scale-space bank.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/lcms_evidence.pdf}
@@ -1214,8 +1337,9 @@ domain representation remain open.
 precision for the first double holdout and both no-refit E2 transfers; ``raw /
 qscore'' denotes the task-appropriate minimal representation.  Panel b shows
 the predeclared HCRD-8 difference from the primary comparator.  The E1 interval
-resamples both sample and candidate-ion groups; E2 intervals are paired feature
-bootstraps.  F and M abbreviate Falkor and MESOSCOPE.}
+resamples both sample and candidate-ion groups; E2 target-feature intervals are
+conditional on the trained source models.  F and M abbreviate Falkor and
+MESOSCOPE.}
 \label{fig:lcms-evidence}
 \end{figure}
 
@@ -1236,7 +1360,12 @@ It attained AP-bad 0.5085 versus 0.0391 for qscore, a difference of 0.4694 with
 a paired class-stratified bootstrap interval $[0.2489,0.6762]$
 ($p=0.00020$), and exceeded HCRD-1 by 0.2240
 ($[0.0707,0.3544]$, $p=0.00060$).  Seven of the 17 residual bad features were
-placed in the top 19 (5\%) review positions, versus none under qscore.  HCRD-8
+placed in the top 19 (5\%) review positions, versus none under qscore.  At
+1\%, 5\%, and 10\% queue budgets (4, 19, and 37 reviews), HCRD-8 retrieved
+4, 7, and 8 bad cases, respectively, versus 0, 0, and 1 for qscore.  Hence its
+5\%-budget precision was 36.8\% and residual-bad recall was 41.2\%.  To reach
+at least 50\% recall (9/17), HCRD-8 required 44 reviews versus 284 under
+qscore, an 84.5\% workload reduction at the same integer recall target.  HCRD-8
 also had the best point estimate, but its 0.1212 AP advantage over DOMAIN+Q was
 not established ($[-0.0100,0.2794]$, $p=0.0818$).  Thus E5 confirms practical
 conditional triage value and the need for multiple levels; selection of the
@@ -1246,19 +1375,19 @@ calibration, or FDR.
 \begin{table}[H]
 \centering
 \caption{Frozen E5 Pttime residual-bad reranking within the 365 unambiguous
-source-model-selected features.  AP-bad is primary; queue yield is the number
-of 17 bad features in the top 19 review positions.}
+source-model-selected features.  AP-bad is primary; queue entries give bad
+features retrieved among 17 at review budgets of 4, 19, and 37 cases.}
 \label{tab:lcms-e5}
-\begin{tabular}{lrrr}
+\begin{tabular}{lrrrrr}
 \toprule
-Representation & AP-bad & ROC AUC-bad & Top-5\% yield \\
+Representation & AP-bad & ROC AUC-bad & 1\% & 5\% & 10\% \\
 \midrule
-qscore & 0.0391 & 0.3403 & 0/17 \\
-DOMAIN+Q & 0.3873 & 0.8115 & 6/17 \\
-HCRD-1+Q & 0.2845 & 0.7792 & 5/17 \\
-HCRD-8+Q & \textbf{0.5085} & \textbf{0.8646} & \textbf{7/17} \\
-HCRD geometry+Q & 0.3540 & 0.8081 & 6/17 \\
-Area/energy+Q & 0.1367 & 0.7194 & 3/17 \\
+qscore & 0.0391 & 0.3403 & 0 & 0 & 1 \\
+DOMAIN+Q & 0.3873 & 0.8115 & 4 & 6 & 6 \\
+HCRD-1+Q & 0.2845 & 0.7792 & 2 & 5 & 7 \\
+HCRD-8+Q & \textbf{0.5085} & \textbf{0.8646} & \textbf{4} & \textbf{7} & \textbf{8} \\
+HCRD geometry+Q & 0.3540 & 0.8081 & 3 & 6 & 7 \\
+Area/energy+Q & 0.1367 & 0.7194 & 1 & 3 & 5 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1449,9 +1578,13 @@ task-specific detector or decomposition.
 
 The clearest practical evidence is expert curation of pre-bounded LC--MS
 features.  In the two frozen no-refit E2 transfers, multilevel HCRD improved
-average precision over the published qscore by 0.1181 and 0.1005, with
-Holm-adjusted $p=0.00040$ in both directions, and exceeded the one-level
-variant.  E5 further supports residual-error reranking when only conditional
+average precision over an independent reimplementation of the published
+two-component score by 0.1181 and 0.1005, with
+Holm-adjusted $p=0.00040$ in both directions.  HCRD-8 had positive point
+differences from the one-level variant in both transfers, with
+multiplicity-adjusted support in one.  The equal-dimensional conventional
+control tied HCRD-8 in one transfer, whereas HCRD-8 was superior in the
+reverse.  E5 further supports residual-error reranking when only conditional
 labels are available.  E6, however, did not confirm superiority under the
 larger TARDIS/FAME laboratory shift: the gain over qscore was 0.0725 only in
 point estimate, HCRD-8 tied HCRD-1, and a compact conventional feature bank
@@ -1511,12 +1644,10 @@ task-specific method with unusually transparent mechanics and failure modes.
 Broader state-of-the-art performance requires future independent confirmation.
 
 \section*{Code and data availability}
-The implementation, tests, experiment protocols, compact outputs, source and
-feature hashes, and environment instructions are available at
-\url{https://github.com/Safreliy/hcrd}. Large third-party-derived feature
-caches are rebuilt locally and are not redistributed. Code is licensed under
-MIT; the manuscript, documentation, original figures, protocols, and original
-results are licensed under CC BY 4.0.
+Implementation, tests, protocols, compact outputs, hashes, and environment
+instructions are at \url{https://github.com/Safreliy/hcrd}. Large derived
+caches are rebuilt locally. Code: MIT; manuscript, documentation, original
+figures, protocols, and results: CC BY 4.0.
 
 \appendix
 \input{appendix_proofs}

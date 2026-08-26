@@ -16,8 +16,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 940,
-      "sha256": "f0cc18c4f8b825a2c89e516250cdb722570827cac5aa166985311964a706eacd"
+      "bytes": 964,
+      "sha256": "a3681b2f08786114846b792720362b93493a34a887de52bcec9aa745960850c3"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -36,13 +36,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 5160,
-      "sha256": "c639c653b0173114b71373adf28d53a73f4cb22b41439b78350c09ea34ced925"
+      "bytes": 5749,
+      "sha256": "7d85d699970e4cad6cc8cc2f3cecbd7c05bd0607e3b61f891e622d301a9adcac"
     },
     {
       "path": "REPRODUCIBILITY.md",
-      "bytes": 13858,
-      "sha256": "5db8d49e8b3e2955b0977811ebe1c9061ac850759bed42669ef7a5cdf5635435"
+      "bytes": 14801,
+      "sha256": "fa2265854eb78424ca3e012ec58722ae730b27b9269dd3a3e2d9922ab9b20eb0"
     },
     {
       "path": "data/README.md",
@@ -155,6 +155,11 @@
       "sha256": "fca393f5abe21f41de2193c72df13e2fa4486160c6a48240ef16734d0d94dc98"
     },
     {
+      "path": "docs/itd_direct_comparison_protocol.md",
+      "bytes": 738,
+      "sha256": "1576bfc782bc00f7b6036c88cf9c6889ca554d73c004713c5995e9a32b6aca73"
+    },
+    {
       "path": "docs/iterative_filtering_confirmation_protocol.md",
       "bytes": 2616,
       "sha256": "ed0f76ef4239d1e7a1b35b8fb2d34679f627499c346c2a1d5c558c4c65f8a0be"
@@ -168,6 +173,11 @@
       "path": "docs/mimic_perform_hcrd_protocol.md",
       "bytes": 6529,
       "sha256": "510e47b365ef2e284ebd7adb8d5ecec4bd41ed2b4492a6c7ca6531e4cb76a511"
+    },
+    {
+      "path": "docs/ms_metrics_e2_matched_capacity.md",
+      "bytes": 1839,
+      "sha256": "4b46401bf497f125dd51d8b02943cd4f1ccd4eca89af8d885ab1fe83cec8c499"
     },
     {
       "path": "docs/ms_metrics_e2_protocol.md",
@@ -353,6 +363,11 @@
       "path": "experiments/analyze_ppgopt_confirmation.py",
       "bytes": 7701,
       "sha256": "eb7ae1e5e8f71363a9b5bfd1e1d207958b6846a9d3d004c1c3fb7aba673e0022"
+    },
+    {
+      "path": "experiments/analyze_pttime_review_utility.py",
+      "bytes": 3356,
+      "sha256": "48716b47e3da14ebf7bf602358fcc1aa0f85ccbcc83104b6e6b0e214a4960978"
     },
     {
       "path": "experiments/analyze_targetedmsqc_e3_exploratory.py",
@@ -551,8 +566,8 @@
     },
     {
       "path": "experiments/run_external_comparison.py",
-      "bytes": 8696,
-      "sha256": "65c7ce4654f9de1a7a6dc1719a7ce4844a8849b6293fd5b2c21779137c978993"
+      "bytes": 8824,
+      "sha256": "3d380f27ac23e3ecad24dcae34bdf5d635fa77563ea54ffd945b259376e3aae9"
     },
     {
       "path": "experiments/run_falsification_suite.py",
@@ -582,7 +597,12 @@
     {
       "path": "experiments/run_ms_metrics_e2.py",
       "bytes": 21249,
-      "sha256": "20f8ec70d4c7b73076db361b98fd81b9e6af2e00ac3186c14453a46210be5e2d"
+      "sha256": "b302ee9fb67eba8bf09d2853a926f95d9ef56ba0ae51bb2bd73122b0c5b21513"
+    },
+    {
+      "path": "experiments/run_ms_metrics_e2_matched_capacity.py",
+      "bytes": 9548,
+      "sha256": "73d961de7d24eced1d4adf96ef116c83fe4b44b75e5171c63c9e152327a45b14"
     },
     {
       "path": "experiments/run_neatms_real_background_e4.py",
@@ -956,23 +976,23 @@
     },
     {
       "path": "paper/hcrd_preprint.pdf",
-      "bytes": 603189,
-      "sha256": "fb862d53d6850352ef525b98ab551bce82e77449d9cea3102ebc33f42e92f1d3"
+      "bytes": 663596,
+      "sha256": "562a7a20bdc68e9bd1dbfddf332ff49d5c88f1db91928c9044ef831a5094786d"
     },
     {
       "path": "paper/main.tex",
-      "bytes": 75896,
-      "sha256": "34ecff541b667f81bb7b531ecc1f146ddb840fa1db179494476a39b130e943c8"
+      "bytes": 83721,
+      "sha256": "84633a9ac16827dce3c3ef7344cdaea76bccba938a90e1e37a52e46ef7b33186"
     },
     {
       "path": "paper/references.bib",
-      "bytes": 16717,
-      "sha256": "5351b82c781948eb78f52757046b3d91f2be075a4aebfaf2ba2ec408bc0fbc63"
+      "bytes": 18735,
+      "sha256": "fcce23edba53ac6408b2e16dd16b591b625b24b58bc63436be8e9400f22fcdb4"
     },
     {
       "path": "pyproject.toml",
-      "bytes": 1432,
-      "sha256": "dc710905eae9067b2b42189d5dcdbd88adae8a5d2b286116d5402c4a62839904"
+      "bytes": 1453,
+      "sha256": "e7d9613376c47beb9d8610254034228572dc3230faffae56929271fb82d5202e"
     },
     {
       "path": "reports/aiops_kpi_c3.md",
@@ -985,6 +1005,11 @@
       "sha256": "984178c9466ea0f4c7d1bc5ce7b85ba69687a64e487c8aba14ad3cc8f1c7209a"
     },
     {
+      "path": "reports/itd_direct_comparison.md",
+      "bytes": 814,
+      "sha256": "1a0a2e08bf3aa73de1ccbd7c10abe7ffd22fe15624ab7570a0022e5442903974"
+    },
+    {
       "path": "reports/lcms_eic_e1.md",
       "bytes": 2081,
       "sha256": "068e6710e46c81da65a790762194af2828ef4abda673c9186beb63fd521435a2"
@@ -993,6 +1018,11 @@
       "path": "reports/ms_metrics_e2.md",
       "bytes": 2981,
       "sha256": "6ecb9b7555c994290de1ad366231a0d4fdb00ad663f402fd1130474b6a55f03b"
+    },
+    {
+      "path": "reports/ms_metrics_e2_matched_capacity.md",
+      "bytes": 1171,
+      "sha256": "01a49fab802fa4be1313c5c8f0f893bb3fca6a2acc434d4b0230c2aee4715e59"
     },
     {
       "path": "reports/ppg_dalia_local_motion.md",
@@ -1011,8 +1041,8 @@
     },
     {
       "path": "reports/pttime_e5.md",
-      "bytes": 2844,
-      "sha256": "8e551745575030c3b958626c92dc2a32be833230ff65a64ddaadd81b0bac1d6d"
+      "bytes": 3308,
+      "sha256": "f6fb6665012c56320d1cd6052f8d791529ce74c6e29754539dc3f2827a6a699b"
     },
     {
       "path": "reports/tardis_e6.md",
@@ -1188,6 +1218,26 @@
       "path": "results/external_comparison/trials.csv",
       "bytes": 37596,
       "sha256": "09208bef0bef11cae7ba11e85cf06a866c619756b010f98464f574602caf7a6d"
+    },
+    {
+      "path": "results/external_comparison_itd_c2/metadata.json",
+      "bytes": 429,
+      "sha256": "566ca7ac288265e4e5045d81674ee35db08dab46d17a9600646f35dd781f75b9"
+    },
+    {
+      "path": "results/external_comparison_itd_c2/primary_comparisons.csv",
+      "bytes": 1058,
+      "sha256": "ecc1b2adcd7909eed6e03030e91004714714657977b81b755baf1416e0442bac"
+    },
+    {
+      "path": "results/external_comparison_itd_c2/summary.json",
+      "bytes": 1329,
+      "sha256": "0fff5898031fc11f375baafa0d303037537e6b57b52c380022f6f109673a7b57"
+    },
+    {
+      "path": "results/external_comparison_itd_c2/trials.csv",
+      "bytes": 34982,
+      "sha256": "1a0af9a517c7260945fc09139bb096cf65f6e47504932a4d85ec6685222546c0"
     },
     {
       "path": "results/external_comparison_v02/metadata.json",
@@ -1483,6 +1533,16 @@
       "path": "results/ms_metrics_e2/mesoscope/mzml_files.txt",
       "bytes": 5178,
       "sha256": "6cdb8085949efaaaf1314f89be64d5275e9494510059b560b79c27ba6dd27e09"
+    },
+    {
+      "path": "results/ms_metrics_e2_matched_capacity/matched_capacity_results.json",
+      "bytes": 3363,
+      "sha256": "afd60d4393ee112c5e5d05c8c9772d6cc85ca4c86bfc666f24d277e320039eaa"
+    },
+    {
+      "path": "results/ms_metrics_e2_matched_capacity/predictions.csv",
+      "bytes": 445202,
+      "sha256": "bc7c3312410934f5504e1509612ce44a57c1ce8b03bf20235e16f702109cf2ef"
     },
     {
       "path": "results/neatms_real_background_e4/aggregate.csv",
@@ -1978,6 +2038,11 @@
       "path": "results/pttime_e5/evaluation/results.json",
       "bytes": 6699,
       "sha256": "825eb0385b18f42db2d069afb14c1c5d5a29d762077e145ed272806d28b68aed"
+    },
+    {
+      "path": "results/pttime_e5/evaluation/review_utility.json",
+      "bytes": 10069,
+      "sha256": "83efcaad7d990a64e8cbe0f185780d0005942b4301affa094fa77c80e4667770"
     },
     {
       "path": "results/pttime_e5/features/feature_names.txt",
@@ -6376,8 +6441,8 @@
     },
     {
       "path": "src/hcrd/external_baselines.py",
-      "bytes": 8850,
-      "sha256": "f202b47fda1a7182a362d34d942786cf114f0574ce3d4771b6465f4a5f1a7365"
+      "bytes": 9972,
+      "sha256": "904dc42d3ef9dc845f268592498a9bf402caf3068968fc7c4684ef73656d93b1"
     },
     {
       "path": "src/hcrd/features.py",
@@ -6393,6 +6458,11 @@
       "path": "src/hcrd/lcms.py",
       "bytes": 11231,
       "sha256": "46c18e5d6cce1d0dd54af2585b05d8ea746d1cdb74cf2a994eafa928edf693cd"
+    },
+    {
+      "path": "src/hcrd/lcms_controls.py",
+      "bytes": 3388,
+      "sha256": "98568662930decec107dbeddeae6a5bbce8370d0793c8a7222ca93ae23352f3b"
     },
     {
       "path": "src/hcrd/lcms_data.py",
@@ -6541,8 +6611,8 @@
     },
     {
       "path": "tests/test_external_baselines.py",
-      "bytes": 2005,
-      "sha256": "6933a6a0e929ce3a9ec9e74485241909a09e1cc57fd338911854c4da122e7f26"
+      "bytes": 2291,
+      "sha256": "565268c0ce43ecb93eccd1725aa6698580289b6da9f8a06054c72fd3e83344ec"
     },
     {
       "path": "tests/test_features.py",
@@ -6558,6 +6628,11 @@
       "path": "tests/test_lcms.py",
       "bytes": 1680,
       "sha256": "1d9a58ce4cbee412c9cb44d161db954f96e95c7d2c89522dc125c8ad23cc0f39"
+    },
+    {
+      "path": "tests/test_lcms_controls.py",
+      "bytes": 684,
+      "sha256": "99767dc1c42b47e507929834249e780a13d09ecea655ddeee1ab83f74a8fd544"
     },
     {
       "path": "tests/test_lcms_data.py",
@@ -6706,8 +6781,8 @@
     },
     {
       "path": "theory/continuous_lobe_scan_proof_dag.md",
-      "bytes": 14391,
-      "sha256": "ba7e3416baa1a0d53b50bdbe82ab8837fc0c27fd4395527579ec974864f014a4"
+      "bytes": 14395,
+      "sha256": "473c6c324aec239c4fe46eedd670544af6641a57c78856ddf5f16c6a9868a74d"
     },
     {
       "path": "theory/geometric_mass_invariants.md",
@@ -6731,8 +6806,8 @@
     },
     {
       "path": "theory/rank_aware_continuous_scan_proof_dag.md",
-      "bytes": 8519,
-      "sha256": "3911f2eb1cd38388666591ecb75380f747ea0ae8c4a9f0255520431bacad85f2"
+      "bytes": 8804,
+      "sha256": "764a2f86f974c45f9979685314534c58aacccc8c6b269e2c7fc59c5e3386a99b"
     },
     {
       "path": "theory/replicate_inference_proof_dag.md",

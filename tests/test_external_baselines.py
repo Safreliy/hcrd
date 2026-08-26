@@ -3,6 +3,7 @@ import numpy as np
 from hcrd.external_baselines import (
     ceemdan_slow_tail_path,
     emd_residue,
+    itd_residue,
     l1_trend_filter,
     l1_trend_filter_path,
     vmd_low_frequency,
@@ -37,6 +38,14 @@ def test_emd_and_vmd_return_finite_shape_matched_baselines():
     for estimate in (emd_residue(signal, x), vmd_low_frequency(signal, modes=3)):
         assert estimate.shape == signal.shape
         assert np.all(np.isfinite(estimate))
+
+
+def test_itd_residue_is_finite_and_components_reconstruct():
+    x = np.linspace(0.0, 1.0, 129)
+    signal = 0.2 * x + np.sin(2.0 * np.pi * 8.0 * x)
+    estimate = itd_residue(signal)
+    assert estimate.shape == signal.shape
+    assert np.all(np.isfinite(estimate))
 
 
 def test_ceemdan_slow_tail_path_is_seeded_and_complete():

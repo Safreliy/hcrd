@@ -1,0 +1,109 @@
+{
+  "protocol": "supplementary-e2-matched-capacity-v1",
+  "protocol_path": "docs/ms_metrics_e2_matched_capacity.md",
+  "post_confirmation_sensitivity": true,
+  "conditional_estimand": "target-feature performance conditional on each fitted source model",
+  "excluded_uncertainty": [
+    "source-model refitting",
+    "compound/adduct clustering",
+    "file-level acquisition clustering"
+  ],
+  "per_file_width": {
+    "hcrd_8": 948,
+    "gaussian_control": 948
+  },
+  "aggregated_width": {
+    "hcrd_8_q": 2847,
+    "gaussian_2847_q": 2847
+  },
+  "control_feature_hashes": {
+    "falkor": "1c341423dd1d64399c4579591eca33969ab27623309d640c8dca324889892767",
+    "mesoscope": "0241b207691e1257af619ef981eabcbcac36d1381a4572b941d2941e85324894"
+  },
+  "bootstrap_replicates": 10000,
+  "seed": 20260826,
+  "directions": {
+    "falkor_to_mesoscope": {
+      "metrics": {
+        "qscore": {
+          "average_precision": 0.7774410178389464,
+          "roc_auc": 0.9288883930784868,
+          "width": 2
+        },
+        "domain_q": {
+          "average_precision": 0.8918949892611576,
+          "roc_auc": 0.9834130761730047,
+          "width": 336
+        },
+        "hcrd_8_q": {
+          "average_precision": 0.8954935446620048,
+          "roc_auc": 0.9867928504140017,
+          "width": 2847
+        },
+        "gaussian_2847_q": {
+          "average_precision": 0.9063254800733122,
+          "roc_auc": 0.9769799362057282,
+          "width": 2847
+        }
+      },
+      "hcrd_8_q_minus_matched_gaussian": {
+        "ap_difference": -0.010831935411307336,
+        "bootstrap_95_ci": [
+          -0.05938771306498952,
+          0.04045505675087378
+        ],
+        "two_sided_bootstrap_p": 0.7653234676532347,
+        "holm_across_directions_p": 0.7653234676532347
+      },
+      "hcrd_8_q_minus_domain_q": {
+        "ap_difference": 0.003598555400847192,
+        "bootstrap_95_ci": [
+          -0.04491394739505989,
+          0.05755338648069655
+        ],
+        "two_sided_bootstrap_p": 0.7917208279172083
+      }
+    },
+    "mesoscope_to_falkor": {
+      "metrics": {
+        "qscore": {
+          "average_precision": 0.7984160722740555,
+          "roc_auc": 0.945009133304372,
+          "width": 2
+        },
+        "domain_q": {
+          "average_precision": 0.9160500333355334,
+          "roc_auc": 0.9789044221941913,
+          "width": 336
+        },
+        "hcrd_8_q": {
+          "average_precision": 0.8989617325884508,
+          "roc_auc": 0.9763580883392041,
+          "width": 2847
+        },
+        "gaussian_2847_q": {
+          "average_precision": 0.7814668161995113,
+          "roc_auc": 0.9657802040207475,
+          "width": 2847
+        }
+      },
+      "hcrd_8_q_minus_matched_gaussian": {
+        "ap_difference": 0.1174949163889395,
+        "bootstrap_95_ci": [
+          0.06243067602561387,
+          0.1654135863067932
+        ],
+        "two_sided_bootstrap_p": 0.00019998000199980003,
+        "holm_across_directions_p": 0.00039996000399960006
+      },
+      "hcrd_8_q_minus_domain_q": {
+        "ap_difference": -0.017088300747082563,
+        "bootstrap_95_ci": [
+          -0.04757499643668416,
+          0.015135942746374325
+        ],
+        "two_sided_bootstrap_p": 0.27577242275772423
+      }
+    }
+  }
+}

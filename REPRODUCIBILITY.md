@@ -9,7 +9,7 @@ python examples/quickstart.py
 python scripts/verify_release.py
 ```
 
-Expected unit-test result for this snapshot: `165 passed`.
+Expected unit-test result for this snapshot: `168 passed`.
 
 ## Tier 2: synthetic and theorem-linked studies
 
@@ -18,6 +18,7 @@ These runs need no external signal dataset:
 ```bash
 python experiments/run_synthetic_benchmark.py
 python experiments/run_external_comparison.py --trials 50 --output results/external_comparison_v02
+python experiments/run_external_comparison.py --trials 50 --noise 0 --suite exact --output results/external_comparison_itd_c2
 python experiments/run_falsification_suite.py
 python experiments/run_stability_study.py
 python experiments/run_stable_confirmation.py
@@ -27,10 +28,12 @@ python experiments/run_lobe_scan_monte_carlo.py
 python experiments/run_continuous_lobe_scan_audit.py
 ```
 
-Expected rank-aware continuum audit: affine-residual rank 127, exact chi
-threshold 12.421816, direct projected-norm null rejection 0.05074 in 50,000
-draws (95% CI [0.04883, 0.05270]), and exact-normal 80%-power sufficient norm
-13.263437. Compact outputs are in
+Expected rank-aware continuum audit: affine-residual rank 127, exact
+projected-norm quantile 12.421816, direct projected-norm exceedance 0.05074 in
+50,000 draws (95% CI [0.04883, 0.05270]), and the corresponding conservative
+80%-power sufficient norm 13.263437. This calibrates a dominating norm and
+therefore gives scan level at most alpha; it is not generally the scan's exact
+null quantile. Compact outputs are in
 `results/continuous_lobe_scan_audit_v2/`.
 
 E3 uses Python 3.12 and the separate `iterative-filtering` dependency group.
@@ -65,6 +68,7 @@ python -m pip install -e ".[lcms]"
 python experiments/download_ms_metrics_e2.py
 python experiments/run_ms_metrics_e2.py extract-dataset --help
 python experiments/run_ms_metrics_e2.py fit-evaluate --help
+python experiments/run_ms_metrics_e2_matched_capacity.py --bootstrap 10000
 ```
 
 Expected primary AP results:
@@ -79,6 +83,14 @@ ZIP hashes, repository commit, labels, runner hash, compact models, and
 statistics are included. Raw mzML and multi-gigabyte per-file arrays are not.
 See `docs/ms_metrics_e2_protocol.md` and `reports/ms_metrics_e2.md`.
 
+The supplementary equal-dimensional sensitivity analysis compares HCRD-8+Q
+with a Gaussian smoothing/derivative/curvature bank of the same 2,847-variable
+width. Expected HCRD-minus-control AP differences are -0.010832 (95% CI
+`[-0.059388, 0.040455]`) for Falkor to MESOSCOPE and +0.117495
+(`[0.062431, 0.165414]`) in the reverse direction. Holm-adjusted values are
+0.765323 and 0.000400. These target-feature intervals condition on the fitted
+source models; see `docs/ms_metrics_e2_matched_capacity.md`.
+
 ### LC--MS E5: conditional Pttime residual-error triage
 
 E5 pools Falkor and MESOSCOPE for training and applies each fixed E2
@@ -91,15 +103,16 @@ recorded before target feature extraction.
 python -m pip install -e ".[lcms]"
 python experiments/run_pttime_e5.py extract-target --help
 python experiments/run_pttime_e5.py fit-evaluate --help
+python experiments/analyze_pttime_review_utility.py
 ```
 
 Expected primary results are HCRD-8+Q AP-bad 0.508535 versus qscore 0.039092
 (difference 0.469442, paired class-stratified 95% CI
 `[0.248934, 0.676224]`) and HCRD-1+Q 0.284522 (difference 0.224013,
-`[0.070727, 0.354447]`). HCRD-8 places 7 of 17 bad features in the top 5%
-review queue versus none for qscore. The claim is conditional on the
-source-model-selected population; it does not estimate full-population recall,
-calibration, or FDR. See `docs/pttime_e5_protocol.md` and
+`[0.070727, 0.354447]`). At 1%, 5%, and 10% review budgets, HCRD-8 retrieves
+4, 7, and 8 of 17 bad features, versus 0, 0, and 1 for qscore. The claim is
+conditional on the source-model-selected population; it does not estimate
+full-population recall, calibration, or FDR. See `docs/pttime_e5_protocol.md` and
 `reports/pttime_e5.md`.
 
 ### LC--MS E6: external TARDIS/FAME stress test

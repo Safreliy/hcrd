@@ -1,4 +1,4 @@
-# Rank-aware continuous lobe scan
+# Rank-aware projected-norm envelope for continuous lobe scans
 
 **Need.** Replace the numerically enormous Dudley sufficient norm by a valid
 continuum calibration that uses the finite ambient dimension without replacing
@@ -12,7 +12,7 @@ independent-guide family of unit vectors. Under the affine null,
 
 $$
 Y=g+\sigma Z,\qquad g\in\operatorname{range}(P),\quad
-Z\sim N(0,I_n),quad \sigma>0,
+Z\sim N(0,I_n),\quad \sigma>0,
 $$
 
 and every $v_\theta\in\operatorname{range}(I-P)$, define
@@ -29,9 +29,12 @@ $$
 
 Then:
 
-1. **Exact rank-aware null control:**
+1. **Rank-aware projected-norm null control:**
    $\Pr_0\{S(Y)>t_{q,\alpha}\}\le\alpha$.
-2. **Exact pointwise power:** under
+   The $\chi_q$ law is exact for the dominating projected norm; equality for
+   the scan requires the template family to attain the relevant unit-sphere
+   directions.
+2. **True-template Gaussian power bound:** under
    $Y=g+\sigma\mu v_{\theta_0}+\sigma Z$, the miss probability is at most
    $\beta$ whenever
    $$
@@ -76,8 +79,8 @@ independent guide data, and $\sigma$ is known.
 | EXT2 | EXT | Laurent--Massart upper tail for a chi-square variable |
 | L3 | LEM | true-coordinate score is $N(\mu,1)$ |
 | L4 | LEM | on $\|\Pi_UZ\|\le t$, all signed noise scores have magnitude at most $t$ |
-| T1 | THM | exact chi-square continuous null control |
-| T2 | THM | exact-normal pointwise power |
+| T1 | THM | chi-square projected-norm control of the continuous scan |
+| T2 | THM | true-template Gaussian power bound |
 | T3 | THM | rank-aware localisation |
 | C1 | COR | explicit dependency-free Laurent--Massart threshold |
 | C2 | COR | affine residual rank is $n-2$ on a strictly increasing grid |
@@ -111,8 +114,8 @@ flowchart TD
   D2["D2 unit templates in subspace"] --> L2
   L1 --> L2
   L2 --> E1
-  E1 --> T1["T1 exact continuum level"]
-  L3["L3 true score is shifted normal"] --> T2["T2 exact pointwise power"]
+  E1 --> T1["T1 projected-norm scan control"]
+  L3["L3 true score is shifted normal"] --> T2["T2 Gaussian power bound"]
   T1 --> T2
   L4["L4 uniform signed noise envelope"] --> T3["T3 localisation"]
   E1 --> L4
@@ -141,10 +144,10 @@ flowchart TD
 1. Affine residualisation makes every null score $\langle v_\theta,Z\rangle$.
 2. Because $v_\theta$ is a unit vector in $U$,
    $\langle v_\theta,Z\rangle\le\|\Pi_UZ\|_2$ simultaneously for all $\theta$.
-3. The squared projected norm is $\chi_q^2$, giving the exact level threshold;
-   Laurent--Massart gives the closed-form threshold.
-4. At the included true template the score is $N(\mu,1)$, so the exact normal
-   quantile gives the power condition.
+3. The squared projected norm is $\chi_q^2$, giving a level-at-most-$\alpha$
+   scan threshold; Laurent--Massart gives the closed-form replacement.
+4. At the included true template the score is $N(\mu,1)$, so its Gaussian
+   quantile gives the sufficient power condition.
 5. On the projected-norm event every signed noise score is bounded by the same
    $t_{q,\delta}$. The mean gap outside radius $r$ is
    $\mu\Delta_{\theta_0}(r)$, yielding localisation when it exceeds twice the
@@ -197,8 +200,8 @@ fixed Gaussian subspace bound.
 
 ## Limits and open extensions
 
-For the 129-sample triangular audit, $q=127$. The exact threshold is 12.4218
-and the exact-normal 80%-power sufficient norm is 13.2634; the dependency-free
+For the 129-sample triangular audit, $q=127$. The exact projected-norm quantile
+is 12.4218 and the corresponding 80%-power sufficient norm is 13.2634; the dependency-free
 Laurent--Massart values are 13.1150 and 13.9566. This replaces the earlier
 Dudley sufficient norm 285.1103 without discretising the continuous family.
 The finite 595-template sieve remains sharper (5.1739) because it scans a much

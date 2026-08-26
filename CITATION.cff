@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use HCRD, please cite the software and accompanying preprint."
-title: "Hierarchical Convexity-Run Decomposition: Detection Theory and Cross-Study Validation for Interpretable Chord Lobes"
+title: "Hierarchical Convexity-Run Decomposition for Interpretable LC-MS Peak-Quality Curation: Finite Chord-Lobe Theory and Cross-Study Validation"
 type: software
 authors:
   - family-names: Baturin
     given-names: Saveliy
     affiliation: Independent Researcher
 version: 0.1.0
-date-released: 2026-08-25
+date-released: 2026-08-26
 license: MIT
 abstract: >-
   Reference implementation and reproducibility archive for a finite nonlinear
