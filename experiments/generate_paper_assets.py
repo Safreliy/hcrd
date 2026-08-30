@@ -27,7 +27,7 @@ def _save(figure: plt.Figure, name: str) -> None:
 
 
 def method_figure() -> None:
-    # A deterministic EIC-like signal: affine drift, a main peak, a shoulder,
+    # A deterministic sampled curve: affine drift, a main lobe, a shoulder,
     # and a small negative baseline feature.  It is synthetic so the opening
     # explanation does not depend on redistributed third-party data.
     x = np.linspace(0.0, 1.0, 129)
@@ -66,8 +66,8 @@ def method_figure() -> None:
         zorder=4,
     )
     axis.set_title("1  split at curvature changes", loc="left", fontweight="bold", fontsize=9.2)
-    axis.set_xlabel("retention time")
-    axis.set_ylabel("intensity")
+    axis.set_xlabel("sample coordinate")
+    axis.set_ylabel("value")
 
     axis = axes[1]
     positive = signal >= level_1.baseline

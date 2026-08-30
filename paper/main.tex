@@ -1,226 +1,263 @@
-\ifdefined\SPsubmission
-\documentclass[review,11pt,a4paper]{elsarticle}
-\usepackage{amsmath,amssymb,amsthm,array,booktabs,graphicx,float}
-\usepackage[expansion=false]{microtype}
-\usepackage{hyperref}
-\usepackage{lineno}
+\ifdefined\SIMODSsubmission
+\documentclass[review,onefignum,onetabnum]{siamonline250211}
+\usepackage{amsmath,amssymb,array,booktabs,graphicx,float,enumitem}
 \graphicspath{{../}}
-\journal{Signal Processing}
-\else
-\documentclass[11pt]{article}
-\usepackage[a4paper,margin=2.5cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,array,booktabs,graphicx,microtype,float}
-\usepackage[numbers]{natbib}
-\usepackage{hyperref}
-\fi
-\usepackage{lmodern}
-\hypersetup{hidelinks}
-\ifdefined\SPsubmission
-\renewcommand{\bibfont}{\fontsize{9}{10.5}\selectfont}
 \setlength{\emergencystretch}{1em}
+\setlist[enumerate]{leftmargin=.42in}
+\setlist[itemize]{leftmargin=.30in}
+\providecommand{\citep}[1]{\cite{#1}}
 \else
-\renewcommand{\bibfont}{\footnotesize}
+  \ifdefined\SPsubmission
+  \documentclass[review,11pt,a4paper]{elsarticle}
+  \usepackage{amsmath,amssymb,amsthm,array,booktabs,graphicx,float}
+  \usepackage[expansion=false]{microtype}
+  \usepackage{hyperref}
+  \usepackage{lineno}
+  \graphicspath{{../}}
+  \journal{Signal Processing}
+  \else
+  \documentclass[11pt]{article}
+  \usepackage[a4paper,margin=2.5cm]{geometry}
+  \usepackage{amsmath,amssymb,amsthm,array,booktabs,graphicx,microtype,float}
+  \usepackage[numbers]{natbib}
+  \usepackage{hyperref}
+  \fi
+  \usepackage{lmodern}
+  \hypersetup{hidelinks}
+  \ifdefined\SPsubmission
+  \renewcommand{\bibfont}{\fontsize{9}{10.5}\selectfont}
+  \setlength{\emergencystretch}{1em}
+  \else
+  \renewcommand{\bibfont}{\footnotesize}
+  \fi
 \fi
 \floatstyle{ruled}
 \newfloat{algorithm}{tbp}{loa}
 \floatname{algorithm}{Algorithm}
 
+\ifdefined\SIMODSsubmission
+\newsiamremark{remark}{Remark}
+\else
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{corollary}{Corollary}
 \newtheorem{lemma}{Lemma}
 \newtheorem{remark}{Remark}
+\fi
 
-\newcommand{\HCRDtitle}{Hierarchical Convexity-Run Decomposition:
-Finite-Sample Chord-Lobe Recovery and Interpretable LC--MS Transfer}
+\newcommand{\HCRDtitle}{Hierarchical Convexity-Run Decomposition of Sampled
+Curves: Exact Reconstruction and Finite-Sample Recovery}
+\newcommand{\HCRDshorttitle}{Convexity-Run Decomposition of Sampled Curves}
 \newcommand{\HCRDabstract}{%
-We introduce Hierarchical Convexity-Run Decomposition (HCRD), a finite
-nonlinear transform that replaces runs of one discrete-curvature sign by
-endpoint chords and recurses on retained knots.  Its signed residuals form an
-exactly reconstructing, interpretable lobe hierarchy with linear total
-knot-only work.  On an explicit alternating chord-lobe class under Gaussian
-noise, we prove first-level boundary and component recovery, including
-approximate sampled joins: if active curvature $\gamma$, join departure $\eta$,
-and the simultaneous noise threshold $\tau$ satisfy
-$\gamma>\eta+2\tau$, every boundary is recovered with probability at least
-$1-\delta$.  Across 206,000 simulated signals, zero failures were observed
-among 80,000 draws in the strict certified regions.  Structural results
-establish finite termination, affine equivariance, variation control, global
-discontinuity of the hard map, and stable companions.  In frozen no-refit
-transfers between two fully labelled LC--MS studies, HCRD-8 plus an
-independently reimplemented quality score improved average precision by
-0.1181 and 0.1005.  An equal-dimensional Gaussian-derivative control tied HCRD
-in one direction, whereas HCRD was superior in the reverse; a larger
-TARDIS/FAME shift did not confirm superiority.  HCRD therefore provides a
-simple morphological inductive bias with a quantitative recovery regime and
-explicit application boundaries.}
-\ifdefined\SPsubmission
-\else
+Many one-dimensional data sets are observed as sampled curves whose localized
+changes of convexity carry structural information not naturally described by a
+prescribed basis or frequency decomposition.  We introduce Hierarchical
+Convexity-Run Decomposition (HCRD), a finite nonlinear transform that
+recursively replaces maximal runs of one discrete-curvature sign by endpoint
+chords.  The construction produces nested knot sets, exact reconstruction,
+signed residual lobes, and linear total work in a sparse representation.  We
+establish affine equivariance and variation control, characterize the global
+discontinuity of the hard knot map, and give finite-sample multilevel
+decision-margin certificates.  For an alternating chord-lobe model observed
+under Gaussian noise, we prove recovery of all first-level convexity
+boundaries together with uniform baseline and detail error bounds, including
+approximate sampled joins.  Simulations recover the predicted transition and
+delimit failure outside the certified regime.  As a downstream test, we apply
+the representation to no-refit cross-study classification of expert-labelled
+chromatographic shapes.  HCRD complements an established low-dimensional
+quality score in two transfers, while matched conventional controls and a
+larger laboratory shift identify regimes where superiority is not
+established.  The results position HCRD as an interpretable geometric
+representation with explicit computational, recovery, and applicability
+boundaries.}
+
+\ifdefined\SIMODSsubmission
+\headers{\HCRDshorttitle}{S. Baturin}
 \title{\HCRDtitle}
-\author{Saveliy Baturin\\Independent Researcher}
-\date{Draft \today}
+\author{Saveliy Baturin\thanks{Independent Researcher.}}
+\else
+  \ifdefined\SPsubmission
+  \else
+  \title{\HCRDtitle}
+  \author{Saveliy Baturin\\Independent Researcher}
+  \date{Draft \today}
+  \fi
 \fi
 
 \begin{document}
-\ifdefined\SPsubmission
-\begin{frontmatter}
-\title{\HCRDtitle}
-\author[1]{Saveliy Baturin}
-\address[1]{Independent Researcher}
-\begin{abstract}
-\HCRDabstract
-\end{abstract}
-\begin{keyword}
-discrete curvature \sep nonlinear decomposition \sep hierarchical
-representation \sep finite-sample recovery \sep LC--MS \sep waveform morphology
-\end{keyword}
-\end{frontmatter}
-\modulolinenumbers[5]
-\linenumbers
-\else
+\ifdefined\SIMODSsubmission
 \maketitle
-
 \begin{abstract}
 \HCRDabstract
 \end{abstract}
+\begin{keywords}
+discrete curvature, hierarchical representation, convexity change points,
+nonlinear transform, finite-sample recovery, sampled curves
+\end{keywords}
+\begin{MSCcodes}
+62G05, 65D05, 68T09, 94A12
+\end{MSCcodes}
+\else
+  \ifdefined\SPsubmission
+  \begin{frontmatter}
+  \title{\HCRDtitle}
+  \author[1]{Saveliy Baturin}
+  \address[1]{Independent Researcher}
+  \begin{abstract}
+  \HCRDabstract
+  \end{abstract}
+  \begin{keyword}
+  discrete curvature \sep hierarchical representation \sep convexity change
+  points \sep nonlinear transform \sep finite-sample recovery \sep sampled curves
+  \end{keyword}
+  \end{frontmatter}
+  \modulolinenumbers[5]
+  \linenumbers
+  \else
+  \maketitle
+  \begin{abstract}
+  \HCRDabstract
+  \end{abstract}
+  \fi
 \fi
 
 \section{Introduction}
-Empirical mode decomposition (EMD) motivated data-adaptive analysis of
-nonstationary signals through extrema and envelope sifting
-\citep{huang1998emd}.  Intrinsic time-scale decomposition (ITD) subsequently
-introduced an efficient iterative baseline--rotation construction based on
-piecewise-linear transformations between extrema \citep{frei2006itdpatent,frei2007itd}.
-In particular, its patent measures a lobe height from an extremum to the line
-joining neighbouring extrema and recursively decomposes the concatenated
-baseline.  Thus straight-line lobe geometry and recursive piecewise-linear
-baselines are prior art.  The method studied here arose independently from a
-different selection and update rule: partition a sampled graph into maximal
-runs of one divided-curvature sign, replace each entire run by its endpoint
-chord, and allow only the retained knots at the next level.
-Figure~\ref{fig:method} previews the resulting curvature-run split, endpoint
-chords, and exact two-level synthesis.
+Many one-dimensional data sets are best viewed as sampled curves rather than
+as stationary time series.  Their scientifically relevant structures may be
+localized convex or concave excursions, and the locations, signs, supports,
+and complete shapes of those excursions can matter more than a decomposition
+into prescribed frequency bands.  We ask whether this geometry can be encoded
+by a finite representation that is adaptive to the samples, exactly
+reconstructing, computationally sparse, and accompanied by quantitative
+recovery statements under noise.
 
-The primitive is related to inflection-point sampling \citep{iem2014inflection},
-but iteration produces a nested, exactly reconstructing hierarchy.  More
-directly, the PDE sifting construction of Del\'echelle et al.
-\citep{delechelle2005pde} converges to a piecewise-cubic interpolant through
-successive inflection points, while the $\alpha$-shape construction of Chessel
-et al. \citep{chessel2009alpha} defines a
-convexity-driven geometric scale space.  Recent EMD software also includes
-inflection-point interpolation as one of several local-mean estimators
-\citep{vanjaarsveldt2023advemdpy}, and special-inflection-point EMD augments
-extrema with inflections from the signal and its derivatives
-\citep{kafil2023sipemd}.  These works preclude treating the use of inflection
-points itself as novel.  HCRD differs in using a one-pass discrete
-curvature-sign walk, endpoint chords, and recursively nested eligible knot
-sets, rather than auxiliary envelope knots, PDE evolution, $\alpha$-shape
-subsampling, or repeated IMF sifting.
+Hierarchical Convexity-Run Decomposition (HCRD) answers this question with a
+discrete operator.  On an ordered grid, it partitions the polygonal graph into
+maximal runs of one divided-curvature sign, replaces each run by its endpoint
+chord, records the signed residual lobe, and recurses only on retained knots.
+The result is a nested tree of supports and residual shapes; it is a geometric
+hierarchy, not an orthogonal basis or a claim that levels are frequency bands.
+Figure~\ref{fig:method} shows two steps and the exact synthesis identity.
 
-The closest theoretical comparison classes further include Gaussian scale
-space \citep{babaud1986scale}, $\ell_1$ trend filtering
-\citep{kim2009trend}, iterative filtering \citep{lin2009iterative}, connected
-operators represented by region trees \citep{salembier1998connected}, and the
-LULU discrete pulse transform and its linear-time one-dimensional Roadmaker
-construction \citep{anguelov2010lulu,laurie2011roadmaker}.  Connected operators
-prune flat-zone region trees, while DPT produces constant block pulses on
-connected supports; neither uses affine residual lobes from the HCRD
-curvature-run knot tree.  HCRD's contribution is the particular finite discrete
-operator and the combination of hierarchy, reconstruction,
-geometric sign, stability, limitation, and calibrated-inference results---not
-the generic idea of using curvature, inflection points, chord lobes, or a
-nonlinear component hierarchy.
+The construction intersects three established lines of work but has a
+different estimand from each.  Data-adaptive signal decompositions include
+empirical mode decomposition (EMD) \citep{huang1998emd}, intrinsic time-scale
+decomposition (ITD) \citep{frei2007itd}, iterative filtering
+\citep{lin2009iterative}, and convexity-driven geometric scale space
+\citep{chessel2009alpha}.  ITD is the closest chord-baseline recursion, while
+the LULU discrete pulse transform is the closest exact nonlinear pulse
+hierarchy \citep{anguelov2010lulu,laurie2011roadmaker}.  These methods do not
+use the HCRD rule of maximal divided-curvature runs followed by nested eligible
+knot sets.
 
-Table~\ref{tab:method-comparison} makes the closest distinctions explicit.
-ITD is the nearest chord-baseline recursion and DPT the nearest exact nonlinear
-pulse hierarchy; neither uses curvature-run knot selection.  Trend filtering
-instead solves a stable penalized optimization problem.
+Shape-constrained estimation instead fits a latent curve subject to derivative
+sign restrictions.  Trend filtering produces adaptively knotted piecewise
+polynomials through penalized discrete derivatives
+\citep{kim2009trend,tibshirani2014trend}.  Piecewise-convex estimation treats
+the number and locations of convexity changes as a model-selection problem
+\citep{riedel2018piecewise}.  Qualitative trend analysis identifies episodes
+with prescribed first- or second-derivative signs through shape constraints
+and mixed-integer model selection \citep{chowdhury2023qualitative}.  HCRD does
+not optimize a fitted curve or
+select a statistical model: it transforms the observed polygonal curve into
+an exact component hierarchy.  Conversely, the hard HCRD knot map is only
+locally stable, whereas penalized estimators trade exact raw decisions for
+global regularity.  The recent shape-constrained inference literature provides
+the broader statistical context for this distinction
+\citep{dumbgen2024shape}.
+
+Multiscale change-point procedures provide simultaneous inference and sharp
+localization for piecewise-constant or approximately segmented signals
+\citep{frick2014multiscale,li2019multiscale}.  HCRD boundaries are changes in
+the sign of discrete curvature rather than jumps in a mean parameter.  Our
+finite-sample results are therefore class-specific: they certify the exact
+branches visited by the hierarchy and recover convexity boundaries on an
+explicit chord-lobe model.  They do not claim minimax separation from all
+adaptive estimators.
 
 \begin{table}[t]
 \centering
 \caption{Closest one-dimensional representations.  ``Exact'' means that the
-native components plus the final baseline reconstruct the input; costs are
-nominal.}
+native components and final baseline reconstruct the input.}
 \label{tab:method-comparison}
 \footnotesize
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.06}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.14\linewidth}
-                    >{\raggedright\arraybackslash}p{0.255\linewidth}
-                    >{\raggedright\arraybackslash}p{0.245\linewidth}
+                    >{\raggedright\arraybackslash}p{0.27\linewidth}
+                    >{\raggedright\arraybackslash}p{0.25\linewidth}
                     >{\raggedright\arraybackslash}p{0.25\linewidth}@{}}
 \toprule
-Method & Primitive and native components & Reconstruction / hierarchy & Computation and regularity \\
+Method & Primitive / estimand & Reconstruction / hierarchy & Computation and regularity \\
 \midrule
-HCRD & Curvature-sign runs; endpoint-chord residual lobes
+HCRD & Curvature-sign runs; endpoint-chord residual shapes
      & Exact; nested knot subsets
-     & $O(n)$ total sparse; hard decisions; irregular $x$ \\
-ITD \citep{frei2007itd} & Extrema updates; linear baseline and rotations
+     & $O(n)$ total sparse work; hard decisions; irregular grid \\
+ITD \citep{frei2007itd} & Extrema updates; baseline and rotations
      & Exact; recursive baseline
-     & $O(n)$ per level; hard extrema; ordered grid \\
+     & Linear work per level; hard extrema \\
 LULU/DPT \citep{anguelov2010lulu,laurie2011roadmaker}
      & Order / flat zones; constant pulses
      & Exact; size hierarchy
-     & $O(n)$ Roadmaker; order-based sequence \\
+     & Linear Roadmaker algorithm; order based \\
 RDP \citep{douglas1973reduction}
      & Maximum chord error; polygonal approximation
      & Exact with residual; split tree
-     & $O(n^2)$ worst case; hard ties; arbitrary coordinates \\
-$\ell_1$ trend filtering \citep{kim2009trend}
-     & Penalized curvature; piecewise-linear fit
-     & Exact with residual; no native hierarchy
-     & Convex optimization; continuous fit; irregular variants \\
+     & Quadratic worst case; hard ties \\
+Trend filtering \citep{kim2009trend,tibshirani2014trend}
+     & Penalized discrete derivatives; fitted trend
+     & Exact with residual; no native component tree
+     & Convex optimization; continuous fitted values \\
+Piecewise-convex / QTA \citep{riedel2018piecewise,chowdhury2023qualitative}
+     & Convexity episodes; fitted shape sequence
+     & Statistical segmentation; not a decomposition
+     & Constrained or mixed-integer optimization \\
 Gaussian scale space \citep{babaud1986scale}
-     & Convolution scale; smoothed signals
-     & Scale differences; scale-ordered
-     & FFT / direct; continuous; regular-grid standard \\
+     & Convolution scale; smoothed curves
+     & Scale differences; scale ordered
+     & Continuous in data; regular-grid standard \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The LC--MS use case is also distinct from end-to-end peak picking.  PeakBot
-detects local maxima and classifies two-dimensional chromatographic regions
-with a convolutional network \citep{bueschl2022peakbot}; PeakDetective combines
-an autoencoder with active learning for dataset-specific curation
-\citep{stancliffe2023peakdetective}; TMSQE learns targeted peak-quality
-embeddings \citep{yang2024tmsqe}; and MassCube integrates feature detection,
-evaluation, grouping, and annotation \citep{yu2025masscube}.  HCRD instead
-supplies transparent features for already bounded one-dimensional EICs and is
-tested here under no-target-refit transfer.  These systems therefore define the
-application landscape but are not interchangeable baselines for the present
-fixed-box question.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{figures/method_overview.pdf}
-\caption{Two explicit HCRD steps on a synthetic EIC-like graph.  Curvature-sign
-changes delimit retained knots.  Replacing every level-1 run by its endpoint
-chord gives baseline $b^1$ and signed residual $d^1$; applying the same
-operation to $b^1$ gives $b^2$ and $d^2$.  The displayed truncation reconstructs
-$y=b^2+d^2+d^1$ exactly, and recursion may continue.  Shaded lobes can be
-summarised by area or energy, but the decomposition is the complete residual
-shape.  This computed example illustrates the operator; it is not a stability
-proof and levels are not asserted to be frequency bands.}
-\label{fig:method}
-\end{figure}
+The paper also tests whether the representation carries useful information in
+a real cross-domain setting.  Expert curation of pre-bounded LC--MS traces is
+appropriate because the endpoint chord is meaningful and signed compact-lobe
+morphology determines quality.  This application is used to test transfer and
+failure boundaries, not to define the method or its theory.
 
 Our contributions are:
 \begin{enumerate}
-  \item a complete finite algorithm for the centred curvature-run operator,
-        with nested-hierarchy, exact-reconstruction, sparse linear-work, affine,
-        variation, and interpretable lobe-shape results;
-  \item an HCRD-specific finite-sample recovery theorem for an explicit
-        alternating chord-lobe class with exact or approximate sampled joins,
-        local and stochastic hierarchy-agreement guarantees, and theorem-linked
-        phase experiments over 206,000 signals;
-  \item a sharp global discontinuity boundary together with stable proximal
-        and persistence companions;
-  \item frozen cross-study LC--MS validation, multilevel and area ablations,
-        a matched-capacity conventional control, operational review-queue
-        analysis, implementation and refitting sensitivities, and external
-        limitation studies.  Optional scan and post-selection theory is given
-        in the supplement.
+  \item a complete finite curvature-run algorithm with exact reconstruction,
+        nested knot sets, linear total sparse work, affine equivariance,
+        variation control, and interpretable signed residual shapes;
+  \item finite-sample multilevel knot-tree agreement under explicit decision
+        margins, together with boundary and component recovery on an
+        alternating chord-lobe class with exact or approximate sampled joins;
+  \item a sharp obstruction to global continuity of the hard map and stable
+        alternatives that make the regularity--interpretability tradeoff
+        explicit; and
+  \item theorem-linked phase experiments, computational audits, and frozen
+        cross-study validation with matched conventional controls and retained
+        negative results that delimit the method's applicability.
 \end{enumerate}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/method_overview.pdf}
+\caption{Two HCRD steps on a generic sampled curve.  Curvature-sign changes
+delimit retained knots.  Replacing each level-1 run by its endpoint chord gives
+$b^1$ and signed residual $d^1$; recursing on $b^1$ gives $b^2$ and $d^2$.
+The displayed truncation reconstructs $y=b^2+d^2+d^1$ exactly.  Shading shows
+complete residual shapes rather than frequency bands.}
+\label{fig:method}
+\end{figure}
+
+The remainder of the paper defines the transform, establishes its structural
+and stability properties, derives the noise and recovery results, and then
+reports synthetic, computational, and cross-study evidence.  Detailed proofs,
+inference extensions, and secondary experiments are provided in the
+supplement.
 
 \section{Definition of the transform}
 Let $x_0<\cdots<x_{n-1}$ and $y=(y_0,\ldots,y_{n-1})\in\mathbb R^n$.
@@ -290,50 +327,37 @@ to advance by at least two old intervals; the first-opposite and sampled-zero
 cases below satisfy this convention explicitly.
 
 \section{Structural results}
-\begin{theorem}[Exact reconstruction]
-For every computed level $J$,
-\begin{equation}
-y=\sum_{j=1}^{J}d^j+b^J.
-\end{equation}
-\end{theorem}
-\begin{proof}
-Substitute $d^j=b^{j-1}-b^j$ and telescope.
-\end{proof}
+\begin{theorem}[Reconstruction, nesting, and sparse complexity]
+\label{thm:structure}
+For every computed level $J$, the transform satisfies the following three
+properties.
 
-\begin{theorem}[Finite nested hierarchy]
-\label{thm:finite}
-The eligible knot sets are nested.  Every nonterminal HCRD interval consumes at
-least two intervals of the preceding level.  Consequently the hierarchy ends
-at the endpoint chord after at most
-$\max\{1,\lceil\log_2(n-1)\rceil\}$ implemented levels.
-\end{theorem}
-\begin{proof}
-Eligibility gives nesting.  A run can close only after the walk has passed the
-first active old curvature and reached either an eligible intervening zero or
-the first active curvature of opposite sign.  Thus an old interior knot is
-removed in each nonterminal new interval.  Pairing old intervals gives the
-halving recurrence, with at most one terminal remainder.
-\end{proof}
+\noindent\emph{(i) Exact reconstruction:}
+$y=\sum_{j=1}^{J}d^j+b^J$.
 
-\begin{corollary}[Linear-work knot-only hierarchy]
-\label{cor:sparse}
-Let $N_0=n-1$ and let $N_j$ be the number of intervals after level $j$.
-An implementation that scans only the current eligible knot list has $O(n)$
-total knot-walk work and stores
+\noindent\emph{(ii) Finite nesting:} the eligible knot sets are nested, and
+every nonterminal HCRD interval consumes at least two intervals of the
+preceding level.  The hierarchy therefore ends at the endpoint chord after at
+most $\max\{1,\lceil\log_2(n-1)\rceil\}$ implemented levels.
+
+\noindent\emph{(iii) Sparse linear work:} if $N_0=n-1$ and $N_j$ is the
+number of intervals after level $j$, a knot-only implementation performs
+$O(n)$ total knot-walk work and stores
 \begin{equation}
 \sum_{j=1}^{J}|K_j|<2(n-1)+J=O(n).
 \end{equation}
-Dense length-$n$ baselines and details can be reconstructed exactly on demand.
-\end{corollary}
+Dense baselines and details can be reconstructed exactly on demand.
+\end{theorem}
 \begin{proof}
-The halving recurrence gives $N_j\le\lceil N_0/2^j\rceil$ and
-$J=O(\log n)$.  For integer $N_0\ge1$,
-$\lceil N_0/2^j\rceil\le (N_0-1)/2^j+1$; hence
-$\sum_{j=1}^J N_j<N_0-1+J\le2N_0$.  Since $|K_j|=N_j+1$, the displayed
-finite bound follows.  The analogous series beginning with $N_0$ bounds the
-total scanned eligible intervals by $O(n)$.  Chord interpolation through each
-stored knot set reproduces the dense baseline, and adjacent differences
-reproduce the details.
+Substitution of $d^j=b^{j-1}-b^j$ telescopes, proving (i).  Eligibility gives
+nesting.  A run can close only after the walk has passed its first active old
+curvature and reached either an eligible intervening zero or the first active
+curvature of opposite sign.  Thus an old interior knot disappears in every
+nonterminal new interval, which gives the halving recurrence and (ii).  In
+particular, $N_j\le\lceil N_0/2^j\rceil$ and $J=O(\log n)$.  Since
+$\lceil N_0/2^j\rceil\le (N_0-1)/2^j+1$, summing the interval and knot counts
+proves (iii).  Chord interpolation through each stored knot set recovers the
+dense baseline, and adjacent differences recover the details.
 \end{proof}
 
 \begin{proposition}[Signed structures]
@@ -483,38 +507,21 @@ divided-curvature matrix $D$ and a proper closed convex function $\phi$, define
 P_\phi y=\mathop{\rm argmin}_z
 \left\{\frac12\|y-z\|_2^2+\phi(Dz)\right\},\qquad Q_\phi=I-P_\phi .
 \end{equation}
-The implemented choices are the established $\ell_1$ trend penalty and a
-quadratic curvature penalty; their role is to provide a stable outer split,
-not a new convex estimator.
+The standard proximal-map result makes both $P_\phi$ and $Q_\phi$ firmly
+nonexpansive, gives the exact split $y=P_\phi y+Q_\phi y$, and makes the split
+equivariant under affine additions in $\ker D$ \citep{parikh2014proximal}.
+Thus it supplies a stable outer guide without changing the hard hierarchy into
+a new convex estimator.
 
-\begin{theorem}[Exact globally nonexpansive outer split]
-\label{thm:prox}
-Both $P_\phi$ and $Q_\phi$ are firmly nonexpansive, $y=P_\phi y+Q_\phi y$, and
-the split is equivariant to addition of every affine sequence in $\ker D$.
-\end{theorem}
-
-\begin{corollary}[Irregular-grid sign certificate]
-If $\|e\|_2\le\rho$ and $h_i=x_{i+1}-x_i$, the $i$th guide curvature changes
-by at most $2\rho(h_{i-1}^{-1}+h_i^{-1})$; guide curvatures above this bound
-therefore have certified sign.
-\end{corollary}
-
-Second, let $u_y^+=(D_xy)_+$ and $u_y^-=(-D_xy)_+$ on the interior-index path.
-The bottleneck distances between the two signed zero-dimensional superlevel
-diagrams, including the essential birth heights, define a pullback
-pseudometric $d_{\rm SC}$ on signals.  Equal summaries, rather than only
-affine differences, form its zero-distance classes.
-
-\begin{theorem}[Global signed-curvature persistence stability]
-\label{thm:persistence}
-For two signals on the same irregular grid,
+Second, signed zero-dimensional superlevel persistence of
+$u_y^+=(D_xy)_+$ and $u_y^-=(-D_xy)_+$ gives a stable lobe summary.  Classical
+persistence stability yields
 \begin{equation}
 d_{\rm SC}(y,z)\le C_x\|y-z\|_\infty,
-\qquad C_x=2\max_i\{h_{i-1}^{-1}+h_i^{-1}\}.
+\qquad C_x=2\max_i\{h_{i-1}^{-1}+h_i^{-1}\},
 \end{equation}
-A finite signed-curvature bar with lifetime greater than
-$2C_x\|y-z\|_\infty$ cannot disappear into the diagonal.
-\end{theorem}
+and therefore protects every finite signed-curvature bar whose lifetime is
+greater than $2C_x\|y-z\|_\infty$ \citep{cohensteiner2007stability}.
 
 \begin{proposition}[Curvature visibility limit]
 If $y(t)=g(t)+a\sin(\omega t)$ and
@@ -650,7 +657,8 @@ grid are increasing, so its discrete curvatures have one positive sign.
 \end{proof}
 
 \fi
-\section{A simultaneous noise-aware modification}
+\section{Noise-aware hierarchy and recovery guarantees}
+\subsection{Simultaneous curvature control and multilevel agreement}
 Assume a uniform grid with spacing $h$ and observations
 $Y_i=y_i+\varepsilon_i$, where the errors are independent
 $N(0,\sigma^2)$ variables.
@@ -703,7 +711,7 @@ $2\epsilon$.
 \end{proof}
 \fi
 
-\begin{theorem}[Multilevel hierarchy-agreement margins]
+\begin{theorem}[Multilevel agreement margins]
 \label{thm:hierarchy-margin}
 Run the noiseless minimum-curvature hierarchy with tolerance $\tau$ through
 level $L$.  At every visited level suppose each curvature declared inactive
@@ -784,7 +792,7 @@ tangencies, infinite-dimensional backgrounds, and same-data estimation of
 $H$ remain outside the result.
 \fi
 
-\section{Finite-sample recovery on a chord-lobe class}
+\subsection{Generative recovery on a chord-lobe class}
 On a uniform grid $x_i=x_0+ih$, define the divided-slope curvature
 \begin{equation}
  \kappa_i(z)=\frac{z_{i+1}-2z_i+z_{i-1}}{h},\qquad 1\le i\le n-2.
@@ -935,7 +943,7 @@ minimum probability 0.9980 above the boundary (minimum Wilson lower bound
 0.9927).  The result validates a sufficient condition on its declared class,
 not a necessary boundary for arbitrary waveforms.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=0.98\linewidth]{figures/recovery_phase_diagram.pdf}
 \caption{Theorem-linked recovery phase diagram under iid Gaussian noise.
@@ -960,7 +968,7 @@ violation.  Outside that region the noise-only choice was never worse cellwise
 and was often markedly better, confirming that $\eta$ is useful for a
 certificate but need not be supplied to the algorithm.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\linewidth]{figures/approximate_join_phase.pdf}
 \caption{Departure from exact sampled joins.  Exact first-level recovery is
@@ -987,7 +995,45 @@ Complete settings, paired intervals, tables, stable-guide experiments, and the
 CWRU ceiling result are reported in the supplement.
 
 
-\subsection{Expert-labelled chromatographic lobes}
+\subsection{Chromatographic transfer study}
+\ifdefined\SIMODSsubmission
+We used expert-labelled liquid-chromatography mass-spectrometry waveforms only
+as a downstream transfer test of the generic representation.  The primary
+design was frozen before waveform inspection: one standardized logistic
+learner was trained on 1821 unambiguous Falkor features and applied without
+refitting to 2193 MESOSCOPE features, followed by the reverse direction.  The
+minimal comparator was the published two-component quality score of Kumler
+et al. \citep{kumler2023picky}; details of its independent reconstruction and
+the preliminary double holdout are given in the supplement.
+
+Adding the eight-level HCRD representation increased average precision from
+0.7774 to 0.8955 and from 0.7984 to 0.8990.  The paired improvements were
+0.1181 ($[0.0613,0.1781]$) and 0.1005 ($[0.0559,0.1470]$), with
+Holm-adjusted $p=0.00040$ in both directions.  All eight contrasts obtained
+from four predeclared implementations of the minimal score had positive 95\%
+intervals.  Multilevel HCRD also had positive point differences from the
+one-level representation in both directions, although only one survived
+multiplicity correction.
+
+Two sensitivity analyses delimit that result.  Against an equal-width
+Gaussian-derivative feature bank, the HCRD difference was $-0.0108$
+($[-0.0594,0.0405]$) in one direction and 0.1175
+($[0.0624,0.1654]$) in the reverse direction.  Fixed-source 60-second
+target-block intervals remained positive, whereas intervals that also
+resampled and refit the source model crossed zero.  The evidence therefore
+supports a conditional transfer gain over the compact published score, not
+uniform superiority over every comparably rich representation.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/lcms_evidence.pdf}
+\caption{Independent expert-labelled LC--MS transfer evidence.  Panel a shows
+average precision for the preliminary double holdout and both frozen no-refit
+transfers.  Panel b gives the predeclared HCRD-8 improvement over the primary
+comparator; E2 intervals are conditional on the fitted source models.}
+\label{fig:lcms-evidence}
+\end{figure}
+\else
 An initial double-group holdout on the expert-labelled EIC corpus of M\"uller
 et al. \citep{muller2020eic} gave the largest AP to raw plus HCRD-8 (0.4092 versus
 0.3820 for a frozen conventional morphology bank), but the primary two-way
@@ -1106,6 +1152,7 @@ conditional on the trained source models.  F and M abbreviate Falkor and
 MESOSCOPE.}
 \label{fig:lcms-evidence}
 \end{figure}
+\fi
 
 \ifdefined\SPsubmission
 \paragraph{External application boundaries.}
@@ -1235,6 +1282,42 @@ oscillation and its chord baseline is inappropriate.}
 \fi
 
 \section{Discussion}
+\ifdefined\SIMODSsubmission
+HCRD is a geometric multiscale representation of sampled curves, not a
+frequency decomposition.  Its estimand is explicit: maximal runs of one-sign
+divided curvature are replaced by endpoint chords, and successive residuals
+encode signed departures from those chords.  The construction is exactly
+reconstructing, terminates in logarithmic depth, and admits linear total work
+when only retained knots are stored.
+
+The recovery theory separates what is global from what is conditional.  The
+hard knot map is necessarily discontinuous at branch boundaries, while the
+proximal split and signed-curvature persistence give globally stable companion
+summaries.  Away from those boundaries, deterministic decision margins imply
+agreement of the full hierarchy through any fixed depth.  On the declared
+alternating chord-lobe class, those margins further yield exact first-level
+boundary recovery and explicit component-error bounds.  This is a
+finite-sample mechanism result, not a minimax comparison with all adaptive
+dictionaries.
+
+The empirical results are consistent with this scope.  Class-matched synthetic
+experiments verify the predicted recovery regime and the sparse implementation
+preserves the dense representation exactly.  In the expert-labelled LC--MS
+case study, HCRD adds transferable information to a compact published score,
+but an equal-width conventional bank ties it in one direction and source-refit
+block intervals include zero.  Application-specific studies in the supplement
+also identify settings in which established detectors or shape priors remain
+preferable.
+
+The method is therefore most plausible when a curve is already bounded, its
+endpoint chord is a meaningful local reference, and relevant structure appears
+as signed convex or concave excursions.  It is poorly matched to instantaneous
+frequency estimation, oscillations hidden by stronger background curvature,
+or unthresholded samplewise decisions under heavy noise.  Future work should
+estimate noise and dependence parameters from data, quantify localisation for
+unsampled transitions, and study broader polygonal generative classes and
+independent application cohorts.
+\else
 HCRD occupies a specific rather than universal signal-processing niche.  Its
 algorithmic appeal is its economy: divided-slope comparisons select maximal
 one-sign runs, endpoint chords form the next baseline, and subtraction gives
@@ -1336,6 +1419,7 @@ needed to resolve the roughly 0.07 AP effect seen in E6 and determine when
 multilevel depth transfers.  The present evidence therefore supports a
 task-specific method with unusually transparent mechanics and failure modes.
 Broader state-of-the-art performance requires future independent confirmation.
+\fi
 
 \section*{Code and data availability}
 Implementation, tests, protocols, compact outputs, hashes, and environment
@@ -1343,7 +1427,11 @@ instructions are at \url{https://github.com/Safreliy/hcrd}. Large derived
 caches are rebuilt locally. Code: MIT; manuscript, documentation, original
 figures, protocols, and results: CC BY 4.0.
 
+\ifdefined\SIMODSsubmission
+\section*{Author contributions}
+\else
 \section*{CRediT authorship contribution statement}
+\fi
 Saveliy Baturin: Conceptualization; Methodology; Software; Validation; Formal
 analysis; Investigation; Data curation; Visualization; Project administration.
 Writing--original draft; Writing--review and editing.
@@ -1356,20 +1444,28 @@ commercial, or not-for-profit sectors.
 The author declares no competing financial interests or personal relationships
 that could have influenced the work reported in this article.
 
+\ifdefined\SIMODSsubmission
+\section*{Use of generative AI}
+\else
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+\fi
 During the preparation of this work, the author used OpenAI Codex to assist
 with literature organization, language and clarity editing, and manuscript
 formatting.  After using this tool, the author reviewed and edited the content
-as needed and takes full responsibility for the content of the published
-article.
+as needed.  The author assumes responsibility for all content.
 
 \footnotesize
-\setlength{\bibsep}{1pt}
-\ifdefined\SPsubmission
-\bibliographystyle{elsarticle-num}
+\ifdefined\SIMODSsubmission
+\bibliographystyle{siamplain}
 \bibliography{../references}
 \else
-\bibliographystyle{plainnat}
-\bibliography{references}
+  \setlength{\bibsep}{1pt}
+  \ifdefined\SPsubmission
+  \bibliographystyle{elsarticle-num}
+  \bibliography{../references}
+  \else
+  \bibliographystyle{plainnat}
+  \bibliography{references}
+  \fi
 \fi
 \end{document}
