@@ -1,7 +1,7 @@
 Dear Editors of the SIAM Journal on Mathematics of Data Science,
 
 Please consider the manuscript “Hierarchical Convexity-Run Decomposition of
-Sampled Curves: Exact Reconstruction and Finite-Sample Recovery.” The paper
+Sampled Curves: Finite-Sample Recovery and Stability.” The paper
 introduces a nonlinear multiscale representation for sampled curves based on
 runs of discrete curvature sign. Its main contributions are an exactly
 reconstructing nested transform with a sparse linear-work implementation, a
@@ -19,11 +19,11 @@ stress test of a general sampled-curve representation, with matched controls
 and negative boundary experiments reported explicitly.
 
 Code, protocols, compact results, and reproducibility instructions are publicly
-available at https://github.com/Safreliy/hcrd. The manuscript is original, is
-not under consideration elsewhere, and all authors have approved its
-submission.
+available at https://github.com/Safreliy/hcrd. The manuscript is original and
+is not under consideration elsewhere.
 
 Sincerely,
 
 Saveliy Baturin
 Independent Researcher
+saveliy.xo@gmail.com
