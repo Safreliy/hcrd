@@ -176,6 +176,9 @@ branches visited by the hierarchy and recover convexity boundaries on an
 explicit chord-lobe model.  They do not claim minimax separation from all
 adaptive estimators.
 
+Table~\ref{tab:method-comparison} summarizes these distinctions in estimand,
+reconstruction, computation, and regularity.
+
 \begin{table}[t]
 \centering
 \caption{Closest one-dimensional representations.  ``Exact'' means that the
@@ -1007,6 +1010,8 @@ minimal comparator was the published two-component quality score of Kumler
 et al. \citep{kumler2023picky}; details of its independent reconstruction and
 the preliminary double holdout are given in the supplement.
 
+Figure~\ref{fig:lcms-evidence} summarizes the preliminary holdout and the two
+frozen no-refit transfer directions.
 Adding the eight-level HCRD representation increased average precision from
 0.7774 to 0.8955 and from 0.7984 to 0.8990.  The paired improvements were
 0.1181 ($[0.0613,0.1781]$) and 0.1005 ($[0.0559,0.1470]$), with

@@ -7,6 +7,11 @@
 /manuscript.out
 /manuscript.pdf
 /manuscript.thm
+/cover_letter.aux
+/cover_letter.fdb_latexmk
+/cover_letter.fls
+/cover_letter.log
+/cover_letter.out
 /rendered/
 /rendered_final/
 /siamonline250211.cls
