@@ -11,6 +11,7 @@ version: 0.1.0
 date-released: 2026-08-30
 license: MIT
 repository-code: "https://github.com/Safreliy/hcrd"
+doi: "10.5281/zenodo.22171977"
 abstract: >-
   Reference implementation and reproducibility archive for Hierarchical
   Convexity-Run Decomposition (HCRD), a nonlinear geometric multiscale

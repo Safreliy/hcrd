@@ -18,7 +18,8 @@ on expert-labelled chromatographic curves. That application serves as a
 downstream validation setting for a general sampled-curve representation, with
 matched controls and negative boundary experiments reported explicitly.
 
-Code, protocols, compact results, and reproducibility instructions are publicly
+Code, protocols, compact results, and reproducibility instructions are archived
+on Zenodo at https://doi.org/10.5281/zenodo.22171977; active development is
 available at https://github.com/Safreliy/hcrd. The manuscript is original and
 is not under consideration elsewhere.
 

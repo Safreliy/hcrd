@@ -1,8 +1,10 @@
 # Hierarchical Convexity-Run Decomposition (HCRD)
 
+[![DOI](https://zenodo.org/badge/1347027481.svg)](https://doi.org/10.5281/zenodo.22171976)
+
 Reference implementation and reproducibility materials for *Hierarchical
-Convexity-Run Decomposition: Finite-Sample Chord-Lobe Recovery and
-Interpretable LC--MS Transfer*.
+Convexity-Run Decomposition of Sampled Curves: Finite-Sample Recovery and
+Stability*.
 
 **Saveliy Baturin**  
 Independent Researcher
@@ -191,8 +193,9 @@ The compiled main manuscript is
 scan theory, and secondary experiments are in
 [`paper/hcrd_supplement.pdf`](paper/hcrd_supplement.pdf). Citation metadata are
 provided in [`CITATION.cff`](CITATION.cff). The venue-formatted manuscript,
-highlights, graphical abstract, and build instructions for *Signal Processing*
-are under [`paper/signal_processing/`](paper/signal_processing/). A
+cover letter, and build instructions for SIMODS are under
+[`paper/simods/`](paper/simods/). Release `v0.1.0` is archived on Zenodo at
+[doi:10.5281/zenodo.22171977](https://doi.org/10.5281/zenodo.22171977). A
 compile-tested arXiv upload archive with POSIX-only internal paths can be built
 with `python paper/build_arxiv_source.py`.
 
