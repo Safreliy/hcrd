@@ -1,20 +1,22 @@
 cff-version: 1.2.0
-message: "If you use HCRD, please cite the software and accompanying preprint."
-title: "Hierarchical Convexity-Run Decomposition: Finite-Sample Chord-Lobe Recovery and Interpretable LC-MS Transfer"
+message: "If you use HCRD, please cite this software release and the accompanying manuscript."
+title: "HCRD: Reference Implementation and Reproducibility Archive"
 type: software
 authors:
   - family-names: Baturin
     given-names: Saveliy
     affiliation: Independent Researcher
+    email: saveliy.xo@gmail.com
 version: 0.1.0
-date-released: 2026-08-26
+date-released: 2026-08-30
 license: MIT
+repository-code: "https://github.com/Safreliy/hcrd"
 abstract: >-
-  Reference implementation and reproducibility archive for a finite nonlinear
-  geometric decomposition of discrete signals into nested signed chord
-  structures, with finite-sample recovery for exact and approximate sampled
-  joins, bidirectional cross-study LC-MS quality validation, source-refit and
-  comparator-implementation sensitivities, and external residual-error triage.
+  Reference implementation and reproducibility archive for Hierarchical
+  Convexity-Run Decomposition (HCRD), a nonlinear geometric multiscale
+  representation of sampled curves. The archive includes tests, experimental
+  protocols, compact outputs, and materials supporting finite-sample recovery
+  results and downstream validation studies.
 keywords:
   - signal decomposition
   - discrete curvature

@@ -1,0 +1,20 @@
+Dear Editors,
+
+I am pleased to submit the manuscript entitled “Hierarchical Convexity-Run Decomposition: Finite-Sample Chord-Lobe Recovery and Interpretable LC–MS Transfer” for consideration as an Original Research Article in Signal Processing.
+
+The manuscript introduces Hierarchical Convexity-Run Decomposition (HCRD), a finite nonlinear signal decomposition based on recursively nested runs of discrete-curvature sign. The method produces an exactly reconstructing hierarchy of signed chord residuals while requiring linear total work in the sparse knot representation.
+
+The main methodological contribution is a finite-sample analysis of HCRD rather than an application-only evaluation. For an explicit class of piecewise-chord signals, I establish boundary and component recovery under Gaussian noise, together with structural results on termination, affine equivariance, variation control, and the global discontinuity of the hard decomposition. I additionally characterize stable companion constructions and empirically examine the predicted recovery regime.
+
+I evaluate whether the resulting representation provides information beyond conventional multiscale features in cross-study LC–MS quality assessment. In frozen no-refit transfers between independently labelled studies, HCRD features improve average precision over a reimplemented published quality score in both transfer directions. An equal-dimensional Gaussian-derivative representation matches HCRD in one direction but is substantially weaker in the other. Additional external and sensitivity experiments identify settings in which HCRD does not provide a measurable advantage; I retain these negative results to delineate the method’s application boundaries.
+
+I believe the manuscript is particularly well suited to Signal Processing because its primary contribution is a new nonlinear signal-processing construction accompanied by finite-sample theory, computational analysis, comparison with related decomposition and multiscale methods, and validation on real signals. The LC–MS experiments serve as an application of the signal representation rather than the sole basis for the proposed method.
+
+The manuscript is original and is not under consideration by another journal. Code, experimental protocols, and reproducibility materials are publicly available in the accompanying repository.
+
+Thank you for considering this manuscript for publication in Signal Processing.
+
+Sincerely,
+
+Saveliy Baturin
+Independent Researcher
