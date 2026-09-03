@@ -16,8 +16,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 760,
-      "sha256": "04cfb94620cc10d486796f1ea55735a17763a6bbf1718c92faeb4e712347434d"
+      "bytes": 880,
+      "sha256": "9463273e50e40ca35e65850df1083a00bdcef7bd05155eaf8cd735f3249fbc29"
     },
     {
       "path": "CITATION.cff",
@@ -41,8 +41,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13246,
-      "sha256": "7357c88e2ff9452b6e065f369ce64804246544784bb8e3eda845cca212c4a0a6"
+      "bytes": 13474,
+      "sha256": "8801b1e7c11a9692ee5685ea6f9b5310cc5d6901928ff225c842f3409e4886df"
     },
     {
       "path": "REPRODUCIBILITY.md",
@@ -1245,6 +1245,16 @@
       "sha256": "2046b9808bf63748bd06cf3c312bd460ded6d9d6f9a3cfb7801ac9fe950dd056"
     },
     {
+      "path": "paper/sci/README.md",
+      "bytes": 587,
+      "sha256": "0b19a720131385ad640cc8a52c84da7f1ba7453ec7f5beffd013264e75ecc593"
+    },
+    {
+      "path": "paper/sci/figures/dnase_replicate_sci.png",
+      "bytes": 117941,
+      "sha256": "3f6443588180085a77b6fdc4b3fa52cb3ae697e880bf273eb8eeceb6f4e2ba0f"
+    },
+    {
       "path": "paper/sci/figures/e33_frontier_coverage_width.pdf",
       "bytes": 21087,
       "sha256": "3aa0391eac05df402954907f303fa632d64c1cfc3cd90b1207a62a53a95acb7c"
@@ -1265,9 +1275,24 @@
       "sha256": "0f7202f759612a93a4885d32154ef44045e081556afcbc1a026f770ea2e91c8e"
     },
     {
+      "path": "paper/sci/manuscript.pdf",
+      "bytes": 906460,
+      "sha256": "a923ad50ac4fe38019e161376c75bee8c08183f29c20af78e243b6d6caa99238"
+    },
+    {
+      "path": "paper/sci/manuscript.tex",
+      "bytes": 46925,
+      "sha256": "df4ce6d43b9fb1ec0a8ce194c19f7e3c83fb3f5e8f40e8d7ea6338bd5949b6ae"
+    },
+    {
       "path": "paper/sci/manuscript_plain_english.md",
       "bytes": 8959,
       "sha256": "a97234aa6fd56abd4d9aa82750a8d5f349689232a8cbcef01c6433165f9693d8"
+    },
+    {
+      "path": "paper/sci/references.bib",
+      "bytes": 3809,
+      "sha256": "85d9a783aea56c84d9b63a01ef0b12f3482a38cccf5a254bc8a6df1c7dee813f"
     },
     {
       "path": "paper/signal_processing/README.md",

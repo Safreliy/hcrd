@@ -68,7 +68,8 @@ would require about 44,702 GiB.
 
 Start with [`docs/sci_artifact_inventory.md`](docs/sci_artifact_inventory.md),
 the [publication blueprint](docs/hct_shape_inference_publication_blueprint_ru.md),
-and [`examples/shapecontrast_quickstart.py`](examples/shapecontrast_quickstart.py).
+the [SCI manuscript](paper/sci/manuscript.pdf), and
+[`examples/shapecontrast_quickstart.py`](examples/shapecontrast_quickstart.py).
 Full commands and expected results are in
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 
@@ -259,7 +260,10 @@ have a paper DOI. The citation metadata and Zenodo DOI below identify the
 earlier HCRD v0.1.0 archive; they should not be cited as if they already
 archived the SCI claims.
 
-The compiled main manuscript is
+The standalone SCI manuscript and its LaTeX source are
+[`paper/sci/manuscript.pdf`](paper/sci/manuscript.pdf) and
+[`paper/sci/manuscript.tex`](paper/sci/manuscript.tex).  The compiled original
+HCRD manuscript is
 [`paper/hcrd_preprint.pdf`](paper/hcrd_preprint.pdf); detailed proofs, optional
 scan theory, and secondary experiments are in
 [`paper/hcrd_supplement.pdf`](paper/hcrd_supplement.pdf). Citation metadata are

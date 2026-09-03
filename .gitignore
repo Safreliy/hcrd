@@ -36,4 +36,11 @@ paper/signal_processing/*.fls
 paper/signal_processing/*.log
 paper/signal_processing/*.out
 paper/signal_processing/*.spl
+paper/sci/*.aux
+paper/sci/*.bbl
+paper/sci/*.blg
+paper/sci/*.fdb_latexmk
+paper/sci/*.fls
+paper/sci/*.log
+paper/sci/*.out
 texput.log
