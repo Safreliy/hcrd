@@ -992,7 +992,7 @@
     {
       "path": "experiments/sci/generate_method_overview.py",
       "bytes": 9949,
-      "sha256": "4a23b4234c51b43ea46609a7389c836ee65e51922a75ed919433e184d1ee63f5"
+      "sha256": "37698fd74400ce1627076f1a844650cbbef0c269e6d0010f74ad904d24bced3c"
     },
     {
       "path": "experiments/sci/run_dnase_replicate_e37.py",
@@ -1281,18 +1281,18 @@
     },
     {
       "path": "paper/sci/figures/sci_method_overview.pdf",
-      "bytes": 46474,
-      "sha256": "b41948be6068d388d9a654e3eaaa94ddd23e291b051ad83002802689fcdce510"
+      "bytes": 46488,
+      "sha256": "721085d659edd3ebe96628d607bb96c9b41d0976b56693ec4e552e87237d4085"
     },
     {
       "path": "paper/sci/figures/sci_method_overview.png",
-      "bytes": 167892,
-      "sha256": "6db8cc96568d76a285e4e7d66cb08e9ee8720381b09782542250998ba207fc8f"
+      "bytes": 167975,
+      "sha256": "473b53b0d7e63ee8db4c80136935ba1beba02a725d276e197f8aa64a8b7a9786"
     },
     {
       "path": "paper/sci/manuscript.pdf",
-      "bytes": 953905,
-      "sha256": "07c2b37fcf452219d1c501eb7c739ae9f0b44571abc0c641801fe790d4bf38e8"
+      "bytes": 953919,
+      "sha256": "1eff2e090383e5ce296e3222644691b14b8db7ee5434147132c77bfda4f44310"
     },
     {
       "path": "paper/sci/manuscript.tex",

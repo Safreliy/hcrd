@@ -149,7 +149,7 @@ def main() -> None:
     axis.set_axis_off()
 
     # Step 1: a geometric model of the chord-sign rule.
-    _card(axis, 0.635, 0.315)
+    _card(axis, 0.620, 0.330)
     _step_badge(axis, 0.096, 0.910, "1")
     axis.text(
         0.135,
@@ -178,7 +178,7 @@ def main() -> None:
         4.0 * curve_parameter**3,
         1.0 - 4.0 * (1.0 - curve_parameter) ** 3,
     )
-    curve_y = 0.640 + 0.125 * raw_curve
+    curve_y = 0.625 + 0.125 * raw_curve
     axis.plot(
         curve_x,
         curve_y,
@@ -220,9 +220,9 @@ def main() -> None:
             linewidth=0.6,
             zorder=5,
         )
-        _pill(axis, float(np.mean(lobe_x)), 0.795, label, colour)
+        _pill(axis, float(np.mean(lobe_x)), 0.780, label, colour)
 
-    _down_arrow(axis, 0.638, 0.608)
+    _down_arrow(axis, 0.623, 0.608)
 
     # Step 2: a finite/discrete model of the one-sided logical exclusions.
     _card(axis, 0.350, 0.240)
