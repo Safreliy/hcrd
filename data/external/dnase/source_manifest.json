@@ -1,0 +1,9 @@
+{
+  "dataset": "DNase from the R datasets package",
+  "downloaded_utc": "2026-09-03T17:37:07.831773+00:00",
+  "mirror_url": "https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/datasets/DNase.csv",
+  "official_documentation": "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/DNase.html",
+  "sha256": "d9af548405c6772dfbc7caf9998544f27fc133b7dbaa4340ae198787da98d5f4",
+  "bytes": 3385,
+  "license_note": "Distributed by R as part of the datasets package."
+}

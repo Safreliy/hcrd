@@ -1,6 +1,10 @@
 # Data policy
 
-No third-party raw waveform is committed to this repository.
+No large third-party raw waveform is committed to this repository. One small
+public table, the R `DNase` example used for replicate-curve SCI, is included
+under `external/dnase/`. Its official documentation, mirror URL, and SHA-256
+checksum are recorded in `source_manifest.json`. The table remains under its
+source terms and is not relicensed by this repository.
 
 - CWRU Bearing Data Center records are retrieved by
   `experiments/download_cwru.py`; the frozen URLs, labels, byte counts, and

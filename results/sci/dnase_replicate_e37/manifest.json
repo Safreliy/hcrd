@@ -1,0 +1,61 @@
+{
+  "experiment": "E37 exact replicate-curve SCI on DNase",
+  "status": "evaluated_after_freeze",
+  "created_utc": "2026-09-03T17:37:41.144271+00:00",
+  "frozen": {
+    "status": "frozen_before_evaluation",
+    "created_utc": "2026-09-03T17:37:30.826337+00:00",
+    "config": {
+      "alpha": 0.05,
+      "separation_multipliers": [
+        1,
+        2
+      ],
+      "design_transform": "log2(concentration)",
+      "sampling_unit": "assay run",
+      "technical_duplicate_rule": "mean within run and concentration",
+      "expected_data_sha256": "d9af548405c6772dfbc7caf9998544f27fc133b7dbaa4340ae198787da98d5f4"
+    },
+    "hashes": {
+      "driver": "8aadc5a952d71eb3a50b9352dd848c8fecd57bb045a1e043f3439b1d0e42f6bc",
+      "protocol": "d855cdf918e3d912a897be58421fb92a64a90ffd041fbb91c0d6175869e22427",
+      "inference_module": "7431a4a247a1ffea9033f9e950db3adad9de83be446e5c3594e067e7997f105d",
+      "replicate_module": "7b3e1d3af9c56ef17cec567921d58f0d55e08cda05a98d6c5d3b380b15ce9be4",
+      "data": "d9af548405c6772dfbc7caf9998544f27fc133b7dbaa4340ae198787da98d5f4"
+    }
+  },
+  "result": {
+    "replicate_count": 11,
+    "design_point_count": 8,
+    "raw_measurement_count": 176,
+    "contrast_count": 12,
+    "critical_value": 3.6914783871392585,
+    "certified_positive_contrasts": 10,
+    "certified_negative_contrasts": 0,
+    "confidence_level": 0.95,
+    "sci_empty": false,
+    "sci_log2_interval": [
+      -0.3561438102252753,
+      3.643856189774725
+    ],
+    "sci_concentration_interval": [
+      0.78125,
+      12.500000000000002
+    ],
+    "logistic_midpoint_log2": 2.0500498133052374,
+    "logistic_midpoint_concentration": 4.141202680144702
+  },
+  "result_hashes": {
+    "replicate_curves": "353281d441153b5d1412164b94f71c24799d1a8236394a5f0c0d7b621c8727ba",
+    "mean_curve": "c3587d18017f97d80eeeb614121fc7615f450426e64cd06425f5229f47cf931d",
+    "contrast_table": "bc0acc9261c1cbb604028fc2ea5d1d91a321904e0ee98893fd44e5c01cb62d6d",
+    "result": "643d2b3708d72b6990ca29fd7a5b576136102112757b9a60998878675ba04b84",
+    "figure": "3f6443588180085a77b6fdc4b3fa52cb3ae697e880bf273eb8eeceb6f4e2ba0f",
+    "report": "9e43c18a7e33935d77f51f0fe86f27631881be156488015d27b24a7dae7ba7fe"
+  },
+  "environment": {
+    "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.3.5",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

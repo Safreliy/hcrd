@@ -40,6 +40,48 @@ contrast scan itself.
 
 Source: <https://doi.org/10.1214/aos/996986504>.
 
+### Davies, Kovac and Meise (2009)
+
+*Nonparametric Regression, Confidence Regions and Regularization*, Annals of
+Statistics 37, 2597--2625, DOI `10.1214/07-AOS575`.
+
+This paper is direct prior work on honest finite-sample inference. It builds a
+universal confidence region for a regression curve from linear inequalities at
+the design points. The authors use that region to study shape, including the
+number and location of inflection points. For a smooth cubic crossing they
+obtain the localization order `(log(n)/n)^(1/7)`.
+
+This rules out two broad claims: SCI is not the first honest finite-sample
+method relevant to inflection locations, and its cubic localization order is
+not new. The difference is narrower. Davies et al. start from a confidence
+region for the full curve and then regularize within it. SCI directly returns
+an outer confidence set for every location compatible with a single
+convex-to-concave transition. The exact relation between these two outputs must
+be explained, not assumed.
+
+Source: <https://doi.org/10.1214/07-AOS575>.
+
+### Schmidt-Hieber, Munk and Dümbgen (2013)
+
+*Multiscale Methods for Shape Constraints in Deconvolution: Confidence
+Statements for Qualitative Features*, Annals of Statistics 41, 1299--1328,
+arXiv `1107.1404`.
+
+This paper is close to SCI in logic. It makes simultaneous multiscale sign
+statements about an operator applied to an unknown function. Opposite signs on
+nearby intervals give confidence regions for roots; with the second derivative
+operator, these roots are inflection points. The paper also gives the
+`(log(n)/n)^(1/7)` order in the regular smooth case.
+
+The observation model and target remain different. Their main setting is
+density deconvolution and roots of a differential or pseudo-differential
+operator. SCI uses fixed-design regression and chord inequalities. Its basic
+coverage theorem does not require a derivative, a unique transition, or
+continuity at the transition. These differences may support a contribution,
+but the general pattern "certify signs, then invert them" is prior art.
+
+Source: <https://arxiv.org/abs/1107.1404>.
+
 ### Liao and Meyer (2017) and `ShapeChange`
 
 *Change-point estimation using shape-restricted regression splines*, Journal
@@ -109,20 +151,25 @@ Source: <https://arxiv.org/abs/1305.5673>.
   under smoothing assumptions.  E32 belongs to this smoother route and does
   not cover the full Feng class.
 
-## Priority conclusion as of 2026-09-02
+## Priority conclusion as of 2026-09-03
 
-The literature audit supports a **candidate**, not yet categorical, novelty
-claim:
+The literature audit does not support a broad priority claim. In particular,
+the manuscript must not call SCI the first finite-sample confidence method for
+an inflection point, the first multiscale sign inversion, or the first method
+with the cubic `(log(n)/n)^(1/7)` order.
 
-> A derivative-free finite-sample confidence set for the entire admissible
-> inflection set of a nonparametric S-shaped regression function, valid for
-> discontinuous and nonsmooth signals, obtained by deterministic inversion of
-> simultaneous multiscale shape contrasts and composable with any point
-> estimator.
+A safer contribution statement is:
 
-The claim must remain qualified as "to our knowledge" until a formal database
-search and citation-chaining audit is completed.  Publication strength requires
-all of the following:
+> SCI gives a direct finite-sample outer confidence set for all
+> convex-to-concave transition locations in fixed-design Gaussian regression.
+> The guarantee allows a nonunique transition, a flat section, a kink, or a
+> jump. The method also combines with one-sided scale bounds for unknown
+> homoskedastic noise and with a sensitivity model for bounded
+> heteroskedasticity.
+
+This statement describes what the method does without claiming that no related
+method exists. A stronger novelty claim requires a formal database search and
+citation chaining. Publication strength requires all of the following:
 
 1. the finite-sample coverage theorem and its proof;
 2. a localization-rate result under an explicit local separation condition;
@@ -132,6 +179,15 @@ all of the following:
 5. a clear negative result on weak logistic curvature rather than selective
    reporting;
 6. an unknown-noise extension or an explicit known-scale limitation.
+
+The comparison table for the paper should distinguish at least these points:
+
+| Method | Data model | Main confidence object | Smooth transition needed? | Finite-sample statement? |
+|---|---|---|---:|---:|
+| Davies et al. | fixed-design regression | confidence region for the curve; shape-regularized fits | yes for localization rate | yes for the curve region |
+| Schmidt-Hieber et al. | density deconvolution | root regions for differential operators | yes for shrinking root regions | mainly asymptotic multiscale calibration |
+| ShapeChange | shape-restricted spline regression | bootstrap interval for one change point | yes | no uniform finite-sample theorem found |
+| SCI | fixed-design regression | outer set for every compatible convex-to-concave transition | no for coverage | yes under stated Gaussian assumptions |
 
 The broad data-science problem is not "classify time series with HCT".  It is:
 researchers can fit a flexible S-shaped response and report a change from

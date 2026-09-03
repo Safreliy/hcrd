@@ -1,0 +1,60 @@
+{
+  "experiment": "matrix-free SCI scaling",
+  "separation_multipliers": [
+    1,
+    2,
+    4
+  ],
+  "rows": [
+    {
+      "n": 1000,
+      "contrast_count": 5872,
+      "build_seconds": 0.0006015000399202108,
+      "evaluate_seconds": 0.0014782999642193317,
+      "stored_mebibytes": 0.05242919921875,
+      "estimate_vector_mebibytes": 0.0447998046875,
+      "dense_operator_gibibytes": 0.04374980926513672,
+      "rss_increase_mebibytes": 0.1875,
+      "finite": true
+    },
+    {
+      "n": 10000,
+      "contrast_count": 59831,
+      "build_seconds": 0.0009411999490112066,
+      "evaluate_seconds": 0.0038644999731332064,
+      "stored_mebibytes": 0.5327682495117188,
+      "estimate_vector_mebibytes": 0.45647430419921875,
+      "dense_operator_gibibytes": 4.457756876945496,
+      "rss_increase_mebibytes": 1.5546875,
+      "finite": true
+    },
+    {
+      "n": 100000,
+      "contrast_count": 599790,
+      "build_seconds": 0.0041943000396713614,
+      "evaluate_seconds": 0.028731700032949448,
+      "stored_mebibytes": 5.3389739990234375,
+      "estimate_vector_mebibytes": 4.5760345458984375,
+      "dense_operator_gibibytes": 446.8783736228943,
+      "rss_increase_mebibytes": 11.328125,
+      "finite": true
+    },
+    {
+      "n": 1000000,
+      "contrast_count": 5999750,
+      "build_seconds": 0.034551799995824695,
+      "evaluate_seconds": 0.7318410999141634,
+      "stored_mebibytes": 53.40385437011719,
+      "estimate_vector_mebibytes": 45.77445983886719,
+      "dense_operator_gibibytes": 44701.62093639374,
+      "rss_increase_mebibytes": 115.703125,
+      "finite": true
+    }
+  ],
+  "environment": {
+    "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.3.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "rss_measurement": "psutil"
+  }
+}

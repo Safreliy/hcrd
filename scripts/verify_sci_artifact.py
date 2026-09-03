@@ -1,4 +1,4 @@
-"""Verify hashes frozen by the E33--E35 SCI experiment manifests."""
+"""Verify hashes frozen by the E33--E38 SCI experiment manifests."""
 
 from __future__ import annotations
 
@@ -111,6 +111,75 @@ def main() -> None:
     }
     for key, relative in e35_paths.items():
         check(relative, e35["hashes"][key])
+
+    e36_dir = ROOT / "results/sci/high_precision_coverage_e36"
+    e36 = _load(e36_dir / "manifest.json")
+    if _load(e36_dir / "frozen_config.json") != e36["frozen"]:
+        failures.append("E36 frozen_config.json differs from manifest")
+    e36_code = {
+        "driver": "experiments/sci/run_high_precision_coverage_e36.py",
+        "protocol": "docs/sci_e36_high_precision_coverage_protocol.md",
+        "inference_module": "src/shapecontrast/inference.py",
+    }
+    for key, relative in e36_code.items():
+        check(relative, e36["frozen"]["hashes"][key])
+    for key, filename in {
+        "trial_scores": "trial_scores.csv",
+        "summary": "summary.csv",
+        "report": "report.md",
+    }.items():
+        check(
+            str((e36_dir / filename).relative_to(ROOT)),
+            e36["result_hashes"][key],
+        )
+
+    e37_dir = ROOT / "results/sci/dnase_replicate_e37"
+    e37 = _load(e37_dir / "manifest.json")
+    if _load(e37_dir / "frozen_config.json") != e37["frozen"]:
+        failures.append("E37 frozen_config.json differs from manifest")
+    e37_code = {
+        "driver": "experiments/sci/run_dnase_replicate_e37.py",
+        "protocol": "docs/sci_e37_dnase_replicate_protocol.md",
+        "inference_module": "src/shapecontrast/inference.py",
+        "replicate_module": "src/shapecontrast/replicated.py",
+        "data": "data/external/dnase/DNase.csv",
+    }
+    for key, relative in e37_code.items():
+        check(relative, e37["frozen"]["hashes"][key])
+    for key, filename in {
+        "replicate_curves": "replicate_curves.csv",
+        "mean_curve": "mean_curve.csv",
+        "contrast_table": "contrast_table.csv",
+        "result": "result.json",
+        "figure": "dnase_replicate_sci.png",
+        "report": "report.md",
+    }.items():
+        check(
+            str((e37_dir / filename).relative_to(ROOT)),
+            e37["result_hashes"][key],
+        )
+
+    e38_dir = ROOT / "results/sci/matched_honest_baseline_e38_r1"
+    e38 = _load(e38_dir / "manifest.json")
+    if _load(e38_dir / "frozen_config.json") != e38["frozen"]:
+        failures.append("E38r1 frozen_config.json differs from manifest")
+    e38_code = {
+        "driver": "experiments/sci/run_matched_honest_baseline_e38.py",
+        "protocol": "docs/sci_e38_matched_honest_baseline_protocol.md",
+        "inference_module": "src/shapecontrast/inference.py",
+        "projection_module": "src/shapecontrast/projection.py",
+    }
+    for key, relative in e38_code.items():
+        check(relative, e38["frozen"]["hashes"][key])
+    for key, filename in {
+        "trial_scores": "trial_scores.csv",
+        "summary": "summary.csv",
+        "report": "report.md",
+    }.items():
+        check(
+            str((e38_dir / filename).relative_to(ROOT)),
+            e38["result_hashes"][key],
+        )
 
     if failures:
         raise SystemExit("SCI artifact verification failed:\n" + "\n".join(failures))

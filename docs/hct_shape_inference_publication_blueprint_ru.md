@@ -88,6 +88,15 @@ mean.  Combining it with SCI again gives finite-sample `1-alpha` coverage.
 The parameter `kappa` is reported as a sensitivity assumption; it is not
 estimated from one unreplicated response per design point.
 
+### T5 — independent replicate curves
+
+When several independent runs are observed on the same design, SCI can work
+with the contrast values across runs. A Student interval is exact for each
+contrast under multivariate Gaussian replicate curves. Bonferroni correction
+then gives a finite-sample simultaneous band. This extension allows arbitrary
+dependence and unequal variance between design points inside a run. It does
+not require estimation of the full covariance matrix.
+
 ## 4. Frozen evidence
 
 ### E33: frontier-aligned known-scale comparison
@@ -135,7 +144,36 @@ almost no localization information for weak curvature.
 These simulations verify the theorem mechanics and expose power boundaries;
 they do not prove the theorems.
 
-## 5. Real LIDAR illustration
+### E36: high-precision known-scale audit
+
+E36 used 5,000 fresh responses in each of the 16 paper cells, or 80,000
+responses in total. SCI coverage was `0.9770` to `0.9804`, and simultaneous
+contrast coverage was `0.9524` to `0.9618`. Every coverage alarm passed.
+
+The frozen `zero_empty_sets` gate failed. Empty sets occurred in `0.0002` to
+`0.0228` of trials. This does not contradict the theorem, which allows an empty
+set on its failure event with probability at most `alpha=0.05`. The failed gate
+is retained in the manifest and explained in
+`docs/sci_e36_posthoc_interpretation.md`.
+
+### E38r1: matched honest baseline
+
+The published `ShapeChange` bootstrap uses a smoother model than SCI. E38r1
+therefore adds pointwise-band projection (PBP), our exact finite-sample
+baseline for the same sampled convex-to-concave class. PBP projects a
+simultaneous Gaussian confidence box for the whole mean vector through linear
+shape-feasibility problems. It is related to Davies et al., but it is not
+their official algorithm.
+
+Both methods retained coverage in all 16 frozen cells. SCI reduced median
+width by `57.9%` to `75.7%` for the cusp, `19.4%` to `32.8%` for the onset,
+and `40.0%` to `50.0%` for the jump. Neither method improved on the other in
+the weak logistic cells; both were essentially the full observed range. All
+pre-specified E38r1 gates passed.
+
+## 5. Real-data illustrations
+
+### LIDAR
 
 The current `Sshaped` package estimates the plume centre at `588 m`.  A smooth
 `ShapeChange` fit estimates `606.0 m` with a nominal residual-bootstrap
@@ -156,15 +194,39 @@ answer is that the data do not localize it.  The narrow spline interval is only
 descriptive here because its iid residual bootstrap does not represent that
 heteroskedasticity.
 
-## 6. Defensible novelty statement
+### Replicated DNase assay
 
-Subject to a final database and citation-chain audit:
+E37 uses all 176 measurements from the public R `DNase` dataset. The two
+technical readings are averaged within each run and concentration, leaving 11
+independent run-level curves on eight concentrations. The exact replicate
+Student band allows dependence and unequal variance across concentrations
+inside a run.
 
-> To our knowledge, SCI is the first derivative-free finite-sample confidence
-> construction for the entire admissible inflection set in nonparametric
-> S-shaped regression that remains valid for discontinuous and nonsmooth
-> signals, and the first such construction extended to unknown Gaussian scale
-> and bounded unknown heteroskedasticity without imposing a smooth mean model.
+The 95% SCI set is `[0.78125, 12.5]` in concentration units. A descriptive
+four-parameter logistic fit places the transition at `4.14`. The SCI result is
+one-sided in practice: it rules out a transition below `0.78125`, but it does
+not find a reliable upper limit before the largest observed concentration.
+This is a second real example with observable replication, not an assumed
+variance-ratio sensitivity analysis.
+
+## 6. Defensible contribution statement
+
+Davies, Kovac and Meise (2009) already gave an honest non-asymptotic
+confidence region for nonparametric regression and studied inflection
+locations. Schmidt-Hieber, Munk and Dümbgen (2013) already turned multiscale
+sign statements into confidence regions for roots of differential operators.
+Both works also contain the regular cubic `(log(n)/n)^(1/7)` localization
+order. SCI must therefore avoid a broad claim of being first.
+
+A safe statement is:
+
+> SCI gives a direct finite-sample outer confidence set for all
+> convex-to-concave transition locations in fixed-design Gaussian regression.
+> The transition may be nonunique, nonsmooth or discontinuous. The method also
+> combines with one-sided scale bounds for unknown homoskedastic noise and with
+> a sensitivity model for bounded heteroskedasticity. Independent replicate
+> curves permit an exact Student version with arbitrary within-curve
+> covariance.
 
 Forbidden claims:
 
@@ -175,6 +237,9 @@ Forbidden claims:
 - “distribution-free” — the current calibration is Gaussian;
 - “valid for arbitrary heteroskedasticity” — validity requires a correct
   declared `kappa` or additional replicates/variance structure.
+- “first finite-sample inflection confidence method” — Davies et al. are prior
+  work;
+- “new `(log(n)/n)^(1/7)` rate” — that order is already known.
 
 ## 7. Manuscript spine
 
@@ -184,7 +249,7 @@ Forbidden claims:
 4. Finite-sample known-scale theorem and cubic localization rate.
 5. Unknown homoskedastic and bounded-heteroskedastic extensions.
 6. Frozen Feng-benchmark comparison with `Sshaped` and `ShapeChange`.
-7. LIDAR sensitivity analysis.
+7. LIDAR sensitivity analysis and replicated DNase assay.
 8. Limits: weak curvature, dependence, non-Gaussian noise, misspecified
    `kappa` and model checking.
 
@@ -194,23 +259,41 @@ structural transition, not a new representation in search of a task.
 
 ## 8. What is still needed for a strong submission
 
-1. An external adversarial proof review of T1--T4, especially the Anderson and
-   Gaussian quadratic-form step in T4.
-2. A systematic database/citation-chain priority audit through 2026.
-3. A general local-order diameter theorem, or an explicit decision to market
-   the proved cubic rate and treat other orders empirically.
+1. An external adversarial proof review of T1--T4. The internal audit has made
+   the singular-covariance and zero-noise steps in T4 explicit, but an
+   independent specialist is still needed.
+2. A systematic database/citation-chain priority audit through 2026. Davies et
+   al. and Schmidt-Hieber et al. are now included, but citation chaining is not
+   complete.
+3. A function-class lemma that verifies the new general contrast-margin
+   theorem on irregular designs. The `1/(2 gamma+1)` rate is now proved under
+   explicit margin, support and norm conditions.
 4. A matching confidence-set length lower bound if aiming above a solid
    specialist statistics journal.
-5. A second real dataset with raw replicates or a defensible variance-ratio
-   bound; the LIDAR data alone cannot validate `kappa`.
-6. A standalone `sci` API and short reproducible vignette, decoupled from the
-   historical HCRD namespace.
+5. A full implementation of the multiscale Davies confidence region would
+   strengthen the historical comparison, although the exact matched PBP
+   baseline now covers the main fairness objection.
+6. Standalone archive metadata and a tagged release for the new
+   `shapecontrast` namespace.
 
-## 9. Go/no-go decision
+## 9. Implementation update after the audit
+
+The new `shapecontrast` namespace does not build a dense contrast matrix.
+Uniform designs use prefix sums, while irregular designs evaluate weights in
+bounded-memory chunks. Tests compare it with the frozen dense implementation
+on both regular and irregular designs.
+
+On the current machine, the full three-separation family at `n=1,000,000`
+contained 5,999,750 contrasts. It used 53.4 MiB for the stored family, built in
+0.035 seconds and evaluated one curve in 0.732 seconds. A dense matrix with the
+same rows would require about 44,702 GiB. These times are hardware-specific;
+the stored sizes are deterministic. Full results are in
+`results/sci/matrix_free_scaling/`.
+
+## 10. Go/no-go decision
 
 **Go** for a new shape-constrained-inference paper.  The central known problem,
 finite-sample solution, frontier comparator and honest negative regime are all
 present.  **No-go** for presenting it as an HCRD superiority paper or as a
 generic hybrid that boosts point accuracy.  The strongest current story is
 “frontier point estimator plus a new honest uncertainty layer.”
-

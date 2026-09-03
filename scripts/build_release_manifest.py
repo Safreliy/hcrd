@@ -19,6 +19,7 @@ INCLUDED_ROOTS = (
     "paper",
     "figures",
     "data/manifests",
+    "data/external/dnase",
     "data/qtdb",
     "examples",
     ".github",
@@ -31,6 +32,7 @@ INCLUDED_FILES = (
     "LICENSE",
     "LICENSE-CONTENT.md",
     "pyproject.toml",
+    ".gitattributes",
 )
 
 

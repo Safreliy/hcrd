@@ -25,14 +25,23 @@ regimes. Under the stated Gaussian assumptions, SCI covers the entire set of
 admissible inflection locations without assuming derivatives, continuity at
 the transition, or a unique transition.
 
-The included theorem and confirmation package covers known noise scale,
-unknown homoskedastic scale, and unknown bounded heteroskedasticity. In the
-frozen E33 comparison, SCI coverage over the 16 published benchmark cells was
-0.965--0.995, while `ShapeChange` had zero coverage in 9 cells. The unknown
-scale and bounded-heteroskedastic confirmation gates passed, with minimum SCI
-coverage 0.990 and 0.995, respectively. SCI can honestly return a wide or full
-domain when the data contain too little curvature information; this is a
-reported power boundary, not hidden as a failure.
+The theorem package covers known noise scale, unknown constant noise, bounded
+heteroskedasticity, and independent replicate curves. In the frozen E33
+comparison, SCI coverage over the 16 published benchmark cells was
+0.965--0.995, while `ShapeChange` had zero coverage in 9 cells. A new
+high-precision audit used 5,000 fresh responses per cell. Coverage was
+0.9770--0.9804 across all 16 cells. Its pre-specified zero-empty diagnostic
+failed because SCI was empty in up to 2.28% of trials. This is below the 5%
+theorem allowance, but the failed diagnostic remains visible. SCI can also
+return a wide or full domain when the data contain too little curvature
+information; this is a reported power boundary.
+
+The matched E38r1 comparison adds an exact pointwise-band projection baseline
+for the same sampled shape class. SCI reduced median width by 19.4%--75.7% for
+the cusp, onset, and jump signals while both methods retained coverage. Neither
+method localized the weak logistic signal. This baseline is our implementation
+of generic confidence-region projection, not the official method of Davies et
+al.
 
 ![Frozen SCI coverage and width comparison](paper/sci/figures/e33_frontier_coverage_width.png)
 
@@ -42,10 +51,26 @@ bootstrap interval as automatically valid under heteroskedasticity.
 
 ![LIDAR SCI sensitivity](paper/sci/figures/lidar_sci_sensitivity.png)
 
+The second real example uses 11 independent runs of the public DNase assay.
+The exact replicate-curve version allows arbitrary dependence and unequal
+variance between concentrations inside a run. It gives a 95% transition set
+of `[0.78125, 12.5]` concentration units; a descriptive logistic fit gives a
+point estimate of `4.14`. The wide upper side shows that the experiment does
+not identify a reliable upper limit within the observed range.
+
+![DNase replicate-curve SCI](results/sci/dnase_replicate_e37/dnase_replicate_sci.png)
+
+The public implementation is now in the standalone `shapecontrast` namespace.
+It does not create a dense contrast matrix. In the scaling audit, it evaluated
+5,999,750 contrasts for one million observations in 0.73 seconds and stored
+the family in 53.4 MiB on the benchmark machine. The equivalent dense matrix
+would require about 44,702 GiB.
+
 Start with [`docs/sci_artifact_inventory.md`](docs/sci_artifact_inventory.md),
 the [publication blueprint](docs/hct_shape_inference_publication_blueprint_ru.md),
-and [`examples/sci_quickstart.py`](examples/sci_quickstart.py). Full commands
-and expected results are in [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
+and [`examples/shapecontrast_quickstart.py`](examples/shapecontrast_quickstart.py).
+Full commands and expected results are in
+[`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 
 ## Original HCRD release
 
@@ -211,6 +236,7 @@ Commands for all other experiments are listed in
 | Path | Contents |
 |---|---|
 | `src/hcrd/` | Transform, sparse hierarchy, feature extraction, and scans |
+| `src/shapecontrast/` | Matrix-free SCI and finite-sample uncertainty bands |
 | `tests/` | Unit, regression, and mathematical-property tests |
 | `experiments/` | Data preparation and experiment entry points |
 | `docs/` | Dataset-specific protocols and methodological notes |

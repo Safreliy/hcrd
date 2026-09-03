@@ -1,0 +1,22 @@
+{
+  "status": "frozen_before_evaluation",
+  "created_utc": "2026-09-03T17:37:30.826337+00:00",
+  "config": {
+    "alpha": 0.05,
+    "separation_multipliers": [
+      1,
+      2
+    ],
+    "design_transform": "log2(concentration)",
+    "sampling_unit": "assay run",
+    "technical_duplicate_rule": "mean within run and concentration",
+    "expected_data_sha256": "d9af548405c6772dfbc7caf9998544f27fc133b7dbaa4340ae198787da98d5f4"
+  },
+  "hashes": {
+    "driver": "8aadc5a952d71eb3a50b9352dd848c8fecd57bb045a1e043f3439b1d0e42f6bc",
+    "protocol": "d855cdf918e3d912a897be58421fb92a64a90ffd041fbb91c0d6175869e22427",
+    "inference_module": "7431a4a247a1ffea9033f9e950db3adad9de83be446e5c3594e067e7997f105d",
+    "replicate_module": "7b3e1d3af9c56ef17cec567921d58f0d55e08cda05a98d6c5d3b380b15ce9be4",
+    "data": "d9af548405c6772dfbc7caf9998544f27fc133b7dbaa4340ae198787da98d5f4"
+  }
+}

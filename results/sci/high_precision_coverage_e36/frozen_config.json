@@ -1,0 +1,35 @@
+{
+  "status": "frozen_before_evaluation",
+  "created_utc": "2026-09-03T17:29:25.825416+00:00",
+  "config": {
+    "sample_sizes": [
+      500,
+      1000
+    ],
+    "designs": [
+      "uniform",
+      "beta_4_8"
+    ],
+    "signals": [
+      "paper_f1_cusp",
+      "paper_f2_onset",
+      "paper_f3_jump",
+      "paper_f4_logistic"
+    ],
+    "trials": 5000,
+    "seed": 20262111,
+    "sigma": 0.1,
+    "alpha": 0.05,
+    "separation_multipliers": [
+      1,
+      2,
+      4
+    ],
+    "batch_size": 100
+  },
+  "hashes": {
+    "driver": "005b0e3766931a0509b7b3311699bb04b53d8486907b13635615246ea27ab30b",
+    "protocol": "27683e348b3698ba639728265617adc64ecae151c2e94330366ff4d2665f7824",
+    "inference_module": "7431a4a247a1ffea9033f9e950db3adad9de83be446e5c3594e067e7997f105d"
+  }
+}

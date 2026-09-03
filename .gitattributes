@@ -1,0 +1,4 @@
+# Frozen experiment outputs are byte-level artifacts. Do not change their
+# line endings on checkout because their SHA-256 values are part of the audit.
+results/sci/** -text -diff
+data/external/dnase/** -text -diff

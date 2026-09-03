@@ -2,19 +2,22 @@
 
 ## SCI publication artifact
 
-Install the package, run the 28 SCI-specific tests and execute the minimal
-unknown-scale example:
+Install the package, run the 48 SCI-specific tests and execute the standalone
+example:
 
 ```bash
 python -m pip install -e ".[dev]"
 python -m pytest -q \
   tests/test_shape_inflection_confidence.py \
   tests/test_noise_scale_confidence.py \
-  tests/test_heteroskedastic_scale_confidence.py
-python examples/sci_quickstart.py
+  tests/test_heteroskedastic_scale_confidence.py \
+  tests/test_shapecontrast_standalone.py \
+  tests/test_replicated_shapecontrast.py \
+  tests/test_shape_projection_baseline.py
+python examples/shapecontrast_quickstart.py
 ```
 
-Expected result: `28 passed`. With the frozen seed, the example reports an
+Expected result: `48 passed`. With the frozen seed, the example reports an
 upper noise scale of approximately `0.0110` and an informative SCI set
 approximately `[0.130, 0.830]`, containing the true transition at `0.5`.
 
@@ -26,18 +29,48 @@ python experiments/hct/generate_sci_publication_figures.py
 python scripts/verify_sci_artifact.py
 ```
 
-The three frozen experiment layers are:
+The six frozen experiment layers are:
 
 - E33: known-scale comparison with the official `Sshaped` point estimator and
   `ShapeChange` bootstrap interval;
 - E34: unknown homoskedastic Gaussian scale;
 - E35: bounded unknown heteroskedasticity and the LIDAR sensitivity analysis.
+- E36: 5,000 fresh known-scale responses in each of 16 benchmark cells;
+- E37: exact replicate-curve inference on 11 public DNase assay runs.
+- E38r1: matched comparison with an exact pointwise-band projection baseline.
+
+Run the new matrix-free, high-precision, and replicate-data checks with:
+
+```bash
+python experiments/sci/benchmark_matrix_free_scaling.py
+python experiments/sci/run_high_precision_coverage_e36.py --stage freeze --output-dir results/sci/high_precision_coverage_e36_rerun
+python experiments/sci/run_high_precision_coverage_e36.py --stage evaluate --output-dir results/sci/high_precision_coverage_e36_rerun
+python experiments/sci/download_dnase.py
+python experiments/sci/run_dnase_replicate_e37.py --stage freeze --output-dir results/sci/dnase_replicate_e37_rerun
+python experiments/sci/run_dnase_replicate_e37.py --stage evaluate --output-dir results/sci/dnase_replicate_e37_rerun
+python experiments/sci/run_matched_honest_baseline_e38.py --stage freeze --output-dir results/sci/matched_honest_baseline_e38_rerun
+python experiments/sci/run_matched_honest_baseline_e38.py --stage evaluate --workers 4 --output-dir results/sci/matched_honest_baseline_e38_rerun
+python scripts/verify_sci_artifact.py
+```
+
+The distributed E36 and E37 directories are already frozen and evaluated.
+Use a new output directory when rerunning them. E36 coverage is
+`0.9770--0.9804`. Its zero-empty diagnostic remains failed, as explained in
+`docs/sci_e36_posthoc_interpretation.md`. E37 gives the DNase concentration
+set `[0.78125, 12.5]` and logistic point estimate `4.14`.
+E38r1 keeps coverage for both methods and reduces SCI median width by
+19.4%--75.7% in the 12 cusp, onset, and jump cells. The weak logistic cells
+remain essentially full-range for both methods.
 
 Protocols, commands, frozen seeds and decision gates are recorded in
 `docs/hct_e33_shape_contrast_inflection_protocol.md`,
 `docs/hct_e34_unknown_scale_protocol.md`, and
-`docs/hct_e35_heteroskedastic_protocol.md`. The exact Python/R runners are in
-`experiments/hct/`; inspect their command lines with `--help`. Re-fitting the R
+`docs/hct_e35_heteroskedastic_protocol.md`. The two new protocols are
+`docs/sci_e36_high_precision_coverage_protocol.md` and
+`docs/sci_e37_dnase_replicate_protocol.md`. The matched-baseline protocol is
+`docs/sci_e38_matched_honest_baseline_protocol.md`. The exact Python/R runners
+are in `experiments/hct/` and `experiments/sci/`; inspect their command lines
+with `--help`. Re-fitting the R
 comparators requires `Sshaped` 1.2, `ShapeChange` 1.5 and, for LIDAR, `SemiPar`
 1.0-4.2. Their frozen source metadata and hashes are in the result manifests;
 third-party runtimes and sources are not redistributed.
@@ -57,7 +90,7 @@ python examples/quickstart.py
 python scripts/verify_release.py
 ```
 
-Expected unit-test result for this snapshot: `208 passed`.
+Expected unit-test result for this snapshot: `228 passed`.
 
 ## Tier 2: synthetic and theorem-linked studies
 

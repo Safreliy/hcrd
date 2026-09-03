@@ -1,0 +1,21 @@
+{
+  "replicate_count": 11,
+  "design_point_count": 8,
+  "raw_measurement_count": 176,
+  "contrast_count": 12,
+  "critical_value": 3.6914783871392585,
+  "certified_positive_contrasts": 10,
+  "certified_negative_contrasts": 0,
+  "confidence_level": 0.95,
+  "sci_empty": false,
+  "sci_log2_interval": [
+    -0.3561438102252753,
+    3.643856189774725
+  ],
+  "sci_concentration_interval": [
+    0.78125,
+    12.500000000000002
+  ],
+  "logistic_midpoint_log2": 2.0500498133052374,
+  "logistic_midpoint_concentration": 4.141202680144702
+}
