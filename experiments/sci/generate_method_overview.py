@@ -131,37 +131,17 @@ def main() -> None:
         }
     )
 
-    figure, axis = plt.subplots(figsize=(7.2, 8.2))
+    figure, axis = plt.subplots(figsize=(7.2, 6.4))
     axis.set_xlim(0.0, 1.0)
     axis.set_ylim(0.0, 1.0)
     axis.set_axis_off()
 
-    axis.text(
-        0.055,
-        0.965,
-        "How shape-contrast inversion works",
-        ha="left",
-        va="top",
-        fontsize=17.0,
-        fontweight="bold",
-        color=DARK,
-    )
-    axis.text(
-        0.055,
-        0.923,
-        "Local shape evidence removes impossible transition locations.",
-        ha="left",
-        va="top",
-        fontsize=10.6,
-        color=MUTED,
-    )
-
     # Step 1: a geometric model of the chord-sign rule.
-    _card(axis, 0.655, 0.215)
-    _step_badge(axis, 0.096, 0.832, "1")
+    _card(axis, 0.650, 0.300)
+    _step_badge(axis, 0.096, 0.912, "1")
     axis.text(
         0.135,
-        0.842,
+        0.922,
         "Find reliable local shape",
         fontsize=12.2,
         fontweight="bold",
@@ -170,63 +150,72 @@ def main() -> None:
     )
     axis.text(
         0.135,
-        0.798,
-        "Compare with endpoint chords on many fixed windows; calibrate all windows together for noise.",
-        fontsize=8.35,
+        0.875,
+        "On many fixed windows, SCI compares the curve with an endpoint chord.\n"
+        "The signs are calibrated together to account for noise.",
+        fontsize=8.6,
         color=TEXT,
         va="top",
+        linespacing=1.35,
     )
 
-    curve_x = np.linspace(0.17, 0.88, 500)
-    local_x = (curve_x - 0.17) / (0.88 - 0.17)
-    curve_y = 0.682 + 0.075 / (1.0 + np.exp(-8.5 * (local_x - 0.5)))
-    axis.plot(curve_x, curve_y, color=DARK, lw=2.3, solid_capstyle="round")
-
-    for first, last, colour, label in (
-        (45, 190, GREEN, "convex: chord above"),
-        (310, 455, BLUE, "concave: chord below"),
+    local_coordinate = np.linspace(-1.0, 1.0, 201)
+    for centre, sign, colour, label in (
+        (0.33, 1.0, GREEN, "convex: chord above"),
+        (0.69, -1.0, BLUE, "concave: chord below"),
     ):
-        chord_x = curve_x[first : last + 1]
-        chord_y = np.linspace(curve_y[first], curve_y[last], chord_x.size)
+        curve_x = centre + 0.135 * local_coordinate
+        if sign > 0.0:
+            curve_y = 0.680 + 0.062 * local_coordinate**2
+            chord_y = np.full_like(curve_x, 0.742)
+        else:
+            curve_y = 0.680 + 0.062 * (1.0 - local_coordinate**2)
+            chord_y = np.full_like(curve_x, 0.680)
         axis.plot(
-            chord_x,
-            chord_y,
-            color=colour,
+            curve_x,
+            curve_y,
+            color=DARK,
             lw=2.4,
             solid_capstyle="round",
         )
-        axis.fill_between(
-            chord_x,
-            curve_y[first : last + 1],
+        axis.plot(
+            curve_x,
             chord_y,
             color=colour,
-            alpha=0.18,
+            lw=2.8,
+            solid_capstyle="round",
+        )
+        axis.fill_between(
+            curve_x,
+            curve_y,
+            chord_y,
+            color=colour,
+            alpha=0.20,
         )
         axis.scatter(
-            [curve_x[first], curve_x[last]],
-            [curve_y[first], curve_y[last]],
-            s=21,
+            [curve_x[0], curve_x[-1]],
+            [curve_y[0], curve_y[-1]],
+            s=25,
             color=colour,
             edgecolor="white",
             linewidth=0.6,
             zorder=3,
         )
-        _pill(axis, float(np.mean(chord_x)), 0.767, label, colour)
+        axis.scatter(
+            [centre],
+            [curve_y[curve_y.size // 2]],
+            s=22,
+            color=DARK,
+            edgecolor="white",
+            linewidth=0.5,
+            zorder=3,
+        )
+        _pill(axis, centre, 0.785, label, colour)
 
-    axis.text(
-        0.525,
-        0.671,
-        "dark line: curve     coloured line: chord",
-        ha="center",
-        va="top",
-        fontsize=8.2,
-        color=MUTED,
-    )
-
-    _down_arrow(axis, 0.642, 0.612)
+    _down_arrow(axis, 0.638, 0.608)
 
     # Step 2: a finite/discrete model of the one-sided logical exclusions.
-    _card(axis, 0.365, 0.225)
+    _card(axis, 0.350, 0.240)
     _step_badge(axis, 0.096, 0.552, "2")
     axis.text(
         0.135,
@@ -239,11 +228,11 @@ def main() -> None:
     )
     x0, x1 = 0.20, 0.86
     a_location, b_location = 0.43, 0.68
-    green_y, blue_y = 0.470, 0.395
+    green_y, blue_y = 0.455, 0.375
 
     axis.text(
         0.53,
-        0.492,
+        0.477,
         r"convex $\Rightarrow$ transition right of $a_T$",
         color=GREEN,
         fontsize=8.8,
@@ -287,7 +276,7 @@ def main() -> None:
     )
     axis.text(
         0.53,
-        0.417,
+        0.397,
         r"concave $\Rightarrow$ transition left of $b_T$",
         color=BLUE,
         fontsize=8.8,
@@ -329,14 +318,14 @@ def main() -> None:
         color=BLUE,
         lw=1.6,
     )
-    _down_arrow(axis, 0.352, 0.322)
+    _down_arrow(axis, 0.337, 0.307)
 
     # Step 3: the intersection of all surviving candidate locations.
-    _card(axis, 0.105, 0.195)
-    _step_badge(axis, 0.096, 0.262, "3")
+    _card(axis, 0.040, 0.250)
+    _step_badge(axis, 0.096, 0.247, "3")
     axis.text(
         0.135,
-        0.272,
+        0.257,
         "Keep what the data cannot rule out",
         fontsize=12.2,
         fontweight="bold",
@@ -345,16 +334,16 @@ def main() -> None:
     )
     axis.text(
         0.135,
-        0.235,
+        0.205,
         "Intersect the surviving locations from every certified window.",
         fontsize=9.25,
         color=TEXT,
         va="top",
     )
 
-    final_x0, final_x1 = 0.20, 0.86
-    final_left, final_right = 0.405, 0.705
-    final_y = 0.168
+    final_x0, final_x1 = 0.17, 0.87
+    final_left, final_right = 0.37, 0.73
+    final_y = 0.120
     axis.plot(
         [final_x0, final_left],
         [final_y, final_y],
@@ -384,7 +373,7 @@ def main() -> None:
         lw=2.0,
     )
     axis.text(
-        0.302,
+        0.270,
         final_y,
         "ruled out",
         ha="center",
@@ -393,17 +382,17 @@ def main() -> None:
         color="#64748B",
     )
     axis.text(
-        0.555,
+        0.550,
         final_y,
-        "95% SCI confidence set",
+        "95% SCI set",
         ha="center",
         va="center",
-        fontsize=9.1,
+        fontsize=9.5,
         fontweight="bold",
         color="white",
     )
     axis.text(
-        0.782,
+        0.800,
         final_y,
         "ruled out",
         ha="center",
@@ -413,7 +402,7 @@ def main() -> None:
     )
     axis.text(
         final_left,
-        0.128,
+        0.077,
         r"$\widehat L$",
         ha="center",
         va="top",
@@ -422,22 +411,12 @@ def main() -> None:
     )
     axis.text(
         final_right,
-        0.128,
+        0.077,
         r"$\widehat U$",
         ha="center",
         va="top",
         fontsize=9.3,
         color=BLUE,
-    )
-
-    axis.text(
-        0.5,
-        0.045,
-        "This picture explains the logic. Finite-sample coverage comes from the theorem, not from the picture.",
-        ha="center",
-        va="center",
-        fontsize=8.4,
-        color=MUTED,
     )
 
     _save(figure)
