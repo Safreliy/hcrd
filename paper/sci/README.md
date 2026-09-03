@@ -19,3 +19,11 @@ The frozen numerical sources for every table and figure are stored under
 `../../results/sci/` and `../../results/hct/`.  The prose-only planning spine
 is retained as `manuscript_plain_english.md`; the LaTeX manuscript is the
 authoritative paper source.
+
+Regenerate the executable method overview from this repository root with:
+
+```powershell
+python experiments/sci/generate_method_overview.py
+```
+
+The command writes both vector PDF and 300 dpi PNG versions to `figures/`.

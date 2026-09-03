@@ -18,6 +18,8 @@ SCI is designed as an honest uncertainty layer around a frontier point
 estimator such as `Sshaped`; it is not presented as a generic point-estimation
 booster.
 
+![How shape-contrast inversion works](paper/sci/figures/sci_method_overview.png)
+
 The practical problem is trustworthy transition-location uncertainty when the
 S-shape may contain a cusp, one-sided onset, affine region, or jump. Smooth
 residual-bootstrap intervals can be narrow but badly undercover in these

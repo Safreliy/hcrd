@@ -17,6 +17,7 @@
 \usepackage{url}
 \usepackage{xspace}
 \usepackage{flafter}
+\usepackage{placeins}
 \usepackage[colorlinks=true,allcolors=blue!55!black]{hyperref}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -298,6 +299,28 @@ cannot lie wholly after a valid transition, so its left endpoint gives a lower
 limit.  A reliably concave interval cannot lie wholly before a valid
 transition, so its right endpoint gives an upper limit.  Only simultaneous
 sign statements are inverted.
+
+Figure~\ref{fig:sci-method} shows the full construction on one deterministic
+example.  The first and last panels use the released implementation; the chord
+panel explains the geometric sign rule.  The figure is an explanation of the
+algorithm, not evidence for coverage.  The coverage claim comes from
+Theorem~\ref{thm:known}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/sci_method_overview.pdf}
+\caption{An executable overview of \SCI.  (1) A fixed multiscale family tests
+local windows of the noisy curve.  The two highlighted windows determine the
+reported endpoints in this example.  (2) A chord lies above a convex curve and
+below a concave curve, so the chord residual has a known sign.  The
+implementation averages these residuals over three blocks.  (3) Simultaneous
+intervals certify positive and negative contrast means; intervals that cross
+zero make no claim.  Stars mark the two active contrasts.  (4) Positive signs
+exclude candidate transitions on the left, negative signs exclude candidates
+on the right, and the unexcluded interval is the \SCI confidence set.}
+\label{fig:sci-method}
+\end{figure}
+\FloatBarrier
 
 \section{Finite-sample theory}
 \label{sec:theory}

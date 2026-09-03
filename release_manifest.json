@@ -41,13 +41,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 13474,
-      "sha256": "8801b1e7c11a9692ee5685ea6f9b5310cc5d6901928ff225c842f3409e4886df"
+      "bytes": 13556,
+      "sha256": "a694f87df21e09f8c1dd8f4c7b17ac2b289fff73713e2cc3f89fcd9e51c92dae"
     },
     {
       "path": "REPRODUCIBILITY.md",
-      "bytes": 22316,
-      "sha256": "8cbb5d92a2a0881377bb0f1d9d976342adad026d87e2415fb585da1ff1a91c0a"
+      "bytes": 22367,
+      "sha256": "73ef5f477f016466947d6d4f254106e91122f7a192f522b8975f16de2c1ad60b"
     },
     {
       "path": "data/README.md",
@@ -990,6 +990,11 @@
       "sha256": "100df656e29b870153a778be8b0ddd237d657626d833f6abe7809e7f5199a055"
     },
     {
+      "path": "experiments/sci/generate_method_overview.py",
+      "bytes": 12226,
+      "sha256": "9e2a33b88ce44df9a12b025842ed8ffab3ad455d4b27cf57f957420c545f318e"
+    },
+    {
       "path": "experiments/sci/run_dnase_replicate_e37.py",
       "bytes": 12330,
       "sha256": "8aadc5a952d71eb3a50b9352dd848c8fecd57bb045a1e043f3439b1d0e42f6bc"
@@ -1246,8 +1251,8 @@
     },
     {
       "path": "paper/sci/README.md",
-      "bytes": 587,
-      "sha256": "0b19a720131385ad640cc8a52c84da7f1ba7453ec7f5beffd013264e75ecc593"
+      "bytes": 808,
+      "sha256": "aa5539d8182fe7a7c9ad3c98527b90fce0014cb3957295e737cc95dbaf20e160"
     },
     {
       "path": "paper/sci/figures/dnase_replicate_sci.png",
@@ -1275,14 +1280,24 @@
       "sha256": "0f7202f759612a93a4885d32154ef44045e081556afcbc1a026f770ea2e91c8e"
     },
     {
+      "path": "paper/sci/figures/sci_method_overview.pdf",
+      "bytes": 59176,
+      "sha256": "4acab7677e298ab2e3a5684cdf18429aecb5cff1b323b1122c794a34fff2c96c"
+    },
+    {
+      "path": "paper/sci/figures/sci_method_overview.png",
+      "bytes": 366458,
+      "sha256": "9703321af8992187e2c41b941fd9a7f83d51c28071ac0da8f3119d9399d68662"
+    },
+    {
       "path": "paper/sci/manuscript.pdf",
-      "bytes": 906460,
-      "sha256": "a923ad50ac4fe38019e161376c75bee8c08183f29c20af78e243b6d6caa99238"
+      "bytes": 967106,
+      "sha256": "469c95512f06c01552fac82a76161a908b13e662a774b4685dcb31bd95a68b30"
     },
     {
       "path": "paper/sci/manuscript.tex",
-      "bytes": 46925,
-      "sha256": "df4ce6d43b9fb1ec0a8ce194c19f7e3c83fb3f5e8f40e8d7ea6338bd5949b6ae"
+      "bytes": 48105,
+      "sha256": "0f37cef4a647b536ccc4c1c4418579f335fced7657ef13afea94fe5271d1a82d"
     },
     {
       "path": "paper/sci/manuscript_plain_english.md",

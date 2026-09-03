@@ -25,6 +25,7 @@ The publication figures are regenerated solely from distributed compact CSV
 outputs:
 
 ```bash
+python experiments/sci/generate_method_overview.py
 python experiments/hct/generate_sci_publication_figures.py
 python scripts/verify_sci_artifact.py
 ```
