@@ -1,328 +1,447 @@
-"""Generate the executable four-panel overview of shape-contrast inversion.
+"""Generate a plain-language overview of shape-contrast inversion.
 
-The figure uses the public ``shapecontrast`` implementation for every
-statistical quantity in panels 1, 3, and 4.  Panel 2 is a geometric schematic
-of the sign rule used by those contrasts.
+This is deliberately a schematic rather than an experiment plot. It keeps
+only the three ideas a reader needs on first contact: local chord signs, the
+one-sided exclusions implied by those signs, and their intersection.
 """
 
 from __future__ import annotations
 
-import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.lines import Line2D
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
+
 
 PROJECT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(PROJECT / "src"))
-
-from shapecontrast import (  # noqa: E402
-    build_shape_contrast_family,
-    gaussian_bonferroni_shape_band,
-    invert_s_shaped_inflection,
-)
-
-
 FIGURE_DIR = PROJECT / "paper" / "sci" / "figures"
 
 GREEN = "#009E73"
 BLUE = "#0072B2"
 ORANGE = "#E69F00"
-GRAY = "#6B7280"
-LIGHT_GRAY = "#E5E7EB"
 DARK = "#202124"
+TEXT = "#374151"
+MUTED = "#6B7280"
+LIGHT = "#E5E7EB"
+CARD_EDGE = "#D1D5DB"
+CARD_FILL = "#FAFAFA"
 
 
 def _save(figure: plt.Figure) -> None:
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
-    for suffix, options in (
-        ("pdf", {}),
-        ("png", {"dpi": 300}),
-    ):
+    for suffix, options in (("pdf", {}), ("png", {"dpi": 300})):
         figure.savefig(
             FIGURE_DIR / f"sci_method_overview.{suffix}",
             bbox_inches="tight",
+            pad_inches=0.08,
             facecolor="white",
             **options,
         )
     plt.close(figure)
 
 
-def _style_axis(axis: plt.Axes) -> None:
-    axis.spines[["top", "right"]].set_visible(False)
-    axis.tick_params(labelsize=8.4)
+def _card(axis: plt.Axes, bottom: float, height: float) -> None:
+    axis.add_patch(
+        FancyBboxPatch(
+            (0.055, bottom),
+            0.89,
+            height,
+            boxstyle="round,pad=0.012,rounding_size=0.018",
+            facecolor=CARD_FILL,
+            edgecolor=CARD_EDGE,
+            linewidth=1.0,
+        )
+    )
+
+
+def _step_badge(axis: plt.Axes, x: float, y: float, number: str) -> None:
+    axis.text(
+        x,
+        y,
+        number,
+        ha="center",
+        va="center",
+        fontsize=10.5,
+        fontweight="bold",
+        color="white",
+        bbox={
+            "boxstyle": "circle,pad=0.30",
+            "facecolor": DARK,
+            "edgecolor": "none",
+        },
+    )
+
+
+def _pill(axis: plt.Axes, x: float, y: float, label: str, colour: str) -> None:
+    axis.text(
+        x,
+        y,
+        label,
+        ha="center",
+        va="center",
+        fontsize=7.8,
+        fontweight="bold",
+        color=colour,
+        bbox={
+            "boxstyle": "round,pad=0.28,rounding_size=0.45",
+            "facecolor": "white",
+            "edgecolor": colour,
+            "linewidth": 1.15,
+        },
+    )
+
+
+def _down_arrow(axis: plt.Axes, top: float, bottom: float) -> None:
+    axis.add_patch(
+        FancyArrowPatch(
+            (0.5, top),
+            (0.5, bottom),
+            arrowstyle="-|>",
+            mutation_scale=14,
+            linewidth=1.4,
+            color="#9CA3AF",
+        )
+    )
+
+
+def _cross(axis: plt.Axes, x: float, y: float) -> None:
+    dx, dy = 0.009, 0.007
+    axis.plot(
+        [x - dx, x + dx],
+        [y - dy, y + dy],
+        color="#9CA3AF",
+        lw=1.4,
+    )
+    axis.plot(
+        [x - dx, x + dx],
+        [y + dy, y - dy],
+        color="#9CA3AF",
+        lw=1.4,
+    )
 
 
 def main() -> None:
     plt.rcParams.update(
         {
             "font.family": "DejaVu Sans",
-            "font.size": 9.2,
-            "axes.titlesize": 10.5,
-            "axes.labelsize": 9.0,
-            "legend.fontsize": 7.8,
+            "font.size": 10.0,
             "pdf.fonttype": 42,
             "ps.fonttype": 42,
         }
     )
 
-    # A deterministic example with a known transition.  The signal is used
-    # only to explain the algorithm; the paper's evidence comes from the
-    # frozen benchmark and real-data experiments.
-    seed = 20260903
-    rng = np.random.default_rng(seed)
-    observation_count = 241
-    true_transition = 0.56
-    noise_scale = 0.02
-    x = np.linspace(0.0, 1.0, observation_count)
-    mean = 1.0 / (1.0 + np.exp(-12.0 * (x - true_transition)))
-    y = mean + rng.normal(0.0, noise_scale, size=x.size)
+    figure, axis = plt.subplots(figsize=(7.2, 8.2))
+    axis.set_xlim(0.0, 1.0)
+    axis.set_ylim(0.0, 1.0)
+    axis.set_axis_off()
 
-    family = build_shape_contrast_family(
-        x,
-        block_sizes=(4, 8, 16, 32, 64),
-        separation_multipliers=(1, 2),
-    )
-    band = gaussian_bonferroni_shape_band(
-        family,
-        y,
-        noise_scale=noise_scale,
-        alpha=0.05,
-    )
-    confidence_set = invert_s_shaped_inflection(
-        family,
-        band,
-        domain=(0.0, 1.0),
-    )
-    if confidence_set.interval is None:
-        raise RuntimeError("the deterministic illustration unexpectedly returned an empty set")
-    left, right = confidence_set.interval
-    if confidence_set.active_left_contrast is None or confidence_set.active_right_contrast is None:
-        raise RuntimeError("the deterministic illustration needs two active contrasts")
-
-    support_left = family.support_left
-    support_right = family.support_right
-    block_size = family.block_size
-    separation = family.separation
-    support_midpoint = 0.5 * (support_left + support_right)
-    active_left = confidence_set.active_left_contrast
-    active_right = confidence_set.active_right_contrast
-
-    figure = plt.figure(figsize=(10.8, 6.4))
-    grid = figure.add_gridspec(
-        2,
-        2,
-        left=0.065,
-        right=0.985,
-        bottom=0.085,
-        top=0.92,
-        wspace=0.27,
-        hspace=0.42,
-    )
-
-    # Panel 1: observations and the two contrasts that set the final endpoints.
-    axis = figure.add_subplot(grid[0, 0])
-    axis.scatter(
-        x[::2],
-        y[::2],
-        s=9,
-        color=GRAY,
-        alpha=0.38,
-        linewidth=0,
-        label="noisy observations",
-        zorder=2,
-    )
-    axis.plot(x, mean, color=DARK, lw=2.1, label="mean curve", zorder=3)
-    axis.axvline(true_transition, color=ORANGE, lw=1.5, ls=(0, (4, 3)))
     axis.text(
-        true_transition + 0.012,
-        0.08,
-        r"true transition $m_0$",
-        color="#A65F00",
-        fontsize=8.2,
-        rotation=90,
-        va="bottom",
-    )
-    transform = axis.get_xaxis_transform()
-    axis.plot(
-        [support_left[active_left], support_right[active_left]],
-        [0.08, 0.08],
-        transform=transform,
-        color=GREEN,
-        lw=7,
-        alpha=0.8,
-        solid_capstyle="round",
-        clip_on=False,
-    )
-    axis.plot(
-        [support_left[active_right], support_right[active_right]],
-        [0.02, 0.02],
-        transform=transform,
-        color=BLUE,
-        lw=7,
-        alpha=0.8,
-        solid_capstyle="round",
-        clip_on=False,
-    )
-    axis.text(
-        0.02,
-        0.14,
-        "green: convex evidence   blue: concave evidence",
-        transform=axis.transAxes,
-        fontsize=7.6,
-        color="0.32",
-    )
-    axis.set(xlim=(0.0, 1.0), xlabel="design coordinate", ylabel="response")
-    axis.set_title("1  Test local shape on many fixed windows", loc="left", fontweight="bold")
-    axis.legend(frameon=False, loc="upper left", handlelength=1.9)
-    _style_axis(axis)
-
-    # Panel 2: exact geometric reason for the contrast signs.
-    container = figure.add_subplot(grid[0, 1])
-    container.set_axis_off()
-    container.set_title("2  A chord residual has a safe sign", loc="left", fontweight="bold")
-    u = np.linspace(0.0, 1.0, 201)
-    for inset_left, sign, colour, label in (
-        (0.035, 1.0, GREEN, r"convex $\Rightarrow Q>0$"),
-        (0.535, -1.0, BLUE, r"concave $\Rightarrow Q<0$"),
-    ):
-        inset = container.inset_axes([inset_left, 0.18, 0.43, 0.68])
-        curve = sign * (u - 0.5) ** 2
-        chord = np.full_like(u, sign * 0.25)
-        inset.plot(u, curve, color=DARK, lw=2.0)
-        inset.plot(u, chord, color=colour, lw=1.8)
-        inset.fill_between(u, curve, chord, color=colour, alpha=0.20)
-        inset.scatter([0.0, 0.5, 1.0], [curve[0], curve[100], curve[-1]], s=22, color=DARK, zorder=3)
-        inset.vlines(
-            0.5,
-            min(curve[100], chord[100]),
-            max(curve[100], chord[100]),
-            color=colour,
-            lw=2.0,
-        )
-        inset.text(0.5, 0.93, label, transform=inset.transAxes, ha="center", va="top", color=colour, fontsize=8.7, fontweight="bold")
-        inset.set_xticks([0.0, 0.5, 1.0], labels=["L", "M", "R"])
-        inset.set_yticks([])
-        inset.spines[["top", "right", "left"]].set_visible(False)
-        inset.tick_params(axis="x", length=0, pad=2, labelsize=8)
-    container.text(
-        0.5,
-        0.02,
-        r"$Q=$ chord value at $M$ $-$ curve value at $M$; the code averages such residuals over three blocks.",
-        ha="center",
-        va="bottom",
-        fontsize=7.9,
-        color="0.28",
-        wrap=True,
-    )
-
-    # Panel 3: actual simultaneous intervals from one readable subset of rows.
-    axis = figure.add_subplot(grid[1, 0])
-    scale_rows = np.flatnonzero((block_size == 16) & (separation == 32))
-    selected = np.unique(np.concatenate((scale_rows, [active_left, active_right])))
-    selected = selected[np.argsort(support_midpoint[selected])]
-    ratios = band.estimate[selected] / band.radius[selected]
-    signs = band.certified_signs[selected]
-    vertical_offsets = np.zeros(selected.size)
-    for index in range(1, selected.size):
-        if abs(support_midpoint[selected[index]] - support_midpoint[selected[index - 1]]) < 0.012:
-            vertical_offsets[index - 1] -= 0.009
-            vertical_offsets[index] += 0.009
-    y_positions = support_midpoint[selected] + vertical_offsets
-    for row, ratio, sign_value, y_position in zip(selected, ratios, signs, y_positions, strict=True):
-        colour = GREEN if sign_value > 0 else BLUE if sign_value < 0 else GRAY
-        linewidth = 2.8 if row in (active_left, active_right) else 1.7
-        marker = "*" if row in (active_left, active_right) else "o"
-        marker_size = 62 if marker == "*" else 20
-        axis.hlines(y_position, ratio - 1.0, ratio + 1.0, color=colour, lw=linewidth, alpha=0.95)
-        axis.scatter([ratio], [y_position], s=marker_size, marker=marker, color=colour, edgecolor="white", linewidth=0.55, zorder=3)
-    axis.axvspan(-1.0, 1.0, color=LIGHT_GRAY, alpha=0.55, zorder=0)
-    axis.axvline(0.0, color="0.20", lw=1.0, ls=(0, (3, 3)))
-    axis.text(0.0, 0.965, "interval crosses zero", transform=axis.get_xaxis_transform(), ha="center", va="top", fontsize=7.5, color="0.38")
-    axis.annotate(
-        r"sets $\widehat L$",
-        xy=(band.estimate[active_left] / band.radius[active_left], support_midpoint[active_left] - 0.009),
-        xytext=(2.4, 0.27),
-        arrowprops={"arrowstyle": "->", "color": GREEN, "lw": 1.0},
-        color=GREEN,
-        fontsize=8,
-    )
-    axis.annotate(
-        r"sets $\widehat U$",
-        xy=(band.estimate[active_right] / band.radius[active_right], support_midpoint[active_right] + 0.009),
-        xytext=(-5.4, 0.76),
-        arrowprops={"arrowstyle": "->", "color": BLUE, "lw": 1.0},
-        color=BLUE,
-        fontsize=8,
-    )
-    axis.set(
-        xlim=(-6.0, 6.0),
-        ylim=(0.12, 0.89),
-        xlabel="contrast estimate / simultaneous radius",
-        ylabel="support midpoint",
-    )
-    axis.set_title("3  Certify all contrast signs together", loc="left", fontweight="bold")
-    axis.legend(
-        handles=[
-            Line2D([0], [0], color=GREEN, lw=2, marker="o", label="certified positive"),
-            Line2D([0], [0], color=GRAY, lw=2, marker="o", label="not certified"),
-            Line2D([0], [0], color=BLUE, lw=2, marker="o", label="certified negative"),
-        ],
-        frameon=False,
-        loc="lower left",
-        ncol=3,
-        handlelength=1.4,
-        columnspacing=0.8,
-    )
-    _style_axis(axis)
-
-    # Panel 4: logical inversion of the two active sign statements.
-    axis = figure.add_subplot(grid[1, 1])
-    axis.set_title("4  Invert signs into the remaining set", loc="left", fontweight="bold")
-    axis.plot([0.0, 1.0], [2.25, 2.25], color=LIGHT_GRAY, lw=11, solid_capstyle="butt")
-    axis.plot([0.0, left], [2.25, 2.25], color=GREEN, lw=11, alpha=0.72, solid_capstyle="butt")
-    axis.scatter([left], [2.25], s=42, color=GREEN, edgecolor="white", zorder=3)
-    axis.text(0.0, 2.56, r"$Q>0$: exclude candidates before $a_T$", fontsize=8.4, color=GREEN)
-    axis.plot([0.0, 1.0], [1.45, 1.45], color=LIGHT_GRAY, lw=11, solid_capstyle="butt")
-    axis.plot([right, 1.0], [1.45, 1.45], color=BLUE, lw=11, alpha=0.72, solid_capstyle="butt")
-    axis.scatter([right], [1.45], s=42, color=BLUE, edgecolor="white", zorder=3)
-    axis.text(0.0, 1.76, r"$Q<0$: exclude candidates after $b_T$", fontsize=8.4, color=BLUE)
-    axis.plot([0.0, left], [0.50, 0.50], color="#D1D5DB", lw=16, solid_capstyle="butt")
-    axis.plot([left, right], [0.50, 0.50], color=ORANGE, lw=16, solid_capstyle="butt")
-    axis.plot([right, 1.0], [0.50, 0.50], color="#D1D5DB", lw=16, solid_capstyle="butt")
-    axis.vlines([left, right], 0.29, 0.71, colors=[GREEN, BLUE], lw=1.7)
-    axis.axvline(true_transition, color="#A65F00", lw=1.3, ls=(0, (4, 3)), ymin=0.06, ymax=0.91)
-    axis.text(true_transition, 0.03, r"$m_0$", ha="center", va="bottom", color="#A65F00", fontsize=8.5)
-    axis.text(
-        0.5 * (left + right),
-        0.88,
-        rf"SCI $=[{left:.3f},\,{right:.3f}]$",
-        ha="center",
-        color="#8A5200",
-        fontsize=10,
-        fontweight="bold",
-    )
-    axis.text(left, 0.18, r"$\widehat L$", ha="center", va="top", color=GREEN, fontsize=8.7)
-    axis.text(right, 0.18, r"$\widehat U$", ha="center", va="top", color=BLUE, fontsize=8.7)
-    axis.set(xlim=(-0.02, 1.02), ylim=(-0.03, 2.87), xlabel="candidate transition location")
-    axis.set_yticks([])
-    axis.spines[["top", "right", "left"]].set_visible(False)
-    axis.tick_params(labelsize=8.4)
-
-    figure.suptitle(
-        "Shape-contrast inversion: from local geometry to an honest transition set",
-        x=0.065,
+        0.055,
+        0.965,
+        "How shape-contrast inversion works",
         ha="left",
-        fontsize=13.2,
+        va="top",
+        fontsize=17.0,
         fontweight="bold",
+        color=DARK,
     )
+    axis.text(
+        0.055,
+        0.923,
+        "Local shape evidence removes impossible transition locations.",
+        ha="left",
+        va="top",
+        fontsize=10.6,
+        color=MUTED,
+    )
+
+    # Step 1: a geometric model of the chord-sign rule.
+    _card(axis, 0.655, 0.215)
+    _step_badge(axis, 0.096, 0.832, "1")
+    axis.text(
+        0.135,
+        0.842,
+        "Find reliable local shape",
+        fontsize=12.2,
+        fontweight="bold",
+        color=DARK,
+        va="center",
+    )
+    axis.text(
+        0.135,
+        0.798,
+        "Compare with endpoint chords on many fixed windows; calibrate all windows together for noise.",
+        fontsize=8.35,
+        color=TEXT,
+        va="top",
+    )
+
+    curve_x = np.linspace(0.17, 0.88, 500)
+    local_x = (curve_x - 0.17) / (0.88 - 0.17)
+    curve_y = 0.682 + 0.075 / (1.0 + np.exp(-8.5 * (local_x - 0.5)))
+    axis.plot(curve_x, curve_y, color=DARK, lw=2.3, solid_capstyle="round")
+
+    for first, last, colour, label in (
+        (45, 190, GREEN, "convex: chord above"),
+        (310, 455, BLUE, "concave: chord below"),
+    ):
+        chord_x = curve_x[first : last + 1]
+        chord_y = np.linspace(curve_y[first], curve_y[last], chord_x.size)
+        axis.plot(
+            chord_x,
+            chord_y,
+            color=colour,
+            lw=2.4,
+            solid_capstyle="round",
+        )
+        axis.fill_between(
+            chord_x,
+            curve_y[first : last + 1],
+            chord_y,
+            color=colour,
+            alpha=0.18,
+        )
+        axis.scatter(
+            [curve_x[first], curve_x[last]],
+            [curve_y[first], curve_y[last]],
+            s=21,
+            color=colour,
+            edgecolor="white",
+            linewidth=0.6,
+            zorder=3,
+        )
+        _pill(axis, float(np.mean(chord_x)), 0.767, label, colour)
+
+    axis.text(
+        0.525,
+        0.671,
+        "dark line: curve     coloured line: chord",
+        ha="center",
+        va="top",
+        fontsize=8.2,
+        color=MUTED,
+    )
+
+    _down_arrow(axis, 0.642, 0.612)
+
+    # Step 2: a finite/discrete model of the one-sided logical exclusions.
+    _card(axis, 0.365, 0.225)
+    _step_badge(axis, 0.096, 0.552, "2")
+    axis.text(
+        0.135,
+        0.562,
+        "Rule out one side",
+        fontsize=12.2,
+        fontweight="bold",
+        color=DARK,
+        va="center",
+    )
+    x0, x1 = 0.20, 0.86
+    a_location, b_location = 0.43, 0.68
+    green_y, blue_y = 0.470, 0.395
+
+    axis.text(
+        0.53,
+        0.492,
+        r"convex $\Rightarrow$ transition right of $a_T$",
+        color=GREEN,
+        fontsize=8.8,
+        fontweight="bold",
+        ha="center",
+        va="bottom",
+    )
+    axis.plot(
+        [x0, x1],
+        [green_y, green_y],
+        color=LIGHT,
+        lw=10,
+        solid_capstyle="butt",
+    )
+    axis.plot(
+        [a_location, x1],
+        [green_y, green_y],
+        color=GREEN,
+        lw=10,
+        alpha=0.72,
+        solid_capstyle="butt",
+    )
+    axis.add_patch(
+        FancyArrowPatch(
+            (a_location + 0.015, green_y),
+            (x1 - 0.005, green_y),
+            arrowstyle="-|>",
+            mutation_scale=13,
+            color=GREEN,
+            lw=1.5,
+        )
+    )
+    _cross(axis, 0.275, green_y)
+    _cross(axis, 0.355, green_y)
+    axis.vlines(
+        a_location,
+        green_y - 0.023,
+        green_y + 0.023,
+        color=GREEN,
+        lw=1.6,
+    )
+    axis.text(
+        0.53,
+        0.417,
+        r"concave $\Rightarrow$ transition left of $b_T$",
+        color=BLUE,
+        fontsize=8.8,
+        fontweight="bold",
+        ha="center",
+        va="bottom",
+    )
+    axis.plot(
+        [x0, x1],
+        [blue_y, blue_y],
+        color=LIGHT,
+        lw=10,
+        solid_capstyle="butt",
+    )
+    axis.plot(
+        [x0, b_location],
+        [blue_y, blue_y],
+        color=BLUE,
+        lw=10,
+        alpha=0.72,
+        solid_capstyle="butt",
+    )
+    axis.add_patch(
+        FancyArrowPatch(
+            (b_location - 0.015, blue_y),
+            (x0 + 0.005, blue_y),
+            arrowstyle="-|>",
+            mutation_scale=13,
+            color=BLUE,
+            lw=1.5,
+        )
+    )
+    _cross(axis, 0.745, blue_y)
+    _cross(axis, 0.825, blue_y)
+    axis.vlines(
+        b_location,
+        blue_y - 0.023,
+        blue_y + 0.023,
+        color=BLUE,
+        lw=1.6,
+    )
+    _down_arrow(axis, 0.352, 0.322)
+
+    # Step 3: the intersection of all surviving candidate locations.
+    _card(axis, 0.105, 0.195)
+    _step_badge(axis, 0.096, 0.262, "3")
+    axis.text(
+        0.135,
+        0.272,
+        "Keep what the data cannot rule out",
+        fontsize=12.2,
+        fontweight="bold",
+        color=DARK,
+        va="center",
+    )
+    axis.text(
+        0.135,
+        0.235,
+        "Intersect the surviving locations from every certified window.",
+        fontsize=9.25,
+        color=TEXT,
+        va="top",
+    )
+
+    final_x0, final_x1 = 0.20, 0.86
+    final_left, final_right = 0.405, 0.705
+    final_y = 0.168
+    axis.plot(
+        [final_x0, final_left],
+        [final_y, final_y],
+        color="#CBD5E1",
+        lw=17,
+        solid_capstyle="butt",
+    )
+    axis.plot(
+        [final_left, final_right],
+        [final_y, final_y],
+        color=ORANGE,
+        lw=17,
+        solid_capstyle="butt",
+    )
+    axis.plot(
+        [final_right, final_x1],
+        [final_y, final_y],
+        color="#CBD5E1",
+        lw=17,
+        solid_capstyle="butt",
+    )
+    axis.vlines(
+        [final_left, final_right],
+        final_y - 0.029,
+        final_y + 0.029,
+        colors=[GREEN, BLUE],
+        lw=2.0,
+    )
+    axis.text(
+        0.302,
+        final_y,
+        "ruled out",
+        ha="center",
+        va="center",
+        fontsize=8.4,
+        color="#64748B",
+    )
+    axis.text(
+        0.555,
+        final_y,
+        "95% SCI confidence set",
+        ha="center",
+        va="center",
+        fontsize=9.1,
+        fontweight="bold",
+        color="white",
+    )
+    axis.text(
+        0.782,
+        final_y,
+        "ruled out",
+        ha="center",
+        va="center",
+        fontsize=8.4,
+        color="#64748B",
+    )
+    axis.text(
+        final_left,
+        0.128,
+        r"$\widehat L$",
+        ha="center",
+        va="top",
+        fontsize=9.3,
+        color=GREEN,
+    )
+    axis.text(
+        final_right,
+        0.128,
+        r"$\widehat U$",
+        ha="center",
+        va="top",
+        fontsize=9.3,
+        color=BLUE,
+    )
+
+    axis.text(
+        0.5,
+        0.045,
+        "This picture explains the logic. Finite-sample coverage comes from the theorem, not from the picture.",
+        ha="center",
+        va="center",
+        fontsize=8.4,
+        color=MUTED,
+    )
+
     _save(figure)
-    print(
-        "wrote sci_method_overview.pdf/png; "
-        f"M={family.contrast_count}, critical={band.critical_value:.3f}, "
-        f"SCI=[{left:.6f}, {right:.6f}]"
-    )
+    print("wrote the three-step sci_method_overview.pdf/png")
 
 
 if __name__ == "__main__":
