@@ -1,0 +1,43 @@
+{
+  "status": "frozen_before_confirmation_execution",
+  "created_utc": "2026-09-02T21:10:01.198291+00:00",
+  "config": {
+    "sample_sizes": [
+      500,
+      1000
+    ],
+    "designs": [
+      "uniform",
+      "beta_4_8"
+    ],
+    "signals": [
+      "paper_f1_cusp",
+      "paper_f2_onset",
+      "paper_f3_jump",
+      "paper_f4_logistic",
+      "control_affine",
+      "control_convex",
+      "control_concave"
+    ],
+    "trials": 200,
+    "seed": 20261911,
+    "sigma": 0.1,
+    "alpha": 0.05,
+    "scale_failure": 0.01,
+    "contrast_alpha": 0.04,
+    "separations": [
+      1,
+      2,
+      4
+    ],
+    "block_length": 2
+  },
+  "hashes": {
+    "driver": "1de466db7e12f628e68bc7afd3ed5d88d0e2ee2f464711343696ff8a092a42e8",
+    "development_driver": "9b255596a41281d93a1831e5aecef38b19b3adc38b41441141a058898dde9eb9",
+    "protocol": "5bb7d56a27cedc996f45d3d01d88cfe0ed248142b0ed39d47d0e285e4cdd5594",
+    "scale_module": "f0d89694de9f52d4a2704ef3cfb43c90971582b701d1bc450795189ba8c81f99",
+    "shape_module": "8795c465eee09165175cc73ce0ded9d18c3d582ee612db79202e071143742e88",
+    "development_manifest": "14746edd570d38d273b9677c98875f63f2758c29cb8a61a68a36885f87a7a4d6"
+  }
+}

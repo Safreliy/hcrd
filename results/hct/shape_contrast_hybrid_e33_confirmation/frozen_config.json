@@ -1,0 +1,70 @@
+{
+  "status": "frozen_before_confirmation_execution",
+  "created_utc": "2026-09-02T20:49:42.710097+00:00",
+  "config": {
+    "name": "confirmation",
+    "status": "confirmation",
+    "sample_sizes": [
+      500,
+      1000
+    ],
+    "designs": [
+      "uniform",
+      "beta_4_8"
+    ],
+    "trials": 200,
+    "data_seed": 20261711,
+    "bootstrap_seed": 20261712,
+    "bootstrap_loops": 1000,
+    "shards": 4
+  },
+  "alpha": 0.05,
+  "sigma": 0.1,
+  "domain": [
+    0.0,
+    1.0
+  ],
+  "signals": [
+    "paper_f1_cusp",
+    "paper_f2_onset",
+    "paper_f3_jump",
+    "paper_f4_logistic",
+    "control_affine",
+    "control_convex",
+    "control_concave"
+  ],
+  "paper_signals": [
+    "paper_f1_cusp",
+    "paper_f2_onset",
+    "paper_f3_jump",
+    "paper_f4_logistic"
+  ],
+  "separation_multipliers": [
+    1,
+    2,
+    4
+  ],
+  "calibration": "two-sided analytic Gaussian Bonferroni",
+  "external_methods": {
+    "Sshaped": {
+      "version": "1.2",
+      "role": "point estimator"
+    },
+    "ShapeChange": {
+      "version": "1.5",
+      "role": "nominal 95% residual-bootstrap interval",
+      "bootstrap_loops": 1000
+    }
+  },
+  "hashes": {
+    "driver": "5bbb7364366820762df6d9eb0da9e0b986acf3227996917b5ccf5e6894cc6bee",
+    "r_bridge": "cd1070538f1c23ef49d1fa555c281277b0599ac87d3710b53112e14749c4ada9",
+    "protocol": "87bc09eb4b6b25af38dc305e386df19c44f4bd19f5833ad6c2a6f0a8d4d77346",
+    "shape_module": "8795c465eee09165175cc73ce0ded9d18c3d582ee612db79202e071143742e88",
+    "shapechange_source": "67d05f07e7c195656ccce2d10dbd0827398935d22b91b053f6db3dc4a72f3b55",
+    "sshaped_description": "09f1a0c561acf16caac70da364845a9866de60e4e4c2f81f833ab7097a6da58b",
+    "shapechange_description": "f5f204e66eb634cd7677b432b29f857c0546c2d03860427b90f491a8f86f60ce",
+    "coneproj_description": "b09d5540d20598702a8eb97083e060ab4430c3f1cab8d2c4ce49be2aa4d75051",
+    "quadprog_description": "5c227c67c72e98e85d141112fff2ae634485c2485e0b745d9e0ae910a55e6c9a"
+  }
+}

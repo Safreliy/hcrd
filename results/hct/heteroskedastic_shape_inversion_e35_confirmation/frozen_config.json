@@ -1,0 +1,55 @@
+{
+  "status": "frozen_before_confirmation_execution",
+  "created_utc": "2026-09-02T21:28:13.691691+00:00",
+  "config": {
+    "sample_sizes": [
+      500,
+      1000
+    ],
+    "designs": [
+      "uniform",
+      "beta_4_8"
+    ],
+    "signals": [
+      "paper_f1_cusp",
+      "paper_f2_onset",
+      "paper_f3_jump",
+      "paper_f4_logistic"
+    ],
+    "variance_profiles": [
+      "constant",
+      "linear",
+      "plume_peak"
+    ],
+    "trials": 200,
+    "seed": 20262011,
+    "average_sigma": 0.1,
+    "alpha": 0.05,
+    "scale_failure": 0.01,
+    "contrast_alpha": 0.04,
+    "separations": [
+      1,
+      2,
+      4
+    ],
+    "lidar_kappas": [
+      1.0,
+      1.5,
+      2.0,
+      3.0,
+      4.0
+    ],
+    "lidar_bootstrap_loops": 2000,
+    "lidar_seed": 20262012
+  },
+  "hashes": {
+    "driver": "14c5da51df9ec5febc40194b18b1047ff8829384e8f837fa488047ff8ae65357",
+    "r_bridge": "d057f6739d6c9eff7f84ab25eac1dbe083f093dafdc3a8b40e53596434b1cc75",
+    "protocol": "9d4ede9b1a93bb9feec9e12020146e286602f8737b6cf624eeedd8140a8a136c",
+    "theory": "815177e4b808216b203e9497595adfd5bd318ce4bdbd55430a9764457dbfe817",
+    "heteroskedastic_module": "acb7905c87f4d6e8531b98256a6cd7156e4007a65c9968da42c7ee20edb2d870",
+    "shape_module": "8795c465eee09165175cc73ce0ded9d18c3d582ee612db79202e071143742e88",
+    "semipar_source": "9cc4f0f62c3b646bd949ce51db068059b022b32a30d41265407c52b66f6e435d",
+    "shapechange_source": "67d05f07e7c195656ccce2d10dbd0827398935d22b91b053f6db3dc4a72f3b55"
+  }
+}

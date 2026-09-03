@@ -1,6 +1,6 @@
 # Hierarchical Convexity-Run Decomposition (HCRD)
 
-[![DOI](https://zenodo.org/badge/1347027481.svg)](https://doi.org/10.5281/zenodo.22171976)
+[![HCRD v0.1 DOI](https://zenodo.org/badge/1347027481.svg)](https://doi.org/10.5281/zenodo.22171976)
 
 Reference implementation and reproducibility materials for *Hierarchical
 Convexity-Run Decomposition of Sampled Curves: Finite-Sample Recovery and
@@ -8,6 +8,46 @@ Stability*.
 
 **Saveliy Baturin**  
 Independent Researcher
+
+## Shape-Contrast Inversion: current publication track
+
+The repository now includes the development artifact for **shape-contrast
+inversion (SCI)**: a derivative-free finite-sample confidence set for the
+location where an S-shaped regression curve changes from convex to concave.
+SCI is designed as an honest uncertainty layer around a frontier point
+estimator such as `Sshaped`; it is not presented as a generic point-estimation
+booster.
+
+The practical problem is trustworthy transition-location uncertainty when the
+S-shape may contain a cusp, one-sided onset, affine region, or jump. Smooth
+residual-bootstrap intervals can be narrow but badly undercover in these
+regimes. Under the stated Gaussian assumptions, SCI covers the entire set of
+admissible inflection locations without assuming derivatives, continuity at
+the transition, or a unique transition.
+
+The included theorem and confirmation package covers known noise scale,
+unknown homoskedastic scale, and unknown bounded heteroskedasticity. In the
+frozen E33 comparison, SCI coverage over the 16 published benchmark cells was
+0.965--0.995, while `ShapeChange` had zero coverage in 9 cells. The unknown
+scale and bounded-heteroskedastic confirmation gates passed, with minimum SCI
+coverage 0.990 and 0.995, respectively. SCI can honestly return a wide or full
+domain when the data contain too little curvature information; this is a
+reported power boundary, not hidden as a failure.
+
+![Frozen SCI coverage and width comparison](paper/sci/figures/e33_frontier_coverage_width.png)
+
+The real LIDAR illustration reports the plume-centre estimate together with a
+variance-ratio sensitivity analysis rather than treating a narrow iid
+bootstrap interval as automatically valid under heteroskedasticity.
+
+![LIDAR SCI sensitivity](paper/sci/figures/lidar_sci_sensitivity.png)
+
+Start with [`docs/sci_artifact_inventory.md`](docs/sci_artifact_inventory.md),
+the [publication blueprint](docs/hct_shape_inference_publication_blueprint_ru.md),
+and [`examples/sci_quickstart.py`](examples/sci_quickstart.py). Full commands
+and expected results are in [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
+
+## Original HCRD release
 
 ![HCRD algorithm overview](paper/figures/method_overview.png)
 
@@ -187,6 +227,11 @@ python scripts/verify_release.py
 ```
 
 ## Paper and citation
+
+The SCI files on `main` are a development publication artifact and do not yet
+have a paper DOI. The citation metadata and Zenodo DOI below identify the
+earlier HCRD v0.1.0 archive; they should not be cited as if they already
+archived the SCI claims.
 
 The compiled main manuscript is
 [`paper/hcrd_preprint.pdf`](paper/hcrd_preprint.pdf); detailed proofs, optional

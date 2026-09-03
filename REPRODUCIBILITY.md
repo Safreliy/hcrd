@@ -1,5 +1,53 @@
 # Reproducibility guide
 
+## SCI publication artifact
+
+Install the package, run the 28 SCI-specific tests and execute the minimal
+unknown-scale example:
+
+```bash
+python -m pip install -e ".[dev]"
+python -m pytest -q \
+  tests/test_shape_inflection_confidence.py \
+  tests/test_noise_scale_confidence.py \
+  tests/test_heteroskedastic_scale_confidence.py
+python examples/sci_quickstart.py
+```
+
+Expected result: `28 passed`. With the frozen seed, the example reports an
+upper noise scale of approximately `0.0110` and an informative SCI set
+approximately `[0.130, 0.830]`, containing the true transition at `0.5`.
+
+The publication figures are regenerated solely from distributed compact CSV
+outputs:
+
+```bash
+python experiments/hct/generate_sci_publication_figures.py
+python scripts/verify_sci_artifact.py
+```
+
+The three frozen experiment layers are:
+
+- E33: known-scale comparison with the official `Sshaped` point estimator and
+  `ShapeChange` bootstrap interval;
+- E34: unknown homoskedastic Gaussian scale;
+- E35: bounded unknown heteroskedasticity and the LIDAR sensitivity analysis.
+
+Protocols, commands, frozen seeds and decision gates are recorded in
+`docs/hct_e33_shape_contrast_inflection_protocol.md`,
+`docs/hct_e34_unknown_scale_protocol.md`, and
+`docs/hct_e35_heteroskedastic_protocol.md`. The exact Python/R runners are in
+`experiments/hct/`; inspect their command lines with `--help`. Re-fitting the R
+comparators requires `Sshaped` 1.2, `ShapeChange` 1.5 and, for LIDAR, `SemiPar`
+1.0-4.2. Their frozen source metadata and hashes are in the result manifests;
+third-party runtimes and sources are not redistributed.
+
+Four deterministically generated E33 response shards are omitted to avoid
+adding about 45 MiB of redundant data. Their hashes remain in the E33
+`pre_manifest.json`; derived HCT/SCI scores, comparator outputs, trial-level
+evaluation rows and summaries are distributed. See
+`docs/sci_artifact_inventory.md` for the exact boundary of the artifact.
+
 ## Tier 1: implementation audit
 
 ```bash
@@ -9,7 +57,7 @@ python examples/quickstart.py
 python scripts/verify_release.py
 ```
 
-Expected unit-test result for this snapshot: `180 passed`.
+Expected unit-test result for this snapshot: `208 passed`.
 
 ## Tier 2: synthetic and theorem-linked studies
 

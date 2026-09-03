@@ -1,0 +1,211 @@
+{
+  "experiment": "E35 bounded-heteroskedastic HCT confirmation and LIDAR",
+  "status": "confirmation_executed_after_freeze",
+  "created_utc": "2026-09-02T21:28:55.220781+00:00",
+  "config": {
+    "sample_sizes": [
+      500,
+      1000
+    ],
+    "designs": [
+      "uniform",
+      "beta_4_8"
+    ],
+    "signals": [
+      "paper_f1_cusp",
+      "paper_f2_onset",
+      "paper_f3_jump",
+      "paper_f4_logistic"
+    ],
+    "variance_profiles": [
+      "constant",
+      "linear",
+      "plume_peak"
+    ],
+    "trials": 200,
+    "seed": 20262011,
+    "average_sigma": 0.1,
+    "alpha": 0.05,
+    "scale_failure": 0.01,
+    "contrast_alpha": 0.04,
+    "separations": [
+      1,
+      2,
+      4
+    ],
+    "lidar_kappas": [
+      1.0,
+      1.5,
+      2.0,
+      3.0,
+      4.0
+    ],
+    "lidar_bootstrap_loops": 2000,
+    "lidar_seed": 20262012
+  },
+  "freeze_sha256": "25098b8bbd1c457042706503028a82c8e4b3344fa60bdbbd27d16046642be1a5",
+  "frozen": {
+    "status": "frozen_before_confirmation_execution",
+    "created_utc": "2026-09-02T21:28:13.691691+00:00",
+    "config": {
+      "sample_sizes": [
+        500,
+        1000
+      ],
+      "designs": [
+        "uniform",
+        "beta_4_8"
+      ],
+      "signals": [
+        "paper_f1_cusp",
+        "paper_f2_onset",
+        "paper_f3_jump",
+        "paper_f4_logistic"
+      ],
+      "variance_profiles": [
+        "constant",
+        "linear",
+        "plume_peak"
+      ],
+      "trials": 200,
+      "seed": 20262011,
+      "average_sigma": 0.1,
+      "alpha": 0.05,
+      "scale_failure": 0.01,
+      "contrast_alpha": 0.04,
+      "separations": [
+        1,
+        2,
+        4
+      ],
+      "lidar_kappas": [
+        1.0,
+        1.5,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "lidar_bootstrap_loops": 2000,
+      "lidar_seed": 20262012
+    },
+    "hashes": {
+      "driver": "14c5da51df9ec5febc40194b18b1047ff8829384e8f837fa488047ff8ae65357",
+      "r_bridge": "d057f6739d6c9eff7f84ab25eac1dbe083f093dafdc3a8b40e53596434b1cc75",
+      "protocol": "9d4ede9b1a93bb9feec9e12020146e286602f8737b6cf624eeedd8140a8a136c",
+      "theory": "815177e4b808216b203e9497595adfd5bd318ce4bdbd55430a9764457dbfe817",
+      "heteroskedastic_module": "acb7905c87f4d6e8531b98256a6cd7156e4007a65c9968da42c7ee20edb2d870",
+      "shape_module": "8795c465eee09165175cc73ce0ded9d18c3d582ee612db79202e071143742e88",
+      "semipar_source": "9cc4f0f62c3b646bd949ce51db068059b022b32a30d41265407c52b66f6e435d",
+      "shapechange_source": "67d05f07e7c195656ccce2d10dbd0827398935d22b91b053f6db3dc4a72f3b55"
+    }
+  },
+  "gates": {
+    "all_pass": true,
+    "all_48_unknown_cells_retained": true,
+    "coverage_at_least_0_93_every_cell": true,
+    "scale_coverage_at_least_0_93_every_cell": true,
+    "zero_unexplained_empty_sets": true,
+    "weak_signal_cells_retained": true
+  },
+  "hashes": {
+    "driver": "14c5da51df9ec5febc40194b18b1047ff8829384e8f837fa488047ff8ae65357",
+    "r_bridge": "d057f6739d6c9eff7f84ab25eac1dbe083f093dafdc3a8b40e53596434b1cc75",
+    "protocol": "9d4ede9b1a93bb9feec9e12020146e286602f8737b6cf624eeedd8140a8a136c",
+    "theory": "815177e4b808216b203e9497595adfd5bd318ce4bdbd55430a9764457dbfe817",
+    "heteroskedastic_module": "acb7905c87f4d6e8531b98256a6cd7156e4007a65c9968da42c7ee20edb2d870",
+    "shape_module": "8795c465eee09165175cc73ce0ded9d18c3d582ee612db79202e071143742e88",
+    "semipar_source": "9cc4f0f62c3b646bd949ce51db068059b022b32a30d41265407c52b66f6e435d",
+    "shapechange_source": "67d05f07e7c195656ccce2d10dbd0827398935d22b91b053f6db3dc4a72f3b55",
+    "trial_scores.csv": "98fe399cb9c7fe74e38639f5d7478e1716ef792d4ced47ccb16a64008da5ff00",
+    "summary.csv": "79e514bc9f05e725e13e1e4d0ef1a618ae1f4803aae075cc5666671408518903",
+    "lidar_data_and_fit.csv": "f2c0b0e9fa762920b258b2ed8ecfd5eb43311cee1e7be652086746cb60271018",
+    "lidar_external_fits.csv": "cfcd08b7bfe10b26dc080c12750aaf90ff4ab05390155a38152eccefdae25a4c",
+    "lidar_hct_sensitivity.csv": "402481672557706b7f0a75b1f55854b7a2f1ac9e6d0c014d0860b5d7850866ff",
+    "lidar_sensitivity.png": "170889e68862f7caca68c1bad9413701b473bb41461651f608ff5662a6fea46e",
+    "report": "48f79275b642a2d8ffa38299e62a2af40923c3d2c9628fdf7b6c64f5f4a6ab39"
+  },
+  "environment": {
+    "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.3.5"
+  },
+  "lidar": {
+    "external": {
+      "sshaped_point_metres": "588",
+      "sshaped_rss": "1.29826232985998",
+      "shapechange_status": "ok",
+      "shapechange_point_normalized": "0.654464799111372",
+      "shapechange_left_normalized": "0.613917741238349",
+      "shapechange_right_normalized": "0.675023627020203",
+      "bootstrap_loops": "2000",
+      "bootstrap_seed": "20262012"
+    },
+    "hct_sensitivity": [
+      {
+        "kappa": 1.0,
+        "upper_noise_scale": 0.10627387718018762,
+        "concentration_denominator": 0.5917072212762758,
+        "left_normalized": 0.363636363636364,
+        "right_normalized": 0.83030303030303,
+        "left_metres": 510.0000000000001,
+        "right_metres": 663.9999999999999,
+        "width_metres": 153.99999999999977,
+        "empty": false,
+        "positive_contrasts": 11,
+        "negative_contrasts": 3
+      },
+      {
+        "kappa": 1.5,
+        "upper_noise_scale": 0.1416003255709017,
+        "concentration_denominator": 0.49994551323189795,
+        "left_normalized": 0.290909090909091,
+        "right_normalized": 1.0,
+        "left_metres": 486.0,
+        "right_metres": 720.0,
+        "width_metres": 233.99999999999997,
+        "empty": false,
+        "positive_contrasts": 7,
+        "negative_contrasts": 0
+      },
+      {
+        "kappa": 2.0,
+        "upper_noise_scale": 0.1778430862883575,
+        "concentration_denominator": 0.42258681490991223,
+        "left_normalized": 0.145454545454545,
+        "right_normalized": 1.0,
+        "left_metres": 437.99999999999983,
+        "right_metres": 720.0,
+        "width_metres": 282.0000000000001,
+        "empty": false,
+        "positive_contrasts": 5,
+        "negative_contrasts": 0
+      },
+      {
+        "kappa": 3.0,
+        "upper_noise_scale": 0.261663450877899,
+        "concentration_denominator": 0.2928161628870326,
+        "left_normalized": 0.0,
+        "right_normalized": 1.0,
+        "left_metres": 390.0,
+        "right_metres": 720.0,
+        "width_metres": 330.0,
+        "empty": false,
+        "positive_contrasts": 1,
+        "negative_contrasts": 0
+      },
+      {
+        "kappa": 4.0,
+        "upper_noise_scale": 0.3817624336262752,
+        "concentration_denominator": 0.18341444255255168,
+        "left_normalized": 0.0,
+        "right_normalized": 1.0,
+        "left_metres": 390.0,
+        "right_metres": 720.0,
+        "width_metres": 330.0,
+        "empty": false,
+        "positive_contrasts": 0,
+        "negative_contrasts": 0
+      }
+    ]
+  }
+}

@@ -76,6 +76,7 @@ def included_paths() -> list[Path]:
     paths.extend(
         (
             ROOT / "scripts" / "build_release_manifest.py",
+            ROOT / "scripts" / "verify_sci_artifact.py",
             ROOT / "scripts" / "verify_release.py",
             ROOT / "data" / "README.md",
             ROOT / ".gitignore",
@@ -98,7 +99,7 @@ def main() -> None:
         )
     payload = {
         "schema": 1,
-        "release": "0.1.0",
+        "release": "0.2.0-dev",
         "author": "Saveliy Baturin",
         "algorithm": "SHA-256",
         "files": entries,

@@ -1,0 +1,33 @@
+{
+  "status": "responses_generated_after_freeze",
+  "created_utc": "2026-09-02T20:50:09.242553+00:00",
+  "config": {
+    "name": "confirmation",
+    "status": "confirmation",
+    "sample_sizes": [
+      500,
+      1000
+    ],
+    "designs": [
+      "uniform",
+      "beta_4_8"
+    ],
+    "trials": 200,
+    "data_seed": 20261711,
+    "bootstrap_seed": 20261712,
+    "bootstrap_loops": 1000,
+    "shards": 4
+  },
+  "freeze_sha256": "082e1fba57bc2af2dce85d10979d004f8085458fcec131373e3b5206e6589092",
+  "outputs": {
+    "designs": "6b1c3447aa41470dd9e444e8913fc738b5b4e0664fea649ca2596422722e7329",
+    "hct_scores": "ae74ab831fe609ed2f1ec13c5b7cfb543e78bc9eb7b8b75a696c9ca4af1987ca",
+    "families": "177e1dd2ef00ea2fdf43ad9843e3d5d2cd28b9b7c295444cee93f9043abc84ff",
+    "observation_shards": {
+      "0": "4d6949dde2a89b5fbb1c3d38af619247913d7d83c2df0f31f73c532a11daf4ff",
+      "1": "df372426f47c4cf53aca764e7d73a04a075bd4fdd257af406d49d3e738b71120",
+      "2": "bb3c42a50604b296ee633c51d2169f7d5a9bda84a4c6c4f088993b0e74fbf605",
+      "3": "51918444382c398fb878246c298b7283bd464bb0f1464a5aba87c7b2b121ffee"
+    }
+  }
+}

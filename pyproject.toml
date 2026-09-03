@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hcrd-research"
-version = "0.1.0"
-description = "Research implementation of Hierarchical Convexity-Run Decomposition"
+version = "0.2.0.dev0"
+description = "Research implementation of HCRD and shape-contrast inversion"
 authors = [
   {name = "Saveliy Baturin"},
 ]
@@ -13,6 +13,7 @@ license = {file = "LICENSE"}
 requires-python = ">=3.11"
 dependencies = [
   "numpy>=2.0",
+  "scipy>=1.14",
 ]
 
 [project.optional-dependencies]
