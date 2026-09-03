@@ -59,7 +59,7 @@ def _step_badge(axis: plt.Axes, x: float, y: float, number: str) -> None:
     axis.scatter(
         [x],
         [y],
-        s=500,
+        s=200,
         marker="o",
         color=DARK,
         edgecolor="none",
@@ -71,7 +71,7 @@ def _step_badge(axis: plt.Axes, x: float, y: float, number: str) -> None:
         number,
         ha="center",
         va="center",
-        fontsize=9.2,
+        fontsize=7.2,
         fontweight="bold",
         color="white",
         zorder=5,
@@ -98,21 +98,20 @@ def _pill(axis: plt.Axes, x: float, y: float, label: str, colour: str) -> None:
 
 
 def _down_arrow(axis: plt.Axes, top: float, bottom: float) -> None:
+    head_height = 0.011
+    head_half_width = 0.010
     axis.plot(
         [0.5, 0.5],
-        [top, bottom + 0.007],
+        [top, bottom + head_height],
         color="#9CA3AF",
         lw=1.6,
         solid_capstyle="round",
         zorder=3,
     )
-    axis.scatter(
-        [0.5],
-        [bottom],
-        s=58,
-        marker="v",
+    axis.fill(
+        [0.5 - head_half_width, 0.5 + head_half_width, 0.5],
+        [bottom + head_height, bottom + head_height, bottom],
         color="#9CA3AF",
-        edgecolor="none",
         zorder=4,
     )
 
@@ -149,11 +148,11 @@ def main() -> None:
     axis.set_axis_off()
 
     # Step 1: a geometric model of the chord-sign rule.
-    _card(axis, 0.620, 0.330)
-    _step_badge(axis, 0.096, 0.910, "1")
+    _card(axis, 0.650, 0.330)
+    _step_badge(axis, 0.096, 0.940, "1")
     axis.text(
         0.135,
-        0.910,
+        0.940,
         "Find reliable local shape",
         fontsize=12.2,
         fontweight="bold",
@@ -162,7 +161,7 @@ def main() -> None:
     )
     axis.text(
         0.135,
-        0.875,
+        0.905,
         "On many fixed windows, SCI compares the curve with an endpoint chord.\n"
         "The signs are calibrated together to account for noise.",
         fontsize=8.6,
@@ -178,7 +177,7 @@ def main() -> None:
         4.0 * curve_parameter**3,
         1.0 - 4.0 * (1.0 - curve_parameter) ** 3,
     )
-    curve_y = 0.625 + 0.125 * raw_curve
+    curve_y = 0.655 + 0.125 * raw_curve
     axis.plot(
         curve_x,
         curve_y,
@@ -220,9 +219,9 @@ def main() -> None:
             linewidth=0.6,
             zorder=5,
         )
-        _pill(axis, float(np.mean(lobe_x)), 0.780, label, colour)
+        _pill(axis, float(np.mean(lobe_x)), 0.810, label, colour)
 
-    _down_arrow(axis, 0.623, 0.608)
+    _down_arrow(axis, 0.638, 0.602)
 
     # Step 2: a finite/discrete model of the one-sided logical exclusions.
     _card(axis, 0.350, 0.240)
@@ -328,7 +327,7 @@ def main() -> None:
         color=BLUE,
         lw=1.6,
     )
-    _down_arrow(axis, 0.337, 0.307)
+    _down_arrow(axis, 0.338, 0.302)
 
     # Step 3: the intersection of all surviving candidate locations.
     _card(axis, 0.040, 0.250)
