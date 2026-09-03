@@ -59,7 +59,7 @@ def _step_badge(axis: plt.Axes, x: float, y: float, number: str) -> None:
     axis.scatter(
         [x],
         [y],
-        s=720,
+        s=500,
         marker="o",
         color=DARK,
         edgecolor="none",
@@ -71,7 +71,7 @@ def _step_badge(axis: plt.Axes, x: float, y: float, number: str) -> None:
         number,
         ha="center",
         va="center",
-        fontsize=10.5,
+        fontsize=9.2,
         fontweight="bold",
         color="white",
         zorder=5,
