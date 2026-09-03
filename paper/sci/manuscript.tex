@@ -309,9 +309,10 @@ Theorem~\ref{thm:known}.
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.88\linewidth]{figures/sci_method_overview.pdf}
-\caption{A plain-language overview of \SCI.  (1) Endpoint chords provide local
-evidence for convexity or concavity; the implementation averages these
-residuals and calibrates all fixed windows together.  (2) Certified convexity
+\caption{A plain-language overview of \SCI.  (1) Endpoint chords create signed
+local residual lobes: the chord is above a convex segment and below a concave
+segment.  The implementation averages these residuals and calibrates all fixed
+windows together.  (2) Certified convexity
 rules out transition locations on the left, while certified concavity rules
 out locations on the right.  (3) Intersecting all surviving locations gives
 the \SCI confidence set.  This schematic illustrates the inversion logic; it

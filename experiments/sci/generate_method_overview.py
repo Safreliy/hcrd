@@ -56,20 +56,25 @@ def _card(axis: plt.Axes, bottom: float, height: float) -> None:
 
 
 def _step_badge(axis: plt.Axes, x: float, y: float, number: str) -> None:
+    axis.scatter(
+        [x],
+        [y],
+        s=720,
+        marker="o",
+        color=DARK,
+        edgecolor="none",
+        zorder=4,
+    )
     axis.text(
         x,
-        y,
+        y - 0.001,
         number,
         ha="center",
         va="center",
         fontsize=10.5,
         fontweight="bold",
         color="white",
-        bbox={
-            "boxstyle": "circle,pad=0.30",
-            "facecolor": DARK,
-            "edgecolor": "none",
-        },
+        zorder=5,
     )
 
 
@@ -93,15 +98,22 @@ def _pill(axis: plt.Axes, x: float, y: float, label: str, colour: str) -> None:
 
 
 def _down_arrow(axis: plt.Axes, top: float, bottom: float) -> None:
-    axis.add_patch(
-        FancyArrowPatch(
-            (0.5, top),
-            (0.5, bottom),
-            arrowstyle="-|>",
-            mutation_scale=14,
-            linewidth=1.4,
-            color="#9CA3AF",
-        )
+    axis.plot(
+        [0.5, 0.5],
+        [top, bottom + 0.007],
+        color="#9CA3AF",
+        lw=1.6,
+        solid_capstyle="round",
+        zorder=3,
+    )
+    axis.scatter(
+        [0.5],
+        [bottom],
+        s=58,
+        marker="v",
+        color="#9CA3AF",
+        edgecolor="none",
+        zorder=4,
     )
 
 
@@ -137,11 +149,11 @@ def main() -> None:
     axis.set_axis_off()
 
     # Step 1: a geometric model of the chord-sign rule.
-    _card(axis, 0.650, 0.300)
-    _step_badge(axis, 0.096, 0.912, "1")
+    _card(axis, 0.635, 0.315)
+    _step_badge(axis, 0.096, 0.910, "1")
     axis.text(
         0.135,
-        0.922,
+        0.910,
         "Find reliable local shape",
         fontsize=12.2,
         fontweight="bold",
@@ -159,58 +171,56 @@ def main() -> None:
         linespacing=1.35,
     )
 
-    local_coordinate = np.linspace(-1.0, 1.0, 201)
-    for centre, sign, colour, label in (
-        (0.33, 1.0, GREEN, "convex: chord above"),
-        (0.69, -1.0, BLUE, "concave: chord below"),
+    curve_parameter = np.linspace(0.0, 1.0, 501)
+    curve_x = 0.17 + 0.71 * curve_parameter
+    raw_curve = np.where(
+        curve_parameter <= 0.5,
+        4.0 * curve_parameter**3,
+        1.0 - 4.0 * (1.0 - curve_parameter) ** 3,
+    )
+    curve_y = 0.640 + 0.125 * raw_curve
+    axis.plot(
+        curve_x,
+        curve_y,
+        color=DARK,
+        lw=2.7,
+        solid_capstyle="round",
+        zorder=3,
+    )
+
+    for first, last, colour, label in (
+        (10, 240, GREEN, "convex lobe: chord above"),
+        (260, 490, BLUE, "concave lobe: chord below"),
     ):
-        curve_x = centre + 0.135 * local_coordinate
-        if sign > 0.0:
-            curve_y = 0.680 + 0.062 * local_coordinate**2
-            chord_y = np.full_like(curve_x, 0.742)
-        else:
-            curve_y = 0.680 + 0.062 * (1.0 - local_coordinate**2)
-            chord_y = np.full_like(curve_x, 0.680)
+        lobe_x = curve_x[first : last + 1]
+        lobe_curve = curve_y[first : last + 1]
+        chord_y = np.linspace(lobe_curve[0], lobe_curve[-1], lobe_x.size)
         axis.plot(
-            curve_x,
-            curve_y,
-            color=DARK,
-            lw=2.4,
-            solid_capstyle="round",
-        )
-        axis.plot(
-            curve_x,
+            lobe_x,
             chord_y,
             color=colour,
-            lw=2.8,
+            lw=3.0,
             solid_capstyle="round",
+            zorder=4,
         )
         axis.fill_between(
-            curve_x,
-            curve_y,
+            lobe_x,
+            lobe_curve,
             chord_y,
             color=colour,
-            alpha=0.20,
+            alpha=0.25,
+            zorder=2,
         )
         axis.scatter(
-            [curve_x[0], curve_x[-1]],
-            [curve_y[0], curve_y[-1]],
-            s=25,
+            [lobe_x[0], lobe_x[-1]],
+            [lobe_curve[0], lobe_curve[-1]],
+            s=26,
             color=colour,
             edgecolor="white",
             linewidth=0.6,
-            zorder=3,
+            zorder=5,
         )
-        axis.scatter(
-            [centre],
-            [curve_y[curve_y.size // 2]],
-            s=22,
-            color=DARK,
-            edgecolor="white",
-            linewidth=0.5,
-            zorder=3,
-        )
-        _pill(axis, centre, 0.785, label, colour)
+        _pill(axis, float(np.mean(lobe_x)), 0.795, label, colour)
 
     _down_arrow(axis, 0.638, 0.608)
 
@@ -219,7 +229,7 @@ def main() -> None:
     _step_badge(axis, 0.096, 0.552, "2")
     axis.text(
         0.135,
-        0.562,
+        0.552,
         "Rule out one side",
         fontsize=12.2,
         fontweight="bold",
@@ -325,7 +335,7 @@ def main() -> None:
     _step_badge(axis, 0.096, 0.247, "3")
     axis.text(
         0.135,
-        0.257,
+        0.247,
         "Keep what the data cannot rule out",
         fontsize=12.2,
         fontweight="bold",
