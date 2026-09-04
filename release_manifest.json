@@ -36,8 +36,8 @@
     },
     {
       "path": "LICENSE-CONTENT.md",
-      "bytes": 731,
-      "sha256": "fa8514cea290758b583eeab929096a78ba0c20d566c3c32801052237eb0df353"
+      "bytes": 946,
+      "sha256": "dbe752ec0a50db3933f7f37cff039b3ea896d2fa7440636710f9b3054f3a3601"
     },
     {
       "path": "README.md",
@@ -1260,9 +1260,24 @@
       "sha256": "2046b9808bf63748bd06cf3c312bd460ded6d9d6f9a3cfb7801ac9fe950dd056"
     },
     {
+      "path": "paper/sci/JOURNAL_PREPARATION.md",
+      "bytes": 3636,
+      "sha256": "5282ce1e08cd6d094ca00abead15db315baf0070e147dd3880e8994e7bbe79fe"
+    },
+    {
       "path": "paper/sci/README.md",
-      "bytes": 808,
-      "sha256": "aa5539d8182fe7a7c9ad3c98527b90fce0014cb3957295e737cc95dbaf20e160"
+      "bytes": 2342,
+      "sha256": "d9ef06ac85b85c617cddc210affac5d18b72b41d65384395dbfe859a09a7d2e6"
+    },
+    {
+      "path": "paper/sci/TEMPLATE_PROVENANCE.md",
+      "bytes": 1604,
+      "sha256": "2cbfd7512a982d7c3080befe0dd93c46a92fbc6d3595117dfc0ba4ab0ab073eb"
+    },
+    {
+      "path": "paper/sci/check_submission.py",
+      "bytes": 5850,
+      "sha256": "4d7540cb69636b8f903346918a15076f5d124fa084f7bc391d70a22d7ca492c2"
     },
     {
       "path": "paper/sci/figures/dnase_replicate_sci.png",
@@ -1300,14 +1315,19 @@
       "sha256": "761dac228e3bcc88ee99dae15f430e3209e4e787e2eadff3ed16f1f5d220d643"
     },
     {
+      "path": "paper/sci/interact.cls",
+      "bytes": 24467,
+      "sha256": "99f0a10a170c42cb222ea4984eac4bc7d6a0099f2199276d377efce2625c7102"
+    },
+    {
       "path": "paper/sci/manuscript.pdf",
-      "bytes": 1004262,
-      "sha256": "afa7864f06c7989a3149c2c5bc870002bdd00be5c051c452a5136c6be0c5314c"
+      "bytes": 762973,
+      "sha256": "dab1a045c4ede4e9b6f0e7c7145e249ee3528b02d965ab00ee722dd7412d5429"
     },
     {
       "path": "paper/sci/manuscript.tex",
-      "bytes": 62908,
-      "sha256": "289d38b97150eb07fd713d49c4b0a5b177e273fac4e94033bd1444289dbc07ee"
+      "bytes": 64171,
+      "sha256": "c999f5c0cb501e64b75911bf85db8c4fc4f5eee6c25e8cd7925429e3a1b78132"
     },
     {
       "path": "paper/sci/manuscript_plain_english.md",
@@ -1316,8 +1336,18 @@
     },
     {
       "path": "paper/sci/references.bib",
-      "bytes": 5645,
-      "sha256": "745a6f237ba6ed6132bcdd10fa5ad1ae4397359682607c5408c9a4e74aa2a2ed"
+      "bytes": 6286,
+      "sha256": "5d01f3fd24d1297d92bda812a4438ecbc15f0977355c298564261be6fad2d720"
+    },
+    {
+      "path": "paper/sci/tfnlm.bst",
+      "bytes": 38455,
+      "sha256": "2250cc3bb841a282cac80fc67f1385243b120311bd6c243fa0438f9c16f1ab92"
+    },
+    {
+      "path": "paper/sci/word_count.tex",
+      "bytes": 5,
+      "sha256": "e9a46ef37f9b26e53a170fcd7e061ede6375c6523a1340d4af314e0d1fd9acdf"
     },
     {
       "path": "paper/signal_processing/README.md",

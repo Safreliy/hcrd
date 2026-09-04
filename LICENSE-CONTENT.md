@@ -15,3 +15,8 @@ Source code is licensed separately under the MIT License in `LICENSE`.
 Third-party datasets, annotations, comparator implementations, trademarks,
 and quoted material remain under their respective owners' terms and are not
 relicensed by this notice.
+
+The third-party LaTeX files `paper/sci/interact.cls` and `paper/sci/tfnlm.bst`
+retain their publisher/template licenses; see
+`paper/sci/TEMPLATE_PROVENANCE.md`. They are not covered by the MIT source-code
+license.

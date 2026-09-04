@@ -1,24 +1,27 @@
-\documentclass[11pt]{article}
+\documentclass{interact}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{booktabs}
+\usepackage{mathtools}
 \usepackage{array}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{microtype}
-\usepackage{natbib}
+\usepackage[numbers,sort&compress]{natbib}
+\bibpunct[, ]{[}{]}{,}{n}{,}{,}
+\renewcommand\bibfont{\fontsize{10}{12}\selectfont}
+\makeatletter
+\def\NAT@def@citea{\def\@citea{\NAT@separator}}
+\makeatother
 \usepackage{enumitem}
-\usepackage{caption}
-\usepackage{subcaption}
 \usepackage{url}
 \usepackage{xspace}
 \usepackage{flafter}
 \usepackage{placeins}
-\usepackage[colorlinks=true,allcolors=blue!55!black]{hyperref}
+\usepackage[hidelinks]{hyperref}
+% Keep run-in paragraph headings unnumbered (no skipped 2.0.0.1 levels).
+\setcounter{secnumdepth}{3}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -42,53 +45,52 @@
 \newcommand{\PBP}{\textnormal{\textsc{pbp}}\xspace}
 
 \hypersetup{
-  pdftitle={Finite-Sample Confidence Sets for Nonsmooth Convex-to-Concave Transitions},
+  pdftitle={Finite-sample confidence sets for nonsmooth convex-to-concave transitions},
   pdfauthor={Saveliy Baturin},
   pdfsubject={Finite-sample inference for S-shaped transition locations},
-  pdfkeywords={shape constraints, inflection location, finite-sample inference,
-    partial identification, multiscale contrasts, S-shaped regression}
+  pdfkeywords={shape constraints, transition location, finite-sample inference,
+    partial identification, multiscale contrasts}
 }
 
-\title{Finite-Sample Confidence Sets for Nonsmooth\\
-Convex-to-Concave Transitions}
-\author{Saveliy Baturin\\Independent Researcher\\
-\texttt{saveliy.xo@gmail.com}}
-\date{September 2026}
-
 \begin{document}
+\articletype{Original article}
+\title{Finite-sample confidence sets for nonsmooth convex-to-concave transitions}
+\author{
+\name{Saveliy Baturin\thanks{CONTACT Saveliy Baturin.
+Email: \href{mailto:saveliy.xo@gmail.com}{saveliy.xo@gmail.com}}}
+\affil{Independent Researcher}
+}
 \maketitle
 
 \begin{abstract}
-Many scientific curves change from increasing returns to diminishing returns.
-A point estimate can mark this transition, but it does not show which other
-locations remain compatible with the data.  The problem is difficult when the
-mean curve has a kink, a jump, or a flat transition region, because smooth
-derivative and bootstrap arguments can then fail.  We introduce shape-contrast
-inversion (\SCI), a finite-sample uncertainty layer for this problem.  \SCI
-builds simultaneous bounds for a fixed family of local chord contrasts and
-inverts only their certified signs.  The output covers every transition
-location admitted by a shape-constrained continuation of the sampled mean
-vector.  In fixed-design Gaussian regression, coverage is uniform and does not
-require a
-derivative, continuity at the transition, or a unique transition.  We also give
-finite-sample versions for unknown constant noise, bounded heteroskedasticity,
-and independent replicate curves with arbitrary within-curve covariance.  In
-80,000 fresh simulations, known-scale coverage ranged from 97.70\% to 98.04\%
-at a 95\% nominal level across 16 settings formed from four published S-shaped
-benchmark curves.  In a
-matched comparison with a conservative pointwise-band split baseline, \SCI
-reduced median width among nonempty outputs by 19.4\%--75.7\% for cusp, onset,
-and jump signals.  Both
-methods were wide for a weak smooth logistic signal.  Analyses of atmospheric
-LIDAR and 11 replicated DNase assay runs illustrate how the answer changes with
-the available noise information.  A matrix-free implementation evaluates about
-six million contrasts for one million observations in less than one second on
-the benchmark machine.
+Many scientific curves change from increasing returns to diminishing returns,
+but this transition need not be smooth or uniquely located.  We introduce
+shape-contrast inversion (\SCI), a confidence procedure based on simultaneous
+bounds for local chord contrasts without estimating local derivatives.  In
+fixed-design Gaussian regression, \SCI covers every transition compatible
+with the sampled mean vector, uniformly at finite sample sizes.  It allows
+kinks, jumps, and nonunique transitions.  Extensions handle unknown constant
+noise, bounded heteroskedasticity, and independent replicate curves with
+arbitrary within-curve covariance.  Across 80,000 simulations, known-scale
+coverage was 97.70\%--98.04\% at a 95\% nominal level.  Against a conservative
+pointwise-band split baseline, \SCI reduced median width among nonempty
+outputs by 19.4\%--75.7\% for cusp, onset, and jump signals.  Both methods
+remained wide for a weak logistic signal.  LIDAR and replicated DNase examples
+illustrate the role of noise assumptions.  A matrix-free implementation
+processes one million observations in less than one second on the benchmark
+machine.
 \end{abstract}
 
-\noindent\textbf{Keywords:} shape constraints; inflection location;
-finite-sample inference; partial identification; multiscale contrasts;
-S-shaped regression.
+\begin{keywords}
+Shape constraints; transition location; finite-sample inference;
+partial identification; multiscale contrasts
+\end{keywords}
+
+%TC:ignore
+\noindent\textbf{Word count:} \input{word_count.tex}\unskip\ words
+(text, headings, and captions, including appendices; excluding references
+and mathematical expressions).
+%TC:endignore
 
 \section{Introduction}
 
@@ -113,9 +115,9 @@ curve itself does not identify one preferred transition point.  A valid method
 must then report a set rather than invent a unique target.
 
 Earlier work already gives important forms of inference for qualitative
-features.  \citet{davies2009nonparametric} construct finite-sample confidence
+features.  Davies et al.~\citep{davies2009nonparametric} construct finite-sample confidence
 regions for a regression curve and study features including inflection points.
-\citet{schmidthieber2013multiscale} use multiscale sign statements to locate
+Schmidt-Hieber et al.~\citep{schmidthieber2013multiscale} use multiscale sign statements to locate
 roots of operators, including curvature changes.  Shape-restricted splines and
 bootstrap methods provide practical point and interval estimators under smoother
 models \citep{meyer2008inference,liao2017changepoint}.  These results show that
@@ -166,8 +168,8 @@ remaining open theory.
 \section{Relation to earlier work}
 \label{sec:related}
 
-\paragraph{Confidence regions and multiscale inference.}
-The confidence-region approach of \citet{davies2009nonparametric} is broad: it
+\paragraph{Confidence regions and multiscale inference}
+The confidence-region approach of Davies et al.~\citep{davies2009nonparametric} is broad: it
 first constructs a set of plausible regression functions and then studies
 their qualitative features.  Multiscale tests similarly turn many local
 statements into global qualitative conclusions
@@ -177,36 +179,38 @@ stores only the endpoints, scale, and sufficient sums needed for local chord
 contrasts.  This direct inversion is the source of its simple proof and its
 computational scale.  Shape-restricted confidence bands and intervals provide
 closely related guarantees for monotone and convex regression
-\citep{dumbgen2003optimal,cai2013adaptive}.  Multiscale change-point inference
+\citep{dumbgen2003optimal,cai2013adaptive}; a general account of order-restricted
+inference is given by Robertson et al.~\citep{robertson1988order}.
+Multiscale change-point inference
 is another important example of simultaneous local testing
 \citep{frick2014multiscale}.
 
-\paragraph{S-shaped point estimation.}
-The tuning-free least-squares estimator of \citet{feng2022sshaped} estimates a
+\paragraph{S-shaped point estimation}
+The tuning-free least-squares estimator of Feng et al.~\citep{feng2022sshaped} estimates a
 monotone S-shaped curve and its transition.  We use its implementation as the
 main point estimator in our hybrid workflow.  \SCI does not replace that fit.
 It supplies a confidence set around the scientific transition target.  Our
 coverage theorem needs the convex-to-concave restriction but not monotonicity.
 
-\paragraph{Spline change-point intervals.}
-\citet{liao2017changepoint} estimate a change point with shape-restricted
+\paragraph{Spline change-point intervals}
+Liao and Meyer~\citep{liao2017changepoint} estimate a change point with shape-restricted
 regression splines.  Their \texttt{ShapeChange} software includes a residual
 bootstrap interval.  It is a useful comparator in its smooth spline regime.
 Our nonsmooth experiments deliberately include settings outside that regime,
 so those comparisons measure robustness rather than a failure of the published
 theory.
 
-\paragraph{What is new here.}
+\paragraph{What is new here}
 The main object is a finite-sample outer confidence set for a possibly
 set-valued transition under a nonsmooth shape class.  The most informative
 comparison is therefore not only against a point or smooth-bootstrap method,
 but also against another procedure with a matched finite-sample guarantee.
 For this purpose we implement a pointwise-band split (\PBP) baseline.  It
 is related to the confidence-region strategy of
-\citet{davies2009nonparametric}, but it is our deliberately simple baseline,
+Davies et al.~\citep{davies2009nonparametric}, but it is our deliberately simple baseline,
 not their official algorithm.  Because a fixed design may only partially
 identify a transition, our coverage statement is for a set-valued target in
-the general sense of \citet{chernozhukov2007estimation}.
+the general sense of Chernozhukov et al.~\citep{chernozhukov2007estimation}.
 
 \section{Model and target}
 \label{sec:model}
@@ -533,7 +537,8 @@ displayed stochastic order holds directly.
 
 The $n^{-1/7}$ power is the known regular order for localizing a root of a
 second derivative.  Related orders appear in
-\citet{schmidthieber2013multiscale} and \citet{feng2022sshaped}.  The value of
+Schmidt-Hieber et al.~\citep{schmidthieber2013multiscale} and
+Feng et al.~\citep{feng2022sshaped}.  The value of
 Corollary~\ref{cor:cubic} is compatibility: \SCI keeps finite-sample validity
 over a wider nonsmooth class without losing this reference order in the cubic
 case.
@@ -737,7 +742,7 @@ best possible pointwise-band projection.
 \subsection{Design}
 
 We use four benchmark signals from the S-shaped estimation study of
-\citet{feng2022sshaped}: a cusp, a one-sided onset, a jump, and a smooth logistic
+Feng et al.~\citep{feng2022sshaped}: a cusp, a one-sided onset, a jump, and a smooth logistic
 curve.  The first three stress nonsmooth behavior; the logistic signal is the
 smooth reference case.  Designs are either uniform or sampled from a
 $\operatorname{Beta}(4,8)$ distribution.  Sample sizes are $n=500$ and
@@ -814,7 +819,7 @@ The value of \SCI is calibrated uncertainty around the point estimate.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.96\linewidth]{figures/e33_frontier_coverage_width.png}
+\includegraphics[width=0.96\linewidth]{figures/e33_frontier_coverage_width.pdf}
 \caption{Coverage and width in the initial comparison.  The smooth-bootstrap
 comparator is used inside and outside its smooth regime to expose the practical
 robustness gap; the comparison does not contradict its published assumptions.}
@@ -922,7 +927,7 @@ more cautious variance claim.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.88\linewidth]{figures/lidar_sci_sensitivity.png}
+\includegraphics[width=0.88\linewidth]{figures/lidar_sci_sensitivity.pdf}
 \caption{LIDAR transition sets under the declared variance-ratio bound
 $\kappa$.  Larger heterogeneity allowances produce wider honest sets.}
 \label{fig:lidar}
@@ -932,13 +937,15 @@ $\kappa$.  Larger heterogeneity allowances produce wider honest sets.}
 
 The DNase ELISA data distributed with R contain 11 assay runs and eight
 concentrations; their documented sources are
-\citet{davidian1995nonlinear} and \citet{pinheiro2000mixed}.  We use all 176
+Davidian and Giltinan~\citep{davidian1995nonlinear} and
+Pinheiro and Bates~\citep{pinheiro2000mixed}.  We use all 176
 raw optical-density measurements \citep{r2025}.
 Technical duplicates are averaged within each run, and the run is the
 independent unit.  This leaves 11 replicate curves on the same eight-point
 design.
 
-The replicate Student construction gives the 95\% transition set
+Figure~\ref{fig:dnase} shows the replicate curves and the resulting uncertainty
+statement.  The replicate Student construction gives the 95\% transition set
 $[0.78125,12.5]$ in concentration units.  A four-parameter logistic fit gives
 the descriptive midpoint 4.1412.  The point lies inside the confidence set,
 but the set reaches the largest observed concentration.  The data support a
@@ -953,7 +960,7 @@ same run are correlated.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.85\linewidth]{figures/dnase_replicate_sci.png}
+\includegraphics[width=0.75\linewidth]{figures/dnase_replicate_sci.png}
 \caption{DNase run means, replicate mean curve, descriptive logistic midpoint,
 and the 95\% replicate-curve \SCI set.  Dependence across concentrations inside
 a run is allowed.}
@@ -1027,14 +1034,25 @@ feature can be much sharper than this generic confidence-box relaxation.  The
 logistic and DNase examples show the equally important other side: when the
 data do not support precise localization, the method says so.
 
-\section*{Reproducibility statement}
+\section*{Data availability statement}
 
-The public repository contains the matrix-free implementation, frozen
+The code and simulation results supporting this study are openly available
+at \url{https://github.com/Safreliy/hcrd}.  The repository contains the
+matrix-free implementation, frozen
 experiment configurations, raw trial-level outputs, summaries, figures, and
-verification manifests.  All reported numerical claims are generated from
+verification manifests under \texttt{results/sci} and \texttt{results/hct}.
+The DNase table and its source manifest are provided under
+\texttt{data/external/dnase}; the original data are distributed with R
+\citep{r2025}.  The LIDAR data are available in the \texttt{SemiPar} R package
+\citep{ruppert2003semiparametric}; retrieval and analysis instructions are
+included with the experiment code.  All reported numerical claims are generated from
 these artifacts.  The test suite includes \SCI-specific regression tests, and
 the artifact verifier checks the frozen SCI files against their manifests.
 Commands for rebuilding this manuscript are given beside the source.
+
+\section*{Funding}
+
+No funding was received for this work.
 
 \section*{CRediT authorship contribution statement}
 
@@ -1042,17 +1060,25 @@ Saveliy Baturin: Conceptualization; Methodology; Software; Validation; Formal
 analysis; Investigation; Data curation; Visualization; Writing -- original
 draft; Writing -- review and editing.
 
-\section*{Declaration of competing interest}
+\section*{Disclosure of interest}
 
-The author declares no competing financial interests or personal
-relationships that could have appeared to influence the work reported here.
+The author reports there are no competing interests to declare.
 
-\section*{AI assistance disclosure}
+\section*{Declaration of generative AI use}
 
 The author used OpenAI Codex to assist with literature organization, software
 engineering, verification, and language editing.  The mathematical claims,
 experimental design, reported results, and final interpretations were checked
 and approved by the author, who assumes full responsibility for the manuscript.
+
+\section*{Notes on contributor}
+
+Saveliy Baturin is an independent researcher working on statistical inference
+and shape-constrained methods.
+
+\FloatBarrier
+\bibliographystyle{tfnlm}
+\bibliography{references}
 
 \appendix
 
@@ -1291,7 +1317,7 @@ Because $R$ is an orthogonal projector and Assumption~\ref{ass:kappa} holds,
 \]
 Together with \eqref{eq:trace-lower}, these inequalities give
 $\lambda_{\max}(A_D)/\operatorname{tr}(A_D)\leq2\kappa/n$.
-The lower-tail inequality of \citet{laurent2000adaptive}, with
+The lower-tail inequality of Laurent and Massart~\citep{laurent2000adaptive}, with
 $x=\log(1/\eta)$, now yields with probability at least $1-\eta$,
 \begin{align*}
  Q_0
@@ -1343,7 +1369,9 @@ same internal target endpoints for these cells.
 
 \begin{table}[htbp]
 \centering
-\caption{Design-identified target endpoints for the 16 benchmark cells.}
+\caption{Design-identified transition sets $\I_x(\mu)$ for the 16 benchmark
+cells in E36.  Here $n$ is the number of observations and Beta denotes the
+Beta$(4,8)$ design.  Endpoints are in the signal's input coordinates.}
 \label{tab:identified-targets}
 \scriptsize
 \begin{tabular}{llrl}
@@ -1377,7 +1405,11 @@ both outputs are nonempty.
 
 \begin{table}[htbp]
 \centering
-\caption{E38 empty-output rates and median-width sensitivity.}
+\caption{E38 empty-output rates (proportions over 200 responses per cell) and
+percentage reductions in median width for \SCI relative to \PBP.
+``Conditional'' uses each method's own nonempty outputs; ``Shared'' uses the
+same trials where both methods are nonempty.  Beta denotes the Beta$(4,8)$
+design, and $n$ is the number of observations.}
 \label{tab:shared-nonempty}
 \scriptsize
 \setlength{\tabcolsep}{4.2pt}
@@ -1404,8 +1436,6 @@ Logistic & Beta & 1000 & .000 & .000 & 0.0\% & 0.0\%\\
 \bottomrule
 \end{tabular}
 \end{table}
-\FloatBarrier
-
 The \PBP computation uses two families of linear feasibility problems.  One
 finds the longest prefix on which some vector in the pointwise box has
 nondecreasing divided slopes.  The other finds the earliest suffix on which
@@ -1413,8 +1443,6 @@ some, potentially different, vector has nonincreasing divided slopes.
 Monotonicity of feasibility permits binary search.  The resulting outer range
 is a conservative discrete split relaxation because the two witnesses are not
 required to join at a common transition value.
-
-\bibliographystyle{plainnat}
-\bibliography{references}
+\FloatBarrier
 
 \end{document}
