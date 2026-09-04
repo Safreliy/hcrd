@@ -41,6 +41,7 @@ def gaussian_pointwise_shape_projection(
     *,
     noise_scale: float,
     alpha: float,
+    domain: tuple[float, float] | None = None,
 ) -> PointwiseProjectionConfidenceSet:
     """Project an exact Gaussian pointwise band onto a split relaxation.
 
@@ -50,7 +51,10 @@ def gaussian_pointwise_shape_projection(
     feasibility problem, a discretely concave suffix. The two feasible pieces
     need not share a transition value. Thus this is a conservative relaxation,
     not an exact projection onto the continuous transition class. It remains
-    an outer confidence set under the same known-scale Gaussian model.
+    an outer confidence set under the same known-scale Gaussian model. The
+    optional ``domain`` must contain the design. It lets the two boundary cuts
+    represent transitions outside the observed range; by default the declared
+    domain is the observed range ``[x[0], x[-1]]``.
     """
 
     locations = np.asarray(x, dtype=float)
@@ -69,18 +73,26 @@ def gaussian_pointwise_shape_projection(
         raise ValueError("noise_scale must be nonnegative and finite")
     if not 0.0 < alpha < 1.0:
         raise ValueError("alpha must lie in (0, 1)")
+    if domain is None:
+        domain_left, domain_right = float(locations[0]), float(locations[-1])
+    else:
+        domain_left, domain_right = map(float, domain)
+    if (
+        not np.isfinite(domain_left)
+        or not np.isfinite(domain_right)
+        or domain_left >= domain_right
+        or domain_left > locations[0]
+        or domain_right < locations[-1]
+    ):
+        raise ValueError("domain must contain x and have increasing finite endpoints")
 
     critical = float(norm.ppf(1.0 - alpha / (2.0 * locations.size)))
     lower = values - critical * sigma
     upper = values + critical * sigma
     n = int(locations.size)
 
-    maximum_convex_cut = _maximum_convex_prefix(
-        locations, lower, upper
-    )
-    minimum_concave_cut = _minimum_concave_suffix(
-        locations, lower, upper
-    )
+    maximum_convex_cut = _maximum_convex_prefix(locations, lower, upper)
+    minimum_concave_cut = _minimum_concave_suffix(locations, lower, upper)
     empty = minimum_concave_cut > maximum_convex_cut
     if empty:
         return PointwiseProjectionConfidenceSet(
@@ -95,12 +107,12 @@ def gaussian_pointwise_shape_projection(
         )
 
     left = (
-        float(locations[0])
+        domain_left
         if minimum_concave_cut == 0
         else float(locations[minimum_concave_cut - 1])
     )
     right = (
-        float(locations[-1])
+        domain_right
         if maximum_convex_cut == n
         else float(locations[maximum_convex_cut])
     )
@@ -127,9 +139,7 @@ def _maximum_convex_prefix(
     high = int(x.size)
     while low < high:
         middle = (low + high + 1) // 2
-        if _shape_feasible(
-            x[:middle], lower[:middle], upper[:middle], convex=True
-        ):
+        if _shape_feasible(x[:middle], lower[:middle], upper[:middle], convex=True):
             low = middle
         else:
             high = middle - 1
@@ -147,9 +157,7 @@ def _minimum_concave_suffix(
     high = int(x.size)
     while low < high:
         middle = (low + high) // 2
-        if _shape_feasible(
-            x[middle:], lower[middle:], upper[middle:], convex=False
-        ):
+        if _shape_feasible(x[middle:], lower[middle:], upper[middle:], convex=False):
             high = middle
         else:
             low = middle + 1

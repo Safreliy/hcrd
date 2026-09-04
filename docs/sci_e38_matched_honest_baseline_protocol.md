@@ -29,8 +29,12 @@ This baseline is related to the general confidence-region approach of Davies,
 Kovac and Meise (2009), but it is our simpler implementation. It must not be
 called their official algorithm. Its finite-sample coverage follows because
 the true sampled mean belongs to the pointwise box with probability at least
-`1-alpha`. The comparison is against this deliberately simple conservative
-baseline, not against the strongest possible same-band projection.
+`1-alpha`. The guarantee applies on the domain passed to PBP. The frozen E38
+comparison uses `[x_1,x_n]` for both the target and both methods; the public
+function can instead receive a wider declared `[A,B]` and then extends fully
+concave or fully convex boundary cuts to `A` or `B`. The comparison is against
+this deliberately simple conservative baseline, not against the strongest
+possible same-band projection.
 
 ## Frozen experiment
 

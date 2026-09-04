@@ -256,12 +256,19 @@ smallest dyadic integer with `q>=q_*`, suppose `3q<=n`, and assume
 `m_0 in [8h_*,1-8h_*]`.  Then the confidence set in THM E33.1 satisfies
 
 $$
-\Pr_f\left\{m_0\in C(Y),\ |C(Y)|<16h_*\right\}
+\Pr_f\left\{|C(Y)|<16h_*\right\}
+\ge 1-\eta,
+$$
+
+and
+
+$$
+\Pr_f\left\{I_x(\mu)\subseteq C(Y),\ |C(Y)|<16h_*\right\}
 \ge 1-\alpha-\eta.
 $$
 
-Here diameter is asserted only on the displayed event, where the set is
-nonempty.  If the family uses the three frozen separation multipliers, then
+Here `|C(Y)|` denotes interval length, with an empty set assigned length zero.
+If the family uses the three frozen separation multipliers, then
 `M_n<=6n+6(1+log_2 n)`, so in particular
 
 $$
@@ -315,10 +322,11 @@ to the right of `m_0`.
 
 On certification of both rows, E33 inversion therefore gives
 `L_hat>m_0-4d` and `U_hat<m_0+4d`.  The smallest-dyadic choice yields
-`q<2q_*`, hence `d<2h_*` and `U_hat-L_hat<16h_*`.  Intersect this event with
-the simultaneous-coverage event of THM E33.1.  On the latter, no other
-certified row can remove `m_0`; a union bound gives probability at least
-`1-alpha-eta`.
+`q<2q_*`, hence `d<2h_*` and `U_hat-L_hat<16h_*`.  The two certification
+events alone have probability at least `1-eta`, which proves the width bound.
+Intersect them with the simultaneous-coverage event of THM E33.1.  On the
+latter, no other certified row can remove any point of `I_x(mu)`; a union bound
+gives probability at least `1-alpha-eta` for the joint statement.
 
 Finally, at each dyadic `q` and separation multiplier, the number of starts is
 at most `n/q+2`.  Summing `n/q` over dyadic sizes gives less than `2n`; with
@@ -334,17 +342,20 @@ assumptions clear and also covers irregular fixed designs.
 
 Let `m_-=inf I_x(mu)` and `m_+=sup I_x(mu)` for a nonempty identified target.
 Suppose that, for some physical scale `d`, the fixed family contains two contrasts
-`T_+` and `T_-` with the following properties:
+`T_L` and `T_R` with the following properties:
 
-1. `T_+` lies fully to the left of `m_-`, its left support endpoint is at
-   least `m_- - Kd`, and its mean obeys `mu_(T_+) >= B d^gamma`;
-2. `T_-` lies fully to the right of `m_+`, its right support endpoint is at
-   most `m_+ + Kd`, and its mean obeys `mu_(T_-) <= -B d^gamma`;
+1. `T_L` has left support endpoint at least `m_- - Kd` and mean
+   `mu_(T_L) >= B d^gamma`;
+2. `T_R` has right support endpoint at most `m_+ + Kd` and mean
+   `mu_(T_R) <= -B d^gamma`;
 3. both coefficient norms are at most `C_w/sqrt(nd)`.
 
 These are separation assumptions, not consequences of shape alone. They say
-that the curve supplies one detectable convex contrast before the identified
-set and one detectable concave contrast after it.
+that the curve supplies one detectable positive contrast near the left edge of
+the identified set and one detectable negative contrast near its right edge.
+Placing their complete supports strictly to the left and right is a convenient
+sufficient condition for the required signs, but is not part of this general
+assumption.
 
 **THM E33.3 (contrast-margin diameter).** Let `c_n` be the simultaneous-band
 critical value. If
@@ -361,13 +372,23 @@ then
 
 $$
 \Pr_{\mu,\sigma}\left\{
-I_x(\mu)\subseteq C(Y)\subseteq[m_- - Kd,m_+ + Kd]
+C(Y)\subseteq[m_- - Kd,m_+ + Kd]
 \right\}
-\ge 1-\alpha-\eta.
+\ge 1-\eta,
 \tag{E33.7}
 $$
 
-In particular, on this event,
+and
+
+$$
+\Pr_{\mu,\sigma}\left\{
+I_x(\mu)\subseteq C(Y)\subseteq[m_- - Kd,m_+ + Kd]
+\right\}
+\ge 1-\alpha-\eta.
+\tag{E33.8}
+$$
+
+In particular, on the localization event in (E33.7),
 
 $$
 |C(Y)|\le \operatorname{diam}\{I_x(\mu)\}+2Kd.
@@ -375,24 +396,25 @@ $$
 
 ### Proof of THM E33.3
 
-For `T_+`, its standardized signal is at least
+For `T_L`, its standardized signal is at least
 
 $$
-\frac{\mu_{T_+}}{\sigma\|w_{T_+}\|_2}
+\frac{\mu_{T_L}}{\sigma\|w_{T_L}\|_2}
 \ge
 \frac{B\sqrt n\,d^{\gamma+1/2}}{\sigma C_w}
 \ge c_n+z_{1-\eta/2}.
 $$
 
-Therefore `T_+` fails to be certified positive with probability at most
-`eta/2`. The same normal-tail calculation shows that `T_-` fails to be
+Therefore `T_L` fails to be certified positive with probability at most
+`eta/2`. The same normal-tail calculation shows that `T_R` fails to be
 certified negative with probability at most `eta/2`. When both are certified,
-the inversion rule gives `L_hat>=m_- - Kd` and `U_hat<=m_+ + Kd`.
+the inversion rule gives `L_hat>=m_- - Kd` and `U_hat<=m_+ + Kd`. These two
+events alone prove localization with probability at least `1-eta`.
 
 On the simultaneous coverage event from THM E33.1, which fails with
 probability at most `alpha`, no certified contrast can remove any point of
 `I_x(mu)`. Hence `I_x(mu)` is contained in `C(Y)`. A union bound over the simultaneous
-coverage event and the two certification events proves (E33.7). QED.
+coverage event and the two certification events proves (E33.8). QED.
 
 Solving (E33.6) gives the detection scale
 
@@ -406,10 +428,11 @@ $$
 
 If the contrast family has polynomial size, then `c_n=O(sqrt(log n))`. If it
 contains a scale within a fixed factor of `d_n` and the three margin
-conditions hold at that scale, then
+conditions hold at that scale, then, because `eta` can be chosen for any
+requested tail probability and only changes the multiplicative constant,
 
 $$
-|C(Y)|-\operatorname{diam}\{I_x(\mu)\}
+\left[|C(Y)|-\operatorname{diam}\{I_x(\mu)\}\right]_+
 =O_P\left\{
 \left(\frac{\sigma^2\log n}{B^2n}\right)^{1/(2\gamma+1)}
 \right\}.

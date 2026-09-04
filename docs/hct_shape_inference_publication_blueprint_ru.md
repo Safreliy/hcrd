@@ -64,7 +64,11 @@ constants at scale
 
 the same logarithmic localization order as the S-shaped LSE upper rate for a
 cubic inflection.  The method selects among dyadic scales without knowing the
-correct local resolution.
+correct local resolution.  The width event has probability at least `1-eta`
+without using the fixed coverage budget `alpha`; intersecting it with the
+simultaneous band gives joint full-target coverage and localization with
+probability at least `1-alpha-eta`.  This separation makes the stated `O_P`
+order valid.
 
 ### T3 — unknown homoskedastic noise
 
@@ -167,7 +171,9 @@ under the same Gaussian model. PBP separately checks convex prefixes and
 concave suffixes inside a simultaneous confidence box. The two witnesses need
 not join, so this is a conservative split relaxation, not an exact projection
 onto the SCI function class. It is related to Davies et al., but it is not
-their official algorithm.
+their official algorithm. Its public implementation accepts the declared
+domain `[A,B]`; the finite-sample guarantee covers the same `I_x(mu)` only when
+that domain is supplied. E38 uses the shared observed domain `[x_1,x_n]`.
 
 Both methods retained coverage in all 16 frozen cells. The reported widths are
 medians among each method's nonempty outputs. SCI reduced them by `57.9%` to

@@ -43,7 +43,9 @@ return a wide or full domain when the data contain too little curvature
 information; this is a reported power boundary.
 
 The matched E38r1 comparison adds a conservative pointwise-band split
-relaxation under the same Gaussian model. SCI reduced median width among
+relaxation under the same Gaussian model and on the same observed domain. The
+public PBP function also accepts a wider declared domain when that is the
+scientific target. SCI reduced median width among
 nonempty outputs by 19.4%--75.7% for the cusp, onset, and jump signals while
 both methods retained coverage. The range is unchanged when both methods are
 restricted to trials where both outputs are nonempty. Neither method localized

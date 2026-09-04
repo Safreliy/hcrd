@@ -159,7 +159,7 @@ def _evaluate_cell(
         )
         sci = invert_s_shaped_inflection(family, sci_band, domain=domain)
         projection = gaussian_pointwise_shape_projection(
-            x, observed, noise_scale=SIGMA, alpha=ALPHA
+            x, observed, noise_scale=SIGMA, alpha=ALPHA, domain=domain
         )
         cell = f"{signal_name}__{design_name}__n{n}"
         for method, result in (("SCI", sci), ("PBP", projection)):

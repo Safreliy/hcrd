@@ -53,7 +53,9 @@ precision.
 This design-level set is easy to compute. We scan adjacent slopes from the
 left to find convex prefixes and from the right to find concave suffixes. A
 single linear inequality then gives the feasible part of each gap between
-design points. The full calculation takes linear time in the sample size.
+design points. The full calculation takes linear time in the sample size, and
+it also proves that the identified target is always either empty or one closed
+interval.
 
 SCI starts from local chord contrasts. A positive contrast gives evidence for
 convexity on its support. A negative contrast gives evidence for concavity.
@@ -80,7 +82,9 @@ extensions for unknown noise and replicated experiments.
    on changing noise variance, and independent replicate curves with arbitrary
    within-curve covariance.
 4. We show the known cubic localization order while keeping validity over the
-   wider nonsmooth class.
+   wider nonsmooth class. The width bound holds with probability `1-eta`
+   independently of the fixed coverage budget; combining both events gives
+   joint coverage and localization with probability `1-alpha-eta`.
 5. We provide a matrix-free implementation. On the benchmark machine it
    evaluated about six million contrasts for one million observations in less
    than one second, while the equivalent dense matrix would require about
@@ -147,7 +151,9 @@ We also compare SCI with a pointwise-band baseline (PBP). PBP separately finds
 a convex prefix and a concave suffix inside a simultaneous confidence box. The
 two fitted pieces do not have to join at the same transition value, so this is
 a conservative split relaxation, not an exact projection onto the SCI function
-class. Across the 16 fixed cells, SCI reduced median width among nonempty
+class. Its finite-sample guarantee covers the same identified target when PBP
+is given the same declared domain; otherwise its default domain is only the
+observed range. Across the 16 fixed cells, SCI reduced median width among nonempty
 outputs by 19.4% to 75.7% for the cusp, onset, and jump signals. The same range
 held when both methods were compared only on trials where both were nonempty.
 Both methods returned essentially the

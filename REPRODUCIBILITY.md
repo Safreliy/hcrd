@@ -2,7 +2,7 @@
 
 ## SCI publication artifact
 
-Install the package, run the 63 SCI-specific tests and execute the standalone
+Install the package, run the 71 SCI-specific tests and execute the standalone
 example:
 
 ```bash
@@ -18,7 +18,7 @@ python -m pytest -q \
 python examples/shapecontrast_quickstart.py
 ```
 
-Expected result: `63 passed`. With the frozen seed, the example reports an
+Expected result: `71 passed`. With the frozen seed, the example reports an
 upper noise scale of approximately `0.0110` and an informative SCI set
 approximately `[0.130, 0.830]`, containing the true transition at `0.5`.
 
@@ -97,7 +97,7 @@ python examples/quickstart.py
 python scripts/verify_release.py
 ```
 
-Expected unit-test result for this snapshot: `228 passed`.
+Expected unit-test result for this snapshot: `251 passed`.
 
 ## Tier 2: synthetic and theorem-linked studies
 

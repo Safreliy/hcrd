@@ -17,7 +17,7 @@ from numpy.typing import ArrayLike, NDArray
 
 @dataclass(frozen=True)
 class DesignIdentifiedTransitionSet:
-    """Closed components of the transition set identified by sampled means."""
+    """Closed interval representation of the target identified by sampled means."""
 
     components: tuple[tuple[float, float], ...]
 
@@ -80,14 +80,21 @@ def _validated_inputs(
     return locations, values, domain_left, domain_right
 
 
-def _merge_closed_components(
+def _merge_ordered_closed_components(
     pieces: list[tuple[float, float]], tolerance: float
 ) -> tuple[tuple[float, float], ...]:
+    """Merge closed pieces already listed from left to right in linear time."""
+
     if not pieces:
         return ()
-    ordered = sorted(pieces)
-    merged: list[list[float]] = [[float(ordered[0][0]), float(ordered[0][1])]]
-    for left, right in ordered[1:]:
+    if pieces[0][0] > pieces[0][1]:
+        raise RuntimeError("identified-set piece has reversed endpoints")
+    merged: list[list[float]] = [[float(pieces[0][0]), float(pieces[0][1])]]
+    for left, right in pieces[1:]:
+        if left > right:
+            raise RuntimeError("identified-set piece has reversed endpoints")
+        if left < merged[-1][0] - tolerance:
+            raise RuntimeError("identified-set pieces are not spatially ordered")
         if left <= merged[-1][1] + tolerance:
             merged[-1][1] = max(merged[-1][1], float(right))
         else:
@@ -152,20 +159,25 @@ def design_identified_transition_set(
     pieces: list[tuple[float, float]] = []
     if concave_suffix[0]:
         pieces.append((domain_left, float(locations[0])))
-    for index in range(n):
+
+    parameter_roundoff = 4096.0 * np.finfo(float).eps
+    for index in range(n - 1):
         if convex_prefix[index] and concave_suffix[index]:
             point = float(locations[index])
             pieces.append((point, point))
-
-    for index in range(n - 1):
         if not (convex_prefix[index] and concave_suffix[index + 1]):
             continue
         t_left, t_right = 0.0, 1.0
         if index >= 1 and index + 1 <= n - 2:
             coefficient = slopes[index - 1] - slopes[index + 1]
-            bound = slopes[index] - slopes[index + 1]
-            if abs(coefficient) <= tolerance:
-                if bound < -tolerance:
+            bound = slopes[index] - slopes[index + 1] + tolerance
+            coefficient_roundoff = (
+                2048.0
+                * np.finfo(float).eps
+                * max(1.0, abs(slopes[index - 1]), abs(slopes[index + 1]))
+            )
+            if abs(coefficient) <= coefficient_roundoff:
+                if bound < -coefficient_roundoff:
                     continue
             elif coefficient > 0.0:
                 t_right = min(t_right, float(bound / coefficient))
@@ -174,12 +186,23 @@ def design_identified_transition_set(
 
         t_left = max(0.0, t_left)
         t_right = min(1.0, t_right)
-        if t_left <= t_right + tolerance:
+        parameter_tolerance = parameter_roundoff * max(1.0, abs(t_left), abs(t_right))
+        if t_left <= t_right + parameter_tolerance:
+            if t_left > t_right:
+                meeting_point = min(1.0, max(0.0, 0.5 * (t_left + t_right)))
+                t_left = meeting_point
+                t_right = meeting_point
+            else:
+                t_left = min(1.0, t_left)
+                t_right = max(0.0, t_right)
             gap = locations[index + 1] - locations[index]
             left = float(locations[index] + t_left * gap)
             right = float(locations[index] + t_right * gap)
             pieces.append((left, right))
 
+    if convex_prefix[-1] and concave_suffix[-1]:
+        point = float(locations[-1])
+        pieces.append((point, point))
     if convex_prefix[-1]:
         pieces.append((float(locations[-1]), domain_right))
 
@@ -188,5 +211,5 @@ def design_identified_transition_set(
     )
     location_tolerance = 4096.0 * np.finfo(float).eps * location_scale
     return DesignIdentifiedTransitionSet(
-        components=_merge_closed_components(pieces, location_tolerance)
+        components=_merge_ordered_closed_components(pieces, location_tolerance)
     )

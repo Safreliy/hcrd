@@ -41,13 +41,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 14131,
-      "sha256": "5a5ea46d06424ec0710eeeeb860650d12a805ead0f4912805943e2d194c2bc28"
+      "bytes": 14260,
+      "sha256": "c55ad54bff4a2a6417599359e0c64bcde813c8252507d646ca74f4a1ceee458c"
     },
     {
       "path": "REPRODUCIBILITY.md",
       "bytes": 22795,
-      "sha256": "b78c5b44d93d9908d05b27799349c2770048cd84f9f0d581caf4218302b819d9"
+      "sha256": "f14933940b861051b1cfb859064fb899fa4f8ebf8bf936e1b9880c95b3101de1"
     },
     {
       "path": "data/README.md",
@@ -196,8 +196,8 @@
     },
     {
       "path": "docs/hct_shape_inference_publication_blueprint_ru.md",
-      "bytes": 14520,
-      "sha256": "dce415e3b267f1d5915465d5547ee76d1278225e8635e4f049fc8df2c2e25029"
+      "bytes": 15007,
+      "sha256": "f4b2f64621ff8e508d2dfd005cb3dfc786bf69860c943b97696a3a9658301007"
     },
     {
       "path": "docs/itd_direct_comparison_protocol.md",
@@ -341,8 +341,8 @@
     },
     {
       "path": "docs/sci_e38_matched_honest_baseline_protocol.md",
-      "bytes": 3976,
-      "sha256": "512c9f396af6797bf391e44550d082ebebe0dd252fef40742734f04346cee766"
+      "bytes": 4249,
+      "sha256": "66ae3e5f316ac6bf5cc5679fcae933e5e483ddfa9829c64e422c93febab8bf7a"
     },
     {
       "path": "docs/sparse_parallel_throughput_protocol.md",
@@ -1011,8 +1011,8 @@
     },
     {
       "path": "experiments/sci/run_matched_honest_baseline_e38.py",
-      "bytes": 12370,
-      "sha256": "666302194045f6fbb9775ed64143694746c7f29269a56bff36918ecb684caad7"
+      "bytes": 12385,
+      "sha256": "cbf352b28492e08db99fc9e5dc9e8c79ec709fb5e7a573707267675961d836dd"
     },
     {
       "path": "experiments/sci/summarize_e38_uncertainty.py",
@@ -1301,18 +1301,18 @@
     },
     {
       "path": "paper/sci/manuscript.pdf",
-      "bytes": 1001271,
-      "sha256": "23b8e06d5919f7e715575b76cd45b54e1a7822d091f550e2deb901e32479d0e8"
+      "bytes": 1004262,
+      "sha256": "afa7864f06c7989a3149c2c5bc870002bdd00be5c051c452a5136c6be0c5314c"
     },
     {
       "path": "paper/sci/manuscript.tex",
-      "bytes": 59964,
-      "sha256": "08c9d121f671072cc26eabbfddd8ae5c70fef20b8d3b29ba750fe8534a9d2fe1"
+      "bytes": 62908,
+      "sha256": "289d38b97150eb07fd713d49c4b0a5b177e273fac4e94033bd1444289dbc07ee"
     },
     {
       "path": "paper/sci/manuscript_plain_english.md",
-      "bytes": 10503,
-      "sha256": "c4a26dedcbd9e2267e2e93dd3f0edfddde77fa07e570d50431bf04c2250e7b48"
+      "bytes": 10948,
+      "sha256": "1f2adefb6ceac690186c696ba24995635d1738c4460e4b35dad9d536f9f9fb3a"
     },
     {
       "path": "paper/sci/references.bib",
@@ -3072,7 +3072,7 @@
     {
       "path": "results/sci/high_precision_coverage_e36/identified_target_manifest.json",
       "bytes": 889,
-      "sha256": "0820dcad03c9cb71922090c89c3dc8bd7518955476baa08e4dcee94e0f871afa"
+      "sha256": "feb14eb60fc3e96f7907f3bc7151699f19a2740e58ee79aa364ad3e45090b671"
     },
     {
       "path": "results/sci/high_precision_coverage_e36/identified_target_report.md",
@@ -3081,8 +3081,8 @@
     },
     {
       "path": "results/sci/high_precision_coverage_e36/identified_target_summary.csv",
-      "bytes": 3475,
-      "sha256": "ddf0caf0827eb7a7be4987a53f7d1aacc025a94df9f856ad093dbc4df20c7f33"
+      "bytes": 3484,
+      "sha256": "a8ec27e86144ae6a334fff5d4fa6615792c2eddfe39323e8e1386a8a887905ad"
     },
     {
       "path": "results/sci/high_precision_coverage_e36/manifest.json",
@@ -3132,7 +3132,7 @@
     {
       "path": "results/sci/matched_honest_baseline_e38_r1/identified_target_and_width_manifest.json",
       "bytes": 910,
-      "sha256": "2991532a705701a41748db6fbbf21b79bbe3e59d87d47d4b18bc497847005367"
+      "sha256": "da84f9b15799e9de58d63e0fcf69181a1d93928645f8e828bed5816fcdf3c9d2"
     },
     {
       "path": "results/sci/matched_honest_baseline_e38_r1/identified_target_and_width_report.md",
@@ -3141,8 +3141,8 @@
     },
     {
       "path": "results/sci/matched_honest_baseline_e38_r1/identified_target_and_width_summary.csv",
-      "bytes": 5267,
-      "sha256": "f52114a4b64865b83a34dfbb7afb14f9713ad451c66af7501fb3925e452f328d"
+      "bytes": 5270,
+      "sha256": "9096ec25341a393c94edc93d2804d7647c32747a43c68a881884984e12167867"
     },
     {
       "path": "results/sci/matched_honest_baseline_e38_r1/manifest.json",
@@ -7551,8 +7551,8 @@
     },
     {
       "path": "src/shapecontrast/identified_set.py",
-      "bytes": 7223,
-      "sha256": "0fff05088fb9f81a6ff3c8a7ba1bea1ff6ff94d738a0ca39bd4190cef4972239"
+      "bytes": 8395,
+      "sha256": "af1a31f68a33f63c58ecfc2bd0992feb8c132b12d77e52da8e739d428f434a2d"
     },
     {
       "path": "src/shapecontrast/inference.py",
@@ -7566,8 +7566,8 @@
     },
     {
       "path": "src/shapecontrast/projection.py",
-      "bytes": 6016,
-      "sha256": "fb9a77e675d0eed79b62ee4ba990effc713bbd8acfa74ec7f41a238c5ba45c7a"
+      "bytes": 6652,
+      "sha256": "712451056be34aa9d7cdb82c2d386243a104f62321e1105b7f2cf7246df13e41"
     },
     {
       "path": "src/shapecontrast/replicated.py",
@@ -7621,8 +7621,8 @@
     },
     {
       "path": "tests/test_design_identified_transition_set.py",
-      "bytes": 2346,
-      "sha256": "bd2fb2ae314487f483f1f009f745a2550aeaab474ac838d93b75590e8d3e8d68"
+      "bytes": 5830,
+      "sha256": "2c885394365c179cfd0273b7ce03b85ae8fa8c15b1755d156dd35f07658d21cd"
     },
     {
       "path": "tests/test_ecg.py",
@@ -7766,8 +7766,8 @@
     },
     {
       "path": "tests/test_shape_projection_baseline.py",
-      "bytes": 1684,
-      "sha256": "b4a853bcf60e548b3cce410649a7e575eedd88b7903b6a2af7ca455c4ae7980d"
+      "bytes": 3018,
+      "sha256": "61857583336c3d89c7550fd24eb06a79e1c1d3edf84c11de8f47c92e9a83560a"
     },
     {
       "path": "tests/test_shapecontrast_standalone.py",
@@ -7911,8 +7911,8 @@
     },
     {
       "path": "theory/sci/general_local_order_proof_audit.md",
-      "bytes": 2119,
-      "sha256": "02c02235fe824667b3759547579bb3f6c7aa94376e74e97cd6a880fecd49de29"
+      "bytes": 2355,
+      "sha256": "e1323c61eddb11874a71f62a9a065ff9004003db71124e02ad73092f5ceb0070"
     },
     {
       "path": "theory/sci/heteroskedastic_gaussian_extension.md",
@@ -7926,8 +7926,8 @@
     },
     {
       "path": "theory/sci/pointwise_projection_baseline.md",
-      "bytes": 1850,
-      "sha256": "4a2a1966a964a9845f2a0b809636cc0127f27684e6bedf8d0724e29a89f259fa"
+      "bytes": 2388,
+      "sha256": "e6cff4d36f0acf2c56ca1836fb6390277363f5a190679e55fb89b6a744256307"
     },
     {
       "path": "theory/sci/replicated_curve_extension.md",
@@ -7936,8 +7936,8 @@
     },
     {
       "path": "theory/sci/shape_contrast_inflection_confidence.md",
-      "bytes": 17756,
-      "sha256": "0987d11c18388688d49c4fe9cdb75936abc7dcd21149b4f3c06a593b722ef1f0"
+      "bytes": 18384,
+      "sha256": "a9f5cdf25befcd5b03329f33331c29337ebd4a16e94313ed8f655fb21b04b027"
     },
     {
       "path": "theory/stochastic_hierarchy_margin_proof_dag.md",

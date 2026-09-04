@@ -283,11 +283,19 @@ that
 \end{equation}
 where a missing boundary inequality is omitted.  At $m=x_i$, the analogous
 prefix and suffix slope conditions include the fixed value $\mu_i$.
+When both neighboring slopes exist, eliminating $v$ gives the directly
+checkable condition
+\[
+ (s_{k-1}-s_{k+1})t\leq s_k-s_{k+1},
+ \qquad t=\frac{m-x_k}{x_{k+1}-x_k}.
+\]
 Consequently, all feasible gap intervals and the endpoints of
-$\I_x(\mu)$ can be found in $O(n)$ operations.
+$\I_x(\mu)$ can be found in $O(n)$ operations.  Moreover,
+$\I_x(\mu)$ is either empty or one closed interval.
 \end{proposition}
 
-This lemma separates statistical uncertainty from identification.  Even with
+Lemma~\ref{lem:identified} separates statistical uncertainty from
+identification.  Even with
 no noise, a curve that is affine over $[m_1,m_2]$ does not select one transition
 inside that interval.  A finite design adds interpolation uncertainty: several
 continuous or discontinuous shape-constrained extensions may agree at all
@@ -425,12 +433,12 @@ Suppose $\I_x(\mu)$ is nonempty and write
 $m_-=\inf\I_x(\mu)$ and $m_+=\sup\I_x(\mu)$.  For a scale $d>0$, suppose the
 family contains
 \begin{enumerate}[label=(\roman*),leftmargin=*]
-  \item a left contrast $T_-$ with
-  $a_{T_-}\geq m_- - Kd$, $\mu_{T_-}\geq Bd^\gamma$, and
-  $\norm{w_{T_-}}\leq C_w/\sqrt{nd}$; and
-  \item a right contrast $T_+$ with
-  $b_{T_+}\leq m_+ + Kd$, $\mu_{T_+}\leq-Bd^\gamma$, and
-  $\norm{w_{T_+}}\leq C_w/\sqrt{nd}$.
+  \item a left contrast $T_L$ with
+  $a_{T_L}\geq m_- - Kd$, $\mu_{T_L}\geq Bd^\gamma$, and
+  $\norm{w_{T_L}}\leq C_w/\sqrt{nd}$; and
+  \item a right contrast $T_R$ with
+  $b_{T_R}\leq m_+ + Kd$, $\mu_{T_R}\leq-Bd^\gamma$, and
+  $\norm{w_{T_R}}\leq C_w/\sqrt{nd}$.
 \end{enumerate}
 Here $B,C_w,K>0$ and $\gamma>0$ do not depend on $n$.
 \end{assumption}
@@ -446,13 +454,18 @@ Assumption~\ref{ass:margin}, let $0<\eta<1-\alpha$ and suppose
 \label{eq:margincondition}
 \end{equation}
 where $z_q=\Phi^{-1}(q)$.  Then, with probability at least
-$1-\alpha-\eta$,
+$1-\eta$,
+\[
+  \widehat\C(Y)\subseteq[m_- - Kd,m_+ + Kd].
+\]
+Moreover, with probability at least $1-\alpha-\eta$,
 \[
   \I_x(\mu)\subseteq\widehat\C(Y)
   \subseteq[m_- - Kd,m_+ + Kd].
 \]
-In particular,
-$|\widehat\C(Y)|\leq\operatorname{diam}(\I_x(\mu))+2Kd$ on this event.
+In particular, the length bound
+$|\widehat\C(Y)|\leq\operatorname{diam}(\I_x(\mu))+2Kd$ holds with
+probability at least $1-\eta$.
 \end{theorem}
 
 Balancing the two sides of \eqref{eq:margincondition} gives the detection scale
@@ -462,10 +475,17 @@ Balancing the two sides of \eqref{eq:margincondition} gives the detection scale
  {B^2n}\right\}^{1/(2\gamma+1)}.
 \label{eq:generalrate}
 \end{equation}
-When $M$ grows polynomially with $n$, $c_{\alpha,M}^2=O(\log n)$, so the
-excess length is conditionally
-$O_{\Ph}\{(\sigma^2\log n/(B^2n))^{1/(2\gamma+1)}\}$.
-This statement is conditional on the explicit margin and contrast availability.
+When $M$ grows polynomially with $n$, $c_{\alpha,M}^2=O(\log n)$.  Because
+$\eta$ can be chosen for any requested tail probability, with the multiplicative
+constant allowed to depend on that probability, the positive excess length is
+conditionally
+\[
+ \bigl\{|\widehat\C(Y)|-\operatorname{diam}(\I_x(\mu))\bigr\}_+
+ =O_{\Ph}\!\left\{
+ (\sigma^2\log n/(B^2n))^{1/(2\gamma+1)}\right\}.
+\]
+This conclusion is conditional on the explicit margin and contrast availability
+at a scale within a fixed factor of \eqref{eq:generalrate}.
 It is not yet a broad minimax theorem for every S-shaped function class.
 
 \subsection{Cubic transition}
@@ -491,7 +511,11 @@ Let $0<\eta<1-\alpha$.  Put $q_*=(n+1)h_*$, assume $q_*\geq1$, and let $q$ be th
 integer with $q\geq q_*$.  If $3q\leq n$ and
 $m_0\in[8h_*,1-8h_*]$, then
 \[
-  \Ph_f\{m_0\in\widehat\C(Y),\ |
+  \Ph_f\{|\widehat\C(Y)|<16h_*\}\geq1-\eta,
+\]
+and
+\[
+  \Ph_f\{\I_x(\mu)\subseteq\widehat\C(Y),\ |
   \widehat\C(Y)|<16h_*\}\geq1-\alpha-\eta.
 \]
 Thus
@@ -688,9 +712,22 @@ discretely convex sequence and, in a separate feasibility problem, the earliest
 suffix for which it contains a discretely concave sequence.  The two witness
 sequences need not meet at the same transition value.  Thus \PBP is a
 conservative discrete split relaxation, not an exact projection onto the same
-continuous function class as \SCI.  If the complete mean vector lies in the
-box, every design-compatible true cut passes this relaxation.  Bonferroni
-therefore gives the same finite-sample coverage target.  The comparison measures
+continuous function class as \SCI.  The declared domain $[A,B]$ is supplied to
+the implementation: a fully feasible concave suffix extends the returned set to
+$A$, and a fully feasible convex prefix extends it to $B$.
+
+\begin{proposition}[Finite-sample coverage of \PBP]
+\label{prop:pbp}
+Under the known-scale Gaussian model on $[A,B]$, let
+$\widehat{\mathcal C}_{\rm PBP}(Y)$ be the closed interval returned by \PBP
+with domain $[A,B]$.  Then, for every sampled mean vector,
+\[
+ \Ph_{\mu,\sigma}\{\I_x(\mu)\subseteq
+ \widehat{\mathcal C}_{\rm PBP}(Y)\}\geq1-\alpha.
+\]
+\end{proposition}
+
+The comparison measures
 the gain over this simple conservative baseline; it is not a claim against the
 best possible pointwise-band projection.
 
@@ -1076,8 +1113,21 @@ Appropriate linear endpoint extensions cover $[A,x_1]$ and $[x_n,B]$ when
 needed.  At a design point the same construction uses $v=\mu_i$.  Prefix and
 suffix feasibility can each be scanned once.  In a gap,
 \eqref{eq:target-gap} is one linear inequality in $m$, so its feasible portion
-and the extreme target endpoints require constant additional work.  Taking
-the closure gives $\I_x(\mu)$.
+and the extreme target endpoints require constant additional work.
+
+For completeness, let $p$ be the last design index with a feasible convex
+prefix and $q$ the first index with a feasible concave suffix.  These prefix
+and suffix index sets are respectively initial and terminal segments.  A
+design point $x_i$ is feasible exactly when $q\leq i\leq p$, while a gap can
+be feasible only when $q-1\leq i\leq p$.  Every gap between two feasible
+design points is entirely feasible because its linear inequality holds at
+both endpoints.  When $q\leq p$, each possible boundary-gap portion meets the
+nearest feasible point.  When $q=p+1$, only the gap $i=p$ can remain: if it is
+an interior gap, its linear inequality fails at both endpoints and hence
+throughout; if it is the first or last gap with one missing inequality, the
+whole gap is feasible.  For $q>p+1$ no gap is possible.  Hence the union has
+no separated components.  Taking the closure gives one closed interval, or
+the empty set, and completes the proof.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:known}]
@@ -1114,21 +1164,36 @@ requirements are incompatible and the survivor set is empty.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:margin}]
-The simultaneous band event from Theorem~\ref{thm:known} has probability at
-least $1-\alpha$.  Separately,
+For the selected left contrast,
 \[
-  \Ph\left\{Z_{T_-}>
-  \mu_{T_-}-z_{1-\eta/2}\sigma\norm{w_{T_-}}\right\}
+  \Ph\left\{Z_{T_L}>
+  \mu_{T_L}-z_{1-\eta/2}\sigma\norm{w_{T_L}}\right\}
   \geq1-\eta/2,
 \]
-and the analogous upper-tail statement holds for $T_+$.  A union bound gives
-all three events with probability at least $1-\alpha-\eta$.
-Condition \eqref{eq:margincondition} then implies $\ell_{T_-}>0$ and
-$u_{T_+}<0$.  Therefore
-$\widehat L\geq a_{T_-}\geq m_- - Kd$ and
-$\widehat U\leq b_{T_+}\leq m_+ + Kd$.  The simultaneous band event also gives
-$\I_x(\mu)\subseteq\widehat\C(Y)$ by Theorem~\ref{thm:known}.  The length bound
-follows.
+and the analogous upper-tail statement holds for $T_R$.  With probability at
+least $1-\eta$, both selected rows are therefore certified:
+$\ell_{T_L}>0$ and $u_{T_R}<0$.  On this event,
+$\widehat L\geq a_{T_L}\geq m_- - Kd$ and
+$\widehat U\leq b_{T_R}\leq m_+ + Kd$, which proves localization and the
+length bound without using simultaneous coverage.
+
+The simultaneous band event from Theorem~\ref{thm:known} has probability at
+least $1-\alpha$ and gives
+$\I_x(\mu)\subseteq\widehat\C(Y)$.  Intersecting it with the two certification
+events and applying a union bound gives the joint probability
+$1-\alpha-\eta$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:pbp}]
+With probability at least $1-\alpha$, the Bonferroni box contains the complete
+sampled mean vector $\mu$.  Fix a transition in the unclosed set inside
+\eqref{eq:design-target} and choose a compatible continuation $g$.  The sampled
+values on the left form a feasible convex prefix, and those on the right form
+a feasible concave suffix.  Thus the \PBP split relaxation retains that
+transition.  This includes transitions outside the observed range because its
+two boundary cuts use the declared endpoints $A$ and $B$.  The returned set is
+closed, so it also contains the closure $\I_x(\mu)$.  Bonferroni proves the
+claim.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:cubic}]
@@ -1166,9 +1231,10 @@ most $\eta/2$ and support ending less than $4d$ to the right of $m_0$.
 When both rows are certified,
 $\widehat L>m_0-4d$ and $\widehat U<m_0+4d$.  The smallest-dyadic choice gives
 $q<2q_*$, so $d<2h_*$ and
-$\widehat U-\widehat L<16h_*$.  Intersecting with the simultaneous-band event
-of Theorem~\ref{thm:known} retains $m_0$ and gives total probability at least
-$1-\alpha-\eta$.
+$\widehat U-\widehat L<16h_*$.  The two-row certification event alone has
+probability at least $1-\eta$, proving the first assertion.  Intersecting it
+with the simultaneous-band event of Theorem~\ref{thm:known} retains the whole
+set $\I_x(\mu)$ and gives total probability at least $1-\alpha-\eta$.
 
 At each dyadic $q$ and separation multiplier, there are at most $n/q+2$
 starts.  Summing $n/q$ over dyadic sizes gives less than $2n$.  With three
