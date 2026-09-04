@@ -8,7 +8,7 @@ the inflection?
 
 ## Definitions
 
-Let `A < x_1 < ... < x_n < B` be fixed.  For `x_L < x_M < x_R`, define the
+Let `A <= x_1 < ... < x_n <= B` be fixed. For `x_L < x_M < x_R`, define the
 chord residual
 
 $$
@@ -22,26 +22,35 @@ For a finite family `T`, each row `w_T` is a nonnegative average of such chord
 residual coefficient vectors.  Write `a_T` and `b_T` for the smallest and
 largest design locations used by the row, and `mu_T = w_T^T f(x)`.
 
-The identified transition set is
+For a real-valued function `g` on `[A,B]`, define
 
 $$
-I_f=\{m\in[A,B]: f\text{ is convex on }[A,m]
+I(g)=\{m\in[A,B]: g\text{ is convex on }[A,m]
 \text{ and concave on }[m,B]\}.
+$$
+
+The fixed-design observation law identifies only the sampled mean vector
+`mu=(f(x_1),...,f(x_n))`. Its design-identified transition target is
+
+$$
+I_x(\mu)=\operatorname{cl}\{m:\text{ some }g\text{ satisfies }
+g(x_i)=\mu_i\text{ and }m\in I(g)\}.
 $$
 
 Monotonicity is part of the Feng et al. S-shaped class but is not needed for
 the theorem below.
 
 **LEM E33.0 (why the target is set-valued).** If `m_1<m_2` both belong to
-`I_f`, then `f` is affine on `[m_1,m_2]` and every point of this interval also
-belongs to `I_f`.
+`I(g)`, then `g` is affine on `[m_1,m_2]` and every point of this interval also
+belongs to `I(g)`. The set may be half-open when endpoint jumps are allowed,
+which is why the design-level target takes its closure.
 
-**Proof.** Because `m_1 in I_f`, the function is concave on `[m_1,B]`.
-Because `m_2 in I_f`, it is convex on `[A,m_2]`. It is therefore both convex
+**Proof.** Because `m_1 in I(g)`, the function is concave on `[m_1,B]`.
+Because `m_2 in I(g)`, it is convex on `[A,m_2]`. It is therefore both convex
 and concave on `[m_1,m_2]`, which is equivalent to being affine there. For any
 `m in [m_1,m_2]`, convexity on `[A,m]` follows by restriction from
 `[A,m_2]`, and concavity on `[m,B]` follows by restriction from `[m_1,B]`.
-Thus `m in I_f`. QED.
+Thus `m in I(g)`. QED.
 
 This lemma explains why the target is not always one point. A flat transition
 region contains several equally valid locations, and a confidence method must
@@ -69,11 +78,11 @@ $$
 \{b_T:U_T<0\}\bigr),
 $$
 
-and `C(Y)=[L_hat,U_hat]`, interpreted as empty if `L_hat>U_hat`.
-Then, uniformly over every `f` with nonempty `I_f`,
+and `C(Y)=[L_hat,U_hat]`, interpreted as empty if `L_hat>=U_hat`.
+Then, uniformly over every sampled mean vector with nonempty `I_x(mu)`,
 
 $$
-\Pr_f\{I_f\subseteq C(Y)\}\ge 1-\alpha.
+\Pr_{\mu,\sigma}\{I_x(\mu)\subseteq C(Y)\}\ge 1-\alpha.
 $$
 
 Consequently, if `f` has a unique inflection `m_0`, `C(Y)` is an honest
@@ -97,13 +106,16 @@ E=\{\mu_T\in[L_T,U_T]\text{ for every }T\},
 \qquad \Pr(E)\ge1-\alpha.
 $$
 
-Fix any `m in I_f` and work on `E`.  If `L_T>0` and `m<=a_T`, every location
-in row `T` lies in the concave part `[m,B]`; hence `mu_T<=0`, contradicting
+Fix any location `m` in the union before closure that defines `I_x(mu)`, and
+choose a compatible continuation `g`. Work on `E`. If `L_T>0` and `m<=a_T`,
+every location in row `T` lies in the concave part `[m,B]`; hence `mu_T<=0`, contradicting
 `mu_T>=L_T>0`.  Thus `m>a_T` for every certified positive row, so
 `m>=L_hat`.  Similarly, if `U_T<0` and `m>=b_T`, the whole row lies in the
 convex part `[A,m]`, forcing `mu_T>=0` and contradicting `mu_T<=U_T<0`.
-Thus `m<=U_hat`.  Since the argument holds for every `m in I_f`,
-`I_f subseteq C(Y)` on `E`.  This also proves nonemptiness on `E`.
+Thus `m<=U_hat`. Since the argument holds for every such `m` and `C(Y)` is
+closed, it also holds for the closure `I_x(mu)`. Therefore
+`I_x(mu) subseteq C(Y)` on `E`. Strict survival implies `L_hat<U_hat` on this
+event, so the reported set is nonempty.
 
 ## What is optimal about the inversion rule
 
@@ -119,9 +131,10 @@ $$
  m<b_T\quad(T\in N).
 $$
 
-**PROP E33.1a (minimal interval from the certified bounds).** If at least one
-location satisfies these one-sided bounds, then `C(Y)=[L_hat,U_hat]` is the
-smallest closed interval containing every location not ruled out by them.
+**PROP E33.1a (minimal interval from the certified bounds).** If
+`L_hat<U_hat`, then `C(Y)=[L_hat,U_hat]` is the smallest closed interval
+containing every location not ruled out by the strict bounds. If
+`L_hat>=U_hat`, no location survives and `C(Y)` is empty.
 
 **Proof.** The locations that remain after applying only these bounds form the
 intersection of `[A,B]` with finitely many open half-lines. Its closure is
@@ -147,18 +160,18 @@ the certified one-sided bounds may return a smaller set.
 | id | type | content |
 |---|---|---|
 | D1 | DEF | chord residual and nonnegative averaged row |
-| D2 | DEF | admissible inflection set `I_f` |
+| D2 | DEF | design-identified transition set `I_x(mu)` |
 | L0 | LEM | two valid locations imply an affine segment of valid locations |
 | A1 | ASM | fixed ordered design and response-independent finite family |
 | A2 | ASM | iid Gaussian noise with known scale |
-| A3 | ASM | `I_f` is nonempty |
+| A3 | ASM | `I_x(mu)` is nonempty |
 | L1 | LEM | convex rows have nonnegative mean; concave rows nonpositive |
 | L2 | LEM | all contrast means lie in their intervals on event `E` |
 | L3 | LEM | `P(E)>=1-alpha` |
 | C1 | CLM | a certified positive row excludes `m<=a_T` |
 | C2 | CLM | a certified negative row excludes `m>=b_T` |
-| C3 | CLM | every `m in I_f` lies in `[L_hat,U_hat]` on `E` |
-| T1 | THM | `P(I_f subseteq C(Y))>=1-alpha` |
+| C3 | CLM | every `m in I_x(mu)` lies in `[L_hat,U_hat]` on `E` |
+| T1 | THM | `P(I_x(mu) subseteq C(Y))>=1-alpha` |
 | C4 | COR | empty-set probability at most `alpha` |
 | C5 | COR | projection of any point candidate cannot increase error on coverage |
 | C6 | PROP | smallest closed interval implied by the certified one-sided bounds |
@@ -207,7 +220,7 @@ flowchart TD
 - Gaussian known scale: first used in L2/L3 for the exact marginal radii.  It
   can be replaced by a sub-Gaussian envelope or a separately budgeted upper
   scale pivot, but not by an optimistic plug-in estimate.
-- Nonempty `I_f`: first used in C3/C4.  The set-inclusion statement is vacuous
+- Nonempty `I_x(mu)`: first used in C3/C4. The set-inclusion statement is vacuous
   otherwise and does not by itself test global S-shapedness.
 
 ## Exact cubic localization theorem
@@ -319,8 +332,8 @@ The cubic calculation is one case of a simpler general result. It is useful
 to state the result in terms of observable contrast geometry. This keeps the
 assumptions clear and also covers irregular fixed designs.
 
-Let the identified transition set be the interval `I_f=[m_-,m_+]`. Suppose
-that, for some physical scale `d`, the fixed family contains two contrasts
+Let `m_-=inf I_x(mu)` and `m_+=sup I_x(mu)` for a nonempty identified target.
+Suppose that, for some physical scale `d`, the fixed family contains two contrasts
 `T_+` and `T_-` with the following properties:
 
 1. `T_+` lies fully to the left of `m_-`, its left support endpoint is at
@@ -347,8 +360,8 @@ $$
 then
 
 $$
-\Pr_f\left\{
-I_f\subseteq C(Y)\subseteq[m_- - Kd,m_+ + Kd]
+\Pr_{\mu,\sigma}\left\{
+I_x(\mu)\subseteq C(Y)\subseteq[m_- - Kd,m_+ + Kd]
 \right\}
 \ge 1-\alpha-\eta.
 \tag{E33.7}
@@ -357,7 +370,7 @@ $$
 In particular, on this event,
 
 $$
-|C(Y)|\le |I_f|+2Kd.
+|C(Y)|\le \operatorname{diam}\{I_x(\mu)\}+2Kd.
 $$
 
 ### Proof of THM E33.3
@@ -378,7 +391,7 @@ the inversion rule gives `L_hat>=m_- - Kd` and `U_hat<=m_+ + Kd`.
 
 On the simultaneous coverage event from THM E33.1, which fails with
 probability at most `alpha`, no certified contrast can remove any point of
-`I_f`. Hence `I_f` is contained in `C(Y)`. A union bound over the simultaneous
+`I_x(mu)`. Hence `I_x(mu)` is contained in `C(Y)`. A union bound over the simultaneous
 coverage event and the two certification events proves (E33.7). QED.
 
 Solving (E33.6) gives the detection scale
@@ -396,7 +409,7 @@ contains a scale within a fixed factor of `d_n` and the three margin
 conditions hold at that scale, then
 
 $$
-|C(Y)|-|I_f|
+|C(Y)|-\operatorname{diam}\{I_x(\mu)\}
 =O_P\left\{
 \left(\frac{\sigma^2\log n}{B^2n}\right)^{1/(2\gamma+1)}
 \right\}.
@@ -418,7 +431,7 @@ model.
 3. **Uncalibrated scale search:** choosing the most significant row among
    thousands while using a pointwise critical value destroys L3.
 4. **Target absent:** for a function with multiple alternating convexity
-   changes, `I_f` can be empty.  E33.1 then offers no model-validity guarantee;
+   changes, `I_x(mu)` can be empty. E33.1 then offers no model-validity guarantee;
    an HCT multiple-transition analysis is a different target.
 5. **Unknown scale:** replacing `sigma` by a downward-fluctuating estimate can
    exclude the true root.  A one-sided upper pivot and budget union are needed.
@@ -462,7 +475,7 @@ confidence sets for a mode or threshold-change location.
 
 Internal-node retrieval prompt: reconstruct why a certified positive row gives
 only `m>a_T`, not `m>b_T`; then show how that one-sided fact and its negative
-analogue imply retention of the entire possibly non-singleton `I_f`.
+  analogue imply retention of the entire possibly non-singleton `I_x(mu)`.
 
 Seven-minute oral explanation: start with the chord inequality, explain why
 derivatives are unnecessary, derive the two one-sided exclusions, state the

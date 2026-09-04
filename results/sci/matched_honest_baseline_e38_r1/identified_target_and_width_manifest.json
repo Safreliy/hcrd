@@ -1,0 +1,25 @@
+{
+  "analysis": "post-audit E38 full-target coverage and common-support width sensitivity",
+  "responses_regenerated": false,
+  "input": {
+    "path": "results/sci/matched_honest_baseline_e38_r1/trial_scores.csv",
+    "sha256": "e8eb31a6d8b403cbfb1a54301a73a9faf09c08e00ec5254375c9309a5042160a"
+  },
+  "configuration": {
+    "confidence_level": 0.95,
+    "generating_transition": 0.3
+  },
+  "checks": {
+    "method_rows": 6400,
+    "cells": 16,
+    "changed_classifications": 0
+  },
+  "code_hashes": {
+    "analysis_script": "43af58f34ce564c9e13f34063aa9f4bc53669b1254f7c7fb59ddc7010fbd3b16",
+    "identified_set_module": "0fff05088fb9f81a6ff3c8a7ba1bea1ff6ff94d738a0ca39bd4190cef4972239"
+  },
+  "result_hashes": {
+    "summary": "f52114a4b64865b83a34dfbb7afb14f9713ad451c66af7501fb3925e452f328d",
+    "report": "8c51809d5041bc77ca63693d0f8362fbb5cbbafa647a63eeda4e21851c5a7445"
+  }
+}

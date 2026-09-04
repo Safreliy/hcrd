@@ -6,8 +6,9 @@ This is an internal proof audit, not an independent referee report.
 
 The first draft used one point `m_0`. That would silently assume a unique
 transition and would lose the identified-set contribution. The repaired
-statement uses `I_f=[m_-,m_+]` and bounds only the excess length of the
-confidence set beyond this interval.
+statement uses the design-identified set `I_x(mu)`, with endpoints `m_-` and
+`m_+`, and bounds only the excess length of the confidence set beyond its
+diameter.
 
 ## Round 2: are the support endpoints in the right direction?
 

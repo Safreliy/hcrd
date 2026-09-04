@@ -1,0 +1,25 @@
+{
+  "analysis": "post-audit E36 coverage of the full design-identified target",
+  "responses_regenerated": false,
+  "input": {
+    "path": "results/sci/high_precision_coverage_e36/trial_scores.csv",
+    "sha256": "722f8f55007e65f6992ef75fbabb4a7dd2148b94d3ee1ed4cc0f86a405620385"
+  },
+  "configuration": {
+    "confidence_level": 0.95,
+    "generating_transition": 0.3
+  },
+  "checks": {
+    "rows": 80000,
+    "cells": 16,
+    "changed_classifications": 2
+  },
+  "code_hashes": {
+    "analysis_script": "43af58f34ce564c9e13f34063aa9f4bc53669b1254f7c7fb59ddc7010fbd3b16",
+    "identified_set_module": "0fff05088fb9f81a6ff3c8a7ba1bea1ff6ff94d738a0ca39bd4190cef4972239"
+  },
+  "result_hashes": {
+    "summary": "ddf0caf0827eb7a7be4987a53f7d1aacc025a94df9f856ad093dbc4df20c7f33",
+    "report": "eb29e9650b06fbbd5e17cb00d94b5476a90f4e3eb273a44411bbe201399a43ef"
+  }
+}

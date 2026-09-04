@@ -74,9 +74,11 @@ derivative, continuity at the transition, or a unique transition.  We also give
 finite-sample versions for unknown constant noise, bounded heteroskedasticity,
 and independent replicate curves with arbitrary within-curve covariance.  In
 80,000 fresh simulations, known-scale coverage ranged from 97.70\% to 98.04\%
-at a 95\% nominal level across 16 published S-shaped benchmark settings.  In a
+at a 95\% nominal level across 16 settings formed from four published S-shaped
+benchmark curves.  In a
 matched comparison with a conservative pointwise-band split baseline, \SCI
-reduced median width by 19.4\%--75.7\% for cusp, onset, and jump signals.  Both
+reduced median width among nonempty outputs by 19.4\%--75.7\% for cusp, onset,
+and jump signals.  Both
 methods were wide for a weak smooth logistic signal.  Analyses of atmospheric
 LIDAR and 11 replicated DNase assay runs illustrate how the answer changes with
 the available noise information.  A matrix-free implementation evaluates about
@@ -136,9 +138,10 @@ confidence set for every compatible transition location.
 
 The contributions are as follows.
 \begin{enumerate}[leftmargin=*,itemsep=2pt]
-  \item We define a design-level identified target: all transition locations
-  admitted by at least one convex-to-concave continuation of the sampled mean
-  vector.  This separates what the fixed design identifies from interpolation.
+  \item We define a design-level identified target: the closure of all
+  transition locations admitted by at least one convex-to-concave continuation
+  of the sampled mean vector.  This separates what the fixed design identifies
+  from interpolation.
   \item We give a direct finite-sample confidence set in fixed-design Gaussian
   regression.  The theorem permits kinks, jumps, and nonunique transitions.
   \item We extend the construction to unknown constant variance, a declared
@@ -210,7 +213,7 @@ the general sense of \citet{chernozhukov2007estimation}.
 
 Let
 \[
-  A < x_1 < \cdots < x_n < B,
+  A \leq x_1 < \cdots < x_n \leq B,
   \qquad Y_i=f(x_i)+\varepsilon_i,
   \quad i=1,\ldots,n,
 \]
@@ -261,6 +264,28 @@ If $m_1<m_2$ both belong to $\I(g)$, then $g$ is affine on $[m_1,m_2]$ and
 $[m_1,m_2]\subseteq\I(g)$.  Therefore, whenever $\I(g)$ is nonempty, it is an
 interval, possibly a singleton, but it need not be closed.
 \end{lemma}
+
+The target can be computed directly from adjacent divided slopes.  This is
+useful for checking simulations against the same set-valued object as the
+coverage theorem.
+
+\begin{proposition}[Linear-time target calculation]
+\label{prop:target-computation}
+Let $s_i=(\mu_{i+1}-\mu_i)/(x_{i+1}-x_i)$.  A point
+$m\in(x_k,x_{k+1})$ is admitted by a convex-to-concave continuation if and
+only if the slopes through $x_1,\ldots,x_k$ are nondecreasing, the slopes
+through $x_{k+1},\ldots,x_n$ are nonincreasing, and there is a value $v$ such
+that
+\begin{equation}
+ \mu_k+s_{k-1}(m-x_k)\leq v\leq
+ \mu_{k+1}-s_{k+1}(x_{k+1}-m),
+\label{eq:target-gap}
+\end{equation}
+where a missing boundary inequality is omitted.  At $m=x_i$, the analogous
+prefix and suffix slope conditions include the fixed value $\mu_i$.
+Consequently, all feasible gap intervals and the endpoints of
+$\I_x(\mu)$ can be found in $O(n)$ operations.
+\end{proposition}
 
 This lemma separates statistical uncertainty from identification.  Even with
 no noise, a curve that is affine over $[m_1,m_2]$ does not select one transition
@@ -523,9 +548,15 @@ least $1-\alpha$ whenever that target is nonempty.
 
 No independence between the scale estimate and the contrasts is required.
 The price is conservatism: the residual norm can contain unremoved signal.
-Our default nuisance space uses fixed blocks of size two.  For sampled monotone
-curves with bounded total variation, its signal contribution becomes negligible
-in the usual increasing-design limit.
+Our study implementation uses fixed consecutive blocks of size two.  For a
+monotone sampled mean with total variation at most $V$, its paired-block
+residual obeys
+\[
+ \norm{R_X\mu}^2
+ =\frac12\sum_j(\mu_{2j}-\mu_{2j-1})^2\leq\frac{V^2}{2}.
+\]
+Since the residual degrees of freedom grow linearly with $n$, the corresponding
+contribution to $\overline\sigma^2$ is $O(n^{-1})$.
 
 \subsection{Bounded heteroskedasticity}
 
@@ -612,7 +643,9 @@ sampling unit in repeated-curve studies \citep{davidian1995nonlinear}.
 Writing all contrast rows as an $M\times n$ matrix is unnecessary.  On a
 uniform design, block averages and chord residuals can be evaluated from prefix
 sums.  The implementation stores only scale metadata and start indices.  The
-default separation family uses ratios $(1,2,4)$ across dyadic scales.
+full contrast family used in the experiments has separation ratios $(1,2,4)$
+across dyadic scales.  The public function retains $(1)$ as its minimal
+default.
 
 Table~\ref{tab:scaling} gives a deterministic scaling benchmark.  Times are
 hardware-specific, while storage and dense counterfactual sizes follow directly
@@ -685,8 +718,11 @@ were never discarded.
 
 \subsection{High-precision coverage audit}
 
-Table~\ref{tab:e36} summarizes the 80,000-response audit.  Coverage is stable
-between 0.9770 and 0.9804.  The simultaneous contrast band itself covers all
+Table~\ref{tab:e36} summarizes the 80,000-response audit.  A deterministic
+post-audit calculation of $\I_x(\mu)$ changed two of the 80,000 classifications
+that had originally checked only the generating point $m_0=0.3$; no responses
+were regenerated.  Coverage of the full identified set is stable between
+0.9770 and 0.9804.  The simultaneous contrast band itself covers all
 contrast means in 0.9524--0.9618 of responses, close to the intended 0.95
 familywise level.  The larger transition-set coverage is expected because not
 every missed contrast bound changes the inverted set.
@@ -702,7 +738,7 @@ design--sample-size cells with 5,000 responses per cell.}
 Signal & Coverage range & Median-width range & Largest empty rate\\
 \midrule
 Cusp     & 0.9772--0.9804 & 0.0712--0.1737 & 0.0182\\
-Onset    & 0.9772--0.9788 & 0.6703--0.8149 & 0.0066\\
+Onset    & 0.9770--0.9786 & 0.6703--0.8149 & 0.0066\\
 Jump     & 0.9770--0.9798 & 0.0020--0.0100 & 0.0228\\
 Logistic & 0.9776--0.9798 & 0.9990--1.0000 & 0.0006\\
 \bottomrule
@@ -725,7 +761,8 @@ failed rather than redefining it after seeing the results.
 
 \subsection{Published comparator and hybrid workflow}
 
-Figure~\ref{fig:e33} shows the initial comparison.  \SCI coverage was
+Figure~\ref{fig:e33} shows the initial development comparison.  \SCI
+generating-point coverage was
 0.965--0.995.  The \texttt{ShapeChange} residual-bootstrap interval had zero
 coverage in 9 of 16 cells, all involving nonsmooth signals outside its
 documented smooth spline regime.  In the four smooth logistic cells its
@@ -750,10 +787,12 @@ robustness gap; the comparison does not contradict its published assumptions.}
 \subsection{Matched honest comparison}
 
 Table~\ref{tab:e38} compares \SCI and the conservative \PBP relaxation under
-the same Gaussian model and nominal coverage target.  Both methods covered in
-every cell at the expected or conservative rate.  For the cusp, onset, and
-jump, \SCI reduced median width
-by 19.4\%--75.7\%.  For the weak logistic signal, both methods returned the same
+the same Gaussian model and nominal coverage target.  Across the 16 cells, the
+observed full-target coverage ranges were 0.950--0.995 for \SCI and
+0.995--1.000 for \PBP; cellwise Wilson intervals are reported in the
+supplementary audit.  For the cusp, onset, and jump, \SCI reduced median width
+among each method's nonempty outputs by 19.4\%--75.7\%.  For the weak logistic
+signal, both methods returned the same
 nearly full range.  This experiment isolates the useful gain: direct
 feature-specific inversion can be much sharper than projecting a generic
 confidence box, but it cannot manufacture information when curvature is too
@@ -762,9 +801,10 @@ weak.
 \begin{table}[htbp]
 \centering
 \caption{Matched honest comparison with 200 responses per cell.  ``Beta'' is
-the $\operatorname{Beta}(4,8)$ design.  Reduction is relative median width.
-Wilson coverage intervals and paired bootstrap intervals for the reduction are
-reported in the supplementary uncertainty summary.}
+the $\operatorname{Beta}(4,8)$ design.  Widths are medians among each method's
+nonempty outputs, and reduction compares these conditional medians.  Wilson
+coverage intervals, empty rates, and a common-nonempty sensitivity analysis
+are reported in the supplementary audit.}
 \label{tab:e38}
 \scriptsize
 \setlength{\tabcolsep}{4.2pt}
@@ -796,6 +836,12 @@ The post-audit paired bootstrap interval for width reduction has a positive
 lower endpoint in all 12 cusp, onset, and jump cells.  Because this uncertainty
 summary was added after the frozen experiment, we treat it as descriptive
 rather than as a new decision gate.
+
+SCI empty rates in this comparison range from 0 to 0.040, and PBP empty rates
+from 0 to 0.005.  Restricting both methods to trials where both outputs are
+nonempty leaves the overall reduction range for the 12 informative cells at
+19.4\%--75.7\%.  The largest cellwise change is for the Beta-design jump at
+$n=500$, where the reduction changes from 40.0\% to 33.3\%.
 
 For this matched experiment, both procedures were restricted to the observed
 design range $[x_1,x_n]$.  This matters for the random Beta design: its observed
@@ -893,8 +939,8 @@ three outcomes:
   the fitted transition;
   \item a one-sided or wide set, meaning that only part of the location is
   identified; and
-  \item an empty set, which is a controlled rare event under the model but can
-  also flag model tension in practice.
+  \item an empty set, which may motivate a model check while remaining a
+  controlled type-I event under the assumed model.
 \end{enumerate}
 
 This addresses the gap exposed by the experiments.  A smooth bootstrap can be
@@ -1011,6 +1057,27 @@ Thus $m\in\I(g)$.  This proves the interval property.  Closedness does not
 follow.  For example, on $[0,1]$, let $g(x)=0$ for $x<1$ and $g(1)=-1$.
 Then $\I(g)=[0,1)$: the downward endpoint jump is compatible with concavity,
 but it prevents convexity on the full interval.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:target-computation}]
+For a convex function, successive secant slopes are nondecreasing; for a
+concave function, they are nonincreasing.  Thus the stated prefix and suffix
+conditions are necessary.  If $m\in(x_k,x_{k+1})$, convexity on the left also
+requires
+$v\geq\mu_k+s_{k-1}(m-x_k)$ when $k>1$, while concavity on the right requires
+$v\leq\mu_{k+1}-s_{k+1}(x_{k+1}-m)$ when $k<n-1$.  This proves necessity of
+\eqref{eq:target-gap}.
+
+Conversely, under these conditions, linearly interpolate the sampled points
+on each side and choose any $v$ between the displayed bounds.  The resulting
+left slopes are nondecreasing and the right slopes are nonincreasing, so the
+two piecewise-linear parts give a valid continuation meeting at $m$.
+Appropriate linear endpoint extensions cover $[A,x_1]$ and $[x_n,B]$ when
+needed.  At a design point the same construction uses $v=\mu_i$.  Prefix and
+suffix feasibility can each be scanned once.  In a gap,
+\eqref{eq:target-gap} is one linear inequality in $m$, so its feasible portion
+and the extreme target endpoints require constant additional work.  Taking
+the closure gives $\I_x(\mu)$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:known}]
@@ -1196,9 +1263,82 @@ sign-inversion argument from Theorem~\ref{thm:known} completes the proof.
 
 All stochastic experiments use recorded seeds and frozen JSON configurations.
 The high-precision audit was run independently of the development simulations.
-For each cell, coverage is the fraction of responses whose \SCI set contains
-the known transition target.  Empty sets count as noncoverage and are reported
-separately; width summaries use the nonempty sets.
+For each cell, the deterministic endpoints of $\I_x(\mu)$ were computed by
+Proposition~\ref{prop:target-computation}.  Coverage is the fraction of saved
+\SCI sets whose left endpoint is no larger than $\inf\I_x(\mu)$ and whose
+right endpoint is no smaller than $\sup\I_x(\mu)$.  This postprocessing did
+not regenerate any response.  Empty sets count as noncoverage and are reported
+separately; width summaries use the nonempty sets.  The E38 sensitivity audit
+also reports medians on the common subset where both procedures are nonempty.
+
+Table~\ref{tab:identified-targets} gives the deterministic targets used in the
+corrected E36 coverage calculation.  The E38 observed-range domains give the
+same internal target endpoints for these cells.
+
+\begin{table}[htbp]
+\centering
+\caption{Design-identified target endpoints for the 16 benchmark cells.}
+\label{tab:identified-targets}
+\scriptsize
+\begin{tabular}{llrl}
+\toprule
+Signal & Design & $n$ & $\I_x(\mu)$\\
+\midrule
+Cusp & Uniform & 500  & $[0.299103,0.301696]$\\
+Cusp & Uniform & 1000 & $[0.299551,0.300849]$\\
+Cusp & Beta & 500  & $[0.299491,0.300419]$\\
+Cusp & Beta & 1000 & $[0.299673,0.300225]$\\
+Onset & Uniform & 500  & $[0.300000,0.304618]$\\
+Onset & Uniform & 1000 & $[0.300000,0.302311]$\\
+Onset & Beta & 500  & $[0.300000,0.301350]$\\
+Onset & Beta & 1000 & $[0.300000,0.300608]$\\
+Jump & Uniform & 500  & $[0.299401,0.301397]$\\
+Jump & Uniform & 1000 & $[0.299700,0.300699]$\\
+Jump & Beta & 500  & $[0.299558,0.300239]$\\
+Jump & Beta & 1000 & $[0.299705,0.300045]$\\
+Logistic & Uniform & 500  & $[0.297779,0.302811]$\\
+Logistic & Uniform & 1000 & $[0.298889,0.301407]$\\
+Logistic & Beta & 500  & $[0.299071,0.300778]$\\
+Logistic & Beta & 1000 & $[0.299472,0.300350]$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:shared-nonempty} reports the E38 empty rates and the requested
+same-trial sensitivity analysis.  ``Conditional'' uses each method's own
+nonempty outputs, as in Table~\ref{tab:e38}.  ``Shared'' uses only trials where
+both outputs are nonempty.
+
+\begin{table}[htbp]
+\centering
+\caption{E38 empty-output rates and median-width sensitivity.}
+\label{tab:shared-nonempty}
+\scriptsize
+\setlength{\tabcolsep}{4.2pt}
+\begin{tabular}{llrrrrr}
+\toprule
+Signal & Design & $n$ & \SCI\ empty & \PBP\ empty & Conditional & Shared\\
+\midrule
+Cusp & Uniform & 500  & .010 & .000 & 57.9\% & 58.1\%\\
+Cusp & Uniform & 1000 & .030 & .000 & 71.3\% & 71.5\%\\
+Cusp & Beta & 500  & .040 & .000 & 72.2\% & 72.1\%\\
+Cusp & Beta & 1000 & .005 & .000 & 75.7\% & 75.7\%\\
+Onset & Uniform & 500  & .005 & .000 & 26.5\% & 26.5\%\\
+Onset & Uniform & 1000 & .000 & .000 & 32.8\% & 32.8\%\\
+Onset & Beta & 500  & .005 & .000 & 19.4\% & 19.4\%\\
+Onset & Beta & 1000 & .000 & .000 & 27.3\% & 27.3\%\\
+Jump & Uniform & 500  & .035 & .000 & 44.4\% & 44.4\%\\
+Jump & Uniform & 1000 & .020 & .005 & 44.4\% & 44.4\%\\
+Jump & Beta & 500  & .025 & .005 & 40.0\% & 33.3\%\\
+Jump & Beta & 1000 & .015 & .000 & 50.0\% & 50.0\%\\
+Logistic & Uniform & 500  & .000 & .000 & 0.0\% & 0.0\%\\
+Logistic & Uniform & 1000 & .000 & .000 & 0.0\% & 0.0\%\\
+Logistic & Beta & 500  & .000 & .000 & 0.0\% & 0.0\%\\
+Logistic & Beta & 1000 & .000 & .000 & 0.0\% & 0.0\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+\FloatBarrier
 
 The \PBP computation uses two families of linear feasibility problems.  One
 finds the longest prefix on which some vector in the pointwise box has

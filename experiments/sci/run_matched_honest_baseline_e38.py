@@ -18,8 +18,9 @@ from scipy.stats import beta
 PROJECT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT / "src"))
 
-from shapecontrast import (  # noqa: E402
+from shapecontrast import (
     build_shape_contrast_family,
+    design_identified_transition_set,
     gaussian_bonferroni_shape_band,
     gaussian_pointwise_shape_projection,
     invert_s_shaped_inflection,
@@ -54,6 +55,7 @@ def _paths() -> dict[str, Path]:
         "protocol": PROJECT / "docs/sci_e38_matched_honest_baseline_protocol.md",
         "inference_module": PROJECT / "src/shapecontrast/inference.py",
         "projection_module": PROJECT / "src/shapecontrast/projection.py",
+        "identified_set_module": PROJECT / "src/shapecontrast/identified_set.py",
     }
 
 
@@ -118,9 +120,7 @@ def _design(name: str, n: int) -> np.ndarray:
 def _signal(name: str, x: np.ndarray) -> np.ndarray:
     if name == "paper_f1_cusp":
         left = 2.0 * (0.3 - np.sqrt(np.maximum(0.09 - x**2, 0.0)))
-        right = 2.0 * (
-            0.3 + np.sqrt(np.maximum(0.49 - (1.0 - x) ** 2, 0.0))
-        )
+        right = 2.0 * (0.3 + np.sqrt(np.maximum(0.49 - (1.0 - x) ** 2, 0.0)))
         return np.where(x < 0.3, left, right)
     if name == "paper_f2_onset":
         return np.where(x < 0.3, 0.0, np.sin((x - 0.3) * np.pi / 1.4))
@@ -135,15 +135,22 @@ def _cell_seed(index: int) -> int:
     return int(np.random.SeedSequence(SEED).spawn(16)[index].generate_state(1)[0])
 
 
-def _evaluate_cell(args: tuple[int, str, str, int]) -> tuple[list[dict[str, object]], dict[str, object]]:
+def _evaluate_cell(
+    args: tuple[int, str, str, int],
+) -> tuple[list[dict[str, object]], dict[str, object]]:
     index, signal_name, design_name, n = args
     rng = np.random.default_rng(_cell_seed(index))
     x = _design(design_name, n)
     mean = _signal(signal_name, x)
-    family = build_shape_contrast_family(
-        x, separation_multipliers=SEPARATIONS
-    )
+    family = build_shape_contrast_family(x, separation_multipliers=SEPARATIONS)
     domain = (float(x[0]), float(x[-1]))
+    target = design_identified_transition_set(x, mean, domain=domain)
+    target_hull = target.hull
+    if target_hull is None:
+        raise RuntimeError(
+            f"empty identified target in {signal_name}, {design_name}, {n}"
+        )
+    target_left, target_right = target_hull
     rows: list[dict[str, object]] = []
     for trial in range(TRIALS):
         observed = mean + rng.normal(0.0, SIGMA, size=n)
@@ -156,8 +163,13 @@ def _evaluate_cell(args: tuple[int, str, str, int]) -> tuple[list[dict[str, obje
         )
         cell = f"{signal_name}__{design_name}__n{n}"
         for method, result in (("SCI", sci), ("PBP", projection)):
-            covered = (
+            generating_point_covered = (
                 not result.empty and result.left <= 0.3 <= result.right
+            )
+            covered = (
+                not result.empty
+                and result.left <= target_left
+                and target_right <= result.right
             )
             rows.append(
                 {
@@ -165,6 +177,9 @@ def _evaluate_cell(args: tuple[int, str, str, int]) -> tuple[list[dict[str, obje
                     "trial": trial,
                     "method": method,
                     "covered": covered,
+                    "generating_point_covered": generating_point_covered,
+                    "target_left": target_left,
+                    "target_right": target_right,
                     "left": result.left,
                     "right": result.right,
                     "width": result.width,
@@ -177,6 +192,8 @@ def _evaluate_cell(args: tuple[int, str, str, int]) -> tuple[list[dict[str, obje
         "design": design_name,
         "n": n,
         "trials": TRIALS,
+        "target_left": target_left,
+        "target_right": target_right,
     }
     for method in ("SCI", "PBP"):
         selected = [row for row in rows if row["method"] == method]
@@ -234,20 +251,25 @@ def evaluate(output_dir: Path, workers: int) -> None:
         "all_16_cells_retained": len(summary) == 16,
         "sci_coverage_at_least_0_90_every_cell": min(
             float(row["sci_coverage"]) for row in summary
-        ) >= 0.90,
+        )
+        >= 0.90,
         "pbp_coverage_at_least_0_90_every_cell": min(
             float(row["pbp_coverage"]) for row in summary
-        ) >= 0.90,
+        )
+        >= 0.90,
         "sci_never_more_than_0_01_wider": max(
             float(row["sci_median_width"]) - float(row["pbp_median_width"])
             for row in summary
-        ) <= 0.01,
+        )
+        <= 0.01,
         "at_least_8_cells_with_10pct_reduction": sum(
             reduction >= 0.10 for reduction in width_reductions
-        ) >= 8,
+        )
+        >= 8,
         "weak_logistic_cells_retained": sum(
             str(row["signal"]) == "paper_f4_logistic" for row in summary
-        ) == 4,
+        )
+        == 4,
     }
     gates["all_pass"] = all(gates.values())
 

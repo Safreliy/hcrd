@@ -147,7 +147,10 @@ they do not prove the theorems.
 ### E36: high-precision known-scale audit
 
 E36 used 5,000 fresh responses in each of the 16 paper cells, or 80,000
-responses in total. SCI coverage was `0.9770` to `0.9804`, and simultaneous
+responses in total. A deterministic post-audit calculation replaced coverage
+of the single generating point by coverage of the full design-identified set.
+It changed two of 80,000 saved labels and required no new responses. SCI
+full-target coverage was `0.9770` to `0.9804`, and simultaneous
 contrast coverage was `0.9524` to `0.9618`. Every coverage alarm passed.
 
 The frozen `zero_empty_sets` gate failed. Empty sets occurred in `0.0002` to
@@ -166,9 +169,13 @@ not join, so this is a conservative split relaxation, not an exact projection
 onto the SCI function class. It is related to Davies et al., but it is not
 their official algorithm.
 
-Both methods retained coverage in all 16 frozen cells. SCI reduced median
-width by `57.9%` to `75.7%` for the cusp, `19.4%` to `32.8%` for the onset,
-and `40.0%` to `50.0%` for the jump. Neither method improved on the other in
+Both methods retained coverage in all 16 frozen cells. The reported widths are
+medians among each method's nonempty outputs. SCI reduced them by `57.9%` to
+`75.7%` for the cusp, `19.4%` to `32.8%` for the onset, and `40.0%` to `50.0%`
+for the jump. On the common subset where both methods are nonempty, the overall
+range across the 12 informative cells remains `19.4%` to `75.7%`; the
+Beta-design jump cell at `n=500` changes from `40.0%` to `33.3%`. Neither
+method improved on the other in
 the weak logistic cells; both were essentially the full observed range. All
 pre-specified E38r1 gates passed. Post-audit Wilson and paired-bootstrap
 intervals now show the Monte Carlo uncertainty from 200 responses per cell.

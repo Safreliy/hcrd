@@ -17,7 +17,10 @@ from scipy.stats import beta, norm
 PROJECT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT / "src"))
 
-from shapecontrast import build_shape_contrast_family  # noqa: E402
+from shapecontrast import (
+    build_shape_contrast_family,
+    design_identified_transition_set,
+)
 
 SAMPLE_SIZES = (500, 1000)
 DESIGNS = ("uniform", "beta_4_8")
@@ -48,6 +51,7 @@ def _paths() -> dict[str, Path]:
         "driver": Path(__file__).resolve(),
         "protocol": PROJECT / "docs/sci_e36_high_precision_coverage_protocol.md",
         "inference_module": PROJECT / "src/shapecontrast/inference.py",
+        "identified_set_module": PROJECT / "src/shapecontrast/identified_set.py",
     }
 
 
@@ -114,9 +118,7 @@ def _design_points(name: str, n: int) -> np.ndarray:
 def _signal(name: str, x: np.ndarray) -> np.ndarray:
     if name == "paper_f1_cusp":
         left = 2.0 * (0.3 - np.sqrt(np.maximum(0.09 - x**2, 0.0)))
-        right = 2.0 * (
-            0.3 + np.sqrt(np.maximum(0.49 - (1.0 - x) ** 2, 0.0))
-        )
+        right = 2.0 * (0.3 + np.sqrt(np.maximum(0.49 - (1.0 - x) ** 2, 0.0)))
         return np.where(x < 0.3, left, right)
     if name == "paper_f2_onset":
         return np.where(x < 0.3, 0.0, np.sin((x - 0.3) * np.pi / 1.4))
@@ -134,10 +136,7 @@ def _wilson(successes: int, total: int) -> tuple[float, float]:
     center = (proportion + z**2 / (2.0 * total)) / denominator
     radius = (
         z
-        * np.sqrt(
-            proportion * (1.0 - proportion) / total
-            + z**2 / (4.0 * total**2)
-        )
+        * np.sqrt(proportion * (1.0 - proportion) / total + z**2 / (4.0 * total**2))
         / denominator
     )
     return float(center - radius), float(center + radius)
@@ -155,6 +154,9 @@ def evaluate(output_dir: Path) -> None:
         "cell",
         "trial",
         "covered",
+        "generating_point_covered",
+        "target_left",
+        "target_right",
         "left",
         "right",
         "width",
@@ -172,6 +174,13 @@ def evaluate(output_dir: Path) -> None:
                     cell = f"{signal_name}__{design_name}__n{n}"
                     x = _design_points(design_name, n)
                     mean = _signal(signal_name, x)
+                    target = design_identified_transition_set(
+                        x, mean, domain=(0.0, 1.0)
+                    )
+                    target_hull = target.hull
+                    if target_hull is None:
+                        raise RuntimeError(f"empty identified target in {cell}")
+                    target_left, target_right = target_hull
                     family = build_shape_contrast_family(
                         x, separation_multipliers=SEPARATIONS
                     )
@@ -212,14 +221,21 @@ def evaluate(output_dir: Path) -> None:
                         left[~np.any(positive, axis=1)] = 0.0
                         right[~np.any(negative, axis=1)] = 1.0
                         empty = left >= right
-                        covered = (~empty) & (left <= 0.3) & (0.3 <= right)
+                        generating_point_covered = (
+                            (~empty) & (left <= 0.3) & (0.3 <= right)
+                        )
+                        covered = (
+                            (~empty) & (left <= target_left) & (target_right <= right)
+                        )
                         joint = np.all(np.abs(estimates - truth) <= radius, axis=1)
                         width = np.where(empty, np.nan, right - left)
 
                         covered_count += int(np.sum(covered))
                         joint_count += int(np.sum(joint))
                         empty_count += int(np.sum(empty))
-                        nontrivial_count += int(np.sum((~empty) & (width < 1.0 - 1e-12)))
+                        nontrivial_count += int(
+                            np.sum((~empty) & (width < 1.0 - 1e-12))
+                        )
                         widths.extend(width[np.isfinite(width)].tolist())
                         for offset in range(batch):
                             writer.writerow(
@@ -227,6 +243,11 @@ def evaluate(output_dir: Path) -> None:
                                     "cell": cell,
                                     "trial": first + offset,
                                     "covered": bool(covered[offset]),
+                                    "generating_point_covered": bool(
+                                        generating_point_covered[offset]
+                                    ),
+                                    "target_left": target_left,
+                                    "target_right": target_right,
                                     "left": float(left[offset]),
                                     "right": float(right[offset]),
                                     "width": float(width[offset]),
@@ -246,6 +267,8 @@ def evaluate(output_dir: Path) -> None:
                             "design": design_name,
                             "n": n,
                             "trials": TRIALS,
+                            "target_left": target_left,
+                            "target_right": target_right,
                             "coverage": covered_count / TRIALS,
                             "coverage_wilson_low": low,
                             "coverage_wilson_high": high,
@@ -262,7 +285,9 @@ def evaluate(output_dir: Path) -> None:
 
     summary_path = output_dir / "summary.csv"
     with summary_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(summary[0]), lineterminator="\n")
+        writer = csv.DictWriter(
+            handle, fieldnames=list(summary[0]), lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(summary)
 
@@ -276,7 +301,9 @@ def evaluate(output_dir: Path) -> None:
             float(row["joint_contrast_coverage"]) for row in summary
         )
         >= 0.94,
-        "zero_empty_sets": all(float(row["empty_probability"]) == 0.0 for row in summary),
+        "zero_empty_sets": all(
+            float(row["empty_probability"]) == 0.0 for row in summary
+        ),
         "weak_logistic_cells_retained": sum(
             str(row["signal"]) == "paper_f4_logistic" for row in summary
         )
@@ -303,9 +330,7 @@ def evaluate(output_dir: Path) -> None:
         report.append(
             "| {name} | {design} | {n} | {coverage:.4f} | "
             "[{coverage_wilson_low:.4f}, {coverage_wilson_high:.4f}] | "
-            "{median_width:.4f} |".format(
-                name=short_names[str(row["signal"])], **row
-            )
+            "{median_width:.4f} |".format(name=short_names[str(row["signal"])], **row)
         )
     report.extend(
         [

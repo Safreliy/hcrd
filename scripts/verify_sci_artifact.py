@@ -118,7 +118,7 @@ def main() -> None:
         failures.append("E36 frozen_config.json differs from manifest")
     e36_code = {
         "driver": "results/frozen_source/b405797/run_high_precision_coverage_e36.py",
-        "protocol": "docs/sci_e36_high_precision_coverage_protocol.md",
+        "protocol": "results/frozen_source/b405797/sci_e36_high_precision_coverage_protocol.md",
         "inference_module": "results/frozen_source/b405797/shapecontrast_inference.py",
     }
     for key, relative in e36_code.items():
@@ -194,6 +194,28 @@ def main() -> None:
         str((e38_dir / "uncertainty_report.md").relative_to(ROOT)),
         e38_uncertainty["result_hashes"]["uncertainty_report"],
     )
+
+    for result_dir, manifest_name in (
+        (e36_dir, "identified_target_manifest.json"),
+        (e38_dir, "identified_target_and_width_manifest.json"),
+    ):
+        audit = _load(result_dir / manifest_name)
+        check(audit["input"]["path"], audit["input"]["sha256"])
+        check(
+            "experiments/sci/audit_identified_target_coverage.py",
+            audit["code_hashes"]["analysis_script"],
+        )
+        check(
+            "src/shapecontrast/identified_set.py",
+            audit["code_hashes"]["identified_set_module"],
+        )
+        for key, expected in audit["result_hashes"].items():
+            suffix = "csv" if key == "summary" else "md"
+            stem = manifest_name.removesuffix("_manifest.json")
+            check(
+                str((result_dir / f"{stem}_{key}.{suffix}").relative_to(ROOT)),
+                expected,
+            )
 
     if failures:
         raise SystemExit("SCI artifact verification failed:\n" + "\n".join(failures))

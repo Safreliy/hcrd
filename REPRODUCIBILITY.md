@@ -2,7 +2,7 @@
 
 ## SCI publication artifact
 
-Install the package, run the 48 SCI-specific tests and execute the standalone
+Install the package, run the 63 SCI-specific tests and execute the standalone
 example:
 
 ```bash
@@ -13,11 +13,12 @@ python -m pytest -q \
   tests/test_heteroskedastic_scale_confidence.py \
   tests/test_shapecontrast_standalone.py \
   tests/test_replicated_shapecontrast.py \
-  tests/test_shape_projection_baseline.py
+  tests/test_shape_projection_baseline.py \
+  tests/test_design_identified_transition_set.py
 python examples/shapecontrast_quickstart.py
 ```
 
-Expected result: `48 passed`. With the frozen seed, the example reports an
+Expected result: `63 passed`. With the frozen seed, the example reports an
 upper noise scale of approximately `0.0110` and an informative SCI set
 approximately `[0.130, 0.830]`, containing the true transition at `0.5`.
 
@@ -52,17 +53,21 @@ python experiments/sci/run_dnase_replicate_e37.py --stage freeze --output-dir re
 python experiments/sci/run_dnase_replicate_e37.py --stage evaluate --output-dir results/sci/dnase_replicate_e37_rerun
 python experiments/sci/run_matched_honest_baseline_e38.py --stage freeze --output-dir results/sci/matched_honest_baseline_e38_rerun
 python experiments/sci/run_matched_honest_baseline_e38.py --stage evaluate --workers 4 --output-dir results/sci/matched_honest_baseline_e38_rerun
+python experiments/sci/audit_identified_target_coverage.py
 python scripts/verify_sci_artifact.py
 ```
 
 The distributed E36 and E37 directories are already frozen and evaluated.
 Use a new output directory when rerunning them. E36 coverage is
-`0.9770--0.9804`. Its zero-empty diagnostic remains failed, as explained in
+`0.9770--0.9804` for the full design-identified target. The deterministic
+post-audit calculation changed two saved labels without regenerating responses.
+Its zero-empty diagnostic remains failed, as explained in
 `docs/sci_e36_posthoc_interpretation.md`. E37 gives the DNase concentration
 set `[0.78125, 12.5]` and logistic point estimate `4.14`.
-E38r1 keeps coverage for both methods and reduces SCI median width by
-19.4%--75.7% in the 12 cusp, onset, and jump cells. The weak logistic cells
-remain essentially full-range for both methods.
+E38r1 keeps full-target coverage for both methods and reduces SCI median width
+among nonempty outputs by 19.4%--75.7% in the 12 cusp, onset, and jump cells.
+The range is unchanged on the common subset where both methods are nonempty.
+The weak logistic cells remain essentially full-range for both methods.
 
 Protocols, commands, frozen seeds and decision gates are recorded in
 `docs/hct_e33_shape_contrast_inflection_protocol.md`,

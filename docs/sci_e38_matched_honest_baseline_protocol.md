@@ -50,9 +50,10 @@ baseline, not against the strongest possible same-band projection.
 1. All 16 cells are retained.
 2. Coverage is at least 0.90 for each method in every cell. This is a coarse
    implementation alarm, not the nominal target.
-3. SCI median width is not more than 0.01 larger than PBP median width in any
-   cell.
-4. SCI reduces median width by at least 10% in at least eight cells.
+3. Among each method's nonempty outputs, SCI median width is not more than 0.01
+   larger than PBP median width in any cell.
+4. SCI reduces that conditional median width by at least 10% in at least eight
+   cells.
 5. Weak logistic cells remain in the table even if both methods return almost
    the full design range.
 
@@ -61,3 +62,19 @@ does not establish a universal width ordering between the two methods. A
 post-audit uncertainty supplement reports Wilson intervals for coverage and
 paired bootstrap intervals for the median-width reduction without changing
 the frozen trial data.
+
+## Post-audit target and width checks
+
+The frozen driver checked coverage of the generating point `m0=0.3`. A
+deterministic post-audit analysis computes the full design-identified target
+once per cell and checks the saved interval endpoints. Point and full-target
+coverage agree in all 6,400 saved method rows, so no reported coverage value
+changes.
+
+The original width comparison uses each method's nonempty outputs. SCI empty
+rates range from 0 to 0.040 and PBP empty rates from 0 to 0.005. A sensitivity
+analysis on trials where both methods are nonempty retains the 19.4%--75.7%
+reduction range over the 12 informative cells. The Beta-design jump cell at
+`n=500` changes from 40.0% to 33.3%; the main conclusion is unchanged. The
+complete results and hashes are in `identified_target_and_width_*` under the
+E38r1 result directory.

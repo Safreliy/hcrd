@@ -6,9 +6,9 @@ the HCRD/HCT research programme.
 
 ## Included artifacts
 
-- `src/shapecontrast/`: standalone matrix-free SCI, known- and unknown-scale
-  bands, bounded-heteroskedastic sensitivity, and exact replicate-curve
-  Student bands.
+- `src/shapecontrast/`: standalone matrix-free SCI, a linear-time calculator
+  for the design-identified transition set, known- and unknown-scale bands,
+  bounded-heteroskedastic sensitivity, and exact replicate-curve Student bands.
 - `src/hcrd/shape_inflection_confidence.py`: multiscale chord contrasts,
   simultaneous Gaussian bands, and confidence-set inversion used by the
   frozen E33--E35 experiments.
@@ -34,6 +34,10 @@ the HCRD/HCT research programme.
 - `experiments/sci/` and `results/sci/`: the million-point scaling audit, the
   80,000-response E36 coverage audit, the replicated DNase E37 analysis, and
   the matched honest E38r1 comparison.
+- `experiments/sci/audit_identified_target_coverage.py`: deterministic
+  postprocessing of the frozen E36/E38 intervals against the full identified
+  target, including the common-nonempty E38 width sensitivity. The matching
+  summaries, reports, and manifests are stored with the E36 and E38 results.
 - `data/external/dnase/`: the small public DNase CSV, its source URL, and its
   SHA-256 checksum.
 

@@ -30,19 +30,24 @@ unique transition.
 
 The theorem package covers known noise scale, unknown constant noise, bounded
 heteroskedasticity, and independent replicate curves. In the frozen E33
-comparison, SCI coverage over the 16 published benchmark cells was
+comparison, SCI generating-point coverage over 16 settings formed from four
+published benchmark curves was
 0.965--0.995, while `ShapeChange` had zero coverage in 9 cells. A new
-high-precision audit used 5,000 fresh responses per cell. Coverage was
-0.9770--0.9804 across all 16 cells. Its pre-specified zero-empty diagnostic
+high-precision audit used 5,000 fresh responses per cell. A deterministic
+post-audit calculation of the full design-identified target changed only two
+of 80,000 saved classifications and required no new responses. Full-target
+coverage was 0.9770--0.9804 across all 16 cells. Its pre-specified zero-empty diagnostic
 failed because SCI was empty in up to 2.28% of trials. This is below the 5%
 theorem allowance, but the failed diagnostic remains visible. SCI can also
 return a wide or full domain when the data contain too little curvature
 information; this is a reported power boundary.
 
 The matched E38r1 comparison adds a conservative pointwise-band split
-relaxation under the same Gaussian model. SCI reduced median width by
-19.4%--75.7% for the cusp, onset, and jump signals while both methods retained
-coverage. Neither method localized the weak logistic signal. This deliberately
+relaxation under the same Gaussian model. SCI reduced median width among
+nonempty outputs by 19.4%--75.7% for the cusp, onset, and jump signals while
+both methods retained coverage. The range is unchanged when both methods are
+restricted to trials where both outputs are nonempty. Neither method localized
+the weak logistic signal. This deliberately
 simple baseline is neither an exact projection onto the SCI function class nor
 the official method of Davies et al. Post-audit Wilson and paired-bootstrap
 intervals quantify the Monte Carlo uncertainty from 200 responses per cell.

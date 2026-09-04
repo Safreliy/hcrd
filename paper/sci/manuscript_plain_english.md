@@ -21,8 +21,9 @@ guarantee is finite-sample. It does not require a derivative, a continuous
 transition, or a unique transition. We also give versions for unknown constant
 noise, bounded changes in noise variance, and independent replicate curves.
 
-In 80,000 fresh simulations, known-scale SCI covered the true transition in
-97.70% to 98.04% of responses across 16 published S-shaped benchmark settings.
+In 80,000 fresh simulations, known-scale SCI covered the full identified
+transition set in 97.70% to 98.04% of responses across 16 settings formed from
+four published S-shaped benchmark curves.
 The method gave useful localization for strong nonsmooth transitions and wide
 sets when the smooth signal was weak. Real-data studies on atmospheric LIDAR
 and 11 replicated DNase assay runs show how the answer changes with the noise
@@ -49,6 +50,11 @@ convex before the transition and concave after it. This target also allows a
 flat transition region. Reporting the whole set avoids a false claim of
 precision.
 
+This design-level set is easy to compute. We scan adjacent slopes from the
+left to find convex prefixes and from the right to find concave suffixes. A
+single linear inequality then gives the feasible part of each gap between
+design points. The full calculation takes linear time in the sample size.
+
 SCI starts from local chord contrasts. A positive contrast gives evidence for
 convexity on its support. A negative contrast gives evidence for concavity.
 We construct simultaneous bounds for all contrast means. We then use only the
@@ -64,9 +70,9 @@ extensions for unknown noise and replicated experiments.
 
 ### Contributions
 
-1. We define a design-level identified target: every convex-to-concave
-   transition allowed by a shape-constrained continuation of the sampled mean
-   vector, rather than an assumed unique inflection point.
+1. We define a design-level identified target: the closure of the set of all
+   convex-to-concave transitions allowed by shape-constrained continuations of
+   the sampled mean vector, rather than an assumed unique inflection point.
 2. We give a direct finite-sample confidence set for this target in
    fixed-design Gaussian regression. The coverage theorem allows flat parts,
    kinks, and jumps.
@@ -128,7 +134,10 @@ The paper should separate four questions:
 - computation: can the method run without a dense contrast matrix?
 
 The high-precision known-scale audit used 5,000 responses in each of 16 fixed
-settings. Coverage was 97.70% to 98.04%. Median width was small for the jump,
+settings. A deterministic post-audit calculation checked coverage of the full
+identified set without regenerating responses. Only two of 80,000 labels
+changed, and coverage remained 97.70% to 98.04%. Median width among nonempty
+outputs was small for the jump,
 moderate for the cusp, and close to the full domain for the weak logistic
 curve. A frozen zero-empty diagnostic failed because empty sets occurred in up
 to 2.28% of trials. This is below the theorem's 5% allowance, but it remains a
@@ -138,8 +147,10 @@ We also compare SCI with a pointwise-band baseline (PBP). PBP separately finds
 a convex prefix and a concave suffix inside a simultaneous confidence box. The
 two fitted pieces do not have to join at the same transition value, so this is
 a conservative split relaxation, not an exact projection onto the SCI function
-class. Across the 16 fixed cells, SCI reduced median width by 19.4% to 75.7%
-for the cusp, onset, and jump signals. Both methods returned essentially the
+class. Across the 16 fixed cells, SCI reduced median width among nonempty
+outputs by 19.4% to 75.7% for the cusp, onset, and jump signals. The same range
+held when both methods were compared only on trials where both were nonempty.
+Both methods returned essentially the
 full observed range for the weak logistic signal. PBP is our simple baseline,
 not the official method of Davies et al. or the strongest possible projection.
 

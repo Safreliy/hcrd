@@ -37,16 +37,6 @@ Wilson interval.
 The 0.94 thresholds are implementation alarms, not replacements for the
 coverage theorem. Simulation cannot prove finite-sample validity.
 
-## Post-audit target correction
-
-The frozen driver classified coverage by whether the reported interval
-contained the generating location `m0=0.3`. The theorem covers the full
-design-identified transition set. A deterministic post-audit analysis now
-computes that set once in each cell and checks both of its endpoints against
-the saved SCI intervals. No response was regenerated. Two of 80,000 labels
-changed, both for the onset signal on a uniform design; the overall coverage
-range remains 0.9770--0.9804.
-
 ## Outputs
 
 - `frozen_config.json`: configuration and pre-run code hashes;
@@ -54,6 +44,3 @@ range remains 0.9770--0.9804.
 - `summary.csv`: cellwise coverage, Wilson intervals, width and diagnostics;
 - `manifest.json`: output hashes, environment and frozen decisions;
 - `report.md`: short plain-language summary.
-- `identified_target_summary.csv`, `identified_target_report.md`, and
-  `identified_target_manifest.json`: deterministic full-target correction of
-  the frozen trial rows.
