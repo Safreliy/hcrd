@@ -41,7 +41,7 @@ def main() -> None:
         "driver": "experiments/hct/run_shape_contrast_hybrid_e33.py",
         "r_bridge": "experiments/hct/run_shape_contrast_comparators_e33.R",
         "protocol": "docs/hct_e33_shape_contrast_inflection_protocol.md",
-        "shape_module": "src/hcrd/shape_inflection_confidence.py",
+        "shape_module": "results/frozen_source/b405797/hcrd_shape_inflection_confidence.py",
     }
     for key, relative in e33_code.items():
         check(relative, e33_frozen["hashes"][key])
@@ -82,8 +82,8 @@ def main() -> None:
         "driver": "experiments/hct/run_unknown_scale_confirmation_e34.py",
         "development_driver": "experiments/hct/run_unknown_scale_shape_inversion_e34.py",
         "protocol": "docs/hct_e34_unknown_scale_protocol.md",
-        "scale_module": "src/hcrd/noise_scale_confidence.py",
-        "shape_module": "src/hcrd/shape_inflection_confidence.py",
+        "scale_module": "results/frozen_source/b405797/hcrd_noise_scale_confidence.py",
+        "shape_module": "results/frozen_source/b405797/hcrd_shape_inflection_confidence.py",
         "development_manifest": "results/hct/unknown_scale_shape_inversion_e34_development/manifest.json",
         "trial_scores": "results/hct/unknown_scale_shape_inversion_e34_confirmation/trial_scores.csv",
         "summary": "results/hct/unknown_scale_shape_inversion_e34_confirmation/summary.csv",
@@ -100,7 +100,7 @@ def main() -> None:
         "protocol": "docs/hct_e35_heteroskedastic_protocol.md",
         "theory": "theory/hct/heteroskedastic_gaussian_extension.md",
         "heteroskedastic_module": "src/hcrd/heteroskedastic_scale_confidence.py",
-        "shape_module": "src/hcrd/shape_inflection_confidence.py",
+        "shape_module": "results/frozen_source/b405797/hcrd_shape_inflection_confidence.py",
         "trial_scores.csv": "results/hct/heteroskedastic_shape_inversion_e35_confirmation/trial_scores.csv",
         "summary.csv": "results/hct/heteroskedastic_shape_inversion_e35_confirmation/summary.csv",
         "lidar_data_and_fit.csv": "results/hct/heteroskedastic_shape_inversion_e35_confirmation/lidar_data_and_fit.csv",
@@ -117,9 +117,9 @@ def main() -> None:
     if _load(e36_dir / "frozen_config.json") != e36["frozen"]:
         failures.append("E36 frozen_config.json differs from manifest")
     e36_code = {
-        "driver": "experiments/sci/run_high_precision_coverage_e36.py",
+        "driver": "results/frozen_source/b405797/run_high_precision_coverage_e36.py",
         "protocol": "docs/sci_e36_high_precision_coverage_protocol.md",
-        "inference_module": "src/shapecontrast/inference.py",
+        "inference_module": "results/frozen_source/b405797/shapecontrast_inference.py",
     }
     for key, relative in e36_code.items():
         check(relative, e36["frozen"]["hashes"][key])
@@ -140,7 +140,7 @@ def main() -> None:
     e37_code = {
         "driver": "experiments/sci/run_dnase_replicate_e37.py",
         "protocol": "docs/sci_e37_dnase_replicate_protocol.md",
-        "inference_module": "src/shapecontrast/inference.py",
+        "inference_module": "results/frozen_source/b405797/shapecontrast_inference.py",
         "replicate_module": "src/shapecontrast/replicated.py",
         "data": "data/external/dnase/DNase.csv",
     }
@@ -164,10 +164,10 @@ def main() -> None:
     if _load(e38_dir / "frozen_config.json") != e38["frozen"]:
         failures.append("E38r1 frozen_config.json differs from manifest")
     e38_code = {
-        "driver": "experiments/sci/run_matched_honest_baseline_e38.py",
-        "protocol": "docs/sci_e38_matched_honest_baseline_protocol.md",
-        "inference_module": "src/shapecontrast/inference.py",
-        "projection_module": "src/shapecontrast/projection.py",
+        "driver": "results/frozen_source/b405797/run_matched_honest_baseline_e38.py",
+        "protocol": "results/frozen_source/b405797/sci_e38_matched_honest_baseline_protocol.md",
+        "inference_module": "results/frozen_source/b405797/shapecontrast_inference.py",
+        "projection_module": "results/frozen_source/b405797/shapecontrast_projection.py",
     }
     for key, relative in e38_code.items():
         check(relative, e38["frozen"]["hashes"][key])
@@ -180,6 +180,20 @@ def main() -> None:
             str((e38_dir / filename).relative_to(ROOT)),
             e38["result_hashes"][key],
         )
+
+    e38_uncertainty = _load(e38_dir / "uncertainty_manifest.json")
+    check(
+        "experiments/sci/summarize_e38_uncertainty.py",
+        e38_uncertainty["script_sha256"],
+    )
+    check(
+        str((e38_dir / "uncertainty_summary.csv").relative_to(ROOT)),
+        e38_uncertainty["result_hashes"]["uncertainty_summary"],
+    )
+    check(
+        str((e38_dir / "uncertainty_report.md").relative_to(ROOT)),
+        e38_uncertainty["result_hashes"]["uncertainty_report"],
+    )
 
     if failures:
         raise SystemExit("SCI artifact verification failed:\n" + "\n".join(failures))

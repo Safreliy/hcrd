@@ -14,8 +14,9 @@ smooth bootstrap intervals can then be misleading.
 
 We introduce shape-contrast inversion (SCI). The method tests a fixed set of
 local chord inequalities and inverts the reliable signs. It returns an outer
-confidence set for every location at which the mean curve can change from
-convex to concave. Under fixed-design Gaussian regression, the coverage
+confidence set for every transition admitted by at least one
+shape-constrained continuation of the sampled mean values. Under fixed-design
+Gaussian regression, the coverage
 guarantee is finite-sample. It does not require a derivative, a continuous
 transition, or a unique transition. We also give versions for unknown constant
 noise, bounded changes in noise variance, and independent replicate curves.
@@ -41,11 +42,12 @@ transition may be a kink, a jump, a one-sided onset, or a flat interval. In
 these cases a method built around a smooth fitted derivative can report a
 narrow interval even when its assumptions are wrong.
 
-We study the full set of compatible transition locations. A location belongs
-to this set when the mean curve is convex to its left and concave to its
-right. The set can contain more than one point. This happens exactly when the
-curve is flat in curvature over an interval. Reporting the whole set avoids a
-false claim of precision.
+At a fixed design, the data identify the mean values at the observed points,
+not the full curve between them. We therefore study all transition locations
+admitted by at least one curve that passes through those mean values and is
+convex before the transition and concave after it. This target also allows a
+flat transition region. Reporting the whole set avoids a false claim of
+precision.
 
 SCI starts from local chord contrasts. A positive contrast gives evidence for
 convexity on its support. A negative contrast gives evidence for concavity.
@@ -54,7 +56,7 @@ signs that are supported by these bounds. The rightmost certified convex
 region gives a lower limit for the transition. The leftmost certified concave
 region gives an upper limit.
 
-The main result is simple and exact. If all contrast bounds cover their true
+The main result is simple and finite-sample. If all contrast bounds cover their true
 means, the SCI set contains every compatible transition. A simultaneous
 Gaussian band makes this event occur with probability at least `1-alpha`.
 The same inversion can use other valid bands. This modular view leads to
@@ -62,8 +64,9 @@ extensions for unknown noise and replicated experiments.
 
 ### Contributions
 
-1. We define the target as the full identified set of convex-to-concave
-   transitions, rather than an assumed unique inflection point.
+1. We define a design-level identified target: every convex-to-concave
+   transition allowed by a shape-constrained continuation of the sampled mean
+   vector, rather than an assumed unique inflection point.
 2. We give a direct finite-sample confidence set for this target in
    fixed-design Gaussian regression. The coverage theorem allows flat parts,
    kinks, and jumps.
@@ -90,10 +93,10 @@ including second-derivative roots. Both lines already contain the regular
 `(log(n)/n)^(1/7)` localization order.
 
 The contribution here is narrower. SCI directly targets all locations that
-are compatible with one convex-to-concave transition. Its basic coverage
-argument does not need the derivative to exist and does not require the
-transition to be unique or continuous. The output is also easy to compute
-without fitting a full confidence region for the curve.
+are compatible with the sampled mean vector and one convex-to-concave
+transition. Its basic coverage argument does not need the derivative to exist
+and does not require the transition to be unique or continuous. The output is
+also easy to compute without fitting a full confidence region for the curve.
 
 The `Sshaped` least-squares estimator of Feng et al. is the main point
 estimator in our experiments. SCI complements this estimator by adding
@@ -131,13 +134,14 @@ curve. A frozen zero-empty diagnostic failed because empty sets occurred in up
 to 2.28% of trials. This is below the theorem's 5% allowance, but it remains a
 reported failed diagnostic.
 
-We also compare SCI with pointwise-band projection (PBP). PBP is a generic
-finite-sample method for the same sampled shape class. It projects a confidence
-box for the whole mean curve through linear shape constraints. Across the 16
-fixed cells, SCI reduced median width by 19.4% to 75.7% for the cusp, onset,
-and jump signals. Both methods returned essentially the full observed range
-for the weak logistic signal. PBP is our implementation, not the official
-method of Davies et al.
+We also compare SCI with a pointwise-band baseline (PBP). PBP separately finds
+a convex prefix and a concave suffix inside a simultaneous confidence box. The
+two fitted pieces do not have to join at the same transition value, so this is
+a conservative split relaxation, not an exact projection onto the SCI function
+class. Across the 16 fixed cells, SCI reduced median width by 19.4% to 75.7%
+for the cusp, onset, and jump signals. Both methods returned essentially the
+full observed range for the weak logistic signal. PBP is our simple baseline,
+not the official method of Davies et al. or the strongest possible projection.
 
 The DNase analysis uses 11 assay runs as independent replicates. Dependence
 between concentrations inside a run is allowed. SCI gives the concentration
@@ -154,7 +158,9 @@ independent runs with a common mean and covariance. SCI is conservative when
 many contrasts are weak. It is not a generic point-estimation improvement.
 The current cubic rate is not a new minimax result. The general local-order
 rate is conditional on an explicit contrast margin; a broad function-class
-corollary and a matching lower bound remain open.
+corollary and a matching lower bound remain open. A future comparison should
+use one globally joined same-band projection rather than the current split
+relaxation.
 
 ## References to include
 
@@ -166,3 +172,10 @@ corollary and a matching lower bound remain open.
   Estimation of S-Shaped Functions*, JRSSB.
 - Liao and Meyer (2017), *Change-Point Estimation Using Shape-Restricted
   Regression Splines*, Journal of Statistical Planning and Inference.
+- Dümbgen (2003), *Optimal Confidence Bands for Shape-Restricted Curves*,
+  Bernoulli.
+- Cai, Low and Xia (2013), *Adaptive Confidence Intervals for Regression
+  Functions Under Shape Constraints*, Annals of Statistics.
+- Frick, Munk and Sieling (2014), *Multiscale Change Point Inference*, JRSSB.
+- Chernozhukov, Hong and Tamer (2007), *Estimation and Confidence Regions for
+  Parameter Sets in Econometric Models*, Econometrica.

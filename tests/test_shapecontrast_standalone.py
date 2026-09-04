@@ -65,6 +65,29 @@ def test_matrix_free_band_and_inversion_match_frozen_implementation():
     assert asdict(new_set) == asdict(old_set)
 
 
+def test_matrix_free_inversion_treats_touching_boundaries_as_empty():
+    x = np.arange(1, 8, dtype=float) / 8.0
+    family = sci.build_shape_contrast_family(x, block_sizes=(1,))
+    positive_index = int(np.flatnonzero(family.start_index == 2)[0])
+    negative_index = int(np.flatnonzero(family.start_index == 0)[0])
+    estimate = np.zeros(family.contrast_count)
+    estimate[positive_index] = 2.0
+    estimate[negative_index] = -2.0
+    band = sci.ShapeContrastBand(
+        estimate=estimate,
+        radius=np.ones(family.contrast_count),
+        critical_value=1.0,
+        alpha=0.05,
+        noise_scale=1.0,
+    )
+
+    confidence_set = sci.invert_s_shaped_inflection(
+        family, band, domain=(0.0, 1.0)
+    )
+    assert confidence_set.left == confidence_set.right
+    assert confidence_set.empty
+
+
 def test_matrix_free_gaussian_calibration_matches_dense_version():
     x = np.linspace(0.01, 0.99, 41) ** 1.3
     dense = build_dense_family(x, separation_multipliers=(1, 2))
@@ -140,3 +163,12 @@ def test_standalone_scale_helpers_are_available():
     )
     assert iid.upper_scale > 0.0
     assert varying.upper_scale > 0.0
+
+
+def test_standalone_projection_scale_accepts_no_nuisance_columns():
+    y = np.array([1.0, -2.0, 0.5, 3.0])
+    result = sci.gaussian_projection_upper_scale(
+        y, np.empty((y.size, 0)), failure_probability=0.05
+    )
+    assert result.nuisance_rank == 0
+    assert result.residual_sum_squares == pytest.approx(float(y @ y))

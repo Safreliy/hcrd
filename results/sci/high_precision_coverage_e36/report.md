@@ -2,6 +2,10 @@
 
 All frozen checks passed: **False**.
 
+Post-audit correction: a single trial with equal lower and upper exclusion
+boundaries is now classified as empty. Coverage and every displayed value are
+unchanged; the affected cell's empty rate changes from 0.0058 to 0.0060.
+
 | signal | design | n | coverage | 95% MC interval | median width |
 |---|---|---:|---:|---:|---:|
 | cusp | uniform | 500 | 0.9784 | [0.9740, 0.9821] | 0.1737 |

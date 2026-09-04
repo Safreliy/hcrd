@@ -30,6 +30,16 @@ def test_projection_scale_bound_matches_residual_formula() -> None:
     assert result.upper_scale == pytest.approx(np.sqrt(rss / chi2.ppf(0.05, 4)))
 
 
+def test_projection_scale_bound_accepts_zero_dimensional_nuisance_space() -> None:
+    y = np.array([1.0, -2.0, 0.5, 3.0])
+    result = gaussian_projection_upper_scale(
+        y, np.empty((y.size, 0)), failure_probability=0.05
+    )
+    assert result.nuisance_rank == 0
+    assert result.residual_degrees_of_freedom == y.size
+    assert result.residual_sum_squares == pytest.approx(float(y @ y))
+
+
 def test_scale_bound_is_invariant_to_nuisance_mean() -> None:
     design = consecutive_block_design(12, 3)
     y = np.linspace(-1.0, 1.0, 12)

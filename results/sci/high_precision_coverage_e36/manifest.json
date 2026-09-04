@@ -46,9 +46,20 @@
     "all_pass": false
   },
   "result_hashes": {
-    "trial_scores": "0f527d19d1ac536010084489b9533a143f6e4d39899aed564ee702ad7394430f",
-    "summary": "d2859a001d1141be95d8316546c5517bc7fd8992a17533fada97ba2e0f35d68a",
-    "report": "ed941216af1e591c4de33a7cab093e57fee8b441126707a7a12f593d339723d3"
+    "trial_scores": "722f8f55007e65f6992ef75fbabb4a7dd2148b94d3ee1ed4cc0f86a405620385",
+    "summary": "69ae281ed488d31f7b30bd1230b7f50d5195646d59a622096a3725e04fd0650d",
+    "report": "96ead110469d995f114a803dc80c561e8d78254b1aa095c28429faeeb225729c"
+  },
+  "post_audit_correction": {
+    "reason": "Strict sign implications leave no survivor when the two exclusion boundaries are equal.",
+    "affected_cell": "paper_f2_onset__uniform__n500",
+    "affected_trial": 2695,
+    "old_classification": "nonempty zero-width interval",
+    "new_classification": "empty set",
+    "coverage_changed": false,
+    "frozen_driver_snapshot": "results/frozen_source/b405797/run_high_precision_coverage_e36.py",
+    "corrected_driver_sha256": "b01fa2edd9731953086afaa7a59b2a8f3bfc6daea6bb909d61133f27ce52cd5f",
+    "corrected_inference_module_sha256": "91f5876b130b66de7eeb49500781c260daaf7426b312d7879a8570c246d14f76"
   },
   "summary": [
     {
@@ -131,10 +142,10 @@
       "joint_contrast_coverage": 0.9564,
       "joint_wilson_low": 0.9503808291024459,
       "joint_wilson_high": 0.961718412562106,
-      "mean_width": 0.7180677871776062,
+      "mean_width": 0.7182122676176793,
       "median_width": 0.7325349301397206,
-      "nontrivial_probability": 0.9942,
-      "empty_probability": 0.0058
+      "nontrivial_probability": 0.994,
+      "empty_probability": 0.006
     },
     {
       "cell": "paper_f2_onset__uniform__n1000",

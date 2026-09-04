@@ -1,36 +1,31 @@
-# E38r1 protocol: SCI versus a conservative pointwise-band baseline
+# E38r1 protocol: SCI versus an honest confidence-region projection
 
 The first E38 execution completed the statistical calculations and wrote the
 two CSV files, but stopped while formatting the Markdown report because one
 keyword was passed twice to `str.format`. That incomplete output is preserved
 under `results/sci/matched_honest_baseline_e38_failed_report_generation/`.
 Revision r1 changes only the report-formatting line and output identifier. The
-statistical configuration and all frozen checks below are unchanged. The text
-below includes a post-audit clarification of what the frozen PBP code computes;
-the original protocol is archived with the frozen sources.
+statistical configuration and all frozen checks below are unchanged.
 
 ## Purpose
 
 The `ShapeChange` bootstrap is an important published comparator, but it uses
 a smoother model than SCI. E38 adds a second comparator with a finite-sample
-guarantee under the same known-scale Gaussian observation model.
+guarantee for the same sampled convex-to-concave shape class.
 
 ## Comparator
 
-The pointwise-band baseline (PBP) first builds simultaneous Bonferroni
-intervals for all sampled mean values. It separately computes the longest
-prefix compatible with a discretely convex vector in the box and the earliest
-suffix compatible with a discretely concave vector in the box. These two
-witness vectors need not join at one transition value. PBP is therefore a
-conservative discrete split relaxation, not an exact projection onto the same
-continuous function class as SCI.
+The pointwise-band projection (PBP) baseline first builds simultaneous
+Bonferroni intervals for all sampled mean values. For each possible split of
+the ordered design, a linear program checks whether some vector inside this
+confidence box is discretely convex before the split and discretely concave
+after it. The output is the range of all feasible splits.
 
 This baseline is related to the general confidence-region approach of Davies,
 Kovac and Meise (2009), but it is our simpler implementation. It must not be
 called their official algorithm. Its finite-sample coverage follows because
 the true sampled mean belongs to the pointwise box with probability at least
-`1-alpha`. The comparison is against this deliberately simple conservative
-baseline, not against the strongest possible same-band projection.
+`1-alpha`.
 
 ## Frozen experiment
 
@@ -57,7 +52,4 @@ baseline, not against the strongest possible same-band projection.
    the full design range.
 
 The experiment compares information at matched finite-sample validity. It
-does not establish a universal width ordering between the two methods. A
-post-audit uncertainty supplement reports Wilson intervals for coverage and
-paired bootstrap intervals for the median-width reduction without changing
-the frozen trial data.
+does not establish a universal width ordering between the two methods.

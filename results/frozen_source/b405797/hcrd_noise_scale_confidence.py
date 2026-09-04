@@ -102,6 +102,7 @@ def gaussian_projection_upper_scale(
     if (
         design.ndim != 2
         or design.shape[0] != values.size
+        or design.shape[1] < 1
         or not np.all(np.isfinite(design))
     ):
         raise ValueError("nuisance_design must be a finite matrix matching y")
@@ -109,15 +110,11 @@ def gaussian_projection_upper_scale(
     if not 0.0 < eta < 1.0:
         raise ValueError("failure_probability must lie in (0, 1)")
 
-    rank = 0 if design.shape[1] == 0 else int(np.linalg.matrix_rank(design))
+    rank = int(np.linalg.matrix_rank(design))
     degrees = int(values.size - rank)
     if degrees < 1:
         raise ValueError("nuisance design must leave positive residual degrees of freedom")
-    fitted = (
-        np.zeros_like(values)
-        if design.shape[1] == 0
-        else design @ np.linalg.lstsq(design, values, rcond=None)[0]
-    )
+    fitted = design @ np.linalg.lstsq(design, values, rcond=None)[0]
     residual = values - fitted
     rss = float(residual @ residual)
     lower_quantile = float(chi2.ppf(eta, degrees))

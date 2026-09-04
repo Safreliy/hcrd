@@ -397,7 +397,7 @@ def invert_s_shaped_inflection(
     return InflectionConfidenceSet(
         left=left,
         right=right,
-        empty=bool(left >= right),
+        empty=bool(left > right),
         positive_contrast_count=int(positive.size),
         negative_contrast_count=int(negative.size),
         active_left_contrast=active_left,

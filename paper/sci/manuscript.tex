@@ -66,15 +66,16 @@ mean curve has a kink, a jump, or a flat transition region, because smooth
 derivative and bootstrap arguments can then fail.  We introduce shape-contrast
 inversion (\SCI), a finite-sample uncertainty layer for this problem.  \SCI
 builds simultaneous bounds for a fixed family of local chord contrasts and
-inverts only their certified signs.  The output is an outer confidence set for
-all locations at which the mean curve can change from convex to concave.  In
-fixed-design Gaussian regression, coverage is uniform and does not require a
+inverts only their certified signs.  The output covers every transition
+location admitted by a shape-constrained continuation of the sampled mean
+vector.  In fixed-design Gaussian regression, coverage is uniform and does not
+require a
 derivative, continuity at the transition, or a unique transition.  We also give
 finite-sample versions for unknown constant noise, bounded heteroskedasticity,
 and independent replicate curves with arbitrary within-curve covariance.  In
 80,000 fresh simulations, known-scale coverage ranged from 97.70\% to 98.04\%
 at a 95\% nominal level across 16 published S-shaped benchmark settings.  In a
-matched comparison with a generic honest confidence-region projection, \SCI
+matched comparison with a conservative pointwise-band split baseline, \SCI
 reduced median width by 19.4\%--75.7\% for cusp, onset, and jump signals.  Both
 methods were wide for a weak smooth logistic signal.  Analyses of atmospheric
 LIDAR and 11 replicated DNase assay runs illustrate how the answer changes with
@@ -135,8 +136,9 @@ confidence set for every compatible transition location.
 
 The contributions are as follows.
 \begin{enumerate}[leftmargin=*,itemsep=2pt]
-  \item We define the target as the full identified set of
-  convex-to-concave transitions.  This makes flat transition regions explicit.
+  \item We define a design-level identified target: all transition locations
+  admitted by at least one convex-to-concave continuation of the sampled mean
+  vector.  This separates what the fixed design identifies from interpolation.
   \item We give a direct finite-sample confidence set in fixed-design Gaussian
   regression.  The theorem permits kinks, jumps, and nonunique transitions.
   \item We extend the construction to unknown constant variance, a declared
@@ -146,7 +148,7 @@ The contributions are as follows.
   cubic special case has the familiar $(\log n/n)^{1/7}$ order; we do not claim
   that this order is new.
   \item We give a matrix-free implementation and compare \SCI with both a
-  published smooth-bootstrap method and a matched honest projection baseline.
+  published smooth-bootstrap method and a matched honest split baseline.
   \item We report weak-information cases as well as successes.  A wide set is
   an intended answer when the data cannot support precise localization.
 \end{enumerate}
@@ -170,7 +172,11 @@ statements into global qualitative conclusions
 same honest-inference principle, but it targets one feature directly.  It
 stores only the endpoints, scale, and sufficient sums needed for local chord
 contrasts.  This direct inversion is the source of its simple proof and its
-computational scale.
+computational scale.  Shape-restricted confidence bands and intervals provide
+closely related guarantees for monotone and convex regression
+\citep{dumbgen2003optimal,cai2013adaptive}.  Multiscale change-point inference
+is another important example of simultaneous local testing
+\citep{frick2014multiscale}.
 
 \paragraph{S-shaped point estimation.}
 The tuning-free least-squares estimator of \citet{feng2022sshaped} estimates a
@@ -192,10 +198,12 @@ The main object is a finite-sample outer confidence set for a possibly
 set-valued transition under a nonsmooth shape class.  The most informative
 comparison is therefore not only against a point or smooth-bootstrap method,
 but also against another procedure with a matched finite-sample guarantee.
-For this purpose we implement a pointwise-band projection (\PBP) baseline.  It
+For this purpose we implement a pointwise-band split (\PBP) baseline.  It
 is related to the confidence-region strategy of
 \citet{davies2009nonparametric}, but it is our deliberately simple baseline,
-not their official algorithm.
+not their official algorithm.  Because a fixed design may only partially
+identify a transition, our coverage statement is for a set-valued target in
+the general sense of \citet{chernozhukov2007estimation}.
 
 \section{Model and target}
 \label{sec:model}
@@ -210,30 +218,56 @@ where the design is fixed.  In the basic model,
 $\varepsilon_i\stackrel{\mathrm{iid}}{\sim}N(0,\sigma^2)$ and $\sigma$ is
 known.  Extensions relax the scale assumption.
 
-\begin{definition}[Compatible transition set]
-For a real-valued function $f$ on $[A,B]$, define
+Write $\mu=(f(x_1),\ldots,f(x_n))^\top$.  The distribution of $Y$ identifies
+this sampled mean vector, but it does not identify the values of $f$ between
+design points.  We therefore distinguish a function-level geometric object
+from the design-level statistical target.
+
+\begin{definition}[Function-level transition set]
+For a real-valued function $g$ on $[A,B]$, define
 \[
-  \I(f)=\left\{m\in[A,B]:
-  f\text{ is convex on }[A,m]\text{ and concave on }[m,B]\right\}.
+  \I(g)=\left\{m\in[A,B]:
+  g\text{ is convex on }[A,m]\text{ and concave on }[m,B]\right\}.
 \]
-We call every $m\in\I(f)$ a compatible convex-to-concave transition.
+We call every $m\in\I(g)$ a compatible convex-to-concave transition of $g$.
 \end{definition}
 
 The definition does not require a derivative.  It permits an endpoint
 transition, a kink, and a one-sided jump at the transition.  It also permits a
 flat-curvature interval, in which case more than one $m$ is compatible.
 
+\begin{definition}[Design-level identified transition set]
+Let
+\[
+ \mathcal G_x(\mu)=
+ \{g:[A,B]\to\R:g(x_i)=\mu_i,\ i=1,\ldots,n\}.
+\]
+The target identified by the fixed-design mean vector is
+\begin{equation}
+ \I_x(\mu)=\operatorname{cl}\!\left\{
+ m\in[A,B]:m\in\I(g)\text{ for some }g\in\mathcal G_x(\mu)
+ \right\}.
+\label{eq:design-target}
+\end{equation}
+\end{definition}
+
+The closure in \eqref{eq:design-target} is deliberate.  If endpoint jumps are
+allowed, a function-level set $\I(g)$ can be half-open.  A closed target is the
+natural object for the closed confidence set reported below.
+
 \begin{lemma}[Geometry of the target]
 \label{lem:identified}
-If $m_1<m_2$ both belong to $\I(f)$, then $f$ is affine on $[m_1,m_2]$ and
-$[m_1,m_2]\subseteq\I(f)$.  Therefore, whenever $\I(f)$ is nonempty, it is an
-interval, possibly a singleton.
+If $m_1<m_2$ both belong to $\I(g)$, then $g$ is affine on $[m_1,m_2]$ and
+$[m_1,m_2]\subseteq\I(g)$.  Therefore, whenever $\I(g)$ is nonempty, it is an
+interval, possibly a singleton, but it need not be closed.
 \end{lemma}
 
 This lemma separates statistical uncertainty from identification.  Even with
 no noise, a curve that is affine over $[m_1,m_2]$ does not select one transition
-inside that interval.  Our confidence statement therefore covers the whole
-set $\I(f)$.
+inside that interval.  A finite design adds interpolation uncertainty: several
+continuous or discontinuous shape-constrained extensions may agree at all
+observed locations.  Our confidence statement therefore covers the whole set
+$\I_x(\mu)$, which depends only on the identified mean vector.
 
 \subsection{Chord contrasts}
 
@@ -251,10 +285,10 @@ $T\in\T$ defines a row vector $w_T\in\R^n$, a support interval
 $[a_T,b_T]$, and a contrast mean
 \[
   Z_T=w_T^\top Y,
-  \qquad \mu_T=w_T^\top f(x_{1:n}).
+  \qquad \mu_T=w_T^\top\mu.
 \]
-The weights are chosen so that $\mu_T\geq0$ when $f$ is convex on the support,
-and $\mu_T\leq0$ when $f$ is concave there.  The family is fixed before seeing
+The weights are chosen so that $\mu_T\geq0$ when a compatible extension $g$ is
+convex on the support, and $\mu_T\leq0$ when it is concave there.  The family is fixed before seeing
 $Y$.  Appendix~\ref{app:contrasts} gives the construction used in the
 experiments.
 
@@ -288,8 +322,8 @@ The \SCI output is
 \begin{equation}
   \widehat\C(Y)=
   \begin{cases}
-    [\widehat L,\widehat U],&\widehat L\leq\widehat U,\\
-    \varnothing,&\widehat L>\widehat U.
+    [\widehat L,\widehat U],&\widehat L<\widehat U,\\
+    \varnothing,&\widehat L\geq\widehat U.
   \end{cases}
 \label{eq:sci}
 \end{equation}
@@ -328,26 +362,26 @@ is not a substitute for the coverage proof.}
 \label{thm:known}
 Suppose $\varepsilon_i\stackrel{\mathrm{iid}}{\sim}N(0,\sigma^2)$, the finite
 contrast family $\T$ is fixed independently of $Y$, and every row has the sign
-property stated above.  Then, uniformly over every $f$ with
-$\I(f)\neq\varnothing$,
+property stated above.  Then, uniformly over every mean vector $\mu$ with
+$\I_x(\mu)\neq\varnothing$,
 \[
-  \Ph_f\{\I(f)\subseteq\widehat\C(Y)\}\geq1-\alpha.
+  \Ph_{\mu,\sigma}\{\I_x(\mu)\subseteq\widehat\C(Y)\}\geq1-\alpha.
 \]
 Consequently,
-$\Ph_f\{\widehat\C(Y)=\varnothing\}\leq\alpha$ whenever the target is
+$\Ph_{\mu,\sigma}\{\widehat\C(Y)=\varnothing\}\leq\alpha$ whenever the target is
 nonempty.
 \end{theorem}
 
-The theorem is exact for the stated Gaussian model.  It is not an asymptotic
-bootstrap result.  It covers all compatible locations at once and therefore
-remains meaningful when the target is an interval.
+The guarantee is finite-sample and nonasymptotic for the stated Gaussian
+model.  It covers all design-compatible locations at once and therefore
+remains meaningful when the target is set-valued.
 
 \begin{proposition}[Minimal interval from the certified signs]
 \label{prop:minimal}
-Condition on the collection of certified positive and negative signs.  Among
-closed intervals that use only those logical sign implications,
-$[\widehat L,\widehat U]$ is the smallest one containing every transition that
-has not been excluded.
+Condition on the collection of certified positive and negative signs.  If
+$\widehat L<\widehat U$, then $[\widehat L,\widehat U]$ is the closure of all
+candidate locations not excluded by those sign implications.  If
+$\widehat L\geq\widehat U$, no candidate location survives.
 \end{proposition}
 
 Proposition~\ref{prop:minimal} is a logical minimality result.  It does not say
@@ -362,7 +396,9 @@ weak smooth transitions can produce wide sets.
 
 \begin{assumption}[Contrast margin at scale $d$]
 \label{ass:margin}
-Write $\I(f)=[m_-,m_+]$.  For a scale $d>0$, suppose the family contains
+Suppose $\I_x(\mu)$ is nonempty and write
+$m_-=\inf\I_x(\mu)$ and $m_+=\sup\I_x(\mu)$.  For a scale $d>0$, suppose the
+family contains
 \begin{enumerate}[label=(\roman*),leftmargin=*]
   \item a left contrast $T_-$ with
   $a_{T_-}\geq m_- - Kd$, $\mu_{T_-}\geq Bd^\gamma$, and
@@ -377,7 +413,7 @@ Here $B,C_w,K>0$ and $\gamma>0$ do not depend on $n$.
 \begin{theorem}[Margin-based localization]
 \label{thm:margin}
 Under Theorem~\ref{thm:known} and
-Assumption~\ref{ass:margin}, let $0<\eta<1$ and suppose
+Assumption~\ref{ass:margin}, let $0<\eta<1-\alpha$ and suppose
 \begin{equation}
   Bd^\gamma\geq
   \frac{\sigma C_w}{\sqrt{nd}}
@@ -387,11 +423,11 @@ Assumption~\ref{ass:margin}, let $0<\eta<1$ and suppose
 where $z_q=\Phi^{-1}(q)$.  Then, with probability at least
 $1-\alpha-\eta$,
 \[
-  \I(f)\subseteq\widehat\C(Y)
+  \I_x(\mu)\subseteq\widehat\C(Y)
   \subseteq[m_- - Kd,m_+ + Kd].
 \]
 In particular,
-$|\widehat\C(Y)|\leq|\I(f)|+2Kd$ on this event.
+$|\widehat\C(Y)|\leq\operatorname{diam}(\I_x(\mu))+2Kd$ on this event.
 \end{theorem}
 
 Balancing the two sides of \eqref{eq:margincondition} gives the detection scale
@@ -424,9 +460,9 @@ For the dyadic contrast family in Appendix~\ref{app:contrasts}, define
 \label{eq:hstar}
 \end{equation}
 
-\begin{corollary}[Exact cubic localization order]
+\begin{corollary}[Cubic localization order]
 \label{cor:cubic}
-Put $q_*=(n+1)h_*$, assume $q_*\geq1$, and let $q$ be the smallest dyadic
+Let $0<\eta<1-\alpha$.  Put $q_*=(n+1)h_*$, assume $q_*\geq1$, and let $q$ be the smallest dyadic
 integer with $q\geq q_*$.  If $3q\leq n$ and
 $m_0\in[8h_*,1-8h_*]$, then
 \[
@@ -461,7 +497,8 @@ modularity gives three useful extensions.
 
 \subsection{Unknown constant scale}
 
-Let $X\in\R^{n\times r}$ be a fixed full-rank nuisance design and let
+Let $X\in\R^{n\times r}$ be a full-rank nuisance design fixed before $Y$ is
+observed, where $0\leq r<n$, and let
 $R_X=I-P_X$ be its residual projector.  Write
 $q_{\nu,\eta}$ for the lower $\eta$ quantile of a chi-squared random variable
 with $\nu$ degrees of freedom, and define
@@ -473,15 +510,15 @@ with $\nu$ degrees of freedom, and define
 
 \begin{theorem}[Honest upper scale bound]
 \label{thm:unknown}
-If $Y=\mu+\varepsilon$ with arbitrary deterministic $\mu\in\R^n$ and
-$\varepsilon\sim N(0,\sigma^2I)$, then
+If $Y=\mu+\varepsilon$ with arbitrary deterministic $\mu\in\R^n$,
+$\varepsilon\sim N(0,\sigma^2I)$, and $0<\eta<\alpha<1$, then
 \[
   \inf_{\mu,\sigma>0}\Ph_{\mu,\sigma}
   (\overline\sigma\geq\sigma)\geq1-\eta.
 \]
 If \eqref{eq:band} uses $\overline\sigma$ and error budget
-$\alpha-\eta$, the resulting \SCI set covers $\I(f)$ with probability at
-least $1-\alpha$.
+$\alpha-\eta$, the resulting \SCI set covers $\I_x(\mu)$ with probability at
+least $1-\alpha$ whenever that target is nonempty.
 \end{theorem}
 
 No independence between the scale estimate and the contrasts is required.
@@ -520,7 +557,8 @@ constant within each block.  Set $Q=\norm{RY}^2$ and
 
 \begin{theorem}[Heteroskedastic scale envelope]
 \label{thm:hetero}
-Under Assumption~\ref{ass:kappa}, if $d_{n,\kappa,\eta}>0$, then
+Under Assumption~\ref{ass:kappa}, if $0<\eta<\alpha<1$ and
+$d_{n,\kappa,\eta}>0$, then
 \[
   \Ph\left(\widehat\sigma_{\max}^2
   \geq\max_i\sigma_i^2\right)\geq1-\eta
@@ -528,7 +566,8 @@ Under Assumption~\ref{ass:kappa}, if $d_{n,\kappa,\eta}>0$, then
 uniformly over the mean vector and all variance vectors satisfying the
 assumption.  Replacing each contrast standard error by
 $\widehat\sigma_{\max}\norm{w_T}$ and using error budget $\alpha-\eta$
-therefore gives at least $1-\alpha$ coverage.
+therefore gives at least $1-\alpha$ coverage of $\I_x(\mu)$ whenever that
+target is nonempty.
 \end{theorem}
 
 The proof uses Anderson's inequality for a translated Gaussian norm
@@ -539,9 +578,9 @@ sets.
 
 \subsection{Independent replicate curves}
 
-Suppose we observe $R$ independent curves
+Suppose we observe $N_{\rm rep}\geq2$ independent curves
 \[
-  Y_r\sim N(\mu,\Sigma),\qquad r=1,\ldots,R,
+  Y_r\sim N(\mu,\Sigma),\qquad r=1,\ldots,N_{\rm rep},
 \]
 where the common covariance $\Sigma$ may be non-diagonal or singular.  For a
 contrast row $w_j$, let $Z_{rj}=w_j^\top Y_r$, with sample mean
@@ -551,12 +590,14 @@ $\bar Z_j$ and sample standard deviation $s_j$ across replicates.
 \label{thm:replicate}
 For $M$ fixed contrasts, the intervals
 \[
-  \bar Z_j\ \pm\ t_{R-1,1-\alpha/(2M)}\frac{s_j}{\sqrt R},
+  \bar Z_j\ \pm\ t_{N_{\rm rep}-1,1-\alpha/(2M)}
+  \frac{s_j}{\sqrt{N_{\rm rep}}},
   \qquad j=1,\ldots,M,
 \]
 cover all contrast means simultaneously with probability at least $1-\alpha$.
 Their sign inversion therefore satisfies
-$\Ph\{\I(\mu)\subseteq\widehat\C\}\geq1-\alpha$.
+$\Ph\{\I_x(\mu)\subseteq\widehat\C\}\geq1-\alpha$ whenever the target is
+nonempty.
 \end{theorem}
 
 Dependence and unequal variance across design locations are allowed inside one
@@ -576,17 +617,21 @@ default separation family uses ratios $(1,2,4)$ across dyadic scales.
 Table~\ref{tab:scaling} gives a deterministic scaling benchmark.  Times are
 hardware-specific, while storage and dense counterfactual sizes follow directly
 from the constructed family.  At $n=10^6$, the implementation evaluates
-5,999,750 contrasts in 0.73 seconds and stores 53.4 MiB.  A dense double matrix
-would require about 44,702 GiB.
+5,999,750 contrasts in 0.73 seconds and stores 53.4 MiB of contrast-family
+metadata.  This number excludes the output array, prefix sums, temporary
+workspace, and Python overhead.  A dense double matrix would require about
+44,702 GiB.
 
 \begin{table}[htbp]
 \centering
-\caption{Matrix-free scaling for the full $(1,2,4)$ separation family.}
+\caption{Matrix-free scaling for the full $(1,2,4)$ separation family.
+``Metadata'' counts the compact numerical arrays that define the family, not
+total peak process memory.}
 \label{tab:scaling}
 \small
 \begin{tabular}{rrrrrr}
 \toprule
-$n$ & Contrasts & Build (s) & Evaluate (s) & Stored (MiB) & Dense (GiB)\\
+$n$ & Contrasts & Build (s) & Evaluate (s) & Metadata (MiB) & Dense (GiB)\\
 \midrule
 1,000     & 5,872     & 0.0006 & 0.0015 & 0.05 & 0.04\\
 10,000    & 59,831    & 0.0009 & 0.0039 & 0.53 & 4.46\\
@@ -596,7 +641,7 @@ $n$ & Contrasts & Build (s) & Evaluate (s) & Stored (MiB) & Dense (GiB)\\
 \end{tabular}
 \end{table}
 
-\subsection{Pointwise-band projection}
+\subsection{Pointwise-band split baseline}
 
 To compare two methods with the same type of guarantee, we construct a generic
 pointwise confidence box
@@ -605,13 +650,16 @@ pointwise confidence box
   [Y_i-z_{1-\alpha/(2n)}\sigma,
    Y_i+z_{1-\alpha/(2n)}\sigma].
 \]
-For each possible cut, a linear program asks whether this box contains a vector
-that is discretely convex before the cut and concave after it.  The outer range
-of feasible cuts is \PBP.  If the complete mean vector lies in the box, every
-true cut is feasible.  Bonferroni therefore gives the same finite-sample
-coverage target as \SCI.  \PBP spends error probability on every coordinate;
-\SCI spends it on the feature-specific contrasts.  The comparison measures the
-gain from targeting the scientific feature directly.
+The \PBP algorithm finds the longest prefix for which the box contains a
+discretely convex sequence and, in a separate feasibility problem, the earliest
+suffix for which it contains a discretely concave sequence.  The two witness
+sequences need not meet at the same transition value.  Thus \PBP is a
+conservative discrete split relaxation, not an exact projection onto the same
+continuous function class as \SCI.  If the complete mean vector lies in the
+box, every design-compatible true cut passes this relaxation.  Bonferroni
+therefore gives the same finite-sample coverage target.  The comparison measures
+the gain over this simple conservative baseline; it is not a claim against the
+best possible pointwise-band projection.
 
 \section{Simulation experiments}
 \label{sec:experiments}
@@ -668,7 +716,8 @@ almost the whole design range.  This is not a computational failure.  It is the
 honest statement that the chosen data and noise level do not identify the
 transition precisely.
 
-One preregistered diagnostic required zero empty sets.  It failed: empty-set
+One pre-specified diagnostic, frozen before the high-precision audit, required
+zero empty sets.  It failed: empty-set
 frequencies reached 2.28\%.  Theorem~\ref{thm:known} only requires this
 probability to be at most 5\% for a nonempty target, and the Wilson upper bounds
 remain below 5\% in all cells.  We nevertheless report the frozen diagnostic as
@@ -700,9 +749,10 @@ robustness gap; the comparison does not contradict its published assumptions.}
 
 \subsection{Matched honest comparison}
 
-Table~\ref{tab:e38} compares \SCI and \PBP under the same Gaussian model and
-nominal coverage target.  Both methods covered in every cell at the expected
-or conservative rate.  For the cusp, onset, and jump, \SCI reduced median width
+Table~\ref{tab:e38} compares \SCI and the conservative \PBP relaxation under
+the same Gaussian model and nominal coverage target.  Both methods covered in
+every cell at the expected or conservative rate.  For the cusp, onset, and
+jump, \SCI reduced median width
 by 19.4\%--75.7\%.  For the weak logistic signal, both methods returned the same
 nearly full range.  This experiment isolates the useful gain: direct
 feature-specific inversion can be much sharper than projecting a generic
@@ -712,7 +762,9 @@ weak.
 \begin{table}[htbp]
 \centering
 \caption{Matched honest comparison with 200 responses per cell.  ``Beta'' is
-the $\operatorname{Beta}(4,8)$ design.  Reduction is relative median width.}
+the $\operatorname{Beta}(4,8)$ design.  Reduction is relative median width.
+Wilson coverage intervals and paired bootstrap intervals for the reduction are
+reported in the supplementary uncertainty summary.}
 \label{tab:e38}
 \scriptsize
 \setlength{\tabcolsep}{4.2pt}
@@ -740,6 +792,11 @@ Logistic & Beta    & 1000 & .975 & 1.000 & .7116 & .7116 & 0.0\%\\
 \end{tabular}
 \end{table}
 
+The post-audit paired bootstrap interval for width reduction has a positive
+lower endpoint in all 12 cusp, onset, and jump cells.  Because this uncertainty
+summary was added after the frozen experiment, we treat it as descriptive
+rather than as a new decision gate.
+
 For this matched experiment, both procedures were restricted to the observed
 design range $[x_1,x_n]$.  This matters for the random Beta design: its observed
 range is shorter than $[0,1]$.  The high-precision audit in
@@ -763,7 +820,10 @@ themselves come from the theorems, not from Monte Carlo performance.
 
 \subsection{Atmospheric LIDAR}
 
-The LIDAR example studies a response curve over altitude.  A published
+The LIDAR example uses the 221-observation \texttt{lidar} data set from the
+\texttt{SemiPar} package, originally reported in an atmospheric spectroscopy
+collection \citep{sigrist1994air,ruppert2003semiparametric}.  It studies a
+response curve over altitude.  A published
 S-shaped point fit places the transition at 588 m.  The
 \texttt{ShapeChange} fit gives 606 m with a residual-bootstrap interval
 $[592.6,612.8]$ m.  Visible variance changes make that iid-bootstrap interval
@@ -787,8 +847,10 @@ $\kappa$.  Larger heterogeneity allowances produce wider honest sets.}
 
 \subsection{Replicated DNase assay}
 
-The DNase data distributed with R contain 11 assay runs and eight
-concentrations \citep{r2025}.  We use all 176 raw optical-density measurements.
+The DNase ELISA data distributed with R contain 11 assay runs and eight
+concentrations; their documented sources are
+\citet{davidian1995nonlinear} and \citet{pinheiro2000mixed}.  We use all 176
+raw optical-density measurements \citep{r2025}.
 Technical duplicates are averaged within each run, and the run is the
 independent unit.  This leaves 11 replicate curves on the same eight-point
 design.
@@ -821,8 +883,9 @@ a run is allowed.}
 \subsection{What practical problem is solved?}
 
 The method solves a specific uncertainty problem: it gives a finite-sample
-outer confidence set for every convex-to-concave transition that is compatible
-with a sampled mean curve, without assuming a smooth or unique inflection.  A
+outer confidence set for every convex-to-concave transition admitted by at
+least one shape-constrained continuation of the sampled mean vector, without
+assuming a smooth or unique inflection.  A
 researcher can attach this set to an S-shaped point estimate and distinguish
 three outcomes:
 \begin{enumerate}[leftmargin=*]
@@ -845,9 +908,11 @@ improve width in informative cases.
 First, \SCI is not a new point estimator and did not improve point-estimation
 error in our hybrid experiment.  Second, it is not the first inference method
 for inflection points.  Third, the $(\log n/n)^{1/7}$ cubic rate is not new.
-Fourth, the output is an outer set, not a proof that every included point is a
-true physical threshold.  Finally, the real-data conclusions are conditional
-on their sampling models.
+Fourth, the output is an outer interval and can include points that no
+compatible continuation uses; it is not a proof that every included point is a
+true physical threshold.  Fifth, \PBP is a conservative split relaxation, not
+the sharpest projection of its pointwise band.  Finally, the real-data
+conclusions are conditional on their sampling models.
 
 \subsection{Limitations and open work}
 
@@ -863,6 +928,10 @@ under explicit contrast-margin and availability conditions.  A broad
 function-class lemma that derives these conditions automatically, together
 with a matching lower bound for the set-valued target, remains open.  Such a
 result could turn the current conditional rate into a minimax characterization.
+A stronger computational comparator would project a simultaneous band onto one
+globally joined convex-to-concave sequence rather than the split relaxation
+used here.  A same-contrast-band version would also separate the effect of the
+inversion geometry from the choice of simultaneous band.
 
 \section{Conclusion}
 
@@ -871,7 +940,7 @@ uncertainty statement for a convex-to-concave transition.  Its main strength is
 not a universally narrow interval.  It is the combination of finite-sample
 coverage, tolerance of nonsmooth and nonunique transitions, and a direct
 matrix-free implementation.  The matched comparison shows that targeting the
-feature can be much sharper than projecting a generic confidence box.  The
+feature can be much sharper than this generic confidence-box relaxation.  The
 logistic and DNase examples show the equally important other side: when the
 data do not support precise localization, the method says so.
 
@@ -880,10 +949,9 @@ data do not support precise localization, the method says so.
 The public repository contains the matrix-free implementation, frozen
 experiment configurations, raw trial-level outputs, summaries, figures, and
 verification manifests.  All reported numerical claims are generated from
-these artifacts.  The release test suite contains 228 tests, including 48
-specific to \SCI.  The release manifest verifies 1,565 files, and the SCI
-artifact verifier checks 60 frozen SCI files.  Commands for rebuilding this
-manuscript are given beside the source.
+these artifacts.  The test suite includes \SCI-specific regression tests, and
+the artifact verifier checks the frozen SCI files against their manifests.
+Commands for rebuilding this manuscript are given beside the source.
 
 \section*{CRediT authorship contribution statement}
 
@@ -908,31 +976,41 @@ and approved by the author, who assumes full responsibility for the manuscript.
 \section{Contrast construction}
 \label{app:contrasts}
 
-The implementation uses a fixed dyadic family.  For a scale $q$, a start index
-$s$, and separation multiplier $g\in\{1,2,4\}$, it selects left, middle, and
-right blocks of comparable size with separation $gq$.  Each block chord
-residual is a nonnegative average of elementary terms of the form
-\eqref{eq:chord}.  The exact weights account for irregular design spacing.
-Their sum is zero, so affine functions have zero contrast.  Convex functions
-give a nonnegative mean and concave functions a nonpositive mean.
+The implementation uses a fixed dyadic family.  For a block size $q$, a start
+index $s$, and separation multiplier $g\in\{1,2,4\}$, it averages the $q$
+elementary chord residuals formed by the index triples
+$(s+j,s+gq+j,s+2gq+j)$, $j=0,\ldots,q-1$.  On a uniform design this is
+\[
+ Z_{s,q,g}=\frac1q\sum_{j=0}^{q-1}
+ \left(\frac12Y_{s+j}-Y_{s+gq+j}+\frac12Y_{s+2gq+j}\right).
+\]
+For irregular designs, the two endpoint coefficients are the barycentric
+weights in \eqref{eq:chord}.  In both cases the contrast is a nonnegative
+average of elementary chord residuals.  Its coefficients sum to zero, so
+affine functions have zero contrast; convex functions give a nonnegative mean
+and concave functions a nonpositive mean.
 
-The family includes all admissible starts at each dyadic scale.  It is fixed
-from the design before the responses are read.  On a uniform design, prefix
-sums of $Y_i$ and $iY_i$ evaluate each block average in constant time.  The
-known-scale standard error is computed from the closed-form squared norm of the
-stored row.  Irregular designs use sparse index and weight arrays rather than a
-dense $M\times n$ matrix.
+At each $(q,g)$, starts are spaced by $hq$, where the default stride multiplier
+is $h=1$; the last admissible start is appended if it is not already on that
+grid.  The family is fixed from the design before the responses are read.  On a
+uniform design, prefix sums of $Y_i$ evaluate each three-block average in
+constant time.  The known-scale standard error follows from the closed-form
+squared norm of the row.  Irregular designs use compact index and weight
+calculations rather than a dense $M\times n$ matrix.
 
 \section{Proofs}
 \label{app:proofs}
 
 \begin{proof}[Proof of Lemma~\ref{lem:identified}]
-Because $m_2\in\I(f)$, the function is convex on $[A,m_2]$, hence on
-$[m_1,m_2]$.  Because $m_1\in\I(f)$, it is concave on $[m_1,B]$, hence on the
+Because $m_2\in\I(g)$, the function $g$ is convex on $[A,m_2]$, hence on
+$[m_1,m_2]$.  Because $m_1\in\I(g)$, it is concave on $[m_1,B]$, hence on the
 same interval.  A real-valued function that is both convex and concave on an
 interval is affine there.  For any $m\in[m_1,m_2]$, membership of $m_2$ gives
 convexity on $[A,m]$, while membership of $m_1$ gives concavity on $[m,B]$.
-Thus $m\in\I(f)$.
+Thus $m\in\I(g)$.  This proves the interval property.  Closedness does not
+follow.  For example, on $[0,1]$, let $g(x)=0$ for $x<1$ and $g(1)=-1$.
+Then $\I(g)=[0,1)$: the downward endpoint jump is compatible with concavity,
+but it prevents convexity on the full interval.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:known}]
@@ -942,26 +1020,30 @@ $\sigma\norm{w_T}$.  By \eqref{eq:critical} and a union bound,
   \Ph\{\ell_T\leq\mu_T\leq u_T\text{ for all }T\in\T\}
   \geq1-\alpha.
 \]
-Call this event $E$ and fix $m\in\I(f)$.  If $\ell_T>0$ and
-$a_T\geq m$, the support lies in the concave part of $f$, so
+Call this event $E$ and first fix an $m$ in the unclosed set inside
+\eqref{eq:design-target}.  Choose a compatible $g\in\mathcal G_x(\mu)$ with
+$m\in\I(g)$.  If $\ell_T>0$ and $a_T\geq m$, the support lies in the concave
+part of $g$, so
 $\mu_T\leq0$.  This contradicts $\ell_T\leq\mu_T$ on $E$.  Therefore every
 certified positive contrast has $a_T<m$, and $\widehat L\leq m$.  Likewise,
 if $u_T<0$ and $b_T\leq m$, the support lies in the convex part, so
 $\mu_T\geq0$, contradicting $\mu_T\leq u_T$.  Hence $m\leq\widehat U$.
-The argument holds for every $m\in\I(f)$ on the same event $E$, so
-$\I(f)\subseteq[\widehat L,\widehat U]=\widehat\C(Y)$.  The uniform bound
-follows because the probability of $E$ does not depend on $f$.
+The argument holds for every such $m$ on the same event $E$.  Since
+$[\widehat L,\widehat U]$ is closed, it also contains the closure
+$\I_x(\mu)$.  Moreover, if the target is nonempty, the strict inequalities
+$a_T<m<b_T$ for active signs imply $\widehat L<\widehat U$ on $E$ (with the
+inactive boundary cases following from $A<B$).  Hence the algorithm returns
+this interval, not the empty set.  The uniform bound follows because the
+probability of $E$ does not depend on $\mu$.
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:minimal}]
-A certified positive contrast rules out only points at or below its left
-endpoint by the stated sign logic.  Combining all such statements gives the
-largest lower limit $\widehat L$.  A certified negative contrast rules out only
-points at or above its right endpoint, giving the smallest upper limit
-$\widehat U$.  Thus every point in $[\widehat L,\widehat U]$ survives all
-certified implications, while every point outside violates at least one of
-them.  Any closed interval based only on these implications and containing all
-surviving points must contain $[\widehat L,\widehat U]$.
+A certified positive contrast rules out points at or below its left endpoint;
+a certified negative contrast rules out points at or above its right endpoint.
+Intersecting the resulting strict half-lines with $[A,B]$ gives the raw
+survivor set.  If $\widehat L<\widehat U$, its closure is exactly
+$[\widehat L,\widehat U]$.  If $\widehat L\geq\widehat U$, the two strict
+requirements are incompatible and the survivor set is empty.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:margin}]
@@ -978,7 +1060,7 @@ Condition \eqref{eq:margincondition} then implies $\ell_{T_-}>0$ and
 $u_{T_+}<0$.  Therefore
 $\widehat L\geq a_{T_-}\geq m_- - Kd$ and
 $\widehat U\leq b_{T_+}\leq m_+ + Kd$.  The simultaneous band event also gives
-$\I(f)\subseteq\widehat\C(Y)$ by Theorem~\ref{thm:known}.  The length bound
+$\I_x(\mu)\subseteq\widehat\C(Y)$ by Theorem~\ref{thm:known}.  The length bound
 follows.
 \end{proof}
 
@@ -1044,30 +1126,66 @@ using $\sigma$.  Combining this event with a contrast-band error budget
 $\alpha-\eta$ proves the result by a union bound.
 \end{proof}
 
-\begin{proof}[Proof sketch of Theorem~\ref{thm:hetero}]
-Let $D=\operatorname{diag}(\sigma_1^2,\ldots,\sigma_n^2)$.
-Anderson's inequality first removes the unknown translated mean from the lower
-tail of $Q=\norm{RY}^2$.  Diagonalizing
-$D^{1/2}RD^{1/2}$ writes the centered quadratic form as
-$\sum_j\lambda_jG_j^2$.  The block construction gives the needed lower bound
-on $\sum_j\lambda_j$; Assumption~\ref{ass:kappa} bounds
-$\max_j\lambda_j$ and $\sum_j\lambda_j^2$.  The weighted chi-squared
-lower-tail inequality of \citet{laurent2000adaptive} then gives
+\begin{proof}[Proof of Theorem~\ref{thm:hetero}]
+Let $D=\operatorname{diag}(\sigma_1^2,\ldots,\sigma_n^2)$ and
+$A_D=D^{1/2}RD^{1/2}$.  For $G\sim N(0,I_n)$, the centered quadratic form is
 \[
-  Q\geq\frac{n\bar\sigma^2}{2}
-  d_{n,\kappa,\eta}
+ Q_0=\norm{RD^{1/2}G}^2=G^\top A_DG
+     =\sum_j\lambda_jG_j^2,
 \]
-with probability at least $1-\eta$.  Multiplication by
-$2\kappa/(nd_{n,\kappa,\eta})$ and
-$\max_i\sigma_i^2\leq\kappa\bar\sigma^2$ proves the scale envelope.
-The \SCI coverage statement follows by the same error-budget union bound as in
-Theorem~\ref{thm:unknown}.
+where the $\lambda_j$ are the nonnegative eigenvalues of $A_D$.  Anderson's
+inequality for the centered Gaussian vector $RD^{1/2}G$ and the Euclidean ball
+in the range of $R$ gives
+\begin{equation}
+ \Ph\{Q\leq t\}\leq\Ph\{Q_0\leq t\},\qquad t\geq0.
+\label{eq:anderson-hetero}
+\end{equation}
+
+If observation $i$ belongs to a block of size $b_i\in\{2,3\}$, then
+$R_{ii}=1-1/b_i\geq1/2$.  Therefore
+\begin{equation}
+ \operatorname{tr}(A_D)=\operatorname{tr}(RD)
+ =\sum_iR_{ii}\sigma_i^2\geq\frac{n\bar\sigma^2}{2}.
+\label{eq:trace-lower}
+\end{equation}
+Because $R$ is an orthogonal projector and Assumption~\ref{ass:kappa} holds,
+\[
+ \lambda_{\max}(A_D)\leq\max_i\sigma_i^2
+ \leq\kappa\bar\sigma^2,
+ \qquad
+ \operatorname{tr}(A_D^2)
+ \leq\lambda_{\max}(A_D)\operatorname{tr}(A_D).
+\]
+Together with \eqref{eq:trace-lower}, these inequalities give
+$\lambda_{\max}(A_D)/\operatorname{tr}(A_D)\leq2\kappa/n$.
+The lower-tail inequality of \citet{laurent2000adaptive}, with
+$x=\log(1/\eta)$, now yields with probability at least $1-\eta$,
+\begin{align*}
+ Q_0
+ &\geq \operatorname{tr}(A_D)
+      -2\sqrt{x\operatorname{tr}(A_D^2)}\\
+ &\geq \operatorname{tr}(A_D)
+      \left(1-2\sqrt{\frac{2\kappa x}{n}}\right)\\
+ &\geq \frac{n\bar\sigma^2}{2}d_{n,\kappa,\eta}.
+\end{align*}
+The last step uses $d_{n,\kappa,\eta}>0$.  Combining this bound with
+\eqref{eq:anderson-hetero} gives the same lower bound for $Q$.  Hence
+\[
+ \widehat\sigma_{\max}^2
+ =\frac{2\kappa Q}{nd_{n,\kappa,\eta}}
+ \geq\kappa\bar\sigma^2\geq\max_i\sigma_i^2
+\]
+with probability at least $1-\eta$.  On this event every contrast standard
+error is bounded above by $\widehat\sigma_{\max}\norm{w_T}$.  Combining it with
+the contrast-band event of probability at least $1-(\alpha-\eta)$ proves the
+coverage statement by a union bound.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:replicate}]
-For each fixed $j$, the replicate contrasts $Z_{1j},\ldots,Z_{Rj}$ are iid
+For each fixed $j$, the replicate contrasts
+$Z_{1j},\ldots,Z_{N_{\rm rep},j}$ are iid
 univariate Gaussian.  The usual Student statistic therefore has a
-$t_{R-1}$ distribution whenever its variance is positive.  In a zero-variance
+$t_{N_{\rm rep}-1}$ distribution whenever its variance is positive.  In a zero-variance
 direction the sample mean equals the contrast mean almost surely, so the
 degenerate interval is exact.  A Bonferroni union bound over the $M$ two-sided
 intervals gives simultaneous coverage at least $1-\alpha$.  The deterministic
@@ -1079,17 +1197,16 @@ sign-inversion argument from Theorem~\ref{thm:known} completes the proof.
 All stochastic experiments use recorded seeds and frozen JSON configurations.
 The high-precision audit was run independently of the development simulations.
 For each cell, coverage is the fraction of responses whose \SCI set contains
-the known transition target.  Empty sets count as noncoverage.  Width is zero
-for an empty set and otherwise is the interval length; both the empty frequency
-and median width are therefore reported.
+the known transition target.  Empty sets count as noncoverage and are reported
+separately; width summaries use the nonempty sets.
 
-The \PBP feasibility problem uses the same observed design and shape definition
-as \SCI.  For a candidate cut $k$, the decision variables are a mean vector
-$\theta\in\R^n$ constrained to the pointwise confidence box.  Divided slopes
-of $\theta$ are required to be nondecreasing before $k$ and nonincreasing after
-$k$.  Feasibility is monotone on each side of the outer range, which permits a
-binary search over candidate cuts.  This baseline is exact for the sampled
-shape constraints and intentionally makes no smoothing assumption.
+The \PBP computation uses two families of linear feasibility problems.  One
+finds the longest prefix on which some vector in the pointwise box has
+nondecreasing divided slopes.  The other finds the earliest suffix on which
+some, potentially different, vector has nonincreasing divided slopes.
+Monotonicity of feasibility permits binary search.  The resulting outer range
+is a conservative discrete split relaxation because the two witnesses are not
+required to join at a common transition value.
 
 \bibliographystyle{plainnat}
 \bibliography{references}

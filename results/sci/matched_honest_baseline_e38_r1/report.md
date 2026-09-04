@@ -1,8 +1,13 @@
-# E38r1 SCI versus an honest confidence-region projection
+# E38r1 SCI versus a conservative pointwise-band baseline
 
 All frozen checks passed: **True**.
 
-PBP is our pointwise-band projection baseline, not an official implementation of Davies et al.
+PBP is our conservative discrete split relaxation, not an exact projection onto
+the SCI function class and not an official implementation of Davies et al. This
+wording was corrected after external audit; the frozen trial data are unchanged.
+
+Coverage intervals and paired bootstrap intervals for width reduction are in
+`uncertainty_report.md`.
 
 | signal | design | n | SCI cov. | PBP cov. | SCI width | PBP width | reduction |
 |---|---|---:|---:|---:|---:|---:|---:|

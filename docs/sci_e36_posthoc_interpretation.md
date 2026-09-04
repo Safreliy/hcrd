@@ -1,7 +1,10 @@
 # E36 result note: why the empty-set gate failed
 
-This note was written after the frozen E36 evaluation. It does not change the
-protocol, code, data, or `all_pass: false` decision in the manifest.
+This note was written after the frozen E36 evaluation. The frozen protocol and
+`all_pass: false` decision remain unchanged. A later external audit found one
+trial whose exclusion boundaries were equal. Strict sign inversion makes that
+trial empty, not a nonempty zero-width interval. The corrected row and manifest
+record this change; coverage and all headline ranges are unchanged.
 
 ## Result
 
@@ -22,8 +25,8 @@ failure event. The theorem states
 
 `P{SCI is empty} <= alpha`
 
-when the true transition set is nonempty. It does not state that SCI is never
-empty. Here `alpha=0.05`, and every observed empty-set frequency was below
+when the design-level transition target is nonempty. It does not state that SCI
+is never empty. Here `alpha=0.05`, and every observed empty-set frequency was below
 0.05. The upper end of every cellwise 95% Wilson interval was also below 0.05.
 
 Thus the zero-empty requirement was stricter than the theorem. It remains a

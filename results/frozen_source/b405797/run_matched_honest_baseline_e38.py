@@ -253,11 +253,11 @@ def evaluate(output_dir: Path, workers: int) -> None:
 
     report_path = output_dir / "report.md"
     lines = [
-        "# E38r1 SCI versus a conservative pointwise-band baseline",
+        "# E38r1 SCI versus an honest confidence-region projection",
         "",
         f"All frozen checks passed: **{gates['all_pass']}**.",
         "",
-        "PBP is our conservative discrete split relaxation, not an exact projection onto the SCI function class or an official implementation of Davies et al.",
+        "PBP is our pointwise-band projection baseline, not an official implementation of Davies et al.",
         "",
         "| signal | design | n | SCI cov. | PBP cov. | SCI width | PBP width | reduction |",
         "|---|---|---:|---:|---:|---:|---:|---:|",

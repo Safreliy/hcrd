@@ -23,9 +23,10 @@ booster.
 The practical problem is trustworthy transition-location uncertainty when the
 S-shape may contain a cusp, one-sided onset, affine region, or jump. Smooth
 residual-bootstrap intervals can be narrow but badly undercover in these
-regimes. Under the stated Gaussian assumptions, SCI covers the entire set of
-admissible inflection locations without assuming derivatives, continuity at
-the transition, or a unique transition.
+regimes. Under the stated Gaussian assumptions, SCI covers every transition
+admitted by at least one shape-constrained continuation of the sampled mean
+vector, without assuming derivatives, continuity at the transition, or a
+unique transition.
 
 The theorem package covers known noise scale, unknown constant noise, bounded
 heteroskedasticity, and independent replicate curves. In the frozen E33
@@ -38,12 +39,13 @@ theorem allowance, but the failed diagnostic remains visible. SCI can also
 return a wide or full domain when the data contain too little curvature
 information; this is a reported power boundary.
 
-The matched E38r1 comparison adds an exact pointwise-band projection baseline
-for the same sampled shape class. SCI reduced median width by 19.4%--75.7% for
-the cusp, onset, and jump signals while both methods retained coverage. Neither
-method localized the weak logistic signal. This baseline is our implementation
-of generic confidence-region projection, not the official method of Davies et
-al.
+The matched E38r1 comparison adds a conservative pointwise-band split
+relaxation under the same Gaussian model. SCI reduced median width by
+19.4%--75.7% for the cusp, onset, and jump signals while both methods retained
+coverage. Neither method localized the weak logistic signal. This deliberately
+simple baseline is neither an exact projection onto the SCI function class nor
+the official method of Davies et al. Post-audit Wilson and paired-bootstrap
+intervals quantify the Monte Carlo uncertainty from 200 responses per cell.
 
 ![Frozen SCI coverage and width comparison](paper/sci/figures/e33_frontier_coverage_width.png)
 
@@ -64,9 +66,10 @@ not identify a reliable upper limit within the observed range.
 
 The public implementation is now in the standalone `shapecontrast` namespace.
 It does not create a dense contrast matrix. In the scaling audit, it evaluated
-5,999,750 contrasts for one million observations in 0.73 seconds and stored
-the family in 53.4 MiB on the benchmark machine. The equivalent dense matrix
-would require about 44,702 GiB.
+5,999,750 contrasts for one million observations in 0.73 seconds. Its compact
+contrast-family metadata used 53.4 MiB on the benchmark machine; this is not a
+total peak-memory measurement. The equivalent dense matrix would require about
+44,702 GiB.
 
 Start with [`docs/sci_artifact_inventory.md`](docs/sci_artifact_inventory.md),
 the [publication blueprint](docs/hct_shape_inference_publication_blueprint_ru.md),

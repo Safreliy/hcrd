@@ -49,7 +49,17 @@
   "result_hashes": {
     "trial_scores": "e8eb31a6d8b403cbfb1a54301a73a9faf09c08e00ec5254375c9309a5042160a",
     "summary": "fd529741c12764459844ba503297e8f18f95c4dcd6302aaa0fef6dd3b1f8efb3",
-    "report": "2fb853cad81ab76e33e4814e02b27dfc5f1be39fc86f26289032e54c72bae56c"
+    "report": "421362866054edae37cc26deb92adaad849fc3d24b79a61d11c4dcda2369a8aa"
+  },
+  "post_audit_supplement": {
+    "clarification": "PBP is a conservative discrete split relaxation, not an exact projection onto the SCI function class.",
+    "frozen_trials_changed": false,
+    "script": "experiments/sci/summarize_e38_uncertainty.py",
+    "script_sha256": "3eb9d8ee01e84b3d431948f811eddf9af026f8a69c4376f98ef1a7ea5a27dfd9",
+    "uncertainty_summary": "results/sci/matched_honest_baseline_e38_r1/uncertainty_summary.csv",
+    "uncertainty_summary_sha256": "57cf6e0eec0f8c7d681428a85e0e1bb93e1d50f964ef6c378769841ba10503ef",
+    "uncertainty_report": "results/sci/matched_honest_baseline_e38_r1/uncertainty_report.md",
+    "uncertainty_report_sha256": "826491dc1fc97b3989d3221495a88a5414913404cb08725b266e0af6c45acaa9"
   },
   "summary": [
     {

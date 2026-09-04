@@ -211,7 +211,7 @@ def evaluate(output_dir: Path) -> None:
                         )
                         left[~np.any(positive, axis=1)] = 0.0
                         right[~np.any(negative, axis=1)] = 1.0
-                        empty = left >= right
+                        empty = left > right
                         covered = (~empty) & (left <= 0.3) & (0.3 <= right)
                         joint = np.all(np.abs(estimates - truth) <= radius, axis=1)
                         width = np.where(empty, np.nan, right - left)

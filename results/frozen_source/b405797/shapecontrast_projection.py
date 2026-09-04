@@ -1,4 +1,4 @@
-"""An honest pointwise-band baseline for transition sets."""
+"""An honest confidence-region projection baseline for transition sets."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from scipy.stats import norm
 
 @dataclass(frozen=True)
 class PointwiseProjectionConfidenceSet:
-    """Outer set from a conservative discrete split relaxation."""
+    """Projection of a simultaneous pointwise band onto S-shaped sequences."""
 
     left: float
     right: float
@@ -42,15 +42,13 @@ def gaussian_pointwise_shape_projection(
     noise_scale: float,
     alpha: float,
 ) -> PointwiseProjectionConfidenceSet:
-    """Project an exact Gaussian pointwise band onto a split relaxation.
+    """Project an exact Gaussian pointwise band onto S-shaped sequences.
 
     This is a generic, deliberately simple comparison method. It uses a
     Bonferroni band for every sampled mean value. A candidate cut is retained
-    when the band contains a discretely convex prefix and, in a separate
-    feasibility problem, a discretely concave suffix. The two feasible pieces
-    need not share a transition value. Thus this is a conservative relaxation,
-    not an exact projection onto the continuous transition class. It remains
-    an outer confidence set under the same known-scale Gaussian model.
+    when some sequence inside that band is discretely convex before the cut
+    and discretely concave after it. The result is an outer confidence set for
+    a convex-to-concave transition under the same known-scale Gaussian model.
     """
 
     locations = np.asarray(x, dtype=float)

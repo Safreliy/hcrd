@@ -87,6 +87,36 @@ def test_inversion_uses_support_extrema_of_certified_signs():
     assert confidence_set.right == family.support_right[-2]
 
 
+def test_touching_exclusion_boundaries_leave_no_candidate_point():
+    x = np.arange(1, 8, dtype=float) / 8.0
+    family = build_shape_contrast_family(x, block_sizes=(1,))
+    positive_index = int(np.flatnonzero(family.start_index == 2)[0])
+    negative_index = int(np.flatnonzero(family.start_index == 0)[0])
+    assert family.support_left[positive_index] == family.support_right[negative_index]
+
+    estimate = np.zeros(family.contrast_count)
+    lower = np.full(family.contrast_count, -1.0)
+    upper = np.full(family.contrast_count, 1.0)
+    lower[positive_index] = 0.1
+    upper[negative_index] = -0.1
+    band = ShapeContrastBand(
+        estimate=estimate,
+        lower=lower,
+        upper=upper,
+        radius=np.ones(family.contrast_count),
+        critical_value=1.0,
+        alpha=0.05,
+        noise_scale=1.0,
+    )
+
+    confidence_set = invert_s_shaped_inflection(
+        family, band, domain=(0.0, 1.0)
+    )
+    assert confidence_set.left == confidence_set.right
+    assert confidence_set.empty
+    assert confidence_set.interval is None
+
+
 def test_projection_cannot_increase_error_when_truth_is_inside_set():
     x = np.arange(1, 201, dtype=float) / 201.0
     truth = x - (x - 0.5) ** 3

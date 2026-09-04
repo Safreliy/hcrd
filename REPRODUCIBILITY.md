@@ -38,7 +38,8 @@ The six frozen experiment layers are:
 - E35: bounded unknown heteroskedasticity and the LIDAR sensitivity analysis.
 - E36: 5,000 fresh known-scale responses in each of 16 benchmark cells;
 - E37: exact replicate-curve inference on 11 public DNase assay runs.
-- E38r1: matched comparison with an exact pointwise-band projection baseline.
+- E38r1: matched comparison with a conservative pointwise-band split baseline,
+  plus post-audit Wilson and paired-bootstrap uncertainty intervals.
 
 Run the new matrix-free, high-precision, and replicate-data checks with:
 

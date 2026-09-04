@@ -159,17 +159,19 @@ is retained in the manifest and explained in
 ### E38r1: matched honest baseline
 
 The published `ShapeChange` bootstrap uses a smoother model than SCI. E38r1
-therefore adds pointwise-band projection (PBP), our exact finite-sample
-baseline for the same sampled convex-to-concave class. PBP projects a
-simultaneous Gaussian confidence box for the whole mean vector through linear
-shape-feasibility problems. It is related to Davies et al., but it is not
+therefore adds a pointwise-band baseline (PBP) with a finite-sample guarantee
+under the same Gaussian model. PBP separately checks convex prefixes and
+concave suffixes inside a simultaneous confidence box. The two witnesses need
+not join, so this is a conservative split relaxation, not an exact projection
+onto the SCI function class. It is related to Davies et al., but it is not
 their official algorithm.
 
 Both methods retained coverage in all 16 frozen cells. SCI reduced median
 width by `57.9%` to `75.7%` for the cusp, `19.4%` to `32.8%` for the onset,
 and `40.0%` to `50.0%` for the jump. Neither method improved on the other in
 the weak logistic cells; both were essentially the full observed range. All
-pre-specified E38r1 gates passed.
+pre-specified E38r1 gates passed. Post-audit Wilson and paired-bootstrap
+intervals now show the Monte Carlo uncertainty from 200 responses per cell.
 
 ## 5. Real-data illustrations
 
