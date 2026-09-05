@@ -1,0 +1,60 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75em}
+\pagestyle{empty}
+\begin{document}
+\textbf{To the Editors of Statistics: A Journal of Theoretical and Applied Statistics}
+
+Dear Editors,
+
+Please consider my manuscript, ``Finite-sample confidence sets for nonsmooth
+convex-to-concave transitions,'' as an original article in \emph{Statistics}.
+
+The paper addresses an uncertainty problem in shape-constrained regression:
+which transition locations can be ruled out when a curve changes from convex
+to concave, but the change may involve a kink, a jump, or a flat region?
+A point estimate does not answer this question, and inference built for a
+smooth, unique inflection need not remain valid in these settings.
+
+The proposed method, shape-contrast inversion (SCI), combines simultaneous
+bounds for local chord contrasts with a direct exclusion rule. Its target is
+the full set of transitions admitted by shape-constrained continuations of
+the fixed-design mean vector. Under the stated Gaussian assumptions, the
+confidence set covers this target uniformly at finite sample sizes.
+Extensions address unknown constant noise, bounded variance heterogeneity,
+and independent replicate curves with within-curve dependence.
+
+The contribution is not a new point estimator or the first method for
+inflection-point inference. It is a directly computable confidence procedure
+for a set-valued transition target that permits nonsmoothness and nonuniqueness.
+The paper also gives localization bounds under explicit contrast-margin
+conditions, without claiming minimax optimality.
+
+An 80,000-response simulation audit checks full-set coverage. Comparisons
+include a published smooth-bootstrap method and a conservative baseline with
+a matched coverage guarantee. They report both useful localization on
+nonsmooth signals and weak-signal cases where SCI remains wide. LIDAR and
+replicated DNase examples illustrate the dependence on noise assumptions.
+Code and numerical artifacts are archived in Zenodo at
+\url{https://doi.org/10.5281/zenodo.22338783} (release sci-v1.0.0).
+A matrix-free implementation supports the statistical contribution.
+
+I believe this combination of finite-sample theory, explicit limitations, and
+applied examples fits the journal's theoretical and applied scope. I am the
+sole author and conducted this research independently. This manuscript is not
+under consideration by another journal. The work received no funding, and I report no competing
+interests. The manuscript includes a declaration of generative AI use.
+
+Thank you for considering the manuscript.
+
+Sincerely,\\
+Saveliy Baturin\\
+Independent Researcher\\
+\href{mailto:saveliy.xo@gmail.com}{saveliy.xo@gmail.com}
+\end{document}

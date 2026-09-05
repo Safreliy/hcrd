@@ -153,7 +153,7 @@ def main() -> None:
     axis.text(
         0.135,
         0.940,
-        "Find reliable local shape",
+        "Find reliable contrast signs",
         fontsize=12.2,
         fontweight="bold",
         color=DARK,
@@ -242,7 +242,7 @@ def main() -> None:
     axis.text(
         0.53,
         0.477,
-        r"convex $\Rightarrow$ transition right of $a_T$",
+        r"positive mean contrast $\Rightarrow$ transition right of $a_T$",
         color=GREEN,
         fontsize=8.8,
         fontweight="bold",
@@ -286,7 +286,7 @@ def main() -> None:
     axis.text(
         0.53,
         0.397,
-        r"concave $\Rightarrow$ transition left of $b_T$",
+        r"negative mean contrast $\Rightarrow$ transition left of $b_T$",
         color=BLUE,
         fontsize=8.8,
         fontweight="bold",
@@ -335,7 +335,7 @@ def main() -> None:
     axis.text(
         0.135,
         0.247,
-        "Keep what the data cannot rule out",
+        "Keep the surviving locations",
         fontsize=12.2,
         fontweight="bold",
         color=DARK,
@@ -344,14 +344,15 @@ def main() -> None:
     axis.text(
         0.135,
         0.205,
-        "Intersect the surviving locations from every certified window.",
+        "Intersect the sign-based constraints and take the closure.",
         fontsize=9.25,
         color=TEXT,
         va="top",
     )
 
-    final_x0, final_x1 = 0.17, 0.87
-    final_left, final_right = 0.37, 0.73
+    # Keep the same coordinate scale: intersection must not widen either bound.
+    final_x0, final_x1 = x0, x1
+    final_left, final_right = a_location, b_location
     final_y = 0.120
     axis.plot(
         [final_x0, final_left],
@@ -382,7 +383,7 @@ def main() -> None:
         lw=2.0,
     )
     axis.text(
-        0.270,
+        (final_x0 + final_left) / 2,
         final_y,
         "ruled out",
         ha="center",
@@ -391,17 +392,17 @@ def main() -> None:
         color="#64748B",
     )
     axis.text(
-        0.550,
+        (final_left + final_right) / 2,
         final_y,
         "95% SCI set",
         ha="center",
         va="center",
-        fontsize=9.5,
+        fontsize=8.6,
         fontweight="bold",
         color="white",
     )
     axis.text(
-        0.800,
+        (final_right + final_x1) / 2,
         final_y,
         "ruled out",
         ha="center",

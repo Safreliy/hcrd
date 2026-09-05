@@ -21,8 +21,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 1021,
-      "sha256": "1d361bdebd609c1148c814d06aa973081e6a177a548676c3cddd740f5a1f46ad"
+      "bytes": 1249,
+      "sha256": "1c00cbce8d9ee116109699e7530073bab8a97186633e9bee0250fab869756210"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -41,8 +41,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 14260,
-      "sha256": "c55ad54bff4a2a6417599359e0c64bcde813c8252507d646ca74f4a1ceee458c"
+      "bytes": 14661,
+      "sha256": "c82a76e8fda4e235c051fbe79ef8748109ff1eef9033b2ae958b550cb9203976"
     },
     {
       "path": "REPRODUCIBILITY.md",
@@ -996,8 +996,8 @@
     },
     {
       "path": "experiments/sci/generate_method_overview.py",
-      "bytes": 10033,
-      "sha256": "c02f2feafe3603c5ba6db06649674592d3c66a2208ee30f583e77e3e2a6a760d"
+      "bytes": 10215,
+      "sha256": "18fa50a6a1bc102da93dcf40215d9e1c21d6e41d9d6b2782f7e33d1adfd85d4c"
     },
     {
       "path": "experiments/sci/run_dnase_replicate_e37.py",
@@ -1261,13 +1261,13 @@
     },
     {
       "path": "paper/sci/JOURNAL_PREPARATION.md",
-      "bytes": 3636,
-      "sha256": "5282ce1e08cd6d094ca00abead15db315baf0070e147dd3880e8994e7bbe79fe"
+      "bytes": 5687,
+      "sha256": "b5ca4667ced22a616942c5a1c90f83899a6c68572b48d7fd759b9b6c7f5c9e93"
     },
     {
       "path": "paper/sci/README.md",
-      "bytes": 2342,
-      "sha256": "d9ef06ac85b85c617cddc210affac5d18b72b41d65384395dbfe859a09a7d2e6"
+      "bytes": 3458,
+      "sha256": "cd9a2e34c7e9ccd90cc17f48bb2df78b48bb935d917dc7dfcf5ffe67c9fb1584"
     },
     {
       "path": "paper/sci/TEMPLATE_PROVENANCE.md",
@@ -1276,8 +1276,18 @@
     },
     {
       "path": "paper/sci/check_submission.py",
-      "bytes": 5850,
-      "sha256": "4d7540cb69636b8f903346918a15076f5d124fa084f7bc391d70a22d7ca492c2"
+      "bytes": 6793,
+      "sha256": "5adbc639ce983ed2bb969395a78250036d59f6419c50515e1b95b9d7642cfd52"
+    },
+    {
+      "path": "paper/sci/cover_letter.pdf",
+      "bytes": 102816,
+      "sha256": "72dae19d3664e602df847c1327a83569b0938ed91a8eabb563aa912f2b1282cb"
+    },
+    {
+      "path": "paper/sci/cover_letter.tex",
+      "bytes": 2911,
+      "sha256": "72f81effd55912ba8b1bb032e5154568155fd59c358fcff7531e0debdbabffe1"
     },
     {
       "path": "paper/sci/figures/dnase_replicate_sci.png",
@@ -1306,13 +1316,13 @@
     },
     {
       "path": "paper/sci/figures/sci_method_overview.pdf",
-      "bytes": 46435,
-      "sha256": "68888b6187180f87322751d95199891a080b0c8bb0ed7df0dbd1f2bee1e6b0f2"
+      "bytes": 46846,
+      "sha256": "aff27e9484200637c6de229dd9097f640cc12e95b3908112d006c6aad9c0952b"
     },
     {
       "path": "paper/sci/figures/sci_method_overview.png",
-      "bytes": 164058,
-      "sha256": "761dac228e3bcc88ee99dae15f430e3209e4e787e2eadff3ed16f1f5d220d643"
+      "bytes": 172756,
+      "sha256": "bc28a16a7511ed9ed1473466b8d7f27051e1cbc85dcc6a7a08caf816d46b1fc0"
     },
     {
       "path": "paper/sci/interact.cls",
@@ -1321,18 +1331,18 @@
     },
     {
       "path": "paper/sci/manuscript.pdf",
-      "bytes": 762973,
-      "sha256": "dab1a045c4ede4e9b6f0e7c7145e249ee3528b02d965ab00ee722dd7412d5429"
+      "bytes": 766376,
+      "sha256": "941408c4f29319187a8087d93848f6380b13eed6606d6a0415b4258c5f906e2c"
     },
     {
       "path": "paper/sci/manuscript.tex",
-      "bytes": 64171,
-      "sha256": "c999f5c0cb501e64b75911bf85db8c4fc4f5eee6c25e8cd7925429e3a1b78132"
+      "bytes": 65282,
+      "sha256": "0f5ec5e8509422380ba9f0764c1fa2c12ee6f54df5c6c86dda6cee5c2fc3e11a"
     },
     {
       "path": "paper/sci/manuscript_plain_english.md",
-      "bytes": 10948,
-      "sha256": "1f2adefb6ceac690186c696ba24995635d1738c4460e4b35dad9d536f9f9fb3a"
+      "bytes": 11260,
+      "sha256": "e62003836979ca2a70cf50c9ae87eba13899bde78658d5b68e6cacdc26b6c502"
     },
     {
       "path": "paper/sci/references.bib",
@@ -1347,7 +1357,7 @@
     {
       "path": "paper/sci/word_count.tex",
       "bytes": 5,
-      "sha256": "e9a46ef37f9b26e53a170fcd7e061ede6375c6523a1340d4af314e0d1fd9acdf"
+      "sha256": "ec5d244e2041c8f7755d3cac64d4bc8868adad1f0024632d9124daadc0496ff7"
     },
     {
       "path": "paper/signal_processing/README.md",

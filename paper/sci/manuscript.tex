@@ -76,9 +76,8 @@ coverage was 97.70\%--98.04\% at a 95\% nominal level.  Against a conservative
 pointwise-band split baseline, \SCI reduced median width among nonempty
 outputs by 19.4\%--75.7\% for cusp, onset, and jump signals.  Both methods
 remained wide for a weak logistic signal.  LIDAR and replicated DNase examples
-illustrate the role of noise assumptions.  A matrix-free implementation
-processes one million observations in less than one second on the benchmark
-machine.
+illustrate noise assumptions.  A matrix-free implementation evaluates local contrasts
+for one million observations in less than one second on the benchmark machine.
 \end{abstract}
 
 \begin{keywords}
@@ -131,8 +130,9 @@ irregular fixed designs.  The output should also be usable as an uncertainty
 layer around a modern S-shaped point estimate.
 
 Our method, shape-contrast inversion (\SCI), starts from local chord
-inequalities.  A positive chord residual supports convexity on its interval; a
-negative residual supports concavity.  We construct simultaneous confidence
+inequalities.  A positive mean contrast rules out a wholly concave support; a
+negative mean contrast rules out a wholly convex support.  Neither sign alone
+establishes the shape over the entire support.  We construct simultaneous confidence
 bounds for a fixed collection of averaged residuals.  Certified positive signs
 exclude transition locations to their left, while certified negative signs
 exclude locations to their right.  Inverting these statements gives an outer
@@ -155,7 +155,8 @@ The contributions are as follows.
   \item We give a matrix-free implementation and compare \SCI with both a
   published smooth-bootstrap method and a matched honest split baseline.
   \item We report weak-information cases as well as successes.  A wide set is
-  an intended answer when the data cannot support precise localization.
+  a valid output when the chosen contrasts and calibration do not yield
+  enough sign evidence for precise localization.
 \end{enumerate}
 
 The rest of the paper is organized as follows.  Section~\ref{sec:related}
@@ -365,11 +366,13 @@ The \SCI output is
 \label{eq:sci}
 \end{equation}
 
-The construction has a simple interpretation.  A reliably convex interval
-cannot lie wholly after a valid transition, so its left endpoint gives a lower
-limit.  A reliably concave interval cannot lie wholly before a valid
-transition, so its right endpoint gives an upper limit.  Only simultaneous
-sign statements are inverted.
+The construction has a simple interpretation.  A certified positive mean
+contrast rules out a wholly concave support.  Its support therefore cannot lie
+wholly after a valid transition, and its left endpoint gives a lower limit.
+A certified negative mean contrast similarly rules out a wholly convex
+support, and its right endpoint gives an upper limit.  These statements
+certify contrast signs, not convexity or concavity over an entire interval.
+Only simultaneous sign statements are inverted.
 
 Figure~\ref{fig:sci-method} gives a deliberately simple view of the
 construction.  It suppresses the calibration details and keeps the three ideas
@@ -383,9 +386,11 @@ Theorem~\ref{thm:known}.
 \caption{A plain-language overview of \SCI.  (1) Endpoint chords create signed
 local residual lobes: the chord is above a convex segment and below a concave
 segment.  The implementation averages these residuals and calibrates all fixed
-windows together.  (2) Certified convexity
-rules out transition locations on the left, while certified concavity rules
-out locations on the right.  (3) Intersecting all surviving locations gives
+windows together.  (2) A certified positive mean contrast rules out transition
+locations at or to the left of its support's left endpoint; a certified
+negative mean contrast rules out locations at or to the right of its support's
+right endpoint.  Neither sign certifies the shape over the whole support.
+(3) Taking the closure of the surviving locations gives
 the \SCI confidence set.  This schematic illustrates the inversion logic; it
 is not a substitute for the coverage proof.}
 \label{fig:sci-method}
@@ -744,8 +749,10 @@ best possible pointwise-band projection.
 We use four benchmark signals from the S-shaped estimation study of
 Feng et al.~\citep{feng2022sshaped}: a cusp, a one-sided onset, a jump, and a smooth logistic
 curve.  The first three stress nonsmooth behavior; the logistic signal is the
-smooth reference case.  Designs are either uniform or sampled from a
-$\operatorname{Beta}(4,8)$ distribution.  Sample sizes are $n=500$ and
+smooth reference case.  The fixed designs use either equally spaced points
+$x_i=i/(n+1)$ or the $i/(n+1)$ quantiles of a $\operatorname{Beta}(4,8)$
+distribution.  In all three experimental stages, the design is held fixed
+within each cell; only the responses are regenerated.  Sample sizes are $n=500$ and
 $n=1000$, the Gaussian standard deviation is $0.1$, and the nominal confidence
 level is 95\%.
 
@@ -790,9 +797,10 @@ Logistic & 0.9776--0.9798 & 0.9990--1.0000 & 0.0006\\
 The widths contain the main scientific message.  The jump is localized very
 sharply, the cusp moderately, and the one-sided onset only partly.  The weak
 logistic curvature does not produce reliable local signs, so the answer is
-almost the whole design range.  This is not a computational failure.  It is the
-honest statement that the chosen data and noise level do not identify the
-transition precisely.
+almost the whole design range.  For this contrast family and calibration,
+the weak logistic signal does not yield sufficiently strong sign evidence for
+precise localization.  This is a limitation of the procedure in these cells,
+not a lower bound on the precision attainable by every valid method.
 
 One pre-specified diagnostic, frozen before the high-precision audit, required
 zero empty sets.  It failed: empty-set
@@ -837,8 +845,8 @@ among each method's nonempty outputs by 19.4\%--75.7\%.  For the weak logistic
 signal, both methods returned the same
 nearly full range.  This experiment isolates the useful gain: direct
 feature-specific inversion can be much sharper than projecting a generic
-confidence box, but it cannot manufacture information when curvature is too
-weak.
+confidence box, while offering no width improvement for this weak logistic
+signal.
 
 \begin{table}[htbp]
 \centering
@@ -886,7 +894,7 @@ nonempty leaves the overall reduction range for the 12 informative cells at
 $n=500$, where the reduction changes from 40.0\% to 33.3\%.
 
 For this matched experiment, both procedures were restricted to the observed
-design range $[x_1,x_n]$.  This matters for the random Beta design: its observed
+design range $[x_1,x_n]$.  This matters for the fixed Beta-quantile design: its observed
 range is shorter than $[0,1]$.  The high-precision audit in
 Table~\ref{tab:e36} instead used the full scientific domain $[0,1]$.
 
@@ -953,8 +961,8 @@ lower limit, while they do not supply a reliable upper limit inside the
 observed range.
 
 The exact statement assumes independent Gaussian replicate curves with a
-common mean and covariance.  With only 11 runs, the interval is necessarily
-conservative.  Treating all 176 readings as independent would give a narrower
+common mean and covariance.  With 11 runs, this SCI interval is wide.
+Treating all 176 readings as independent would give a narrower
 but invalid answer because technical duplicates and concentrations from the
 same run are correlated.
 
@@ -979,13 +987,18 @@ assuming a smooth or unique inflection.  A
 researcher can attach this set to an S-shaped point estimate and distinguish
 three outcomes:
 \begin{enumerate}[leftmargin=*]
-  \item a narrow set, meaning that the data certify local shape signs close to
-  the fitted transition;
-  \item a one-sided or wide set, meaning that only part of the location is
-  identified; and
+  \item a narrow set, meaning that certified contrast signs place nearby
+  lower and upper limits on compatible transition locations;
+  \item a one-sided or wide set, meaning that the chosen contrasts and
+  calibration provide only one-sided or limited localization; and
   \item an empty set, which may motivate a model check while remaining a
   controlled type-I event under the assumed model.
 \end{enumerate}
+
+The identified set $\I_x(\mu)$ describes ambiguity even if the mean vector
+were known.  The confidence set $\widehat\C(Y)$ also reflects noise and the
+procedure's conservativeness.  Its width alone does not establish the best
+precision attainable by other valid methods.
 
 This addresses the gap exposed by the experiments.  A smooth bootstrap can be
 sharp when its assumptions hold but fail badly on nonsmooth signals.  A generic
@@ -1031,13 +1044,16 @@ not a universally narrow interval.  It is the combination of finite-sample
 coverage, tolerance of nonsmooth and nonunique transitions, and a direct
 matrix-free implementation.  The matched comparison shows that targeting the
 feature can be much sharper than this generic confidence-box relaxation.  The
-logistic and DNase examples show the equally important other side: when the
-data do not support precise localization, the method says so.
+logistic and DNase examples also show cases where the chosen contrasts and
+calibration yield only limited localization.  Coverage does not imply optimal
+width, and these examples do not establish impossibility for other methods.
 
 \section*{Data availability statement}
 
-The code and simulation results supporting this study are openly available
-at \url{https://github.com/Safreliy/hcrd}.  The repository contains the
+The code and simulation results supporting this study are openly archived in
+Zenodo, release \texttt{sci-v1.0.0}, at
+\url{https://doi.org/10.5281/zenodo.22338783}.  The development repository is
+\url{https://github.com/Safreliy/hcrd}.  The archive contains the
 matrix-free implementation, frozen
 experiment configurations, raw trial-level outputs, summaries, figures, and
 verification manifests under \texttt{results/sci} and \texttt{results/hct}.
@@ -1073,8 +1089,9 @@ and approved by the author, who assumes full responsibility for the manuscript.
 
 \section*{Notes on contributor}
 
-Saveliy Baturin is an independent researcher working on statistical inference
-and shape-constrained methods.
+Saveliy Baturin holds a master's degree in applied mathematics and is Head of
+Machine Learning at Postgres Professional. His research interests include
+statistical inference, shape-constrained methods, and machine learning.
 
 \FloatBarrier
 \bibliographystyle{tfnlm}
@@ -1095,7 +1112,8 @@ $(s+j,s+gq+j,s+2gq+j)$, $j=0,\ldots,q-1$.  On a uniform design this is
 \]
 For irregular designs, the two endpoint coefficients are the barycentric
 weights in \eqref{eq:chord}.  In both cases the contrast is a nonnegative
-average of elementary chord residuals.  Its coefficients sum to zero, so
+average of elementary chord residuals.  Its weights satisfy both
+$\sum_i w_{T,i}=0$ and $\sum_i w_{T,i}x_i=0$, so
 affine functions have zero contrast; convex functions give a nonnegative mean
 and concave functions a nonpositive mean.
 
@@ -1436,13 +1454,8 @@ Logistic & Beta & 1000 & .000 & .000 & 0.0\% & 0.0\%\\
 \bottomrule
 \end{tabular}
 \end{table}
-The \PBP computation uses two families of linear feasibility problems.  One
-finds the longest prefix on which some vector in the pointwise box has
-nondecreasing divided slopes.  The other finds the earliest suffix on which
-some, potentially different, vector has nonincreasing divided slopes.
-Monotonicity of feasibility permits binary search.  The resulting outer range
-is a conservative discrete split relaxation because the two witnesses are not
-required to join at a common transition value.
+The \PBP implementation uses binary search over convex prefixes and concave
+suffixes, solving linear feasibility problems inside the pointwise box.
 \FloatBarrier
 
 \end{document}

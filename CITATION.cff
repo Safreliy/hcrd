@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use HCRD, please cite this software release and the accompanying manuscript."
+message: "If you use SCI or HCRD, please cite this archived software release and the relevant manuscript."
 title: "HCRD: Reference Implementation and Reproducibility Archive"
 type: software
 authors:
@@ -7,18 +7,22 @@ authors:
     given-names: Saveliy
     affiliation: Independent Researcher
     email: saveliy.xo@gmail.com
-version: 0.1.0
-date-released: 2026-08-30
+version: sci-v1.0.0
+date-released: 2026-09-05
 license: MIT
 repository-code: "https://github.com/Safreliy/hcrd"
-doi: "10.5281/zenodo.22171977"
+doi: "10.5281/zenodo.22338783"
 abstract: >-
   Reference implementation and reproducibility archive for Hierarchical
   Convexity-Run Decomposition (HCRD), a nonlinear geometric multiscale
   representation of sampled curves. The archive includes tests, experimental
   protocols, compact outputs, and materials supporting finite-sample recovery
-  results and downstream validation studies.
+  results and downstream validation studies. This release also includes
+  shape-contrast inversion (SCI), finite-sample transition confidence sets,
+  and the associated frozen numerical experiments.
 keywords:
+  - shape-contrast inversion
+  - finite-sample inference
   - signal decomposition
   - discrete curvature
   - convexity

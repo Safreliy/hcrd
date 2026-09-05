@@ -41,11 +41,24 @@ the mathematical and empirical discussion readable during peer review.
 ## Before the author submits
 
 - Confirm the short biographical note and current affiliation/email; add an
-  ORCID if available. No ORCID, degree, employer, or funding source was invented.
+  ORCID if available. The biography uses the author's stated master's degree
+  in applied mathematics and role as Head of Machine Learning at Postgres
+  Professional. The author confirmed that this research was conducted
+  independently, so the manuscript affiliation remains Independent Researcher.
+  Employment is biographical context, not an institutional affiliation for
+  this work. No ORCID, university, or funding source was invented.
 - Review the existing generative-AI disclosure and responsibility statement.
-- The repository hyperlink is supplied for data and code. A permanent archival
-  DOI is encouraged by the journal but is not mandatory under its Basic Data
-  Sharing Policy; no DOI deposit has been made as part of this formatting task.
+- Review `cover_letter.pdf`. The author confirmed that the manuscript is not
+  under consideration elsewhere; the letter now includes this statement.
+  Answer any prior-publication/preprint questions accurately in the portal.
+  No unconfirmed unpublished-work declaration has been added.
+- The author archived software release `sci-v1.0.0` in Zenodo:
+  <https://doi.org/10.5281/zenodo.22338783>. This version-specific DOI is now
+  the primary code/data link in the manuscript and cover letter; GitHub
+  remains the development repository. The release tag resolves to
+  `2144b48ab2d21fdeb05c6dd9c40b4a9dbe93b28a`. It preserves the SCI numerical
+  study, not the later editorial clarifications in the submission PDF.
+  The Zenodo record retains the repository's historical HCRD archive title.
 - Decide whether to request open access or paid colour in print during the
   submission process. No paid option has been selected.
 - Upload the PDF and editable source package through the journal's Submission
@@ -58,5 +71,24 @@ See `README.md` for build, word-count, and packaging commands.
 entries, required sections, the abstract length, keywords, effective raster
 resolution, and unresolved references or overfull boxes in the final log.
 Visual PDF inspection is still required; a passing script is not a visual audit.
+The `--zip` option forces a fresh compilation before creating the archive.
+An independent build from a new extraction directory remains the final check
+for self-contained sources.
 Scientific frozen artifacts are checked separately from the repository root
 with `python scripts/verify_sci_artifact.py`.
+
+## Final scientific wording audit
+
+- E33, E36, and E38 all use fixed equally spaced points or deterministic
+  Beta(4,8) quantiles. No experiment was rerun to correct this description.
+- SCI certifies mean-contrast signs, not convexity or concavity of a whole
+  support. The introduction, explanation, caption, schematic labels, and
+  prose-only spine now use the same interpretation.
+- The schematic's final interval uses the same coordinate scale and bounds
+  as the preceding one-sided constraints. Lobes remain geometric examples,
+  not a converse to the chord-sign implication or a proof of coverage.
+- Wide outputs are attributed to SCI's contrast family and calibration, not
+  to a lower bound for every valid inference procedure.
+- Affine cancellation states both the zeroth and first weighted moments.
+- The abstract's runtime claim concerns contrast evaluation, not end-to-end
+  inference. Numerical results and theorem statements are unchanged.

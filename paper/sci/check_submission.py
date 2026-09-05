@@ -18,6 +18,13 @@ def main() -> None:
     parser.add_argument("--compiled", action="store_true", help="also inspect LaTeX log and bibliography")
     parser.add_argument("--zip", type=Path, help="create a self-contained submission archive after checks")
     args = parser.parse_args()
+    # Packaging must not silently reuse a stale PDF and a successful old log.
+    # -g forces compilation; dependencies and auxiliary files stay local.
+    if args.zip:
+        subprocess.run(
+            ["latexmk", "-g", "-pdf", "-interaction=nonstopmode", "-halt-on-error", "manuscript.tex"],
+            cwd=HERE, check=True,
+        )
     source = (HERE / "manuscript.tex").read_text(encoding="utf-8")
     tex = re.sub(r"(?<!\\)%[^\n]*", "", source)
     abstract = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", tex, re.S).group(1)
@@ -31,6 +38,13 @@ def main() -> None:
     for heading in ("Funding", "Disclosure of interest", "Data availability statement",
                     "Declaration of generative AI use", "Notes on contributor"):
         assert rf"\section*{{{heading}}}" in tex, f"Missing {heading}"
+    for obsolete in ("certified convexity", "certified concavity", "reliably convex",
+                     "reliably concave", "sampled from a", "random beta design",
+                     "cannot manufacture information"):
+        assert obsolete not in tex.lower(), f"Outdated interpretation: {obsolete}"
+    availability = re.search(r"\\section\*\{Data availability statement\}(.*?)\\section\*", tex, re.S).group(1)
+    assert "https://doi.org/10.5281/zenodo.22338783" in availability, "Missing version-specific archive DOI"
+    assert "sci-v1.0.0" in availability, "Missing archived release version"
     assert not re.search(r"\\cite[tp]?\{\*\}|\\nocite|\\citet\b", tex)
 
     labels = re.findall(r"\\label\{([^}]+)\}", tex)

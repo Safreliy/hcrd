@@ -57,12 +57,15 @@ design points. The full calculation takes linear time in the sample size, and
 it also proves that the identified target is always either empty or one closed
 interval.
 
-SCI starts from local chord contrasts. A positive contrast gives evidence for
-convexity on its support. A negative contrast gives evidence for concavity.
+SCI starts from local chord contrasts. A positive mean contrast rules out a
+wholly concave support. A negative mean contrast rules out a wholly convex
+support. Neither sign establishes the shape over the whole interval.
 We construct simultaneous bounds for all contrast means. We then use only the
-signs that are supported by these bounds. The rightmost certified convex
-region gives a lower limit for the transition. The leftmost certified concave
-region gives an upper limit.
+signs that are supported by these bounds. The largest left support endpoint
+among certified positive contrasts gives a lower limit for the transition.
+The smallest right support endpoint among certified negative contrasts gives
+an upper limit. A wide confidence set reflects the chosen contrasts and
+calibration; it does not prove that every other valid method must be wide.
 
 The main result is simple and finite-sample. If all contrast bounds cover their true
 means, the SCI set contains every compatible transition. A simultaneous
@@ -90,8 +93,8 @@ extensions for unknown noise and replicated experiments.
    than one second, while the equivalent dense matrix would require about
    44,702 GiB.
 6. We report both successful and weak-information regimes. The method can
-   return most of the design range when the data do not support precise
-   localization.
+   return most of the design range when its chosen contrasts and calibration
+   do not yield enough sign evidence for precise localization.
 
 ## 2. Relation to earlier work
 

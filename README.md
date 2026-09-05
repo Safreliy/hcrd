@@ -11,6 +11,13 @@ Independent Researcher
 
 ## Shape-Contrast Inversion: current publication track
 
+[![SCI archive DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22338783.svg)](https://doi.org/10.5281/zenodo.22338783)
+
+The SCI code and numerical results are preserved in the version-specific
+Zenodo release `sci-v1.0.0` linked above. Later manuscript-only clarifications
+are maintained in `paper/sci`; the archival DOI identifies the computational
+release, not every subsequent editorial revision.
+
 The repository now includes the development artifact for **shape-contrast
 inversion (SCI)**: a derivative-free finite-sample confidence set for the
 location where an S-shaped regression curve changes from convex to concave.
